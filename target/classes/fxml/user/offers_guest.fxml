@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controllers.gestionoffres.OffersGuestController"
+            styleClass="immersive-root">
+    <left>
+        <VBox prefWidth="278.0" minWidth="260.0" spacing="10.0" styleClass="sidebar-immersive">
+            <padding>
+                <Insets top="22.0" right="16.0" bottom="18.0" left="16.0"/>
+            </padding>
+            <children>
+                <VBox spacing="4.0">
+                    <children>
+                        <ImageView fitWidth="212.0" pickOnBounds="true" preserveRatio="true" styleClass="sidebar-logo-image">
+                            <image>
+                                <Image url="@/assets/branding/smartvoyage-logo-tight.png"/>
+                            </image>
+                        </ImageView>
+                        <Label text="" styleClass="sidebar-subtitle"/>
+                    </children>
+                </VBox>
+                <Separator styleClass="sidebar-rule"/>
+                <Button text="Home" onAction="#onHome" styleClass="sidebar-nav-item">
+                    <graphic>
+                        <Region>
+                            <styleClass>
+                                <String fx:value="sidebar-nav-icon"/>
+                                <String fx:value="icon-home"/>
+                            </styleClass>
+                        </Region>
+                    </graphic>
+                </Button>
+                <Button text="Offers" onAction="#onOffres">
+                    <styleClass>
+                        <String fx:value="sidebar-nav-item"/>
+                        <String fx:value="sidebar-nav-item-active"/>
+                    </styleClass>
+                    <graphic>
+                        <Region>
+                            <styleClass>
+                                <String fx:value="sidebar-nav-icon"/>
+                                <String fx:value="icon-offers"/>
+                            </styleClass>
+                        </Region>
+                    </graphic>
+                </Button>
+                <Button text="Feedbacks" onAction="#onFeedbacks" styleClass="sidebar-nav-item">
+                    <graphic>
+                        <Region>
+                            <styleClass>
+                                <String fx:value="sidebar-nav-icon"/>
+                                <String fx:value="icon-feedbacks"/>
+                            </styleClass>
+                        </Region>
+                    </graphic>
+                </Button>
+                <Button text="Crew" onAction="#onCrew" styleClass="sidebar-nav-item">
+                    <graphic>
+                        <Region>
+                            <styleClass>
+                                <String fx:value="sidebar-nav-icon"/>
+                                <String fx:value="icon-crew"/>
+                            </styleClass>
+                        </Region>
+                    </graphic>
+                </Button>
+                <Separator styleClass="sidebar-rule"/>
+                <Button text="Premium" onAction="#onPremium" styleClass="premium-nav-button">
+                    <graphic>
+                        <Region>
+                            <styleClass>
+                                <String fx:value="sidebar-nav-icon"/>
+                                <String fx:value="icon-premium"/>
+                            </styleClass>
+                        </Region>
+                    </graphic>
+                </Button>
+                <Button text="Sign in" onAction="#onSignIn" styleClass="sidebar-nav-item">
+                    <graphic>
+                        <Region>
+                            <styleClass>
+                                <String fx:value="sidebar-nav-icon"/>
+                                <String fx:value="icon-signin"/>
+                            </styleClass>
+                        </Region>
+                    </graphic>
+                </Button>
+                <Button text="Sign up" onAction="#onSignUp" styleClass="sidebar-nav-item">
+                    <graphic>
+                        <Region>
+                            <styleClass>
+                                <String fx:value="sidebar-nav-icon"/>
+                                <String fx:value="icon-signup"/>
+                            </styleClass>
+                        </Region>
+                    </graphic>
+                </Button>
+                <Region VBox.vgrow="ALWAYS"/>
+                <VBox spacing="8.0" styleClass="sidebar-footer-block">
+                    <children>
+                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                            <children>
+                                <Button onAction="#onThemeToggle" styleClass="theme-immersive-button" accessibleText="Toggle theme">
+                                    <graphic>
+                                        <Region>
+                                            <styleClass>
+                                                <String fx:value="sidebar-nav-icon"/>
+                                                <String fx:value="icon-theme"/>
+                                            </styleClass>
+                                        </Region>
+                                    </graphic>
+                                </Button>
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+            </children>
+        </VBox>
+    </left>
+
+    <center>
+        <StackPane styleClass="offers-immersive-stack">
+            <children>
+                <Region styleClass="offers-page-overlay"/>
+                <Region styleClass="offers-cards-spotlight"/>
+
+                <BorderPane pickOnBounds="false" styleClass="hero-foreground-pane">
+                    <padding>
+                        <Insets top="20.0" right="34.0" bottom="28.0" left="34.0"/>
+                    </padding>
+                    <top>
+                        <HBox alignment="CENTER_LEFT" spacing="16.0" styleClass="top-mini-bar">
+                            <children>
+                                <ImageView fitWidth="156.0" pickOnBounds="true" preserveRatio="true" styleClass="offers-mini-logo-image">
+                                    <image>
+                                        <Image url="@/assets/branding/smartvoyage-logo-tight.png"/>
+                                    </image>
+                                </ImageView>
+                                <Region HBox.hgrow="ALWAYS"/>
+                                <HBox fx:id="offersSearchShell" alignment="CENTER_LEFT" spacing="8.0" prefWidth="340.0" styleClass="offers-search-shell">
+                                    <children>
+                                        <Label text="⌕" styleClass="offers-search-icon"/>
+                                        <TextField fx:id="searchField" promptText="Search offers, destinations..." onAction="#onSearchInput"
+                                                   HBox.hgrow="ALWAYS" styleClass="offers-search-input"/>
+                                    </children>
+                                </HBox>
+                                <Button text="Sign in" onAction="#onSignIn" styleClass="offers-top-login-button"/>
+                            </children>
+                        </HBox>
+                    </top>
+                    <center>
+                        <ScrollPane fitToWidth="true" fitToHeight="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED"
+                                    styleClass="offers-grid-scroll">
+                            <content>
+                                <StackPane alignment="TOP_CENTER" styleClass="offers-scroll-center">
+                                    <children>
+                                        <VBox alignment="TOP_CENTER" maxWidth="1300.0" prefWidth="1300.0" styleClass="offers-showcase-wrapper">
+                                            <children>
+                                                <VBox spacing="10.0" alignment="TOP_LEFT" maxWidth="1300.0" prefWidth="1300.0" styleClass="offers-page-content">
+                                                    <children>
+                                                        <Label text="Explore Travel Offers" styleClass="offers-title"/>
+                                                        <Label text="Guest preview of curated journeys. Sign in to unlock complete details and exclusive inventory."
+                                                               styleClass="offers-subtitle"/>
+                                                        <HBox spacing="10.0" alignment="CENTER_LEFT" styleClass="offers-toolbar-row">
+                                                            <children>
+                                                                <Button text="All" styleClass="offers-chip offers-chip-active"/>
+                                                                <Button text="Luxury" styleClass="offers-chip"/>
+                                                                <Button text="Romantic" styleClass="offers-chip"/>
+                                                            </children>
+                                                        </HBox>
+                                                    </children>
+                                                </VBox>
+
+                                                <HBox fx:id="featuredOffersRow" alignment="CENTER" spacing="20.0" styleClass="offers-featured-row">
+                                                    <children>
+                                                <VBox fx:id="featuredCard1" prefWidth="360.0" minWidth="360.0" maxWidth="360.0"
+                                                      prefHeight="650.0" minHeight="650.0" maxHeight="650.0"
+                                                      styleClass="offer-featured-card">
+                                                    <children>
+                                                        <StackPane styleClass="offer-image-shell">
+                                                            <children>
+                                                                <ImageView fx:id="offerImage1" preserveRatio="false" pickOnBounds="true" styleClass="offer-featured-image"/>
+                                                                <Region styleClass="offer-featured-overlay"/>
+                                                            </children>
+                                                        </StackPane>
+                                                        <VBox spacing="7.0" styleClass="offer-featured-content">
+                                                            <children>
+                                                                <Label fx:id="offerDestination1" text="Destination" styleClass="offer-featured-destination"/>
+                                                                <Label fx:id="offerTitle1" text="Offer title" wrapText="true" styleClass="offer-featured-title"/>
+                                                                <HBox alignment="CENTER_LEFT" spacing="8.0" styleClass="offer-agency-row">
+                                                                    <children>
+                                                                        <ImageView fx:id="agencyLogo1" fitWidth="30.0" fitHeight="30.0" preserveRatio="false" pickOnBounds="true" styleClass="offer-agency-logo"/>
+                                                                        <Label fx:id="agencyName1" text="Agency" styleClass="offer-agency-name"/>
+                                                                    </children>
+                                                                </HBox>
+                                                                <Label fx:id="offerDescription1" text="Offer description" wrapText="true" styleClass="offer-featured-description"/>
+                                                                <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                                                    <children>
+                                                                        <Label text="STARTS" styleClass="offer-starts-label"/>
+                                                                        <Label fx:id="offerPrice1" text="0" styleClass="offer-featured-price"/>
+                                                                    </children>
+                                                                </HBox>
+                                                            </children>
+                                                        </VBox>
+                                                        <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="offer-footer-lock-panel">
+                                                            <children>
+                                                                <Button text="Voir détails" onAction="#onOpenOffer1" styleClass="offer-guest-button"/>
+                                                            </children>
+                                                        </HBox>
+                                                    </children>
+                                                </VBox>
+
+                                                <VBox fx:id="featuredCard2" prefWidth="360.0" minWidth="360.0" maxWidth="360.0"
+                                                      prefHeight="650.0" minHeight="650.0" maxHeight="650.0"
+                                                      styleClass="offer-featured-card">
+                                                    <children>
+                                                        <StackPane styleClass="offer-image-shell">
+                                                            <children>
+                                                                <ImageView fx:id="offerImage2" preserveRatio="false" pickOnBounds="true" styleClass="offer-featured-image"/>
+                                                                <Region styleClass="offer-featured-overlay"/>
+                                                            </children>
+                                                        </StackPane>
+                                                        <VBox spacing="7.0" styleClass="offer-featured-content">
+                                                            <children>
+                                                                <Label fx:id="offerDestination2" text="Destination" styleClass="offer-featured-destination"/>
+                                                                <Label fx:id="offerTitle2" text="Offer title" wrapText="true" styleClass="offer-featured-title"/>
+                                                                <HBox alignment="CENTER_LEFT" spacing="8.0" styleClass="offer-agency-row">
+                                                                    <children>
+                                                                        <ImageView fx:id="agencyLogo2" fitWidth="30.0" fitHeight="30.0" preserveRatio="false" pickOnBounds="true" styleClass="offer-agency-logo"/>
+                                                                        <Label fx:id="agencyName2" text="Agency" styleClass="offer-agency-name"/>
+                                                                    </children>
+                                                                </HBox>
+                                                                <Label fx:id="offerDescription2" text="Offer description" wrapText="true" styleClass="offer-featured-description"/>
+                                                                <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                                                    <children>
+                                                                        <Label text="STARTS" styleClass="offer-starts-label"/>
+                                                                        <Label fx:id="offerPrice2" text="0" styleClass="offer-featured-price"/>
+                                                                    </children>
+                                                                </HBox>
+                                                            </children>
+                                                        </VBox>
+                                                        <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="offer-footer-lock-panel">
+                                                            <children>
+                                                                <Button text="Voir détails" onAction="#onOpenOffer2" styleClass="offer-guest-button"/>
+                                                            </children>
+                                                        </HBox>
+                                                    </children>
+                                                </VBox>
+
+                                                <VBox fx:id="featuredCard3" prefWidth="360.0" minWidth="360.0" maxWidth="360.0"
+                                                      prefHeight="650.0" minHeight="650.0" maxHeight="650.0"
+                                                      styleClass="offer-featured-card">
+                                                    <children>
+                                                        <StackPane styleClass="offer-image-shell">
+                                                            <children>
+                                                                <ImageView fx:id="offerImage3" preserveRatio="false" pickOnBounds="true" styleClass="offer-featured-image"/>
+                                                                <Region styleClass="offer-featured-overlay"/>
+                                                            </children>
+                                                        </StackPane>
+                                                        <VBox spacing="7.0" styleClass="offer-featured-content">
+                                                            <children>
+                                                                <Label fx:id="offerDestination3" text="Destination" styleClass="offer-featured-destination"/>
+                                                                <Label fx:id="offerTitle3" text="Offer title" wrapText="true" styleClass="offer-featured-title"/>
+                                                                <HBox alignment="CENTER_LEFT" spacing="8.0" styleClass="offer-agency-row">
+                                                                    <children>
+                                                                        <ImageView fx:id="agencyLogo3" fitWidth="30.0" fitHeight="30.0" preserveRatio="false" pickOnBounds="true" styleClass="offer-agency-logo"/>
+                                                                        <Label fx:id="agencyName3" text="Agency" styleClass="offer-agency-name"/>
+                                                                    </children>
+                                                                </HBox>
+                                                                <Label fx:id="offerDescription3" text="Offer description" wrapText="true" styleClass="offer-featured-description"/>
+                                                                <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                                                    <children>
+                                                                        <Label text="STARTS" styleClass="offer-starts-label"/>
+                                                                        <Label fx:id="offerPrice3" text="0" styleClass="offer-featured-price"/>
+                                                                    </children>
+                                                                </HBox>
+                                                            </children>
+                                                        </VBox>
+                                                        <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="offer-footer-lock-panel">
+                                                            <children>
+                                                                <Button text="Voir détails" onAction="#onOpenOffer3" styleClass="offer-guest-button"/>
+                                                            </children>
+                                                        </HBox>
+                                                    </children>
+                                                </VBox>
+
+                                                <VBox fx:id="featuredCard4" prefWidth="360.0" minWidth="360.0" maxWidth="360.0"
+                                                      prefHeight="650.0" minHeight="650.0" maxHeight="650.0"
+                                                      styleClass="offer-featured-card">
+                                                    <children>
+                                                        <StackPane styleClass="offer-image-shell">
+                                                            <children>
+                                                                <ImageView fx:id="offerImage4" preserveRatio="false" pickOnBounds="true" styleClass="offer-featured-image"/>
+                                                                <Region styleClass="offer-featured-overlay"/>
+                                                            </children>
+                                                        </StackPane>
+                                                        <VBox spacing="7.0" styleClass="offer-featured-content">
+                                                            <children>
+                                                                <Label fx:id="offerDestination4" text="Destination" styleClass="offer-featured-destination"/>
+                                                                <Label fx:id="offerTitle4" text="Offer title" wrapText="true" styleClass="offer-featured-title"/>
+                                                                <HBox alignment="CENTER_LEFT" spacing="8.0" styleClass="offer-agency-row">
+                                                                    <children>
+                                                                        <ImageView fx:id="agencyLogo4" fitWidth="30.0" fitHeight="30.0" preserveRatio="false" pickOnBounds="true" styleClass="offer-agency-logo"/>
+                                                                        <Label fx:id="agencyName4" text="Agency" styleClass="offer-agency-name"/>
+                                                                    </children>
+                                                                </HBox>
+                                                                <Label fx:id="offerDescription4" text="Offer description" wrapText="true" styleClass="offer-featured-description"/>
+                                                                <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                                                    <children>
+                                                                        <Label text="STARTS" styleClass="offer-starts-label"/>
+                                                                        <Label fx:id="offerPrice4" text="Members only" styleClass="offer-featured-price"/>
+                                                                    </children>
+                                                                </HBox>
+                                                            </children>
+                                                        </VBox>
+                                                        <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="offer-footer-lock-panel">
+                                                            <children>
+                                                                <Button text="Voir détails" onAction="#onOpenOffer4" styleClass="offer-guest-button"/>
+                                                            </children>
+                                                        </HBox>
+                                                    </children>
+                                                </VBox>
+                                                    </children>
+                                                </HBox>
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                </StackPane>
+                            </content>
+                        </ScrollPane>
+                    </center>
+                </BorderPane>
+            </children>
+        </StackPane>
+    </center>
+</BorderPane>

@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<StackPane fx:id="root" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="controllers.welcome.WelcomeController" styleClass="welcome-root">
+    <padding>
+        <Insets top="6.0" right="8.0" bottom="6.0" left="8.0"/>
+    </padding>
+    <children>
+        <Pane fx:id="starfieldPane" styleClass="starfield-layer" maxWidth="Infinity" maxHeight="Infinity"/>
+        <Pane styleClass="orb orb-violet" maxWidth="Infinity" maxHeight="Infinity" mouseTransparent="true"/>
+        <Pane styleClass="orb orb-pink" maxWidth="Infinity" maxHeight="Infinity" mouseTransparent="true"/>
+
+        <HBox spacing="36.0" alignment="CENTER_LEFT" pickOnBounds="false" maxWidth="Infinity" maxHeight="Infinity">
+            <padding>
+                <Insets top="22.0" right="36.0" bottom="22.0" left="34.0"/>
+            </padding>
+            <children>
+                <!-- LEFT: glass column (aura + card; still one HBox zone) -->
+                <StackPane fx:id="authSidebarHost" pickOnBounds="false" prefWidth="320.0" minWidth="272.0" maxWidth="340.0" minHeight="0.0" maxHeight="Infinity"
+                           HBox.hgrow="NEVER" styleClass="smart-auth-sidebar-host">
+                    <padding>
+                        <Insets top="2.0" right="0.0" bottom="4.0" left="4.0"/>
+                    </padding>
+                    <children>
+                        <Region fx:id="authEdgeAura" maxWidth="Infinity" maxHeight="Infinity" mouseTransparent="true"
+                                styleClass="smart-auth-edge-aura" StackPane.alignment="CENTER"/>
+                <VBox fx:id="authSidebarShell" spacing="0.0" minHeight="0.0" maxWidth="Infinity" maxHeight="Infinity"
+                      styleClass="smart-auth-sidebar smart-auth-sidebar-outer" StackPane.alignment="CENTER">
+                    <children>
+                        <!-- Fixed brand strip (always visible) -->
+                        <VBox spacing="6.0" styleClass="smart-auth-brand-dock" VBox.vgrow="NEVER">
+                            <padding>
+                                <Insets top="10.0" right="18.0" bottom="4.0" left="18.0"/>
+                            </padding>
+                            <children>
+                                <VBox spacing="5.0" styleClass="smart-auth-brand-lockup">
+                                    <children>
+                                        <ImageView fitWidth="172.0" pickOnBounds="true" preserveRatio="true" styleClass="smart-auth-brand-logo">
+                                            <image>
+                                                <Image url="@/assets/branding/smartvoyage-logo-tight.png"/>
+                                            </image>
+                                        </ImageView>
+                                        <Region fx:id="brandUnderlineBar" prefHeight="3.0" maxWidth="104.0" styleClass="smart-auth-accent-bar"/>
+                                        <Label text="Desktop travel UI" styleClass="smart-auth-brand-strap"/>
+                                    </children>
+                                </VBox>
+                            </children>
+                        </VBox>
+                        <Region prefHeight="1.0" maxWidth="Infinity" styleClass="smart-auth-rule smart-auth-rule-tight"/>
+
+                        <!-- Dynamic: marketing | sign in | sign up -->
+                        <ScrollPane fitToWidth="true" fitToHeight="false" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED" minHeight="0.0"
+                                    styleClass="smart-auth-sidebar-scroll" VBox.vgrow="ALWAYS">
+                            <content>
+                                <StackPane alignment="TOP_CENTER" styleClass="smart-auth-sidebar-stack" minHeight="0.0">
+                                    <children>
+                                        <!-- DEFAULT: structured feature block (brand above) -->
+                                        <VBox fx:id="sidebarMarketing" spacing="14.0" maxWidth="314.0"
+                                              styleClass="smart-auth-dynamic smart-auth-panel-flow smart-auth-marketing-flat">
+                                            <padding>
+                                                <Insets top="10.0" right="20.0" bottom="12.0" left="20.0"/>
+                                            </padding>
+                                            <children>
+                                                <Label text="Travel, orchestrated." styleClass="smart-auth-feature-title"/>
+                                                <Label text="One workspace for itineraries, partner updates, and polished delivery—without leaving the desktop."
+                                                       wrapText="true" styleClass="smart-auth-feature-sub"/>
+                                                <Label text="Midnight clarity. Desktop-grade control."
+                                                       wrapText="true" styleClass="smart-auth-feature-tagline"/>
+                                                <VBox spacing="16.0" styleClass="smart-auth-feature-bullets">
+                                                    <children>
+                                                        <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="smart-auth-feature-bullet-row">
+                                                            <children>
+                                                                <Region prefWidth="5.0" prefHeight="5.0" minWidth="5.0" minHeight="5.0" styleClass="smart-auth-feature-bullet-dot"/>
+                                                                <Label text="Smart itineraries" styleClass="smart-auth-feature-bullet-text"/>
+                                                            </children>
+                                                        </HBox>
+                                                        <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="smart-auth-feature-bullet-row">
+                                                            <children>
+                                                                <Region prefWidth="5.0" prefHeight="5.0" minWidth="5.0" minHeight="5.0" styleClass="smart-auth-feature-bullet-dot"/>
+                                                                <Label text="Trusted partners" styleClass="smart-auth-feature-bullet-text"/>
+                                                            </children>
+                                                        </HBox>
+                                                        <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="smart-auth-feature-bullet-row">
+                                                            <children>
+                                                                <Region prefWidth="5.0" prefHeight="5.0" minWidth="5.0" minHeight="5.0" styleClass="smart-auth-feature-bullet-dot"/>
+                                                                <Label text="Real-time planning" styleClass="smart-auth-feature-bullet-text"/>
+                                                            </children>
+                                                        </HBox>
+                                                    </children>
+                                                </VBox>
+                                            </children>
+                                        </VBox>
+                                        <!-- AUTH: Sign In (pi-java2 field structure only) -->
+                                        <VBox fx:id="sidebarSignIn" spacing="12.0" maxWidth="314.0" visible="false" managed="false"
+                                              styleClass="smart-auth-dynamic smart-auth-panel-flow">
+                                            <padding>
+                                                <Insets top="8.0" right="20.0" bottom="12.0" left="20.0"/>
+                                            </padding>
+                                            <children>
+                                                <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                                    <children>
+                                                        <Button fx:id="backFromSignInButton" text="Back" styleClass="smart-auth-back-chip"
+                                                                onAction="#onSidebarBack"/>
+                                                        <Region HBox.hgrow="ALWAYS"/>
+                                                    </children>
+                                                </HBox>
+                                                <VBox spacing="6.0">
+                                                    <children>
+                                                        <Label text="Welcome back" styleClass="smart-auth-form-kicker"/>
+                                                        <Label text="Sign in" styleClass="smart-auth-form-heading"/>
+                                                        <Label text="Use your workspace credentials." wrapText="true"
+                                                               styleClass="smart-auth-form-hint"/>
+                                                    </children>
+                                                </VBox>
+                                                <VBox spacing="10.0" styleClass="smart-auth-field-stack">
+                                                    <children>
+                                                        <Label text="Email" styleClass="smart-auth-field-label"/>
+                                                        <TextField fx:id="signInEmailField" promptText="you@domain.com"
+                                                                   styleClass="smart-auth-field"/>
+                                                    </children>
+                                                </VBox>
+                                                <VBox spacing="10.0" styleClass="smart-auth-field-stack">
+                                                    <children>
+                                                        <Label text="Password" styleClass="smart-auth-field-label"/>
+                                                        <PasswordField fx:id="signInPasswordField" promptText="••••••••"
+                                                                       styleClass="smart-auth-field"/>
+                                                    </children>
+                                                </VBox>
+                                                <Button fx:id="signInSubmitButton" text="Continue" styleClass="smart-auth-form-submit"
+                                                        onAction="#onSignInSubmit" maxWidth="Infinity"/>
+                                                <Label fx:id="signInMessageLabel" styleClass="smart-auth-message" wrapText="true"/>
+                                            </children>
+                                        </VBox>
+                                        <!-- AUTH: Sign Up (pi-java2 field structure only) -->
+                                        <VBox fx:id="sidebarSignUp" spacing="12.0" maxWidth="314.0" visible="false" managed="false"
+                                              styleClass="smart-auth-dynamic smart-auth-panel-flow">
+                                            <padding>
+                                                <Insets top="8.0" right="20.0" bottom="12.0" left="20.0"/>
+                                            </padding>
+                                            <children>
+                                                <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                                    <children>
+                                                        <Button fx:id="backFromSignUpButton" text="Back" styleClass="smart-auth-back-chip"
+                                                                onAction="#onSidebarBack"/>
+                                                        <Region HBox.hgrow="ALWAYS"/>
+                                                    </children>
+                                                </HBox>
+                                                <VBox spacing="6.0">
+                                                    <children>
+                                                        <Label text="Create access" styleClass="smart-auth-form-kicker"/>
+                                                        <Label text="Sign up" styleClass="smart-auth-form-heading"/>
+                                                        <Label text="A few details to personalize your workspace." wrapText="true"
+                                                               styleClass="smart-auth-form-hint"/>
+                                                    </children>
+                                                </VBox>
+                                                <VBox spacing="10.0" styleClass="smart-auth-field-stack">
+                                                    <children>
+                                                        <Label text="Name" styleClass="smart-auth-field-label"/>
+                                                        <TextField fx:id="signUpNameField" promptText="Full name"
+                                                                   styleClass="smart-auth-field"/>
+                                                    </children>
+                                                </VBox>
+                                                <VBox spacing="10.0" styleClass="smart-auth-field-stack">
+                                                    <children>
+                                                        <Label text="Email" styleClass="smart-auth-field-label"/>
+                                                        <TextField fx:id="signUpEmailField" promptText="you@domain.com"
+                                                                   styleClass="smart-auth-field"/>
+                                                    </children>
+                                                </VBox>
+                                                <VBox spacing="10.0" styleClass="smart-auth-field-stack">
+                                                    <children>
+                                                        <Label text="Register as" styleClass="smart-auth-field-label"/>
+                                                        <ComboBox fx:id="signUpAccountTypeCombo" promptText="Traveler or Agency"
+                                                                  styleClass="smart-auth-combo" maxWidth="Infinity"/>
+                                                    </children>
+                                                </VBox>
+                                                <VBox spacing="10.0" styleClass="smart-auth-field-stack">
+                                                    <children>
+                                                        <Label text="Password" styleClass="smart-auth-field-label"/>
+                                                        <PasswordField fx:id="signUpPasswordField" promptText="••••••••"
+                                                                       styleClass="smart-auth-field"/>
+                                                    </children>
+                                                </VBox>
+                                                <Button fx:id="signUpSubmitButton" text="Create account" styleClass="smart-auth-form-submit"
+                                                        onAction="#onSignUpSubmit" maxWidth="Infinity"/>
+                                                <Label fx:id="signUpMessageLabel" styleClass="smart-auth-message" wrapText="true"/>
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                </StackPane>
+                            </content>
+                        </ScrollPane>
+
+                        <!-- Persistent bottom auth dock: segmented switcher (fixed; state via controller) -->
+                        <VBox fx:id="sidebarFooter" spacing="8.0" styleClass="smart-auth-auth-dock" VBox.vgrow="NEVER">
+                            <padding>
+                                <Insets top="10.0" right="16.0" bottom="16.0" left="16.0"/>
+                            </padding>
+                            <children>
+                                <Label text="ACCESS" styleClass="smart-auth-dock-caption"/>
+                                <HBox spacing="0.0" alignment="CENTER" styleClass="sv-auth-switch">
+                                    <children>
+                                        <Button fx:id="sidebarOpenSignInButton" id="svDockSignIn" text="Sign In" defaultButton="false" maxWidth="Infinity"
+                                                styleClass="button sv-auth-segment sv-auth-segment-first auth-segment-inactive"
+                                                onAction="#onOpenSignIn" HBox.hgrow="ALWAYS"/>
+                                        <Button fx:id="sidebarOpenSignUpButton" id="svDockSignUp" text="Sign Up" defaultButton="false" maxWidth="Infinity"
+                                                styleClass="button sv-auth-segment sv-auth-segment-last auth-segment-inactive"
+                                                onAction="#onOpenSignUp" HBox.hgrow="ALWAYS"/>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </VBox>
+                    </children>
+                </VBox>
+                    </children>
+                </StackPane>
+
+
+                <!-- RIGHT: existing welcome (header + hero + globe) -->
+                <BorderPane fx:id="mainContent" maxWidth="1.7976931348623157E308" maxHeight="1.7976931348623157E308"
+                            HBox.hgrow="ALWAYS" pickOnBounds="false">
+                    <padding>
+                        <Insets top="12.0" right="16.0" bottom="24.0" left="16.0"/>
+                    </padding>
+            <center>
+                        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED" minHeight="0.0"
+                                    styleClass="smart-auth-sidebar-scroll">
+                            <content>
+                                <HBox alignment="CENTER_LEFT" spacing="44.0">
+                                    <children>
+                                        <VBox alignment="CENTER_LEFT" spacing="22.0" HBox.hgrow="ALWAYS" minWidth="420.0" maxWidth="1.7976931348623157E308">
+                            <children>
+                                <Label text="TRAVEL ON YOUR TERMS" styleClass="micro-label"/>
+                                <Label text="Discover the world&#10;your way."
+                                       styleClass="hero-title" wrapText="true" maxWidth="860.0"
+                                       style="-fx-font-size: 88px;"/>
+                                <Label text="From hidden gems to iconic destinations, SmartVoyage helps you plan unforgettable journeys with a premium desktop experience."
+                                               wrapText="true" maxWidth="1.7976931348623157E308" styleClass="hero-subtitle"/>
+                                <HBox alignment="CENTER_LEFT" spacing="16.0">
+                                    <children>
+                                        <Button fx:id="primaryButton" text="GET STARTED" styleClass="cta-primary"/>
+                                        <Button fx:id="secondaryButton" text="EXPLORE OFFERS" styleClass="cta-secondary"/>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </VBox>
+                                        <AnchorPane fx:id="globeLayer" minWidth="420.0" minHeight="420.0" prefWidth="640.0" prefHeight="560.0"
+                                            maxWidth="880.0" HBox.hgrow="SOMETIMES" styleClass="globe-host"/>
+                                    </children>
+                                </HBox>
+                            </content>
+                        </ScrollPane>
+            </center>
+        </BorderPane>
+            </children>
+        </HBox>
+    </children>
+</StackPane>

@@ -1,0 +1,655 @@
+.root {
+    -fx-font-family: "Inter", "Montserrat", "Segoe UI", sans-serif;
+}
+
+.welcome-root {
+    -fx-background-color: linear-gradient(to bottom, #2D1B4E 0%, #1a0a2e 38%, #0d0518 72%, #080612 100%);
+}
+
+.starfield-layer {
+    -fx-background-color: transparent;
+}
+
+.star {
+    -fx-fill: #f8fafc;
+}
+
+.globe-host {
+    -fx-background-color: transparent;
+}
+
+.orb {
+    -fx-background-radius: 999;
+    -fx-effect: dropshadow(gaussian, rgba(236, 72, 153, 0.25), 120, 0.35, 0, 0);
+}
+
+.orb-violet {
+    -fx-pref-width: 420;
+    -fx-pref-height: 420;
+    -fx-translate-x: 640;
+    -fx-translate-y: 300;
+    -fx-background-color: rgba(139, 92, 246, 0.16);
+}
+
+.orb-pink {
+    -fx-pref-width: 320;
+    -fx-pref-height: 320;
+    -fx-translate-x: 380;
+    -fx-translate-y: 230;
+    -fx-background-color: rgba(236, 72, 153, 0.14);
+}
+
+.glass-header {
+    -fx-background-color: rgba(8, 6, 18, 0.76);
+    -fx-background-radius: 22;
+    -fx-border-color: rgba(139, 92, 246, 0.35);
+    -fx-border-radius: 22;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.52), 24, 0.28, 0, 6);
+}
+
+.brand-smart {
+    -fx-text-fill: linear-gradient(to right, #ec4899, #8b5cf6);
+    -fx-font-size: 28px;
+    -fx-font-family: "Bebas Neue", "Arial";
+    -fx-letter-spacing: 1.6px;
+}
+
+.brand-voyage {
+    -fx-text-fill: #f8fafc;
+    -fx-font-size: 28px;
+    -fx-font-family: "Bebas Neue", "Arial";
+    -fx-letter-spacing: 1.6px;
+}
+
+.micro-label {
+    -fx-text-fill: #c4b5fd;
+    -fx-font-size: 12px;
+    -fx-font-weight: 700;
+    -fx-letter-spacing: 3.2px;
+    -fx-padding: 10 18 10 18;
+    -fx-background-color: rgba(196, 181, 253, 0.12);
+    -fx-background-radius: 999;
+    -fx-border-color: rgba(196, 181, 253, 0.30);
+    -fx-border-radius: 999;
+}
+
+.hero-title {
+    -fx-text-fill: #ffffff;
+    -fx-font-family: "Bebas Neue", "Arial";
+    -fx-font-size: 102px;
+    -fx-line-spacing: 4px;
+    -fx-wrap-text: true;
+    -fx-text-overrun: clip;
+    -fx-effect: dropshadow(gaussian, rgba(139, 92, 246, 0.35), 32, 0.24, 0, 4);
+}
+
+.hero-subtitle {
+    -fx-text-fill: rgba(226, 232, 240, 0.94);
+    -fx-font-size: 18px;
+    -fx-line-spacing: 6px;
+}
+
+.cta-primary {
+    -fx-background-color: linear-gradient(to right, #8b5cf6, #ec4899);
+    -fx-text-fill: white;
+    -fx-font-size: 15px;
+    -fx-font-weight: 800;
+    -fx-background-radius: 999;
+    -fx-padding: 16 32 16 32;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(139, 92, 246, 0.48), 22, 0.32, 0, 4);
+}
+
+.cta-primary:hover {
+    -fx-effect: dropshadow(gaussian, rgba(236, 72, 153, 0.42), 18, 0.38, 0, 2),
+                dropshadow(gaussian, rgba(139, 92, 246, 0.62), 30, 0.34, 0, 6);
+}
+
+.cta-primary:pressed {
+    -fx-effect: dropshadow(gaussian, rgba(139, 92, 246, 0.35), 14, 0.28, 0, 2);
+}
+
+.cta-secondary {
+    -fx-background-color: rgba(255, 255, 255, 0.075);
+    -fx-text-fill: rgba(248, 250, 252, 0.96);
+    -fx-font-size: 15px;
+    -fx-font-weight: 700;
+    -fx-background-radius: 999;
+    -fx-border-color: rgba(255, 255, 255, 0.28);
+    -fx-border-radius: 999;
+    -fx-border-width: 1;
+    -fx-padding: 16 30 16 30;
+    -fx-cursor: hand;
+}
+
+.cta-secondary:hover {
+    -fx-background-color: rgba(139, 92, 246, 0.22);
+    -fx-border-color: rgba(196, 181, 253, 0.55);
+    -fx-text-fill: #ffffff;
+    -fx-effect: dropshadow(gaussian, rgba(139, 92, 246, 0.28), 16, 0.35, 0, 2);
+}
+
+.cta-secondary:pressed {
+    -fx-background-color: rgba(139, 92, 246, 0.16);
+    -fx-border-color: rgba(167, 139, 250, 0.45);
+}
+
+.header-ghost-btn {
+    -fx-background-color: rgba(255, 255, 255, 0.08);
+    -fx-text-fill: rgba(226, 232, 240, 0.9);
+    -fx-font-size: 13px;
+    -fx-font-weight: 700;
+    -fx-background-radius: 12;
+    -fx-border-color: rgba(148, 163, 184, 0.35);
+    -fx-border-radius: 12;
+    -fx-padding: 10 18 10 18;
+    -fx-cursor: hand;
+}
+
+.header-ghost-btn:hover {
+    -fx-border-color: rgba(139, 92, 246, 0.68);
+    -fx-background-color: rgba(139, 92, 246, 0.18);
+}
+
+.header-premium-btn {
+    -fx-background-color: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+    -fx-text-fill: #5a4706;
+    -fx-font-size: 13px;
+    -fx-font-weight: 800;
+    -fx-background-radius: 12;
+    -fx-padding: 10 20 10 20;
+    -fx-cursor: hand;
+}
+
+/* --- Smart auth sidebar: premium glass + motion targets (SmartVoyage-only) --- */
+
+.smart-auth-sidebar-host {
+    -fx-background-color: transparent;
+}
+
+/* Simulated backdrop: layered translucency + soft halo (no true blur in JavaFX CSS) */
+.smart-auth-edge-aura {
+    -fx-background-radius: 36;
+    -fx-background-insets: -5;
+    -fx-opacity: 0.55;
+    -fx-background-color: linear-gradient(from 100% 0% to 0% 100%, rgba(220, 120, 255, 0.14) 0%, rgba(130, 80, 255, 0.1) 45%, rgba(255, 120, 200, 0.12) 100%);
+}
+
+.smart-auth-edge-aura.smart-auth-edge-aura-hot {
+    -fx-opacity: 0.88;
+    -fx-background-color: linear-gradient(from 100% 0% to 0% 100%, rgba(236, 140, 255, 0.22) 0%, rgba(150, 100, 255, 0.16) 50%, rgba(255, 140, 210, 0.18) 100%);
+}
+
+.smart-auth-sidebar-outer {
+    -fx-background-color: linear-gradient(to bottom, #0B0F1F 0%, #080c18 55%, #0A0D18 100%),
+                          linear-gradient(to right, rgba(123, 92, 255, 0) 0%, rgba(123, 92, 255, 0) 65%, rgba(167, 139, 250, 0.22) 100%),
+                          linear-gradient(to bottom, rgba(255, 255, 255, 0.045) 0%, rgba(255, 255, 255, 0) 22%);
+    -fx-background-insets: 0, 0, 0;
+    -fx-background-radius: 28;
+    -fx-border-color: rgba(120, 130, 190, 0.26);
+    -fx-border-radius: 28;
+    -fx-border-width: 1;
+    -fx-effect: innershadow(gaussian, rgba(139, 92, 246, 0.22), 36, 0.3, 10, 0),
+                innershadow(gaussian, rgba(255, 255, 255, 0.06), 14, 0.4, 0, -4),
+                innershadow(gaussian, rgba(0, 0, 0, 0.58), 32, 0.26, 0, 6),
+                dropshadow(gaussian, rgba(0, 0, 0, 0.48), 30, 0.2, 0, 14);
+    -fx-padding: 8 10 8 10;
+}
+
+.smart-auth-sidebar-scroll,
+.smart-auth-sidebar-scroll > .viewport {
+    -fx-background-color: transparent;
+}
+
+.smart-auth-sidebar-scroll .corner {
+    -fx-background-color: transparent;
+}
+
+/* Keep welcome sidebar scroll behavior, but hide visual scrollbar chrome. */
+.smart-auth-sidebar-scroll.scroll-pane > .scroll-bar:vertical,
+.smart-auth-sidebar-scroll.scroll-pane > .scroll-bar:horizontal {
+    -fx-pref-width: 0;
+    -fx-max-width: 0;
+    -fx-min-width: 0;
+    -fx-pref-height: 0;
+    -fx-max-height: 0;
+    -fx-min-height: 0;
+    -fx-opacity: 0;
+    -fx-padding: 0;
+}
+
+.smart-auth-sidebar-scroll.scroll-pane > .scroll-bar .track,
+.smart-auth-sidebar-scroll.scroll-pane > .scroll-bar .thumb,
+.smart-auth-sidebar-scroll.scroll-pane > .scroll-bar .increment-button,
+.smart-auth-sidebar-scroll.scroll-pane > .scroll-bar .decrement-button,
+.smart-auth-sidebar-scroll.scroll-pane > .scroll-bar .increment-arrow,
+.smart-auth-sidebar-scroll.scroll-pane > .scroll-bar .decrement-arrow,
+.smart-auth-sidebar-scroll.scroll-pane > .corner {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+    -fx-shape: "";
+}
+
+.smart-auth-sidebar-stack {
+    -fx-background-color: transparent;
+}
+
+.smart-auth-dynamic {
+    -fx-max-width: Infinity;
+}
+
+.smart-auth-panel-flow {
+    -fx-alignment: TOP_LEFT;
+}
+
+.smart-auth-rule-tight {
+    -fx-opacity: 0.85;
+}
+
+/* Brand strip — minimal lift; marketing stays flush to sidebar (no card) */
+.smart-auth-brand-dock {
+    -fx-background-color: linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.smart-auth-brand-lockup {
+    -fx-alignment: TOP_LEFT;
+}
+
+.smart-auth-brand-title {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 24px;
+    -fx-font-weight: 700;
+    -fx-font-family: "Segoe UI Semibold", "Inter", "Montserrat", "Segoe UI", sans-serif;
+    -fx-letter-spacing: 0.01em;
+}
+
+.smart-auth-brand-logo {
+    -fx-fit-width: 172px;
+    -fx-blend-mode: screen;
+    -fx-opacity: 0.98;
+}
+
+.smart-auth-lockup-smart {
+    -fx-text-fill: linear-gradient(to right, #f9a8d4, #e879f9, #a78bfa);
+    -fx-font-size: 22px;
+    -fx-font-weight: 800;
+    -fx-font-family: "Bebas Neue", "Segoe UI Semibold", "Arial";
+    -fx-letter-spacing: 0.8px;
+    -fx-effect: dropshadow(gaussian, rgba(236, 72, 153, 0.35), 12, 0.35, 0, 0),
+                dropshadow(gaussian, rgba(167, 139, 250, 0.25), 18, 0.25, 0, 0);
+}
+
+.smart-auth-lockup-voyage {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 22px;
+    -fx-font-weight: 800;
+    -fx-font-family: "Bebas Neue", "Segoe UI Semibold", "Arial";
+    -fx-letter-spacing: 0.8px;
+    -fx-effect: dropshadow(gaussian, rgba(255, 255, 255, 0.22), 10, 0.3, 0, 0);
+}
+
+.smart-auth-accent-bar {
+    -fx-background-color: linear-gradient(to right, rgba(251, 113, 133, 0.95), rgba(192, 132, 252, 0.85), rgba(129, 140, 248, 0.65), rgba(255, 255, 255, 0));
+    -fx-background-radius: 3;
+    -fx-effect: dropshadow(gaussian, rgba(236, 72, 153, 0.5), 10, 0.45, 0, 0);
+}
+
+.smart-auth-brand-strap {
+    -fx-text-fill: rgba(176, 176, 176, 0.88);
+    -fx-font-size: 11px;
+    -fx-font-weight: 400;
+    -fx-font-family: "Segoe UI", "Inter", "Montserrat", "Segoe UI", sans-serif;
+    -fx-letter-spacing: 0.15px;
+}
+
+.smart-auth-rule {
+    -fx-background-color: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(167, 139, 250, 0.22), rgba(255, 255, 255, 0));
+}
+
+/* Marketing copy sits on sidebar glass (no inner card) */
+.smart-auth-marketing-flat {
+    -fx-alignment: TOP_LEFT;
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+}
+
+.smart-auth-feature-title {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 22px;
+    -fx-font-weight: 800;
+    -fx-font-family: "Segoe UI Semibold", "Inter", "Montserrat", "Segoe UI", sans-serif;
+    -fx-letter-spacing: 0.45px;
+    -fx-wrap-text: true;
+    -fx-line-spacing: 3px;
+}
+
+.smart-auth-feature-sub {
+    -fx-text-fill: rgba(255, 255, 255, 0.8);
+    -fx-font-size: 12.5px;
+    -fx-font-weight: 400;
+    -fx-font-family: "Segoe UI", "Inter", "Montserrat", "Segoe UI", sans-serif;
+    -fx-wrap-text: true;
+    -fx-line-spacing: 8px;
+    -fx-max-width: 268px;
+}
+
+.smart-auth-feature-tagline {
+    -fx-text-fill: rgba(255, 255, 255, 0.48);
+    -fx-font-size: 11.5px;
+    -fx-font-weight: 400;
+    -fx-font-family: "Segoe UI", "Inter", "Montserrat", "Segoe UI", sans-serif;
+    -fx-wrap-text: true;
+    -fx-line-spacing: 5px;
+    -fx-max-width: 268px;
+}
+
+.smart-auth-feature-desc {
+    -fx-text-fill: rgba(255, 255, 255, 0.65);
+    -fx-font-size: 12px;
+    -fx-font-weight: 400;
+    -fx-wrap-text: true;
+    -fx-line-spacing: 4px;
+}
+
+.smart-auth-feature-bullets {
+    -fx-padding: 8 0 0 0;
+}
+
+.smart-auth-feature-bullet-row {
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 3 0 3 0;
+}
+
+.smart-auth-feature-bullet-dot {
+    -fx-background-color: rgba(255, 255, 255, 0.4);
+    -fx-background-radius: 8;
+}
+
+.smart-auth-feature-bullet-text {
+    -fx-text-fill: rgba(255, 255, 255, 0.58);
+    -fx-font-size: 12.5px;
+    -fx-font-weight: 500;
+    -fx-font-family: "Segoe UI", "Inter", "Montserrat", "Segoe UI", sans-serif;
+    -fx-wrap-text: true;
+    -fx-line-spacing: 1px;
+}
+
+/* Legacy hero classes (unused in marketing; kept for safety) */
+.smart-auth-hero-title {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 19px;
+    -fx-font-weight: 800;
+}
+
+.smart-auth-hero-lead {
+    -fx-text-fill: rgba(255, 255, 255, 0.85);
+    -fx-font-size: 13px;
+    -fx-line-spacing: 4px;
+}
+
+.smart-auth-hero-muted {
+    -fx-text-fill: rgba(255, 255, 255, 0.65);
+    -fx-font-size: 12px;
+    -fx-line-spacing: 4px;
+}
+
+/* Forms */
+.smart-auth-form-kicker {
+    -fx-text-fill: rgba(167, 139, 250, 0.95);
+    -fx-font-size: 11px;
+    -fx-font-weight: 800;
+    -fx-letter-spacing: 1.25px;
+}
+
+.smart-auth-form-heading {
+    -fx-text-fill: #f8fafc;
+    -fx-font-size: 18px;
+    -fx-font-weight: 800;
+}
+
+.smart-auth-form-hint {
+    -fx-text-fill: rgba(226, 232, 240, 0.68);
+    -fx-font-size: 12px;
+}
+
+.smart-auth-field-stack {
+    -fx-padding: 0 0 4 0;
+}
+
+.smart-auth-field-label {
+    -fx-text-fill: rgba(199, 210, 254, 0.88);
+    -fx-font-size: 12.5px;
+    -fx-font-weight: 700;
+    -fx-letter-spacing: 0.2px;
+}
+
+.smart-auth-field {
+    -fx-background-color: rgba(255, 255, 255, 0.035);
+    -fx-border-color: rgba(255, 255, 255, 0.1);
+    -fx-border-radius: 14;
+    -fx-background-radius: 14;
+    -fx-text-fill: #f8fafc;
+    -fx-prompt-text-fill: rgba(226, 232, 240, 0.52);
+    -fx-padding: 14 18 14 18;
+    -fx-font-size: 15px;
+    -fx-min-height: 48px;
+}
+
+/* Border + fill sharpen on focus; outer glow eased in code */
+.smart-auth-field:focused {
+    -fx-border-color: rgba(186, 170, 255, 0.92);
+    -fx-border-width: 1;
+    -fx-background-color: rgba(255, 255, 255, 0.055);
+}
+
+.smart-auth-combo {
+    -fx-background-color: rgba(255, 255, 255, 0.035);
+    -fx-border-color: rgba(255, 255, 255, 0.1);
+    -fx-border-radius: 14;
+    -fx-background-radius: 14;
+    -fx-padding: 6 14 6 14;
+    -fx-font-size: 15px;
+    -fx-min-height: 48px;
+}
+
+.smart-auth-combo > .list-cell {
+    -fx-text-fill: #f8fafc;
+    -fx-background-color: transparent;
+    -fx-font-size: 15px;
+}
+
+.smart-auth-combo:focused {
+    -fx-border-color: rgba(186, 170, 255, 0.92);
+    -fx-background-color: rgba(255, 255, 255, 0.055);
+}
+
+.smart-auth-combo .arrow-button {
+    -fx-background-color: rgba(255, 255, 255, 0.06);
+    -fx-background-radius: 0 12 12 0;
+}
+
+.smart-auth-combo .arrow {
+    -fx-background-color: rgba(226, 232, 240, 0.75);
+}
+
+.smart-auth-form-submit {
+    -fx-background-color: linear-gradient(to right, #7c3aed, #db2777);
+    -fx-text-fill: white;
+    -fx-font-weight: 800;
+    -fx-font-size: 15px;
+    -fx-background-radius: 16;
+    -fx-padding: 15 22 15 22;
+    -fx-min-height: 50px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(124, 58, 237, 0.45), 18, 0.28, 0, 2);
+}
+
+.smart-auth-form-submit:hover {
+    -fx-background-color: linear-gradient(to right, #8b5cf6, #ec4899);
+}
+
+.smart-auth-back-chip {
+    -fx-background-color: rgba(255, 255, 255, 0.05);
+    -fx-text-fill: #ddd6fe;
+    -fx-font-size: 13px;
+    -fx-font-weight: 700;
+    -fx-background-radius: 22;
+    -fx-border-color: rgba(167, 139, 250, 0.28);
+    -fx-border-radius: 22;
+    -fx-border-width: 1;
+    -fx-padding: 8 18 8 18;
+    -fx-cursor: hand;
+}
+
+.smart-auth-back-chip:hover {
+    -fx-background-color: rgba(139, 92, 246, 0.22);
+    -fx-border-color: rgba(196, 181, 253, 0.5);
+}
+
+.smart-auth-message {
+    -fx-text-fill: rgba(251, 191, 36, 0.95);
+    -fx-font-size: 13px;
+}
+
+.smart-auth-message.smart-auth-message-error {
+    -fx-text-fill: rgba(252, 165, 165, 0.96);
+}
+
+.smart-auth-message.smart-auth-message-success {
+    -fx-text-fill: rgba(167, 243, 208, 0.96);
+}
+
+/* Bottom auth dock — layered dark glass, inner lip + soft outer lift */
+.smart-auth-auth-dock {
+    -fx-background-color: rgba(8, 12, 26, 0.92),
+                          linear-gradient(to bottom, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0) 42%);
+    -fx-background-insets: 0, 0;
+    -fx-background-radius: 20;
+    -fx-border-color: rgba(255, 255, 255, 0.1);
+    -fx-border-radius: 20;
+    -fx-border-width: 1;
+    -fx-effect: innershadow(gaussian, rgba(255, 255, 255, 0.08), 10, 0.45, 0, -3),
+                innershadow(gaussian, rgba(0, 0, 0, 0.55), 20, 0.25, 0, 4),
+                dropshadow(gaussian, rgba(0, 0, 0, 0.5), 24, 0.22, 0, 8),
+                dropshadow(gaussian, rgba(123, 92, 255, 0.2), 20, 0.4, 0, 0);
+}
+
+.smart-auth-dock-caption {
+    -fx-text-fill: rgba(196, 181, 253, 0.46);
+    -fx-font-size: 10px;
+    -fx-font-weight: 800;
+    -fx-letter-spacing: 1.8px;
+    -fx-padding: 0 0 8 2;
+}
+
+/* Inner track: breathing room for equal segments */
+.sv-auth-switch {
+    -fx-spacing: 5;
+    -fx-alignment: CENTER;
+    -fx-padding: 2 4 4 4;
+    -fx-background-color: rgba(0, 0, 0, 0.12);
+    -fx-background-radius: 14;
+    -fx-border-color: rgba(255, 255, 255, 0.04);
+    -fx-border-radius: 14;
+    -fx-border-width: 1;
+}
+
+/*
+ * Dock segments: Modena-safe; ids beat UA. Equal-width HBox children use hgrow in FXML.
+ */
+#svDockSignIn,
+#svDockSignUp {
+    -fx-background-insets: 0;
+    -fx-border-width: 0;
+    -fx-padding: 12 14 12 14;
+    -fx-cursor: hand;
+    -fx-font-size: 13px;
+    -fx-font-weight: 700;
+    -fx-font-family: "Segoe UI Semibold", "Inter", "Segoe UI", sans-serif;
+    -fx-focus-color: rgba(167, 139, 250, 0.5);
+    -fx-faint-focus-color: rgba(0, 0, 0, 0);
+}
+
+#svDockSignIn.sv-auth-segment-first {
+    -fx-background-radius: 12 4 4 12;
+}
+
+#svDockSignUp.sv-auth-segment-last {
+    -fx-background-radius: 4 12 12 4;
+}
+
+#svDockSignIn.auth-segment-inactive,
+#svDockSignUp.auth-segment-inactive {
+    -fx-background-color: rgba(6, 8, 20, 0.55);
+    -fx-text-fill: rgba(255, 255, 255, 0.52);
+}
+
+#svDockSignIn.auth-segment-inactive:hover,
+#svDockSignUp.auth-segment-inactive:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.08);
+    -fx-text-fill: rgba(255, 255, 255, 0.82);
+}
+
+#svDockSignIn.auth-segment-inactive:pressed,
+#svDockSignUp.auth-segment-inactive:pressed {
+    -fx-background-color: rgba(255, 255, 255, 0.06);
+    -fx-text-fill: rgba(255, 255, 255, 0.78);
+    -fx-scale-x: 0.98;
+    -fx-scale-y: 0.98;
+}
+
+#svDockSignIn.auth-segment-inactive:focused,
+#svDockSignUp.auth-segment-inactive:focused {
+    -fx-background-color: rgba(255, 255, 255, 0.06);
+    -fx-text-fill: rgba(255, 255, 255, 0.68);
+}
+
+#svDockSignIn.auth-segment-active,
+#svDockSignUp.auth-segment-active {
+    -fx-background-color: linear-gradient(to right, #6548e8 0%, #9d5cff 45%, #ff47c8 100%);
+    -fx-text-fill: rgba(255, 255, 255, 0.98);
+    -fx-effect: dropshadow(gaussian, rgba(255, 79, 216, 0.55), 18, 0.42, 0, 2),
+                dropshadow(gaussian, rgba(101, 72, 232, 0.5), 22, 0.38, 0, 0),
+                innershadow(gaussian, rgba(255, 255, 255, 0.35), 8, 0.4, 0, -1);
+}
+
+#svDockSignIn.auth-segment-active.sv-auth-segment-first {
+    -fx-background-radius: 12 6 6 12;
+}
+
+#svDockSignUp.auth-segment-active.sv-auth-segment-last {
+    -fx-background-radius: 6 12 12 6;
+}
+
+#svDockSignIn.auth-segment-active:hover,
+#svDockSignUp.auth-segment-active:hover {
+    -fx-background-color: linear-gradient(to right, #7560f0 0%, #b06cff 48%, #ff5ed4 100%);
+    -fx-text-fill: #ffffff;
+    -fx-effect: dropshadow(gaussian, rgba(255, 100, 210, 0.6), 22, 0.42, 0, 2),
+                dropshadow(gaussian, rgba(120, 90, 255, 0.55), 24, 0.36, 0, 0),
+                innershadow(gaussian, rgba(255, 255, 255, 0.42), 9, 0.45, 0, -1);
+}
+
+#svDockSignIn.auth-segment-active:pressed,
+#svDockSignUp.auth-segment-active:pressed {
+    -fx-background-color: linear-gradient(to right, #5a42d4 0%, #8648e0 50%, #e636b0 100%);
+    -fx-text-fill: rgba(255, 255, 255, 0.96);
+    -fx-scale-x: 0.98;
+    -fx-scale-y: 0.98;
+}
+
+#svDockSignIn.auth-segment-active:focused,
+#svDockSignUp.auth-segment-active:focused {
+    -fx-background-color: linear-gradient(to right, #6548e8 0%, #9d5cff 45%, #ff47c8 100%);
+    -fx-text-fill: #ffffff;
+}
+
+/* Signed-in shell / immersive / home workspace: see signed-in-unified.css (not loaded on welcome). */
+
+.root.welcome-root {
+    -fx-background-color: linear-gradient(to bottom, #2D1B4E 0%, #1a0a2e 38%, #0d0518 72%, #080612 100%);
+    -fx-base: #151c33;
+    -fx-background: #0a0618;
+}

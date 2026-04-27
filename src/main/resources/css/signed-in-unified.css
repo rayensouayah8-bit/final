@@ -1,0 +1,4519 @@
+/*
+ * SmartVoyage — signed-in-unified.css
+ * Single stylesheet for signed-in routes (.signed-in-clean-shell).
+ * Scene loads this file alone for signed-in (not styles.css or pi-ported-theme.css on the scene).
+ * Maintained as the single signed-in theme file (edit here). Guest flows use styles.css + pi-ported-theme.css.
+ */
+
+/* === Shell (SmartVoyage) === */
+/*
+ * SmartVoyage signed-in clean shell — scoped to .signed-in-clean-shell on scene root only.
+ * Transparent chrome wins over legacy overlay rules when merged into signed-in-unified.css.
+ * Does not target .welcome-root or guest flows.
+ */
+.root.signed-in-clean-shell {
+    -fx-base: rgb(21, 28, 51);
+    -fx-background: #05010D;
+}
+
+.root.signed-in-clean-shell .signed-in-cosmic-canvas {
+    -fx-background-color: linear-gradient(to bottom, #2A174A 0%, #17052D 52%, #05010D 100%);
+}
+
+.root.signed-in-clean-shell .scroll-pane,
+.root.signed-in-clean-shell .scroll-pane > .viewport,
+.root.signed-in-clean-shell .scroll-pane > .corner {
+    -fx-background-color: transparent;
+}
+
+.root.signed-in-clean-shell .smart-auth-sidebar-scroll,
+.root.signed-in-clean-shell .smart-auth-sidebar-scroll > .viewport,
+.root.signed-in-clean-shell .smart-auth-sidebar-scroll .corner {
+    -fx-background-color: transparent;
+}
+
+.root.signed-in-clean-shell .split-pane {
+    -fx-background-color: transparent;
+}
+
+.root.signed-in-clean-shell .list-view {
+    -fx-background-color: transparent;
+}
+
+/* Legacy Pi overlay class names: keep transparent if any node still references them */
+.root.signed-in-clean-shell .offers-page-overlay,
+.root.signed-in-clean-shell .offers-cards-spotlight {
+    -fx-background-color: transparent;
+}
+
+.root.signed-in-clean-shell .hero-foreground-pane {
+    -fx-background-color: transparent;
+}
+
+/* === Relocated from styles.css (guest base) — signed-in shell + home workspace === */
+/* Relocated from styles.css — signed-in shell + home workspace (scoped to clean shell) */
+.root.signed-in-clean-shell.signed-in-home-root {
+    -fx-background-color: linear-gradient(to bottom, #07112E 0%, #081430 48%, #0A1635 100%);
+}
+
+.root.signed-in-clean-shell .signed-in-home-main-canvas {
+    -fx-background-color: linear-gradient(to bottom, #2D1B4E 0%, #1a0a2e 38%, #0d0518 72%, #080612 100%);
+}
+
+.root.signed-in-clean-shell .signed-in-home-main-body {
+    -fx-alignment: top-left;
+}
+
+.root.signed-in-clean-shell .signed-in-home-main-stage .signed-in-home-main-body .micro-label {
+    -fx-text-fill: #c4b5fd;
+    -fx-font-size: 14px;
+    -fx-letter-spacing: 3.6px;
+    -fx-font-weight: 800;
+    -fx-padding: 12 24 12 24;
+    -fx-background-color: rgba(196, 181, 253, 0.12);
+    -fx-background-radius: 999;
+    -fx-border-color: rgba(196, 181, 253, 0.30);
+    -fx-border-radius: 999;
+}
+
+.root.signed-in-clean-shell .signed-in-home-main-stage .signed-in-home-main-body .hero-title {
+    -fx-text-fill: #ffffff;
+    -fx-font-family: "Bebas Neue", "Arial";
+    -fx-font-size: 102px;
+    -fx-line-spacing: 4px;
+    -fx-wrap-text: true;
+    -fx-text-overrun: clip;
+    -fx-effect: dropshadow(gaussian, rgba(139, 92, 246, 0.35), 32, 0.24, 0, 4);
+}
+
+.root.signed-in-clean-shell .signed-in-home-main-stage .signed-in-home-main-body .hero-subtitle {
+    -fx-text-fill: rgba(241, 245, 249, 0.98);
+    -fx-font-size: 18px;
+    -fx-font-weight: 500;
+    -fx-line-spacing: 6px;
+    -fx-max-width: 920px;
+}
+
+.root.signed-in-clean-shell .signed-in-home-main-stage .signed-in-home-main-body #userGreetingLabel,
+.root.signed-in-clean-shell .signed-in-home-main-stage .signed-in-home-main-body #roleLabel {
+    -fx-text-fill: rgba(248, 250, 252, 0.98);
+    -fx-font-size: 19px;
+    -fx-font-weight: 600;
+}
+
+/* Signed-in home hero: force welcome-like typography/readability. */
+.root.signed-in-clean-shell.signed-in-home-root .signed-in-home-main-body .home-hero-kicker {
+    -fx-text-fill: rgba(196, 181, 253, 0.96) !important;
+    -fx-font-size: 12px !important;
+    -fx-font-weight: 700 !important;
+    -fx-letter-spacing: 3.2px;
+    -fx-opacity: 1 !important;
+}
+
+.root.signed-in-clean-shell.signed-in-home-root .signed-in-home-main-body .home-hero-meta {
+    -fx-text-fill: rgba(226, 232, 240, 0.92) !important;
+    -fx-font-size: 17px !important;
+    -fx-font-weight: 500 !important;
+    -fx-line-spacing: 3px;
+    -fx-opacity: 1 !important;
+}
+
+.root.signed-in-clean-shell.signed-in-home-root .signed-in-home-main-body .home-hero-title {
+    -fx-text-fill: #f8fafc !important;
+    -fx-font-size: 86px !important;
+    -fx-font-weight: 700 !important;
+    -fx-line-spacing: 4px;
+    -fx-effect: dropshadow(gaussian, rgba(255, 255, 255, 0.18), 18, 0.20, 0, 0),
+                dropshadow(gaussian, rgba(139, 92, 246, 0.35), 28, 0.24, 0, 4);
+    -fx-opacity: 1 !important;
+}
+
+.root.signed-in-clean-shell.signed-in-home-root .signed-in-home-main-body .home-hero-subtitle {
+    -fx-text-fill: rgba(241, 245, 249, 0.98) !important;
+    -fx-font-size: 18px !important;
+    -fx-font-weight: 500 !important;
+    -fx-line-spacing: 6px;
+    -fx-opacity: 1 !important;
+}
+
+.root.signed-in-clean-shell.signed-in-home-root .signed-in-home-main-body .home-hero-rule {
+    -fx-background-color: linear-gradient(to right, rgba(196, 181, 253, 0.95), rgba(196, 181, 253, 0.32));
+    -fx-background-radius: 999;
+}
+
+.root.signed-in-clean-shell.signed-in-home-root .signed-in-home-main-body .home-hero-home-icon {
+    -fx-text-fill: rgba(167, 139, 250, 0.96) !important;
+    -fx-font-size: 36px !important;
+    -fx-font-weight: 600 !important;
+    -fx-opacity: 1 !important;
+}
+
+.root.signed-in-clean-shell.signed-in-home-root .signed-in-home-main-body .home-hero-home-label {
+    -fx-text-fill: rgba(196, 181, 253, 0.98) !important;
+    -fx-font-size: 40px !important;
+    -fx-font-weight: 600 !important;
+    -fx-opacity: 1 !important;
+}
+
+/* Premium landing hero style for signed-in home text */
+.root.signed-in-clean-shell.signed-in-home-root .signed-in-home-main-body .hero-title {
+    -fx-font-size: 102px !important;
+    -fx-font-weight: 400 !important;
+    -fx-text-fill: #ffffff !important;
+    -fx-wrap-text: true;
+    -fx-text-overrun: clip;
+}
+
+.root.signed-in-clean-shell.signed-in-home-root .signed-in-home-main-body .hero-title-glow {
+    -fx-effect: dropshadow(gaussian, rgba(140, 82, 255, 0.35), 30, 0.2, 0, 0);
+}
+
+/* Hard override: force welcome typography on signed-in home hero text. */
+.root.signed-in-clean-shell.signed-in-home-root .home-welcome-kicker {
+    -fx-text-fill: #c4b5fd !important;
+    -fx-font-size: 12px !important;
+    -fx-font-weight: 700 !important;
+    -fx-letter-spacing: 3.2px !important;
+    -fx-padding: 10 18 10 18 !important;
+    -fx-background-color: rgba(196, 181, 253, 0.12) !important;
+    -fx-background-radius: 999 !important;
+    -fx-border-color: rgba(196, 181, 253, 0.30) !important;
+    -fx-border-radius: 999 !important;
+}
+
+.root.signed-in-clean-shell.signed-in-home-root .home-welcome-title {
+    -fx-text-fill: #ffffff !important;
+    -fx-font-family: "Bebas Neue", "Arial" !important;
+    -fx-font-size: 102px !important;
+    -fx-line-spacing: 4px !important;
+    -fx-wrap-text: true;
+    -fx-effect: dropshadow(gaussian, rgba(139, 92, 246, 0.35), 32, 0.24, 0, 4) !important;
+}
+
+.root.signed-in-clean-shell.signed-in-home-root .home-welcome-subtitle {
+    -fx-text-fill: rgba(226, 232, 240, 0.94) !important;
+    -fx-font-size: 18px !important;
+    -fx-line-spacing: 6px !important;
+}
+
+.root.signed-in-clean-shell.signed-in-home-root .home-welcome-meta {
+    -fx-text-fill: rgba(226, 232, 240, 0.92) !important;
+    -fx-font-size: 17px !important;
+    -fx-font-weight: 500 !important;
+}
+
+.root.signed-in-clean-shell .signed-in-home-sidebar-host {
+    -fx-background-color: linear-gradient(to bottom, #07112E 0%, #081430 48%, #0A1635 100%);
+    -fx-padding: 0;
+    -fx-min-width: 280;
+    -fx-pref-width: 312;
+    -fx-max-width: 348;
+}
+
+/*
+ * HARD FIX — signed-in washout (Modena + Scene fill): scoped to signed-in shell roots only.
+ */
+.root.signed-in-clean-shell.immersive-root {
+    -fx-background-color: linear-gradient(to bottom, #07112E 0%, #081430 48%, #0A1635 100%);
+    -fx-base: #151c33;
+    -fx-background: #05010D;
+}
+
+.root.signed-in-clean-shell.immersive-root .signed-in-home-main-canvas.signed-in-cosmic-canvas,
+.root.signed-in-clean-shell.immersive-root .offers-immersive-stack.signed-in-cosmic-canvas {
+    -fx-background-color: linear-gradient(to bottom, #2D1B4E 0%, #1a0a2e 38%, #0d0518 72%, #080612 100%);
+}
+
+.root.signed-in-clean-shell.signed-in-shell-root .signed-in-home-sidebar-host,
+.root.signed-in-clean-shell.signed-in-shell-root .signed-in-shell-sidebar-host {
+    -fx-background-color: linear-gradient(to bottom, #07112E 0%, #081430 48%, #0A1635 100%);
+    -fx-min-width: 280;
+    -fx-pref-width: 312;
+    -fx-max-width: 348;
+}
+
+.root.signed-in-clean-shell.signed-in-shell-root .signed-in-home-main-canvas.signed-in-cosmic-canvas,
+.root.signed-in-clean-shell.signed-in-shell-root .offers-immersive-stack.signed-in-cosmic-canvas {
+    -fx-background-color: linear-gradient(to bottom, #2D1B4E 0%, #1a0a2e 38%, #0d0518 72%, #080612 100%);
+}
+
+/* === Pi-ported excerpts (content modules; overlays / old immersive shell omitted) === */
+.offers-mini-logo {
+    -fx-text-fill: linear-gradient(to right, #ec4899 0%, #d946ef 34%, #ffffff 72%, #f8fafc 100%);
+    -fx-font-size: 17px;
+    -fx-font-weight: 800;
+    -fx-font-family: "Montserrat", "Poppins", "Segoe UI", sans-serif;
+    -fx-letter-spacing: 0.08em;
+    -fx-effect: dropshadow(gaussian, rgba(236, 72, 153, 0.28), 10, 0.22, 0, 1);
+}
+.sidebar-rule .line {
+    -fx-border-color: rgba(255, 255, 255, 0.08);
+}
+
+/* ─────────────────────────────────────────────────────
+   NAV ITEMS — clean, flat, precise
+───────────────────────────────────────────────────── */
+.sidebar-nav-item {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+    -fx-text-fill: rgba(148, 163, 184, 0.85);
+    -fx-font-size: 12.5px;
+    -fx-font-weight: 500;
+    -fx-alignment: center-left;
+    -fx-content-display: left;
+    -fx-graphic-text-gap: 14;
+    -fx-max-width: Infinity;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-padding: 9 12 9 12;
+    -fx-cursor: hand;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+/* SVG icon base */
+.sidebar-nav-icon {
+    -fx-opacity: 0.55;
+    -fx-background-color: rgba(148, 163, 184, 0.85);
+    -fx-min-width: 18;
+    -fx-min-height: 18;
+    -fx-pref-width: 18;
+    -fx-pref-height: 18;
+    -fx-max-width: 18;
+    -fx-max-height: 18;
+    -fx-scale-shape: true;
+}
+
+/* ── UPGRADED SVG ICON PATHS (refined geometry) ── */
+
+/* Home — solid house */
+.sidebar-nav-icon.icon-home {
+    -fx-shape: "M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z";
+}
+
+/* Offers — tag/price label */
+.sidebar-nav-icon.icon-offers {
+    -fx-shape: "M21.41 11.58L12.41 2.58A2 2 0 0011 2H4a2 2 0 00-2 2v7a2 2 0 00.59 1.42l9 9A2 2 0 0013 22a2 2 0 001.41-.59l7-7A2 2 0 0022 13a2 2 0 00-.59-1.42zM6.5 8a1.5 1.5 0 110-3 1.5 1.5 0 010 3z";
+}
+
+/* Feedbacks — speech bubble */
+.sidebar-nav-icon.icon-feedbacks {
+    -fx-shape: "M20 2H4a2 2 0 00-2 2v18l4-4h14a2 2 0 002-2V4a2 2 0 00-2-2zM9 11H7V9h2v2zm4 0h-2V9h2v2zm4 0h-2V9h2v2z";
+}
+
+/* Crew — people group */
+.sidebar-nav-icon.icon-crew {
+    -fx-shape: "M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05C16.2 13.98 17 15.02 17 16.5V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z";
+}
+
+/* Premium — diamond */
+.sidebar-nav-icon.icon-premium {
+    -fx-shape: "M19 3H5L2 9l10 13L22 9l-3-6zM5.82 8L8 5h8l2.18 3H5.82zM12 18.5L5.15 10h13.7L12 18.5z";
+}
+
+/* Connexion — enter door */
+.sidebar-nav-icon.icon-signin {
+    -fx-shape: "M11 7L9.6 8.4l2.6 2.6H2v2h10.2l-2.6 2.6L11 17l5-5-5-5zm9 12h-8v2h8c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-8v2h8v14z";
+}
+
+/* Inscription — person add */
+.sidebar-nav-icon.icon-signup {
+    -fx-shape: "M15 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm-9-2V7H4v3H1v2h3v3h2v-3h3v-2H6zm9 4c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z";
+}
+
+/* Theme — brightness half */
+.sidebar-nav-icon.icon-theme {
+    -fx-shape: "M20 15.31L23.31 12 20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69zM12 18V6c3.31 0 6 2.69 6 6s-2.69 6-6 6z";
+}
+
+/* Extra icons (kept for completeness) */
+.sidebar-nav-icon.icon-agencies {
+    -fx-shape: "M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z";
+}
+.sidebar-nav-icon.icon-messages {
+    -fx-shape: "M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z";
+}
+.sidebar-nav-icon.icon-recommend {
+    -fx-shape: "M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z";
+}
+.sidebar-nav-icon.icon-events {
+    -fx-shape: "M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z";
+}
+.sidebar-nav-icon.icon-dashboard {
+    -fx-shape: "M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z";
+}
+.sidebar-nav-icon.icon-notifications {
+    -fx-shape: "M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z";
+}
+.sidebar-nav-icon.icon-profile {
+    -fx-shape: "M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z";
+}
+.sidebar-nav-icon.icon-logout {
+    -fx-shape: "M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z";
+}
+
+/* ── Hover state ── */
+.sidebar-nav-item:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.05);
+    -fx-text-fill: #ffffff;
+}
+
+.sidebar-nav-item:hover .sidebar-nav-icon {
+    -fx-opacity: 1.0;
+    -fx-background-color: #ffffff;
+}
+
+/* ── Active/selected state (SmartVoyage: violet/pink — no gold) ── */
+.sidebar-nav-item.sidebar-nav-item-active {
+    -fx-background-color: linear-gradient(to right, rgba(76, 29, 149, 0.58), rgba(236, 72, 153, 0.24));
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: 700;
+    -fx-border-color: transparent transparent transparent rgba(244, 114, 182, 0.92);
+    -fx-border-width: 0 0 0 3;
+    -fx-effect: dropshadow(gaussian, rgba(168, 85, 247, 0.38), 14, 0.38, 0, 0),
+                dropshadow(gaussian, rgba(236, 72, 153, 0.22), 12, 0.35, 0, 0);
+}
+
+.sidebar-nav-item.sidebar-nav-item-active .sidebar-nav-icon {
+    -fx-opacity: 1.0;
+    -fx-background-color: #fdf4ff;
+}
+
+.sidebar-nav-item.sidebar-nav-item-active:hover {
+    -fx-background-color: linear-gradient(to right, rgba(88, 28, 135, 0.66), rgba(236, 72, 153, 0.30));
+    -fx-translate-x: 1;
+}
+
+/* ── Pressed ── */
+.sidebar-nav-item:pressed {
+    -fx-background-color: rgba(255, 255, 255, 0.08);
+    -fx-scale-x: 0.98;
+    -fx-scale-y: 0.98;
+}
+
+/* Focused (keyboard) — keep active pill visible; suppress default ring */
+.sidebar-nav-item:focused {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-effect: null;
+}
+
+.sidebar-nav-item.sidebar-nav-item-active:focused {
+    -fx-background-color: linear-gradient(to right, rgba(76, 29, 149, 0.58), rgba(236, 72, 153, 0.24));
+    -fx-border-color: transparent transparent transparent rgba(244, 114, 182, 0.92);
+    -fx-border-width: 0 0 0 3;
+    -fx-effect: dropshadow(gaussian, rgba(168, 85, 247, 0.38), 14, 0.38, 0, 0),
+                dropshadow(gaussian, rgba(236, 72, 153, 0.22), 12, 0.35, 0, 0);
+}
+
+/* Signed-in compact mode (no sidebar scrolling): reduce density only when controller adds .sidebar-compact */
+.sv-si-sidebar.sidebar-compact {
+    -fx-spacing: 5;
+}
+
+.sv-si-sidebar.sidebar-compact .smart-auth-brand-dock {
+    -fx-padding: 8 12 1 12;
+    -fx-spacing: 4;
+}
+
+.sv-si-sidebar.sidebar-compact .smart-auth-brand-lockup {
+    -fx-spacing: 4;
+}
+
+.sv-si-sidebar.sidebar-compact .smart-auth-brand-logo {
+    -fx-fit-width: 182px;
+}
+
+.sv-si-sidebar.sidebar-compact .smart-auth-brand-strap,
+.sv-si-sidebar.sidebar-compact .sv-si-session {
+    -fx-font-size: 9.5px;
+}
+
+.sv-si-sidebar.sidebar-compact .smart-auth-rule-tight {
+    -fx-pref-height: 0.5;
+}
+
+.sv-si-sidebar.sidebar-compact .sidebar-rule {
+    -fx-padding: 0;
+}
+
+.sv-si-sidebar.sidebar-compact .sidebar-nav-item,
+.sv-si-sidebar.sidebar-compact .premium-nav-button {
+    -fx-font-size: 10.8px;
+    -fx-padding: 5 8 5 8;
+    -fx-graphic-text-gap: 8;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+}
+
+.sv-si-sidebar.sidebar-compact .sidebar-nav-icon-image {
+    -fx-fit-width: 17px;
+    -fx-fit-height: 17px;
+}
+
+.sv-si-sidebar.sidebar-compact .signed-in-sidebar-user-row {
+    -fx-padding: 2 6 2 6;
+    -fx-spacing: 3;
+}
+
+.sv-si-sidebar.sidebar-compact .signed-in-sidebar-email {
+    -fx-font-size: 10px;
+}
+
+.sv-si-sidebar.sidebar-compact .signed-in-sidebar-role-pill {
+    -fx-font-size: 8.5px;
+    -fx-padding: 1 6 1 6;
+}
+
+.sv-si-sidebar.sidebar-compact .signed-in-logout-icon-button {
+    -fx-min-width: 24px;
+    -fx-min-height: 24px;
+    -fx-pref-width: 24px;
+    -fx-pref-height: 24px;
+}
+
+/* Extra width-constrained mode for smaller screens/stages across all signed-in pages. */
+.sv-si-sidebar.sidebar-tight .smart-auth-brand-dock {
+    -fx-padding: 6 10 0 10;
+    -fx-spacing: 3;
+}
+
+.sv-si-sidebar.sidebar-tight .smart-auth-brand-logo {
+    -fx-fit-width: 160px;
+}
+
+.sv-si-sidebar.sidebar-tight .sidebar-nav-item,
+.sv-si-sidebar.sidebar-tight .premium-nav-button {
+    -fx-font-size: 10.2px;
+    -fx-padding: 4 6 4 6;
+    -fx-graphic-text-gap: 6;
+}
+
+.sv-si-sidebar.sidebar-tight .sidebar-nav-icon-image {
+    -fx-fit-width: 15px;
+    -fx-fit-height: 15px;
+}
+
+.sv-si-sidebar.sidebar-tight .theme-immersive-button {
+    -fx-min-width: 28;
+    -fx-min-height: 28;
+    -fx-max-width: 28;
+    -fx-max-height: 28;
+    -fx-font-size: 12px;
+}
+.offers-featured-row {
+    -fx-padding: 14 0 18 0;
+}
+
+.offers-grid-scroll,
+.offers-grid-scroll > .viewport {
+    -fx-background-color: transparent;
+}
+
+/* ---------- Agency proposal (centered form, flag preview, hovers) ---------- */
+.agency-proposal-center-stack {
+    -fx-padding: 16 12 24 12;
+}
+
+.agency-proposal-panel {
+    -fx-background-color: linear-gradient(to bottom,
+        rgba(51, 65, 85, 0.55) 0%,
+        rgba(30, 41, 59, 0.78) 22%,
+        rgba(15, 23, 42, 0.88) 55%,
+        rgba(8, 15, 27, 0.94) 100%);
+    -fx-background-radius: 26;
+    -fx-border-color: rgba(186, 198, 214, 0.38);
+    -fx-border-radius: 26;
+    -fx-border-width: 1.2;
+    /* Elevation: soft ambient + deeper cast shadow */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.55), 40, 0.28, 0, 14),
+                dropshadow(gaussian, rgba(0, 0, 0, 0.35), 18, 0.2, 0, 4),
+                dropshadow(gaussian, rgba(56, 189, 248, 0.12), 28, 0.35, 0, 0),
+                /* 3D corner bevel: top highlight + bottom shade */
+                innershadow(gaussian, rgba(255, 255, 255, 0.14), 12, 0.22, -2, -3),
+                innershadow(gaussian, rgba(0, 0, 0, 0.45), 18, 0.35, 2, 4);
+}
+
+.agency-proposal-status-panel {
+    -fx-padding: 4 0 16 0;
+}
+
+.agency-proposal-status-glyph {
+    -fx-font-size: 64px;
+    -fx-padding: 4 0 8 0;
+    -fx-text-fill: rgba(254, 249, 255, 0.96);
+    -fx-effect: dropshadow(gaussian, rgba(139, 92, 246, 0.5), 22, 0.3, 0, 3),
+                dropshadow(gaussian, rgba(0, 0, 0, 0.55), 12, 0.22, 0, 4);
+}
+
+.agency-proposal-status-title {
+    -fx-font-size: 30px;
+    -fx-wrap-text: true;
+    -fx-text-overrun: CLIP;
+    -fx-line-spacing: 4px;
+}
+
+.agency-proposal-status-message {
+    -fx-font-size: 15px;
+    -fx-line-spacing: 3px;
+}
+
+.agency-proposal-field-label {
+    -fx-text-fill: rgba(226, 232, 240, 0.92);
+    -fx-font-size: 13px;
+    -fx-font-weight: 700;
+    -fx-padding: 4 0 0 0;
+}
+
+.agency-proposal-country-row {
+    -fx-alignment: center-left;
+    -fx-padding: 2 0 4 0;
+}
+
+.agency-proposal-flag-frame {
+    -fx-background-color: linear-gradient(to bottom, rgba(30, 41, 59, 0.95), rgba(2, 6, 23, 0.88));
+    -fx-background-radius: 14;
+    -fx-border-color: rgba(148, 163, 184, 0.42);
+    -fx-border-radius: 14;
+    -fx-border-width: 1;
+    -fx-padding: 2;
+    -fx-alignment: center;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 10, 0.25, 0, 3);
+}
+
+.offers-scroll-center {
+    -fx-alignment: top-center;
+    -fx-padding: 0 20 0 20;
+}
+
+.offers-showcase-wrapper {
+    -fx-padding: 0 0 18 0;
+    -fx-spacing: 0;
+}
+
+/* ---- excerpt lines 1698-1900 from Pi-java2 styles.css ---- */
+.events-root {
+    -fx-background-color: rgba(10, 7, 23, 0.58);
+    -fx-background-radius: 18;
+    -fx-border-color: rgba(226, 178, 255, 0.28);
+    -fx-border-radius: 18;
+    -fx-border-width: 1;
+}
+
+.events-header {
+    -fx-padding: 0 0 2 0;
+}
+
+.events-inline-status {
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-padding: 8 11 8 11;
+    -fx-font-size: 12px;
+    -fx-font-weight: 600;
+}
+
+.events-inline-status.status-success {
+    -fx-background-color: rgba(34, 197, 94, 0.14);
+    -fx-border-color: rgba(74, 222, 128, 0.46);
+    -fx-text-fill: #dcfce7;
+}
+
+.events-inline-status.status-error {
+    -fx-background-color: rgba(239, 68, 68, 0.14);
+    -fx-border-color: rgba(252, 165, 165, 0.42);
+    -fx-text-fill: #fee2e2;
+}
+
+.events-embedded-form-view {
+    -fx-background-color: linear-gradient(to bottom, rgba(7, 11, 25, 0.64), rgba(5, 10, 23, 0.58));
+    -fx-background-radius: 16;
+    -fx-border-color: rgba(148, 163, 184, 0.30);
+    -fx-border-radius: 16;
+    -fx-border-width: 1;
+    -fx-padding: 14 14 12 14;
+}
+
+.events-embedded-form-host {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+    -fx-alignment: top-center;
+}
+
+.events-form-title {
+    -fx-text-fill: #f8fafc;
+    -fx-font-size: 18px;
+    -fx-font-weight: 800;
+}
+
+.events-form-subtitle {
+    -fx-text-fill: rgba(226, 232, 240, 0.78);
+    -fx-font-size: 12px;
+}
+
+.events-form-actions-row {
+    -fx-padding: 6 0 0 0;
+}
+
+.events-title {
+    -fx-text-fill: #f8fafc;
+    -fx-font-size: 23px;
+    -fx-font-weight: 800;
+}
+
+.events-subtitle {
+    -fx-text-fill: rgba(226, 232, 240, 0.82);
+    -fx-font-size: 12px;
+}
+
+.events-create-btn {
+    -fx-background-color: linear-gradient(to right, #f43f5e, #d946ef);
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 13px;
+    -fx-font-weight: 800;
+    -fx-background-radius: 10;
+    -fx-padding: 10 16 10 16;
+    -fx-cursor: hand;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.events-create-btn:hover {
+    -fx-translate-y: -1;
+    -fx-effect: dropshadow(gaussian, rgba(236, 72, 153, 0.5), 16, 0.28, 0, 3);
+}
+
+.events-search-input {
+    -fx-background-color: rgba(255, 255, 255, 0.07);
+    -fx-text-fill: #f8fafc;
+    -fx-prompt-text-fill: rgba(203, 213, 225, 0.76);
+    -fx-background-radius: 10;
+    -fx-border-color: rgba(226, 178, 255, 0.25);
+    -fx-border-radius: 10;
+    -fx-padding: 10 12 10 12;
+}
+
+.events-search-input:focused {
+    -fx-border-color: rgba(236, 72, 153, 0.62);
+    -fx-effect: dropshadow(gaussian, rgba(236, 72, 153, 0.28), 10, 0.2, 0, 0);
+}
+
+.events-search-btn {
+    -fx-background-color: rgba(139, 92, 246, 0.28);
+    -fx-text-fill: #f8fafc;
+    -fx-border-color: rgba(226, 178, 255, 0.36);
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-padding: 10 14 10 14;
+    -fx-cursor: hand;
+}
+
+.events-scroll {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.events-scroll > .viewport {
+    -fx-background-color: transparent;
+    -fx-padding: 6 10 8 14;
+}
+
+.events-tile {
+    -fx-padding: 10 14 12 14;
+}
+
+.event-card {
+    -fx-background-color: linear-gradient(to bottom, #171629, #111827);
+    -fx-background-radius: 18;
+    -fx-border-color: rgba(148, 163, 184, 0.32);
+    -fx-border-radius: 18;
+    -fx-border-width: 1;
+    -fx-padding: 0 16 16 16;
+    -fx-effect: dropshadow(gaussian, rgba(2, 6, 23, 0.56), 16, 0.20, 0, 5);
+}
+
+/* ---------- Agency profile redesign ---------- */
+.agency-cover-banner {
+    -fx-background-color: linear-gradient(to right, #1d4ed8, #7c3aed, #0ea5e9);
+    -fx-background-radius: 24;
+    -fx-border-color: rgba(148, 163, 184, 0.26);
+    -fx-border-radius: 24;
+    -fx-effect: dropshadow(gaussian, rgba(56, 189, 248, 0.55), 30, 0.36, 0, 0);
+}
+
+.agency-cover-gradient {
+    -fx-background-color: linear-gradient(to bottom, rgba(2, 6, 23, 0.2), rgba(2, 6, 23, 0.65));
+    -fx-background-radius: 24;
+}
+
+.agency-cover-image {
+    -fx-opacity: 0.92;
+}
+
+.agency-avatar-shell {
+    -fx-background-color: rgba(15, 23, 42, 0.56);
+    -fx-background-radius: 999;
+    -fx-padding: 4;
+    -fx-border-color: rgba(255, 255, 255, 0.88);
+    -fx-border-width: 2.4;
+    -fx-border-radius: 999;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.35), 10, 0.18, 0, 2);
+}
+
+.agency-avatar-icon {
+    -fx-font-size: 42px;
+}
+
+.agency-avatar-image {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.45), 10, 0.22, 0, 2);
+}
+
+.agency-overlay-action {
+    -fx-background-color: rgba(15, 23, 42, 0.78);
+    -fx-text-fill: #e2e8f0;
+    -fx-font-size: 12px;
+    -fx-font-weight: 700;
+    -fx-background-radius: 999;
+    -fx-border-color: rgba(148, 163, 184, 0.42);
+    -fx-border-radius: 999;
+    -fx-padding: 8 12 8 12;
+    -fx-cursor: hand;
+}
+
+.agency-overlay-action:hover {
+    -fx-background-color: rgba(56, 189, 248, 0.24);
+    -fx-border-color: rgba(56, 189, 248, 0.62);
+}
+
+.agency-cover-hover-action,
+.agency-avatar-hover-action,
+.agency-panel-hover-action {
+    -fx-opacity: 0;
+}
+
+.agency-cover-banner:hover .agency-cover-hover-action {
+    -fx-opacity: 1;
+}
+
+.agency-avatar-shell:hover .agency-avatar-hover-action {
+    -fx-opacity: 1;
+}
+
+/* Agency profile should visually match the agencies directory glass style. */
+.root.signed-in-clean-shell .agency-cover-banner {
+    -fx-background-color: linear-gradient(to right, #0f172a, #312e81, #1d4ed8);
+    -fx-border-color: rgba(196, 181, 253, 0.38);
+    -fx-border-radius: 24;
+    -fx-effect: dropshadow(gaussian, rgba(15, 23, 42, 0.65), 28, 0.3, 0, 8),
+                dropshadow(gaussian, rgba(139, 92, 246, 0.35), 20, 0.24, 0, 0);
+}
+.root.signed-in-clean-shell .agency-cover-gradient {
+    -fx-background-color: linear-gradient(to bottom,
+            rgba(2, 6, 23, 0.15) 0%,
+            rgba(2, 6, 23, 0.55) 58%,
+            rgba(2, 6, 23, 0.85) 100%);
+}
+.root.signed-in-clean-shell .agency-avatar-shell {
+    -fx-background-color: rgba(15, 23, 42, 0.92);
+    -fx-border-color: rgba(221, 214, 254, 0.82);
+    -fx-border-width: 1.8;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.55), 16, 0.24, 0, 4);
+}
+.root.signed-in-clean-shell .agency-info-card,
+.root.signed-in-clean-shell .agency-main-placeholder {
+    -fx-background-color: linear-gradient(to bottom,
+            rgba(255, 255, 255, 0.10),
+            rgba(139, 92, 246, 0.09),
+            rgba(8, 6, 22, 0.58));
+    -fx-border-color: rgba(196, 181, 253, 0.36);
+    -fx-border-radius: 24;
+    -fx-background-radius: 24;
+}
+
+/* ---- excerpt lines 2809-3030 from Pi-java2 styles.css ---- */
+.user-profile-root {
+    -fx-alignment: top-center;
+}
+
+.user-profile-header {
+    -fx-padding: 2 4 4 4;
+}
+
+.user-profile-kicker {
+    -fx-text-fill: rgba(196, 181, 253, 0.95);
+    -fx-font-size: 12px;
+    -fx-font-weight: 700;
+    -fx-letter-spacing: 0.6px;
+}
+
+.user-profile-title {
+    -fx-text-fill: #f8fafc;
+    -fx-font-size: 34px;
+    -fx-font-weight: 800;
+}
+
+.user-profile-subtitle {
+    -fx-text-fill: rgba(203, 213, 225, 0.88);
+    -fx-font-size: 14px;
+}
+
+.user-profile-card {
+    -fx-background-color: linear-gradient(to bottom,
+            rgba(255, 255, 255, 0.10),
+            rgba(139, 92, 246, 0.09),
+            rgba(8, 6, 22, 0.58));
+    -fx-background-radius: 24;
+    -fx-border-color: rgba(196, 181, 253, 0.48);
+    -fx-border-radius: 24;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.48), 30, 0.26, 0, 12),
+                dropshadow(gaussian, rgba(139, 92, 246, 0.34), 26, 0.28, 0, 0),
+                innershadow(gaussian, rgba(255, 255, 255, 0.14), 20, 0.26, 0, -1),
+                innershadow(gaussian, rgba(167, 139, 250, 0.10), 28, 0.20, 0, 0);
+}
+
+.user-profile-main-card {
+    -fx-pref-width: 780;
+    -fx-min-height: 560;
+}
+
+.user-profile-side-card {
+    -fx-min-height: 272;
+}
+
+.user-profile-section-title {
+    -fx-text-fill: #f8fafc;
+    -fx-font-size: 16px;
+    -fx-font-weight: 800;
+}
+
+.user-profile-avatar-inner {
+    -fx-background-radius: 999;
+}
+
+.user-profile-avatar-shell {
+    -fx-background-color: rgba(15, 23, 42, 0.88);
+    -fx-background-radius: 999;
+    -fx-border-color: rgba(196, 181, 253, 0.52);
+    -fx-border-radius: 999;
+    -fx-border-width: 1.2;
+    -fx-padding: 7;
+    -fx-effect: dropshadow(gaussian, rgba(139, 92, 246, 0.38), 18, 0.24, 0, 0);
+}
+
+.user-profile-avatar-fallback {
+    -fx-text-fill: #f8fafc;
+    -fx-font-size: 36px;
+    -fx-font-weight: 800;
+}
+
+/* Avatar ring: + / × FABs are direct children of this shell (see user_profile.fxml). !important beats Modena fill + cyan focus. */
+.user-profile-avatar-shell > .user-profile-avatar-fab,
+.user-profile-avatar-shell > .button.user-profile-avatar-fab {
+    -fx-background-insets: 0 !important;
+    -fx-border-insets: 0 !important;
+    -fx-background-color: rgba(255, 255, 255, 0.06) !important;
+    -fx-text-fill: #ddd6fe !important;
+    -fx-font-size: 14px;
+    -fx-font-weight: 700;
+    -fx-background-radius: 999;
+    -fx-border-color: rgba(167, 139, 250, 0.42) !important;
+    -fx-border-radius: 999;
+    -fx-border-width: 1;
+    -fx-min-width: 30px;
+    -fx-min-height: 30px;
+    -fx-max-width: 30px;
+    -fx-max-height: 30px;
+    -fx-padding: 0 0 1 0;
+    -fx-cursor: hand;
+    -fx-focus-color: transparent !important;
+    -fx-faint-focus-color: transparent !important;
+}
+
+.user-profile-avatar-shell > .user-profile-avatar-fab:hover,
+.user-profile-avatar-shell > .button.user-profile-avatar-fab:hover {
+    -fx-background-color: rgba(139, 92, 246, 0.24) !important;
+    -fx-border-color: rgba(196, 181, 253, 0.62) !important;
+    -fx-text-fill: #f8fafc !important;
+}
+
+.user-profile-avatar-shell > .user-profile-avatar-fab:focused,
+.user-profile-avatar-shell > .button.user-profile-avatar-fab:focused {
+    -fx-background-color: rgba(139, 92, 246, 0.2) !important;
+    -fx-border-color: rgba(196, 181, 253, 0.88) !important;
+}
+
+.user-profile-avatar-shell > .user-profile-avatar-fab:pressed,
+.user-profile-avatar-shell > .button.user-profile-avatar-fab:pressed {
+    -fx-background-color: rgba(91, 58, 163, 0.55) !important;
+    -fx-border-color: rgba(196, 181, 253, 0.55) !important;
+}
+
+.user-profile-avatar-shell > .user-profile-avatar-fab:disabled,
+.user-profile-avatar-shell > .button.user-profile-avatar-fab:disabled {
+    -fx-opacity: 0.4;
+}
+
+.user-profile-avatar-shell > .user-profile-avatar-fab.user-profile-avatar-fab-change,
+.user-profile-avatar-shell > .button.user-profile-avatar-fab.user-profile-avatar-fab-change {
+    -fx-translate-x: 32;
+    -fx-translate-y: 32;
+}
+
+.user-profile-avatar-shell > .user-profile-avatar-fab.user-profile-avatar-fab-delete,
+.user-profile-avatar-shell > .button.user-profile-avatar-fab.user-profile-avatar-fab-delete {
+    -fx-font-size: 15px;
+    -fx-border-color: rgba(196, 181, 253, 0.48) !important;
+}
+
+.user-profile-avatar-shell > .user-profile-avatar-fab.user-profile-avatar-fab-delete:hover,
+.user-profile-avatar-shell > .button.user-profile-avatar-fab.user-profile-avatar-fab-delete:hover {
+    -fx-background-color: rgba(220, 38, 38, 0.38) !important;
+    -fx-border-color: rgba(254, 202, 202, 0.92) !important;
+    -fx-text-fill: #fff1f2 !important;
+}
+
+.user-profile-avatar-shell > .user-profile-avatar-fab.user-profile-avatar-fab-delete:focused,
+.user-profile-avatar-shell > .button.user-profile-avatar-fab.user-profile-avatar-fab-delete:focused {
+    -fx-background-color: rgba(60, 20, 24, 0.94) !important;
+    -fx-border-color: rgba(252, 165, 165, 0.92) !important;
+}
+
+.user-profile-avatar-shell > .user-profile-avatar-fab.user-profile-avatar-fab-delete:pressed,
+.user-profile-avatar-shell > .button.user-profile-avatar-fab.user-profile-avatar-fab-delete:pressed {
+    -fx-background-color: rgba(127, 29, 29, 0.78) !important;
+    -fx-border-color: rgba(254, 202, 202, 0.75) !important;
+}
+
+#profilePhotoChangeButton,
+#profilePhotoDeleteButton {
+    -fx-background-insets: 0 !important;
+    -fx-border-insets: 0 !important;
+    -fx-background-color: rgba(255, 255, 255, 0.06) !important;
+    -fx-text-fill: #ddd6fe !important;
+    -fx-font-size: 14px;
+    -fx-font-weight: 700;
+    -fx-background-radius: 999;
+    -fx-border-color: rgba(167, 139, 250, 0.42) !important;
+    -fx-border-radius: 999;
+    -fx-border-width: 1;
+    -fx-min-width: 30px;
+    -fx-min-height: 30px;
+    -fx-max-width: 30px;
+    -fx-max-height: 30px;
+    -fx-padding: 0 0 1 0;
+    -fx-cursor: hand;
+    -fx-focus-color: transparent !important;
+    -fx-faint-focus-color: transparent !important;
+}
+
+#profilePhotoChangeButton {
+    -fx-translate-x: 32;
+    -fx-translate-y: 32;
+}
+
+#profilePhotoDeleteButton {
+    -fx-font-size: 15px;
+    -fx-translate-x: 32;
+    -fx-translate-y: 32;
+    -fx-border-color: rgba(196, 181, 253, 0.48) !important;
+}
+
+#profilePhotoChangeButton:hover {
+    -fx-background-color: rgba(139, 92, 246, 0.24) !important;
+    -fx-border-color: rgba(196, 181, 253, 0.62) !important;
+    -fx-text-fill: #f8fafc !important;
+}
+
+#profilePhotoChangeButton:focused {
+    -fx-background-color: rgba(139, 92, 246, 0.2) !important;
+    -fx-border-color: rgba(196, 181, 253, 0.88) !important;
+}
+
+#profilePhotoChangeButton:pressed {
+    -fx-background-color: rgba(91, 58, 163, 0.55) !important;
+    -fx-border-color: rgba(196, 181, 253, 0.55) !important;
+}
+
+#profilePhotoDeleteButton:hover {
+    -fx-background-color: rgba(220, 38, 38, 0.38) !important;
+    -fx-border-color: rgba(254, 202, 202, 0.92) !important;
+    -fx-text-fill: #fff1f2 !important;
+}
+
+#profilePhotoDeleteButton:focused {
+    -fx-background-color: rgba(60, 20, 24, 0.94) !important;
+    -fx-border-color: rgba(252, 165, 165, 0.92) !important;
+}
+
+#profilePhotoDeleteButton:pressed {
+    -fx-background-color: rgba(127, 29, 29, 0.78) !important;
+    -fx-border-color: rgba(254, 202, 202, 0.75) !important;
+}
+
+#profilePhotoChangeButton:disabled,
+#profilePhotoDeleteButton:disabled {
+    -fx-opacity: 0.4;
+}
+
+.user-profile-image-btn {
+    -fx-background-color: rgba(15, 23, 42, 0.82);
+    -fx-text-fill: #ddd6fe;
+    -fx-border-color: rgba(167, 139, 250, 0.48);
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-font-size: 12px;
+    -fx-font-weight: 700;
+    -fx-padding: 8 14 8 14;
+    -fx-cursor: hand;
+}
+
+.user-profile-image-btn:hover {
+    -fx-background-color: rgba(139, 92, 246, 0.22);
+    -fx-border-color: rgba(196, 181, 253, 0.72);
+}
+
+.user-profile-label {
+    -fx-text-fill: #e2e8f0;
+    -fx-font-size: 13px;
+    -fx-font-weight: 700;
+}
+
+.user-profile-input {
+    -fx-background-color: rgba(255, 255, 255, 0.035);
+    -fx-control-inner-background: rgba(10, 15, 30, 0.92);
+    -fx-text-fill: #f8fafc;
+    -fx-prompt-text-fill: rgba(226, 232, 240, 0.52);
+    -fx-border-color: rgba(196, 181, 253, 0.22);
+    -fx-border-width: 1;
+    -fx-border-radius: 14;
+    -fx-background-radius: 14;
+    -fx-padding: 10 12 10 12;
+    -fx-effect: dropshadow(gaussian, rgba(2, 6, 23, 0.5), 14, 0.2, 0, 3),
+                dropshadow(gaussian, rgba(139, 92, 246, 0.12), 12, 0.18, 0, 0);
+}
+
+/* TextArea nested skin — match TextField glass and hide inner scrollbar chrome. */
+.user-profile-input.text-area,
+.user-profile-input.text-area .content,
+.user-profile-input.text-area .viewport {
+    -fx-background-color: linear-gradient(to bottom,
+            rgba(88, 71, 140, 0.32),
+            rgba(30, 27, 75, 0.52),
+            rgba(8, 6, 22, 0.82));
+    -fx-control-inner-background: rgba(10, 15, 30, 0.92);
+    -fx-prompt-text-fill: rgba(226, 232, 240, 0.52);
+}
+.user-profile-input.text-area > .scroll-pane > .viewport,
+.user-profile-input.text-area > .scroll-pane > .content {
+    -fx-background-color: linear-gradient(to bottom,
+            rgba(88, 71, 140, 0.32),
+            rgba(30, 27, 75, 0.52),
+            rgba(8, 6, 22, 0.82));
+}
+
+.user-profile-input.text-area .text {
+    -fx-fill: #f8fafc;
+}
+
+.user-profile-input.text-area > .scroll-pane > .scroll-bar:vertical,
+.user-profile-input.text-area > .scroll-pane > .scroll-bar:horizontal {
+    -fx-opacity: 0;
+    -fx-pref-width: 0;
+    -fx-pref-height: 0;
+    -fx-max-width: 0;
+    -fx-max-height: 0;
+    -fx-padding: 0;
+}
+
+.user-profile-input.text-area > .scroll-pane > .scroll-bar .track,
+.user-profile-input.text-area > .scroll-pane > .scroll-bar .thumb,
+.user-profile-input.text-area > .scroll-pane > .scroll-bar .increment-button,
+.user-profile-input.text-area > .scroll-pane > .scroll-bar .decrement-button,
+.user-profile-input.text-area > .scroll-pane > .scroll-bar .increment-arrow,
+.user-profile-input.text-area > .scroll-pane > .scroll-bar .decrement-arrow,
+.user-profile-input.text-area > .scroll-pane > .corner {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+    -fx-shape: "";
+}
+
+.user-profile-input:focused {
+    -fx-border-color: rgba(186, 170, 255, 0.92);
+    -fx-background-color: rgba(255, 255, 255, 0.055);
+    -fx-effect: dropshadow(gaussian, rgba(167, 139, 250, 0.38), 16, 0.22, 0, 0),
+                dropshadow(gaussian, rgba(139, 92, 246, 0.28), 12, 0.18, 0, 0);
+}
+
+.user-profile-error {
+    -fx-text-fill: #fca5a5;
+    -fx-font-size: 11px;
+    -fx-wrap-text: true;
+}
+
+.user-profile-status {
+    -fx-text-fill: rgba(196, 181, 253, 0.95);
+    -fx-font-size: 12px;
+    -fx-padding: 2 2 0 2;
+}
+
+.user-profile-mini-scroll {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-pref-height: 170;
+    -fx-max-height: 190;
+}
+
+.user-profile-mini-scroll > .viewport {
+    -fx-background-color: transparent;
+}
+
+/* Keep scroll behavior but hide visual scrollbar chrome. */
+.user-profile-mini-scroll.scroll-pane > .scroll-bar:vertical,
+.user-profile-mini-scroll.scroll-pane > .scroll-bar:horizontal {
+    -fx-opacity: 0;
+    -fx-pref-width: 0;
+    -fx-pref-height: 0;
+    -fx-max-width: 0;
+    -fx-max-height: 0;
+    -fx-padding: 0;
+}
+
+.user-profile-mini-scroll.scroll-pane > .scroll-bar .track,
+.user-profile-mini-scroll.scroll-pane > .scroll-bar .thumb,
+.user-profile-mini-scroll.scroll-pane > .scroll-bar .increment-button,
+.user-profile-mini-scroll.scroll-pane > .scroll-bar .decrement-button,
+.user-profile-mini-scroll.scroll-pane > .scroll-bar .increment-arrow,
+.user-profile-mini-scroll.scroll-pane > .scroll-bar .decrement-arrow,
+.user-profile-mini-scroll.scroll-pane > .corner {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+    -fx-shape: "";
+}
+
+.user-profile-mini-item {
+    -fx-background-color: linear-gradient(to bottom, rgba(255, 255, 255, 0.06), rgba(8, 6, 22, 0.72));
+    -fx-border-color: rgba(167, 139, 250, 0.38);
+    -fx-border-radius: 14;
+    -fx-background-radius: 14;
+    -fx-border-width: 1;
+    -fx-padding: 10 12 10 12;
+    -fx-effect: dropshadow(gaussian, rgba(139, 92, 246, 0.26), 14, 0.22, 0, 0),
+                dropshadow(gaussian, rgba(2, 6, 23, 0.58), 16, 0.2, 0, 3),
+                innershadow(gaussian, rgba(255, 255, 255, 0.06), 8, 0.18, 0, -1);
+}
+
+.user-profile-mini-item:hover {
+    -fx-border-color: rgba(196, 181, 253, 0.72);
+    -fx-effect: dropshadow(gaussian, rgba(167, 139, 250, 0.36), 20, 0.25, 0, 1),
+                dropshadow(gaussian, rgba(2, 6, 23, 0.70), 22, 0.26, 0, 4);
+    -fx-translate-y: -1;
+}
+
+.user-profile-mini-title {
+    -fx-text-fill: #f8fafc;
+    -fx-font-size: 12.5px;
+    -fx-font-weight: 700;
+}
+
+.user-profile-mini-meta {
+    -fx-text-fill: #94a3b8;
+    -fx-font-size: 11px;
+}
+
+.user-profile-mini-note {
+    -fx-text-fill: rgba(233, 213, 255, 0.92);
+    -fx-font-size: 11.5px;
+}
+
+.user-profile-mini-stars {
+    -fx-text-fill: #facc15;
+    -fx-font-size: 12px;
+    -fx-font-weight: 800;
+}
+
+.user-profile-mini-empty {
+    -fx-text-fill: rgba(196, 181, 253, 0.82);
+    -fx-font-size: 11.5px;
+    -fx-padding: 6 2 0 2;
+}
+
+.star-rating-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: rgba(148, 163, 184, 0.85);
+    -fx-font-size: 19px;
+    -fx-font-weight: 800;
+    -fx-padding: 2 2 2 2;
+    -fx-min-width: 22;
+    -fx-min-height: 22;
+    -fx-cursor: hand;
+    -fx-background-radius: 999;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.star-rating-button:hover {
+    -fx-text-fill: #fde047;
+    -fx-effect: dropshadow(gaussian, rgba(251, 191, 36, 0.58), 10, 0.25, 0, 0);
+}
+
+.star-rating-button-active {
+    -fx-text-fill: #facc15;
+    -fx-effect: dropshadow(gaussian, rgba(250, 204, 21, 0.62), 11, 0.28, 0, 0);
+}
+
+/* Same as welcome .smart-auth-back-chip; match unified Save padding for consistent size. */
+.user-profile-save-btn {
+    -fx-background-color: rgba(255, 255, 255, 0.05);
+    -fx-text-fill: #ddd6fe;
+    -fx-font-size: 15px;
+    -fx-font-weight: 700;
+    -fx-background-radius: 999;
+    -fx-border-color: rgba(167, 139, 250, 0.28);
+    -fx-border-radius: 999;
+    -fx-border-width: 1;
+    -fx-padding: 11 24 11 24;
+    -fx-cursor: hand;
+}
+
+.user-profile-save-btn:hover {
+    -fx-background-color: rgba(139, 92, 246, 0.22);
+    -fx-border-color: rgba(196, 181, 253, 0.5);
+}
+
+/* ── SmartVoyage: Pi-java2 shell recolor (sidebar + nav states only; structure unchanged) ── */
+.sidebar-immersive {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.sidebar-nav-item {
+    -fx-text-fill: rgba(203, 213, 225, 0.78);
+}
+
+.sidebar-nav-item:hover {
+    -fx-background-color: rgba(99, 102, 241, 0.14);
+    -fx-text-fill: #f8fafc;
+}
+
+.sidebar-nav-item:hover .sidebar-nav-icon {
+    -fx-background-color: #e9d5ff;
+}
+
+.premium-nav-button {
+    -fx-background-color: linear-gradient(to right, #b45309, #ea580c, #f59e0b, #fbbf24);
+    -fx-text-fill: #0f172a;
+    -fx-effect: dropshadow(gaussian, rgba(251, 146, 60, 0.55), 16, 0.32, 0, 2);
+}
+
+.premium-nav-button:hover {
+    -fx-background-color: linear-gradient(to right, #ea580c, #f97316, #fbbf24, #fde68a);
+}
+
+.immersive-root {
+    -fx-background-color: linear-gradient(to bottom, #0b1020 0%, #0f172a 55%, #020617 100%);
+}
+
+/* --- Signed-in shell: must NOT override .immersive-root with transparent (Scene default is white). --- */
+
+/* === Pi-java2 styles.css excerpts (forms, offers cards, agency chrome) === */
+.hero-foreground-pane {
+    -fx-background-color: transparent;
+}
+
+/* ─────────────────────────────────────────────────────
+   TOP MINI BAR
+───────────────────────────────────────────────────── */
+.top-mini-bar {
+    -fx-background-color: rgba(0, 0, 0, 0.45);
+    -fx-background-radius: 999;
+    -fx-border-color: rgba(255, 255, 255, 0.12);
+    -fx-border-radius: 999;
+    -fx-border-width: 1;
+    -fx-padding: 10 20 10 20;
+}
+
+.top-mini-search-field {
+    -fx-background-color: rgba(0, 0, 0, 0.30);
+    -fx-text-fill: #f8fafc;
+    -fx-prompt-text-fill: rgba(148, 163, 184, 0.75);
+    -fx-background-radius: 999;
+    -fx-border-radius: 999;
+    -fx-border-color: rgba(255, 255, 255, 0.14);
+    -fx-border-width: 1;
+    -fx-padding: 8 16 8 16;
+    -fx-font-size: 13px;
+}
+
+.top-mini-search-field:focused {
+    -fx-border-color: rgba(234, 179, 8, 0.45);
+}
+
+.mini-bar-icon {
+    -fx-text-fill: rgba(248, 250, 252, 0.85);
+    -fx-font-size: 15px;
+}
+/* ---------- Signed-in agency directory (large cards + scroll) ---------- */
+.agency-directory-scroll {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+.agency-directory-scroll > .viewport {
+    -fx-background-color: transparent;
+}
+
+/* Scrollbar chrome: invisible treatment is defined later under .signed-in-clean-shell (do not paint a thumb here). */
+.agency-directory-scroll .scroll-bar:vertical,
+.agency-directory-scroll .scroll-bar:horizontal {
+    -fx-background-color: transparent;
+}
+.agency-directory-scroll .scroll-bar:vertical .thumb,
+.agency-directory-scroll .scroll-bar:vertical .thumb:hover,
+.agency-directory-scroll .scroll-bar:horizontal .thumb,
+.agency-directory-scroll .scroll-bar:horizontal .thumb:hover {
+    -fx-background-color: transparent;
+}
+
+.agency-directory-grid {
+    -fx-padding: 8 4 32 4;
+    -fx-alignment: top-center;
+}
+
+.agency-directory-toolbar-secondary {
+    -fx-padding: 0 0 4 0;
+}
+
+.agency-directory-reset-filters {
+    -fx-background-color: rgba(30, 41, 59, 0.85);
+    -fx-text-fill: rgba(226, 232, 240, 0.95);
+    -fx-font-size: 13px;
+    -fx-font-weight: 700;
+    -fx-background-radius: 999;
+    -fx-border-color: rgba(148, 163, 184, 0.35);
+    -fx-border-radius: 999;
+    -fx-padding: 8 16 8 16;
+    -fx-cursor: hand;
+}
+
+.agency-directory-reset-filters:hover {
+    -fx-border-color: rgba(56, 189, 248, 0.45);
+    -fx-text-fill: #e0f2fe;
+}
+
+/* Symfony-style agency directory: primary filter row + dynamic search */
+.agency-directory-page-title {
+    -fx-text-fill: #f8fafc;
+    -fx-font-size: 28px;
+    -fx-font-weight: 800;
+    -fx-padding: 4 0 0 0;
+}
+
+.agency-symfony-filter-bar {
+    -fx-spacing: 12;
+    -fx-alignment: center-left;
+    -fx-padding: 2 0 4 0;
+}
+
+.agency-symfony-search {
+    -fx-background-color: rgba(30, 41, 59, 0.92);
+    -fx-control-inner-background: rgba(30, 41, 59, 0.92);
+    -fx-text-fill: #e2e8f0;
+    -fx-prompt-text-fill: rgba(148, 163, 184, 0.88);
+    -fx-highlight-fill: rgba(139, 92, 246, 0.35);
+    -fx-highlight-text-fill: #f8fafc;
+    -fx-border-color: rgba(100, 116, 139, 0.45);
+    -fx-border-radius: 14;
+    -fx-background-radius: 14;
+    -fx-border-width: 1;
+    -fx-padding: 12 18 12 18;
+    -fx-font-size: 14px;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.agency-symfony-search:focused {
+    -fx-border-color: rgba(139, 92, 246, 0.65);
+    -fx-effect: dropshadow(gaussian, rgba(139, 92, 246, 0.35), 18, 0.22, 0, 0);
+}
+
+.agency-map-purple-button {
+    -fx-background-color: linear-gradient(to right, #6d28d9, #7c3aed, #8b5cf6);
+    -fx-text-fill: #faf5ff;
+    -fx-font-size: 13px;
+    -fx-font-weight: 800;
+    -fx-background-radius: 12;
+    -fx-padding: 12 20 12 20;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(124, 58, 237, 0.55), 20, 0.28, 0, 2);
+}
+
+.agency-map-purple-button:hover {
+    -fx-background-color: linear-gradient(to right, #7c3aed, #8b5cf6, #a78bfa);
+    -fx-effect: dropshadow(gaussian, rgba(167, 139, 250, 0.65), 26, 0.32, 0, 3);
+}
+
+.agency-map-purple-button:pressed {
+    -fx-scale-x: 0.98;
+    -fx-scale-y: 0.98;
+}
+
+.agency-my-agency-outline {
+    -fx-background-color: rgba(15, 23, 42, 0.75);
+    -fx-text-fill: #f1f5f9;
+    -fx-font-size: 13px;
+    -fx-font-weight: 800;
+    -fx-background-radius: 12;
+    -fx-border-color: rgba(148, 163, 184, 0.55);
+    -fx-border-radius: 12;
+    -fx-border-width: 1.2;
+    -fx-padding: 12 20 12 20;
+    -fx-cursor: hand;
+}
+
+.agency-my-agency-outline:hover {
+    -fx-border-color: rgba(226, 232, 240, 0.85);
+    -fx-background-color: rgba(30, 41, 59, 0.88);
+}
+
+.agency-result-count-label {
+    -fx-text-fill: rgba(196, 181, 253, 0.95);
+    -fx-font-size: 13px;
+    -fx-font-weight: 800;
+    -fx-letter-spacing: 0.04em;
+    -fx-padding: 2 0 0 0;
+}
+.agency-proposal-text-field {
+    -fx-background-color: rgba(30, 41, 59, 0.88);
+    -fx-control-inner-background: rgba(30, 41, 59, 0.88);
+    -fx-text-fill: #e2e8f0;
+    -fx-prompt-text-fill: rgba(148, 163, 184, 0.85);
+    -fx-border-color: rgba(100, 116, 139, 0.45);
+    -fx-border-radius: 12;
+    -fx-background-radius: 12;
+    -fx-border-width: 1;
+    -fx-padding: 12 14 12 14;
+    -fx-font-size: 14px;
+}
+
+.agency-proposal-text-field:hover {
+    -fx-border-color: rgba(56, 189, 248, 0.45);
+}
+
+.agency-proposal-text-field:focused {
+    -fx-border-color: rgba(139, 92, 246, 0.65);
+    -fx-effect: dropshadow(gaussian, rgba(139, 92, 246, 0.25), 14, 0.2, 0, 0);
+}
+
+.agency-proposal-text-area {
+    -fx-background-color: rgba(30, 41, 59, 0.88);
+    -fx-control-inner-background: rgba(30, 41, 59, 0.88);
+    -fx-text-fill: #e2e8f0;
+    -fx-prompt-text-fill: rgba(148, 163, 184, 0.85);
+    -fx-border-color: rgba(100, 116, 139, 0.45);
+    -fx-border-radius: 12;
+    -fx-background-radius: 12;
+    -fx-border-width: 1;
+    -fx-font-size: 14px;
+}
+
+.agency-proposal-text-area:hover {
+    -fx-border-color: rgba(56, 189, 248, 0.45);
+}
+
+.agency-proposal-text-area .content {
+    -fx-background-color: rgba(30, 41, 59, 0.88);
+}
+
+.agency-proposal-text-area:focused {
+    -fx-border-color: rgba(139, 92, 246, 0.65);
+    -fx-effect: dropshadow(gaussian, rgba(139, 92, 246, 0.22), 12, 0.2, 0, 0);
+}
+
+.agency-proposal-combo {
+    -fx-background-color: rgba(30, 41, 59, 0.92);
+    -fx-border-color: rgba(100, 116, 139, 0.45);
+    -fx-border-radius: 12;
+    -fx-background-radius: 12;
+    -fx-border-width: 1;
+    -fx-font-size: 14px;
+    -fx-text-fill: #e2e8f0;
+}
+
+.agency-proposal-combo:hover {
+    -fx-border-color: rgba(56, 189, 248, 0.5);
+}
+
+.agency-proposal-combo:focused {
+    -fx-border-color: rgba(139, 92, 246, 0.65);
+    -fx-effect: dropshadow(gaussian, rgba(139, 92, 246, 0.22), 12, 0.2, 0, 0);
+}
+
+.agency-proposal-combo .arrow-button {
+    -fx-background-color: rgba(2, 6, 23, 0.35);
+    -fx-background-radius: 0 10 10 0;
+}
+
+.agency-proposal-combo .arrow-button:hover {
+    -fx-background-color: rgba(56, 189, 248, 0.22);
+}
+
+.agency-proposal-back-button {
+    -fx-background-color: rgba(30, 41, 59, 0.85);
+    -fx-text-fill: #f1f5f9;
+    -fx-font-size: 12px;
+    -fx-font-weight: 800;
+    -fx-background-radius: 999;
+    -fx-border-color: rgba(148, 163, 184, 0.45);
+    -fx-border-radius: 999;
+    -fx-border-width: 1.2;
+    -fx-padding: 9 20 9 20;
+    -fx-cursor: hand;
+}
+
+.agency-proposal-back-button:hover {
+    -fx-border-color: rgba(56, 189, 248, 0.55);
+    -fx-background-color: rgba(51, 65, 85, 0.92);
+    -fx-effect: dropshadow(gaussian, rgba(56, 189, 248, 0.35), 14, 0.22, 0, 2);
+}
+
+.agency-proposal-primary-button {
+    -fx-background-color: linear-gradient(to right, #a16207, #ca8a04, #eab308, #fde047);
+    -fx-text-fill: #0f172a;
+    -fx-font-size: 13px;
+    -fx-font-weight: 800;
+    -fx-background-radius: 999;
+    -fx-padding: 11 22 11 22;
+    -fx-cursor: hand;
+}
+
+.agency-proposal-primary-button:hover {
+    -fx-effect: dropshadow(gaussian, rgba(253, 224, 71, 0.75), 20, 0.32, 0, 3);
+    -fx-scale-x: 1.03;
+    -fx-scale-y: 1.03;
+}
+
+.agency-proposal-primary-button:pressed {
+    -fx-scale-x: 0.98;
+    -fx-scale-y: 0.98;
+}
+
+.agency-proposal-secondary-button {
+    -fx-background-color: rgba(15, 23, 42, 0.75);
+    -fx-text-fill: #e2e8f0;
+    -fx-font-size: 12px;
+    -fx-font-weight: 800;
+    -fx-background-radius: 999;
+    -fx-border-color: rgba(234, 179, 8, 0.45);
+    -fx-border-radius: 999;
+    -fx-border-width: 1.2;
+    -fx-padding: 10 18 10 18;
+    -fx-cursor: hand;
+}
+
+.agency-proposal-secondary-button:hover {
+    -fx-border-color: rgba(253, 224, 71, 0.75);
+    -fx-background-color: rgba(30, 41, 59, 0.9);
+    -fx-effect: dropshadow(gaussian, rgba(234, 179, 8, 0.35), 14, 0.22, 0, 2);
+}
+
+.agency-directory-card {
+    -fx-background-color: linear-gradient(to bottom, rgba(15, 23, 42, 0.92), rgba(8, 15, 27, 0.96));
+    -fx-background-radius: 26;
+    -fx-border-color: rgba(148, 163, 184, 0.28);
+    -fx-border-radius: 26;
+    -fx-border-width: 1.2;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.65), 48, 0.28, 0, 18),
+                innershadow(gaussian, rgba(255, 255, 255, 0.06), 10, 0.15, 0, -1);
+    -fx-cursor: hand;
+}
+
+.agency-directory-card:hover {
+    -fx-border-color: rgba(56, 189, 248, 0.55);
+    -fx-effect: dropshadow(gaussian, rgba(56, 189, 248, 0.32), 36, 0.25, 0, 4),
+                dropshadow(gaussian, rgba(0, 0, 0, 0.72), 44, 0.3, 0, 20),
+                innershadow(gaussian, rgba(56, 189, 248, 0.12), 14, 0.2, 0, -1);
+    -fx-translate-y: -4;
+}
+
+.agency-directory-hero {
+    -fx-background-color: rgba(2, 6, 23, 0.9);
+}
+
+.agency-directory-hero-shade {
+    -fx-background-color: linear-gradient(to bottom,
+        rgba(2, 6, 23, 0.22) 0%,
+        rgba(2, 6, 23, 0.58) 42%,
+        rgba(2, 6, 23, 0.88) 72%,
+        rgba(2, 6, 23, 0.94) 100%);
+}
+
+.agency-directory-hero-image {
+    -fx-opacity: 1;
+}
+
+/* Banner + overlapping identity (logo/title) share one clipped header. */
+.agency-directory-card-header {
+    -fx-background-color: transparent;
+}
+
+.agency-directory-identity-row {
+    -fx-alignment: center-left;
+    -fx-spacing: 14;
+    -fx-background-color: transparent;
+}
+
+.agency-directory-location-line {
+    -fx-text-fill: rgba(186, 198, 216, 0.95);
+    -fx-font-size: 12px;
+    -fx-font-weight: 500;
+}
+
+.agency-directory-status-row {
+    -fx-alignment: center-left;
+    -fx-spacing: 6;
+}
+
+.agency-directory-verification-glyph-host {
+    -fx-background-color: transparent;
+}
+
+.agency-directory-country-chip {
+    -fx-text-fill: #e0f2fe;
+    -fx-font-size: 14px;
+    -fx-font-weight: 800;
+    -fx-background-color: rgba(2, 6, 23, 0.72);
+    -fx-background-radius: 999;
+    -fx-border-color: rgba(56, 189, 248, 0.42);
+    -fx-border-radius: 999;
+    -fx-padding: 6 14 6 14;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.45), 10, 0.2, 0, 2);
+}
+
+.agency-directory-verified-pill {
+    -fx-text-fill: #bbf7d0;
+    -fx-font-size: 13px;
+    -fx-font-weight: 800;
+    -fx-background-color: rgba(22, 101, 52, 0.55);
+    -fx-background-radius: 999;
+    -fx-border-color: rgba(74, 222, 128, 0.45);
+    -fx-border-radius: 999;
+    -fx-padding: 6 12 6 12;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 8, 0.2, 0, 1);
+}
+
+.agency-directory-pending-pill {
+    -fx-text-fill: #fde68a;
+    -fx-font-size: 13px;
+    -fx-font-weight: 800;
+    -fx-background-color: rgba(120, 53, 15, 0.5);
+    -fx-background-radius: 999;
+    -fx-border-color: rgba(251, 191, 36, 0.5);
+    -fx-border-radius: 999;
+    -fx-padding: 6 12 6 12;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 8, 0.2, 0, 1);
+}
+
+.agency-directory-body {
+    -fx-spacing: 8;
+}
+
+.agency-directory-title-row {
+    -fx-alignment: center-left;
+    -fx-spacing: 12;
+}
+
+.agency-directory-flag-badge {
+    -fx-background-color: rgba(15, 23, 42, 0.92);
+    -fx-background-radius: 999;
+    -fx-border-color: rgba(148, 163, 184, 0.5);
+    -fx-border-radius: 999;
+    -fx-border-width: 1.5;
+    -fx-padding: 4;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.45), 8, 0.22, 0, 2);
+}
+
+/* Agency directory card: circular logo (profile image or initials) next to title */
+.root.signed-in-clean-shell .user-profile-card.agency-directory-card .agency-directory-logo-badge {
+    -fx-min-width: 56px;
+    -fx-min-height: 56px;
+    -fx-pref-width: 56px;
+    -fx-pref-height: 56px;
+    -fx-max-width: 56px;
+    -fx-max-height: 56px;
+    -fx-background-color: rgba(15, 23, 42, 0.94);
+    -fx-background-radius: 999;
+    -fx-border-color: rgba(196, 181, 253, 0.55);
+    -fx-border-radius: 999;
+    -fx-border-width: 1.5;
+    -fx-padding: 0;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.45), 8, 0.22, 0, 2);
+}
+.root.signed-in-clean-shell .user-profile-card.agency-directory-card .agency-directory-logo-fallback {
+    -fx-font-size: 18px;
+    -fx-font-weight: 800;
+    -fx-text-fill: #f8fafc;
+    -fx-alignment: center;
+}
+
+.agency-directory-title {
+    -fx-text-fill: #f8fafc;
+    -fx-font-family: "Segoe UI Semibold", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    -fx-font-size: 34px;
+    -fx-font-weight: 800;
+    -fx-line-spacing: -0.5px;
+}
+
+.agency-directory-desc {
+    -fx-text-fill: rgba(226, 232, 240, 0.9);
+    -fx-font-family: "Georgia", "Palatino Linotype", "Times New Roman", serif;
+    -fx-font-size: 15px;
+    -fx-font-weight: 400;
+    -fx-line-spacing: 3px;
+}
+
+.agency-directory-meta {
+    -fx-text-fill: rgba(147, 197, 253, 0.95);
+    -fx-font-size: 14px;
+    -fx-font-weight: 600;
+}
+
+.agency-directory-contact {
+    -fx-text-fill: rgba(203, 213, 225, 0.95);
+    -fx-font-size: 14px;
+    -fx-font-weight: 600;
+}
+
+.agency-directory-footer {
+    -fx-border-color: rgba(148, 163, 184, 0.2);
+    -fx-border-width: 1 0 0 0;
+    -fx-background-color: rgba(2, 6, 23, 0.35);
+    -fx-background-radius: 0 0 26 26;
+}
+
+.agency-directory-cta {
+    -fx-background-color: linear-gradient(to right, #ca8a04, #eab308, #fde047);
+    -fx-text-fill: #0f172a;
+    -fx-font-size: 15px;
+    -fx-font-weight: 800;
+    -fx-background-radius: 999;
+    -fx-padding: 12 22 12 22;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(253, 224, 71, 0.35), 14, 0.2, 0, 2);
+}
+
+.agency-directory-cta:hover {
+    -fx-background-color: linear-gradient(to right, #eab308, #fde047, #fef9c3);
+    -fx-effect: dropshadow(gaussian, rgba(253, 224, 71, 0.65), 22, 0.28, 0, 3);
+    -fx-scale-x: 1.03;
+    -fx-scale-y: 1.03;
+}
+
+.agency-directory-cta:pressed {
+    -fx-scale-x: 0.98;
+    -fx-scale-y: 0.98;
+}
+.offer-featured-card {
+    -fx-background-color: rgba(0, 0, 0, 0.84);
+    -fx-background-radius: 20;
+    -fx-border-color: rgba(255, 255, 255, 0.10);
+    -fx-border-radius: 20;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.80), 34, 0.30, 0, 12);
+}
+
+.offer-featured-card:hover {
+    -fx-translate-y: -4;
+    -fx-border-color: rgba(234, 179, 8, 0.35);
+    -fx-effect: dropshadow(gaussian, rgba(234, 179, 8, 0.22), 20, 0.20, 0, 2),
+                dropshadow(gaussian, rgba(0, 0, 0, 0.82), 36, 0.32, 0, 14);
+}
+
+.offer-guest-button {
+    -fx-background-color: linear-gradient(to right, #92400e, #b45309, #d97706, #f59e0b, #fbbf24);
+    -fx-text-fill: #000000;
+    -fx-font-size: 12px;
+    -fx-font-weight: 800;
+    -fx-background-radius: 999;
+    -fx-padding: 9 16 9 16;
+    -fx-cursor: hand;
+}
+
+.offer-guest-button:hover {
+    -fx-scale-x: 1.04;
+    -fx-scale-y: 1.04;
+    -fx-effect: dropshadow(gaussian, rgba(251, 191, 36, 0.65), 14, 0.28, 0, 2);
+}
+
+/* ─────────────────────────────────────────────────────
+   AUTH EXPERIENCE — split card (image-left / form-right)
+   Reference mood: neon mauve + indigo
+───────────────────────────────────────────────────── */
+
+.offers-page-content {
+    -fx-padding: 2 0 10 0;
+}
+
+.feedbacks-page-content {
+    -fx-padding: 8 0 16 0;
+}
+
+.feedbacks-testimonials-grid {
+    -fx-padding: 14 0 28 0;
+}
+
+.offers-title {
+    -fx-text-fill: #f8fafc;
+    -fx-font-size: 30px;
+    -fx-font-weight: 900;
+    -fx-letter-spacing: 0.4px;
+    -fx-padding: 4 0 2 0;
+}
+
+.offers-subtitle {
+    -fx-text-fill: rgba(226, 232, 240, 0.92);
+    -fx-font-size: 15px;
+    -fx-font-weight: 500;
+    -fx-line-spacing: 2px;
+    -fx-padding: 0 0 8 0;
+}
+
+.offers-toolbar-row {
+    -fx-padding: 6 0 2 0;
+}
+
+.offers-chip {
+    -fx-background-color: rgba(15, 23, 42, 0.62);
+    -fx-border-color: rgba(148, 163, 184, 0.35);
+    -fx-border-width: 1;
+    -fx-border-radius: 999;
+    -fx-background-radius: 999;
+    -fx-text-fill: rgba(226, 232, 240, 0.95);
+    -fx-font-size: 13px;
+    -fx-font-weight: 700;
+    -fx-padding: 8 14 8 14;
+    -fx-cursor: hand;
+}
+
+.offers-chip:hover {
+    -fx-background-color: rgba(51, 65, 85, 0.72);
+    -fx-border-color: rgba(250, 204, 21, 0.52);
+    -fx-text-fill: #f8fafc;
+}
+
+.offers-chip-active {
+    -fx-background-color: linear-gradient(to right, #d97706, #f59e0b, #facc15);
+    -fx-border-color: rgba(250, 204, 21, 0.7);
+    -fx-text-fill: #111827;
+}
+
+.feedback-testimonial-card {
+    -fx-pref-width: 360;
+    -fx-min-width: 360;
+    -fx-max-width: 360;
+    -fx-padding: 16 16 14 16;
+    -fx-background-color: rgba(15, 23, 42, 0.52);
+    -fx-background-radius: 16;
+    -fx-border-color: rgba(196, 181, 253, 0.25);
+    -fx-border-width: 1;
+    -fx-border-radius: 16;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.28), 18, 0.25, 0, 8);
+    -fx-cursor: hand;
+}
+.agency-info-card:hover .agency-panel-hover-action {
+    -fx-opacity: 1;
+}
+
+.agency-avatar-edit {
+    -fx-background-color: rgba(15, 23, 42, 0.88);
+    -fx-text-fill: #f8fafc;
+    -fx-background-radius: 999;
+    -fx-border-color: rgba(255, 255, 255, 0.58);
+    -fx-border-radius: 999;
+    -fx-padding: 4 8 4 8;
+    -fx-cursor: hand;
+}
+
+.agency-info-card {
+    -fx-background-color: rgba(8, 15, 27, 0.78);
+    -fx-background-radius: 24;
+    -fx-border-color: rgba(148, 163, 184, 0.34);
+    -fx-border-radius: 24;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 26, 0.28, 0, 8);
+}
+
+.root.signed-in-clean-shell .user-profile-card.agency-info-card {
+    -fx-background-insets: 0;
+    -fx-border-width: 1;
+    -fx-padding: 2;
+}
+.root.signed-in-clean-shell .agency-lower-section > VBox:first-child {
+    -fx-spacing: 12;
+}
+
+.agency-name-title {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 32px;
+    -fx-font-weight: 800;
+    -fx-line-spacing: 1px;
+}
+
+.agency-info-section-title {
+    -fx-text-fill: rgba(196, 181, 253, 0.95);
+    -fx-font-size: 12px;
+    -fx-font-weight: 800;
+    -fx-letter-spacing: 0.6px;
+    -fx-padding: 0 0 4 0;
+}
+
+.agency-verified-badge {
+    -fx-text-fill: #052e16;
+    -fx-font-size: 10px;
+    -fx-font-weight: 800;
+    -fx-background-color: rgba(74, 222, 128, 0.9);
+    -fx-background-radius: 999;
+    -fx-padding: 4 8 4 8;
+}
+
+.agency-info-row {
+    -fx-padding: 6 0 6 0;
+}
+
+.agency-info-row-separator .line {
+    -fx-border-color: rgba(196, 181, 253, 0.22);
+    -fx-border-width: 1 0 0 0;
+}
+
+.agency-field-icon {
+    -fx-font-size: 19px;
+    -fx-min-width: 30px;
+    -fx-alignment: center;
+    -fx-text-fill: #bae6fd;
+}
+
+.agency-posts-scroll {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.agency-posts-scroll > .viewport {
+    -fx-background-color: transparent;
+}
+
+.agency-page-scroll {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.agency-page-scroll > .viewport {
+    -fx-background-color: transparent;
+}
+
+/* Agencies page scroll: keep scroll behavior but hide scrollbar chrome (same as sign-up sidebar). */
+.root.signed-in-clean-shell .agency-page-scroll.scroll-pane > .scroll-bar:vertical,
+.root.signed-in-clean-shell .agency-page-scroll.scroll-pane > .scroll-bar:horizontal {
+    -fx-pref-width: 0 !important;
+    -fx-max-width: 0 !important;
+    -fx-min-width: 0 !important;
+    -fx-pref-height: 0 !important;
+    -fx-max-height: 0 !important;
+    -fx-min-height: 0 !important;
+    -fx-opacity: 0 !important;
+    -fx-padding: 0 !important;
+}
+
+.root.signed-in-clean-shell .agency-page-scroll.scroll-pane > .scroll-bar .track,
+.root.signed-in-clean-shell .agency-page-scroll.scroll-pane > .scroll-bar .thumb,
+.root.signed-in-clean-shell .agency-page-scroll.scroll-pane > .scroll-bar .increment-button,
+.root.signed-in-clean-shell .agency-page-scroll.scroll-pane > .scroll-bar .decrement-button,
+.root.signed-in-clean-shell .agency-page-scroll.scroll-pane > .scroll-bar .increment-arrow,
+.root.signed-in-clean-shell .agency-page-scroll.scroll-pane > .scroll-bar .decrement-arrow,
+.root.signed-in-clean-shell .agency-page-scroll.scroll-pane > .corner {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+    -fx-shape: "";
+}
+
+/* Hard hide fallback for skins that don't match .scroll-pane compound selectors. */
+.root.signed-in-clean-shell .agency-page-scroll > .scroll-bar:vertical,
+.root.signed-in-clean-shell .agency-page-scroll > .scroll-bar:horizontal {
+    -fx-pref-width: 0 !important;
+    -fx-max-width: 0 !important;
+    -fx-min-width: 0 !important;
+    -fx-pref-height: 0 !important;
+    -fx-max-height: 0 !important;
+    -fx-min-height: 0 !important;
+    -fx-opacity: 0 !important;
+    -fx-padding: 0 !important;
+}
+
+.root.signed-in-clean-shell .agency-page-scroll > .scroll-bar .track,
+.root.signed-in-clean-shell .agency-page-scroll > .scroll-bar .thumb,
+.root.signed-in-clean-shell .agency-page-scroll > .scroll-bar .increment-button,
+.root.signed-in-clean-shell .agency-page-scroll > .scroll-bar .decrement-button,
+.root.signed-in-clean-shell .agency-page-scroll > .scroll-bar .increment-arrow,
+.root.signed-in-clean-shell .agency-page-scroll > .scroll-bar .decrement-arrow {
+    -fx-background-color: transparent !important;
+    -fx-background-insets: 0 !important;
+    -fx-padding: 0 !important;
+    -fx-shape: "" !important;
+}
+
+/* My agency page: force signed-in dark surfaces (prevent Modena white viewport/content). */
+.root.signed-in-clean-shell .agency-page-scroll,
+.root.signed-in-clean-shell .agency-page-scroll > .viewport,
+.root.signed-in-clean-shell .agency-page-scroll > .corner,
+.root.signed-in-clean-shell .scroll-pane.agency-page-scroll,
+.root.signed-in-clean-shell .scroll-pane.agency-page-scroll > .viewport,
+.root.signed-in-clean-shell .scroll-pane.agency-page-scroll > .corner,
+.root.signed-in-clean-shell .agency-page-root,
+.root.signed-in-clean-shell .agency-page-content {
+    -fx-background-color: transparent !important;
+    -fx-control-inner-background: transparent !important;
+}
+
+.agency-post-card {
+    -fx-background-color: rgba(9, 17, 32, 0.85);
+    -fx-background-radius: 16;
+    -fx-border-color: rgba(148, 163, 184, 0.25);
+    -fx-border-radius: 16;
+    -fx-padding: 14 14 14 14;
+}
+
+.root.signed-in-clean-shell .user-profile-card.agency-post-card {
+    -fx-background-color: linear-gradient(to bottom,
+            rgba(255, 255, 255, 0.10),
+            rgba(139, 92, 246, 0.09),
+            rgba(8, 6, 22, 0.58));
+    -fx-background-radius: 20;
+    -fx-border-color: rgba(196, 181, 253, 0.36);
+    -fx-border-radius: 20;
+    -fx-border-width: 1;
+    -fx-padding: 16 16 16 16;
+}
+
+.agency-posts-panel-card {
+    -fx-spacing: 10;
+    -fx-background-insets: 0;
+}
+.root.signed-in-clean-shell .user-profile-card.agency-posts-panel-card {
+    -fx-background-color: linear-gradient(to bottom,
+            rgba(255, 255, 255, 0.10),
+            rgba(139, 92, 246, 0.09),
+            rgba(8, 6, 22, 0.58));
+    -fx-border-color: rgba(196, 181, 253, 0.42);
+    -fx-border-radius: 24;
+    -fx-background-radius: 24;
+    -fx-padding: 2;
+}
+
+.agency-post-author {
+    -fx-text-fill: #f8fafc;
+    -fx-font-size: 18px;
+    -fx-font-weight: 700;
+}
+
+.agency-post-avatar-shell {
+    -fx-min-width: 48;
+    -fx-min-height: 48;
+    -fx-pref-width: 48;
+    -fx-pref-height: 48;
+    -fx-background-color: rgba(56, 189, 248, 0.2);
+    -fx-background-radius: 999;
+    -fx-border-color: rgba(148, 163, 184, 0.5);
+    -fx-border-radius: 999;
+    -fx-alignment: center;
+}
+
+.agency-post-avatar-fallback {
+    -fx-text-fill: #f8fafc;
+    -fx-font-size: 16px;
+    -fx-font-weight: 700;
+}
+
+.agency-post-date {
+    -fx-text-fill: #94a3b8;
+    -fx-font-size: 11px;
+}
+
+.agency-post-title {
+    -fx-text-fill: #f8fafc;
+    -fx-font-size: 17px;
+    -fx-font-weight: 700;
+}
+
+.agency-post-content {
+    -fx-text-fill: #cbd5e1;
+    -fx-font-size: 12px;
+}
+
+.agency-post-image {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.35), 10, 0.18, 0, 3);
+}
+
+.agency-post-carousel {
+    -fx-background-color: rgba(2, 6, 23, 0.65);
+    -fx-background-radius: 12;
+    -fx-padding: 4;
+}
+
+.agency-post-carousel-controls {
+    -fx-padding: 8;
+}
+
+.agency-post-carousel-nav {
+    -fx-background-color: rgba(15, 23, 42, 0.82);
+    -fx-text-fill: #e2e8f0;
+    -fx-background-radius: 999;
+    -fx-border-color: rgba(148, 163, 184, 0.45);
+    -fx-border-radius: 999;
+    -fx-padding: 4 10 4 10;
+    -fx-cursor: hand;
+    -fx-opacity: 0;
+}
+
+.agency-post-carousel-nav:hover {
+    -fx-background-color: rgba(56, 189, 248, 0.25);
+    -fx-border-color: rgba(56, 189, 248, 0.65);
+}
+
+.agency-post-carousel-dots {
+    -fx-alignment: center;
+    -fx-padding: 0 0 4 0;
+}
+
+.agency-post-carousel-dot {
+    -fx-min-width: 8;
+    -fx-min-height: 8;
+    -fx-pref-width: 8;
+    -fx-pref-height: 8;
+    -fx-max-width: 8;
+    -fx-max-height: 8;
+    -fx-background-color: rgba(226, 232, 240, 0.45);
+    -fx-background-radius: 999;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-cursor: hand;
+}
+
+.agency-post-carousel-dot:hover {
+    -fx-background-color: rgba(186, 230, 253, 0.85);
+}
+
+.agency-post-carousel-dot-active {
+    -fx-background-color: rgba(56, 189, 248, 0.98);
+}
+
+.agency-post-actions {
+    -fx-padding: 6 0 0 0;
+}
+
+.agency-post-action-button,
+.agency-post-send-button {
+    -fx-background-color: rgba(15, 23, 42, 0.82);
+    -fx-text-fill: #e2e8f0;
+    -fx-background-radius: 999;
+    -fx-border-color: rgba(148, 163, 184, 0.4);
+    -fx-border-radius: 999;
+    -fx-padding: 5 12 5 12;
+    -fx-cursor: hand;
+}
+
+.agency-post-action-button:hover,
+.agency-post-send-button:hover {
+    -fx-background-color: rgba(56, 189, 248, 0.22);
+    -fx-border-color: rgba(56, 189, 248, 0.65);
+}
+
+.agency-post-comments-box {
+    -fx-background-color: rgba(15, 23, 42, 0.45);
+    -fx-background-radius: 12;
+    -fx-padding: 10 10 10 10;
+}
+
+.agency-comments-scroll {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.agency-comments-scroll > .viewport {
+    -fx-background-color: transparent;
+}
+
+.agency-post-comment {
+    -fx-padding: 0 0 6 0;
+}
+
+.agency-post-comment-avatar-shell {
+    -fx-min-width: 30;
+    -fx-min-height: 30;
+    -fx-pref-width: 30;
+    -fx-pref-height: 30;
+    -fx-background-color: rgba(56, 189, 248, 0.2);
+    -fx-background-radius: 999;
+    -fx-border-color: rgba(148, 163, 184, 0.4);
+    -fx-border-radius: 999;
+    -fx-alignment: center;
+}
+
+.agency-post-comment-avatar-fallback {
+    -fx-text-fill: #f8fafc;
+    -fx-font-size: 11px;
+    -fx-font-weight: 700;
+}
+
+.agency-post-comment-meta {
+    -fx-text-fill: #93c5fd;
+    -fx-font-size: 11px;
+}
+
+.agency-post-comment-content {
+    -fx-text-fill: #e2e8f0;
+    -fx-font-size: 12px;
+}
+
+/* ---------- Create agency post (larger type + hovers) ---------- */
+.agency-post-create-panel .agency-post-create-label {
+    -fx-text-fill: #e2e8f0;
+    -fx-font-size: 17px;
+    -fx-font-weight: 700;
+}
+
+.agency-post-create-panel .agency-post-create-input {
+    -fx-font-size: 16px;
+    -fx-pref-height: 44;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+}
+
+.agency-post-create-panel .agency-post-create-textarea {
+    -fx-font-size: 16px;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+}
+
+.agency-post-create-panel .agency-post-create-field-error {
+    -fx-text-fill: #fecaca;
+    -fx-font-size: 13px;
+}
+
+.agency-post-create-panel .agency-post-create-drop-hint {
+    -fx-text-fill: rgba(226, 232, 240, 0.88);
+    -fx-font-size: 15px;
+}
+
+.agency-post-create-panel .agency-post-create-feedback {
+    -fx-text-fill: #93c5fd;
+    -fx-font-size: 14px;
+}
+
+.agency-post-create-panel .agency-post-create-upload-btn:hover {
+    -fx-border-color: rgba(56, 189, 248, 0.85);
+    -fx-background-color: rgba(56, 189, 248, 0.22);
+    -fx-text-fill: #f8fafc;
+    -fx-effect: dropshadow(gaussian, rgba(56, 189, 248, 0.35), 10, 0.15, 0, 1);
+}
+
+.agency-post-create-panel .agency-post-create-submit-btn:hover {
+    -fx-border-color: rgba(56, 189, 248, 0.95);
+    -fx-background-color: rgba(56, 189, 248, 0.28);
+    -fx-text-fill: #ffffff;
+    -fx-effect: dropshadow(gaussian, rgba(56, 189, 248, 0.4), 12, 0.2, 0, 1);
+}
+
+.agency-post-create-panel .agency-post-create-cancel-btn:hover {
+    -fx-border-color: rgba(148, 163, 184, 0.75);
+    -fx-background-color: rgba(148, 163, 184, 0.14);
+    -fx-text-fill: #f1f5f9;
+}
+
+.agency-upload-drop-area {
+    -fx-background-color: rgba(15, 23, 42, 0.35);
+    -fx-border-color: rgba(148, 163, 184, 0.45);
+    -fx-border-style: segments(6, 6);
+    -fx-border-radius: 14;
+    -fx-background-radius: 14;
+    -fx-min-height: 140;
+    -fx-pref-height: 168;
+    -fx-alignment: center-left;
+}
+
+.agency-post-create-panel .agency-upload-drop-area:hover {
+    -fx-background-color: rgba(15, 23, 42, 0.5);
+    -fx-border-color: rgba(56, 189, 248, 0.35);
+}
+
+.agency-upload-drop-area-active {
+    -fx-background-color: rgba(56, 189, 248, 0.16);
+    -fx-border-color: rgba(56, 189, 248, 0.85);
+}
+
+.agency-upload-thumb-card {
+    -fx-pref-width: 212;
+    -fx-max-width: 212;
+    -fx-background-color: rgba(15, 23, 42, 0.25);
+    -fx-background-radius: 12;
+    -fx-border-color: transparent;
+    -fx-border-radius: 12;
+    -fx-border-width: 1;
+    -fx-padding: 6 6 6 6;
+}
+
+.agency-post-create-panel .agency-upload-thumb-card:hover {
+    -fx-border-color: rgba(56, 189, 248, 0.5);
+    -fx-background-color: rgba(56, 189, 248, 0.08);
+    -fx-effect: dropshadow(gaussian, rgba(56, 189, 248, 0.22), 14, 0.12, 0, 0);
+}
+
+.agency-post-create-panel .agency-upload-thumb-label {
+    -fx-font-size: 13px;
+}
+
+.agency-upload-thumb-wrap {
+    -fx-background-color: rgba(2, 6, 23, 0.65);
+    -fx-background-radius: 12;
+    -fx-border-color: rgba(148, 163, 184, 0.35);
+    -fx-border-radius: 12;
+    -fx-padding: 8;
+    -fx-min-width: 196;
+    -fx-pref-width: 196;
+    -fx-alignment: top-center;
+}
+
+.agency-upload-thumb-image {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.35), 8, 0.2, 0, 2);
+}
+
+.agency-upload-thumb-remove {
+    -fx-background-color: rgba(15, 23, 42, 0.9);
+    -fx-text-fill: #f8fafc;
+    -fx-font-size: 12px;
+    -fx-font-weight: 700;
+    -fx-background-radius: 999;
+    -fx-border-color: rgba(255, 255, 255, 0.38);
+    -fx-border-radius: 999;
+    -fx-padding: 2 7 2 7;
+    -fx-cursor: hand;
+}
+
+.agency-upload-thumb-remove:hover {
+    -fx-background-color: rgba(239, 68, 68, 0.88);
+    -fx-border-color: rgba(248, 113, 113, 0.92);
+}
+
+.agency-upload-thumb-label {
+    -fx-text-fill: #cbd5e1;
+    -fx-font-size: 12px;
+    -fx-wrap-text: true;
+    -fx-max-width: 204;
+}
+
+.agency-upload-thumbs-scroll > .viewport {
+    -fx-background-color: transparent;
+}
+
+.agency-upload-errors-list {
+    -fx-background-color: rgba(127, 29, 29, 0.18);
+    -fx-border-color: rgba(248, 113, 113, 0.45);
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+}
+
+.agency-upload-errors-list .list-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: #fecaca;
+    -fx-font-size: 11px;
+}
+
+.agency-info-text {
+    -fx-text-fill: rgba(226, 232, 240, 0.94);
+    -fx-font-size: 14px;
+}
+
+.agency-edit-icon {
+    -fx-opacity: 0;
+    -fx-background-color: rgba(15, 23, 42, 0.68);
+    -fx-text-fill: #cbd5e1;
+    -fx-background-radius: 999;
+    -fx-border-color: rgba(148, 163, 184, 0.32);
+    -fx-border-radius: 999;
+    -fx-padding: 4 7 4 7;
+    -fx-cursor: hand;
+}
+
+.agency-info-row:hover .agency-edit-icon {
+    -fx-opacity: 1;
+}
+
+.agency-edit-panel {
+    -fx-background-color: rgba(2, 6, 23, 0.58);
+    -fx-background-radius: 12;
+    -fx-padding: 10 10 10 10;
+}
+
+.agency-edit-field-error {
+    -fx-text-fill: #fecaca;
+    -fx-font-size: 12px;
+    -fx-wrap-text: true;
+}
+
+.agency-tab-pill {
+    -fx-background-color: rgba(15, 23, 42, 0.52);
+    -fx-text-fill: #dbeafe;
+    -fx-background-radius: 999;
+    -fx-border-color: rgba(148, 163, 184, 0.35);
+    -fx-border-radius: 999;
+    -fx-padding: 8 18 8 18;
+    -fx-font-weight: 700;
+    -fx-cursor: hand;
+}
+
+.agency-tab-pill:hover {
+    -fx-border-color: rgba(56, 189, 248, 0.6);
+    -fx-background-color: rgba(56, 189, 248, 0.16);
+}
+
+.agency-tab-pill-active {
+    -fx-background-color: rgba(15, 23, 42, 0.52);
+    -fx-border-color: rgba(56, 189, 248, 0.62);
+    -fx-text-fill: #ffffff;
+}
+
+.agency-main-placeholder {
+    -fx-background-color: rgba(8, 15, 27, 0.68);
+    -fx-background-radius: 18;
+    -fx-border-color: rgba(148, 163, 184, 0.22);
+    -fx-border-radius: 18;
+    -fx-min-height: 360;
+}
+
+.agency-page-root {
+    -fx-background-color: transparent;
+}
+
+.agency-page-content {
+    -fx-background-color: transparent;
+}
+
+.agency-header-row {
+    -fx-background-color: rgba(8, 15, 27, 0.5);
+    -fx-background-radius: 16;
+    -fx-border-color: rgba(148, 163, 184, 0.22);
+    -fx-border-radius: 16;
+    -fx-padding: 10 12 10 12;
+}
+
+/* My agency header should match agencies/my-profile hierarchy and beat Modena control chrome. */
+.root.signed-in-clean-shell .agency-header-row {
+    -fx-background-color: rgba(8, 15, 27, 0.56);
+    -fx-border-color: rgba(196, 181, 253, 0.22);
+    -fx-border-radius: 18;
+    -fx-background-radius: 18;
+    -fx-padding: 12 14 12 14;
+}
+.root.signed-in-clean-shell .agency-header-row .user-profile-header {
+    -fx-padding: 2 2 2 2;
+}
+.root.signed-in-clean-shell .agency-header-row .user-profile-kicker {
+    -fx-text-fill: rgba(196, 181, 253, 0.95);
+}
+.root.signed-in-clean-shell .agency-header-row .user-profile-title {
+    -fx-text-fill: #f8fafc;
+    -fx-font-size: 34px;
+    -fx-font-weight: 800;
+}
+.root.signed-in-clean-shell .agency-header-row .user-profile-subtitle {
+    -fx-text-fill: rgba(203, 213, 225, 0.9);
+    -fx-font-size: 14px;
+}
+.root.signed-in-clean-shell .button.agency-my-profile-back-button,
+.root.signed-in-clean-shell .agency-my-profile-back-button {
+    -fx-background-insets: 0 !important;
+    -fx-border-insets: 0 !important;
+    -fx-background-color: rgba(255, 255, 255, 0.08) !important;
+    -fx-border-color: rgba(196, 181, 253, 0.42) !important;
+    -fx-text-fill: #f8fafc !important;
+    -fx-font-size: 13px;
+    -fx-font-weight: 800;
+    -fx-padding: 12 18 12 18;
+    -fx-background-radius: 12 !important;
+    -fx-border-radius: 12 !important;
+    -fx-border-width: 1 !important;
+    -fx-focus-color: rgba(167, 139, 250, 0.42) !important;
+    -fx-faint-focus-color: transparent !important;
+}
+.root.signed-in-clean-shell .button.agency-my-profile-back-button:hover,
+.root.signed-in-clean-shell .agency-my-profile-back-button:hover {
+    -fx-background-color: rgba(139, 92, 246, 0.2) !important;
+    -fx-border-color: rgba(196, 181, 253, 0.56) !important;
+    -fx-text-fill: #ffffff !important;
+}
+
+.agency-lower-section {
+    -fx-padding: 2 0 0 0;
+}
+
+.agency-tabs-row {
+    -fx-padding: 2 0 0 0;
+}
+
+.agency-tabs-attached {
+    -fx-padding: 0 0 4 0;
+    -fx-translate-y: -34;
+}
+
+.agency-tab-segmented {
+    -fx-background-color: rgba(15, 23, 42, 0.72);
+    -fx-background-radius: 999;
+    -fx-border-color: rgba(148, 163, 184, 0.4);
+    -fx-border-radius: 999;
+    -fx-padding: 2;
+}
+
+.agency-tab-pill-segment {
+    -fx-background-radius: 999;
+    -fx-border-radius: 999;
+    -fx-border-color: transparent;
+    -fx-padding: 8 16 8 16;
+}
+
+.agency-main-content-panel {
+    -fx-background-color: linear-gradient(to bottom, rgba(8, 15, 27, 0.78), rgba(6, 12, 22, 0.74));
+    -fx-background-radius: 18;
+    -fx-border-color: rgba(148, 163, 184, 0.22);
+    -fx-border-radius: 18;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.45), 18, 0.2, 0, 5);
+    -fx-min-height: 380;
+}
+
+.root.signed-in-clean-shell .agency-main-content-panel {
+    -fx-background-color: rgba(7, 12, 24, 0.48);
+    -fx-border-color: rgba(196, 181, 253, 0.22);
+    -fx-border-radius: 18;
+    -fx-background-radius: 18;
+    -fx-padding: 2;
+}
+
+.root.signed-in-clean-shell .agency-tabs-row {
+    -fx-padding: 6 2 6 2;
+    -fx-border-color: rgba(196, 181, 253, 0.2);
+    -fx-border-width: 0 0 1 0;
+}
+
+.agency-main-title {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 28px;
+    -fx-font-weight: 800;
+}
+
+.agency-main-subtitle {
+    -fx-text-fill: rgba(226, 232, 240, 0.9);
+    -fx-font-size: 13px;
+}
+
+.event-card:hover {
+    -fx-translate-y: -1;
+    -fx-effect: dropshadow(gaussian, rgba(147, 51, 234, 0.28), 20, 0.24, 0, 7);
+}
+.agency-post-create-panel .agency-post-create-label {
+    -fx-text-fill: #e2e8f0;
+    -fx-font-size: 17px;
+    -fx-font-weight: 700;
+}
+
+.agency-post-create-panel .agency-post-create-input {
+    -fx-font-size: 16px;
+    -fx-pref-height: 44;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+}
+
+.agency-post-create-panel .agency-post-create-textarea {
+    -fx-font-size: 16px;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+}
+
+.agency-post-create-panel .agency-post-create-field-error {
+    -fx-text-fill: #fecaca;
+    -fx-font-size: 13px;
+}
+
+.agency-post-create-panel .agency-post-create-drop-hint {
+    -fx-text-fill: rgba(226, 232, 240, 0.88);
+    -fx-font-size: 15px;
+}
+
+.agency-post-create-panel .agency-post-create-feedback {
+    -fx-text-fill: #93c5fd;
+    -fx-font-size: 14px;
+}
+
+.agency-post-create-panel .agency-post-create-upload-btn:hover {
+    -fx-border-color: rgba(56, 189, 248, 0.85);
+    -fx-background-color: rgba(56, 189, 248, 0.22);
+    -fx-text-fill: #f8fafc;
+    -fx-effect: dropshadow(gaussian, rgba(56, 189, 248, 0.35), 10, 0.15, 0, 1);
+}
+
+.agency-post-create-panel .agency-post-create-submit-btn:hover {
+    -fx-border-color: rgba(56, 189, 248, 0.95);
+    -fx-background-color: rgba(56, 189, 248, 0.28);
+    -fx-text-fill: #ffffff;
+    -fx-effect: dropshadow(gaussian, rgba(56, 189, 248, 0.4), 12, 0.2, 0, 1);
+}
+
+.agency-post-create-panel .agency-post-create-cancel-btn:hover {
+    -fx-border-color: rgba(148, 163, 184, 0.75);
+    -fx-background-color: rgba(148, 163, 184, 0.14);
+    -fx-text-fill: #f1f5f9;
+}
+
+.agency-upload-drop-area {
+    -fx-background-color: rgba(15, 23, 42, 0.35);
+    -fx-border-color: rgba(148, 163, 184, 0.45);
+    -fx-border-style: segments(6, 6);
+    -fx-border-radius: 14;
+    -fx-background-radius: 14;
+    -fx-min-height: 140;
+    -fx-pref-height: 168;
+    -fx-alignment: center-left;
+}
+
+.agency-post-create-panel .agency-upload-drop-area:hover {
+    -fx-background-color: rgba(15, 23, 42, 0.5);
+    -fx-border-color: rgba(56, 189, 248, 0.35);
+}
+
+.agency-upload-drop-area-active {
+    -fx-background-color: rgba(56, 189, 248, 0.16);
+    -fx-border-color: rgba(56, 189, 248, 0.85);
+}
+
+.agency-upload-thumb-card {
+    -fx-pref-width: 212;
+    -fx-max-width: 212;
+    -fx-background-color: rgba(15, 23, 42, 0.25);
+    -fx-background-radius: 12;
+    -fx-border-color: transparent;
+    -fx-border-radius: 12;
+    -fx-border-width: 1;
+    -fx-padding: 6 6 6 6;
+}
+
+.agency-post-create-panel .agency-upload-thumb-card:hover {
+    -fx-border-color: rgba(56, 189, 248, 0.5);
+    -fx-background-color: rgba(56, 189, 248, 0.08);
+    -fx-effect: dropshadow(gaussian, rgba(56, 189, 248, 0.22), 14, 0.12, 0, 0);
+}
+
+.agency-post-create-panel .agency-upload-thumb-label {
+    -fx-font-size: 13px;
+}
+
+.agency-upload-thumb-wrap {
+    -fx-background-color: rgba(2, 6, 23, 0.65);
+    -fx-background-radius: 12;
+    -fx-border-color: rgba(148, 163, 184, 0.35);
+    -fx-border-radius: 12;
+    -fx-padding: 8;
+    -fx-min-width: 196;
+    -fx-pref-width: 196;
+    -fx-alignment: top-center;
+}
+.event-form-ok-btn {
+    -fx-background-color: linear-gradient(to right, #2563eb, #1d4ed8);
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: 800;
+    -fx-background-radius: 6;
+    -fx-padding: 7 14 7 14;
+    -fx-font-size: 12px;
+}
+
+.event-form-cancel-btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: #e2e8f0;
+    -fx-border-color: rgba(100, 116, 139, 0.52);
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-padding: 7 12 7 12;
+    -fx-font-size: 12px;
+}
+
+.event-form-ok-btn:hover,
+.event-form-cancel-btn:hover {
+    -fx-opacity: 0.93;
+}
+
+/* ---------- User profile page ---------- */
+.user-profile-root {
+    -fx-alignment: top-center;
+}
+
+
+/* === SmartVoyage additions === */
+.offers-search-shell {
+    -fx-background-color: rgba(15, 23, 42, 0.55);
+    -fx-background-radius: 14;
+    -fx-border-color: rgba(167, 139, 250, 0.35);
+    -fx-border-radius: 14;
+    -fx-border-width: 1;
+    -fx-padding: 6 12 6 12;
+}
+.offers-search-shell-focused {
+    -fx-border-color: rgba(236, 72, 153, 0.55);
+    -fx-effect: dropshadow(gaussian, rgba(236, 72, 153, 0.25), 12, 0.22, 0, 0);
+}
+.offers-search-icon {
+    -fx-text-fill: rgba(226, 232, 240, 0.85);
+    -fx-font-size: 14px;
+    -fx-font-weight: 700;
+}
+.offers-search-input {
+    -fx-background-color: transparent;
+    -fx-text-fill: #f8fafc;
+    -fx-prompt-text-fill: rgba(148, 163, 184, 0.8);
+    -fx-border-color: transparent;
+}
+
+.agency-symfony-choice {
+    -fx-background-color: rgba(30, 41, 59, 0.92);
+    -fx-border-color: rgba(100, 116, 139, 0.45);
+    -fx-border-radius: 14;
+    -fx-background-radius: 14;
+    -fx-border-width: 1;
+    -fx-font-size: 14px;
+}
+.agency-symfony-choice > .label {
+    -fx-text-fill: #e2e8f0;
+}
+.agency-symfony-choice:hover {
+    -fx-border-color: rgba(196, 181, 253, 0.55);
+}
+.agency-symfony-choice:focused,
+.agency-symfony-choice:showing {
+    -fx-border-color: rgba(139, 92, 246, 0.65);
+    -fx-effect: dropshadow(gaussian, rgba(139, 92, 246, 0.22), 12, 0.2, 0, 0);
+}
+/* ChoiceBoxSkin: .open-button > .arrow; ComboBox uses .arrow-button — cover both. */
+.agency-symfony-choice > .open-button {
+    -fx-background-color: rgba(2, 6, 23, 0.35);
+    -fx-background-radius: 0 14 14 0;
+}
+.agency-symfony-choice > .open-button:hover {
+    -fx-background-color: rgba(139, 92, 246, 0.28);
+}
+.agency-symfony-choice > .open-button > .arrow {
+    -fx-background-color: rgba(226, 232, 240, 0.88);
+}
+.agency-symfony-choice .arrow-button {
+    -fx-background-color: rgba(2, 6, 23, 0.35);
+    -fx-background-radius: 0 14 14 0;
+}
+.agency-symfony-choice .arrow-button:hover {
+    -fx-background-color: rgba(139, 92, 246, 0.28);
+}
+
+/* Keep agency directory overflow discoverable on all displays. */
+.root.signed-in-clean-shell .agency-directory-scroll .scroll-bar:vertical,
+.root.signed-in-clean-shell .agency-directory-scroll .scroll-bar:horizontal,
+.signed-in-clean-shell .scroll-pane.agency-directory-scroll .scroll-bar:vertical,
+.signed-in-clean-shell .scroll-pane.agency-directory-scroll .scroll-bar:horizontal {
+    -fx-opacity: 1 !important;
+    -fx-pref-width: 10 !important;
+    -fx-pref-height: 10 !important;
+    -fx-max-width: 10 !important;
+    -fx-max-height: 10 !important;
+    -fx-padding: 0 !important;
+}
+.root.signed-in-clean-shell .agency-directory-scroll .scroll-bar .track,
+.root.signed-in-clean-shell .agency-directory-scroll .scroll-bar .thumb,
+.root.signed-in-clean-shell .agency-directory-scroll .scroll-bar .increment-button,
+.root.signed-in-clean-shell .agency-directory-scroll .scroll-bar .decrement-button,
+.root.signed-in-clean-shell .agency-directory-scroll .scroll-bar .increment-arrow,
+.root.signed-in-clean-shell .agency-directory-scroll .scroll-bar .decrement-arrow,
+.root.signed-in-clean-shell .agency-directory-scroll .corner,
+.signed-in-clean-shell .scroll-pane.agency-directory-scroll .scroll-bar .track,
+.signed-in-clean-shell .scroll-pane.agency-directory-scroll .scroll-bar .thumb,
+.signed-in-clean-shell .scroll-pane.agency-directory-scroll .scroll-bar .increment-button,
+.signed-in-clean-shell .scroll-pane.agency-directory-scroll .scroll-bar .decrement-button,
+.signed-in-clean-shell .scroll-pane.agency-directory-scroll .scroll-bar .increment-arrow,
+.signed-in-clean-shell .scroll-pane.agency-directory-scroll .scroll-bar .decrement-arrow,
+.signed-in-clean-shell .scroll-pane.agency-directory-scroll .corner {
+    -fx-opacity: 1 !important;
+    -fx-padding: 0 !important;
+    -fx-background-color: transparent !important;
+}
+
+.root.signed-in-clean-shell .agency-directory-scroll .scroll-bar .track,
+.signed-in-clean-shell .scroll-pane.agency-directory-scroll .scroll-bar .track {
+    -fx-background-color: rgba(255, 255, 255, 0.08) !important;
+    -fx-background-radius: 999 !important;
+}
+
+.root.signed-in-clean-shell .agency-directory-scroll .scroll-bar .thumb,
+.signed-in-clean-shell .scroll-pane.agency-directory-scroll .scroll-bar .thumb {
+    -fx-background-color: rgba(196, 181, 253, 0.62) !important;
+    -fx-background-radius: 999 !important;
+}
+
+.user-profile-card.agency-directory-filters-card {
+    -fx-padding: 16 20 18 20;
+    -fx-spacing: 12;
+    -fx-background-color: linear-gradient(to bottom,
+            rgba(255, 255, 255, 0.10),
+            rgba(139, 92, 246, 0.09),
+            rgba(8, 6, 22, 0.58));
+    -fx-background-radius: 24;
+    -fx-border-color: rgba(196, 181, 253, 0.48);
+    -fx-border-radius: 24;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.48), 30, 0.26, 0, 12),
+                dropshadow(gaussian, rgba(139, 92, 246, 0.34), 26, 0.28, 0, 0),
+                innershadow(gaussian, rgba(255, 255, 255, 0.14), 20, 0.26, 0, -1),
+                innershadow(gaussian, rgba(167, 139, 250, 0.10), 28, 0.20, 0, 0);
+}
+
+/* Step 1 — filter row; !important beats Modena UA on TextField / ChoiceBox / .button (see user-profile-avatar-fab) */
+.root.signed-in-clean-shell .hero-foreground-pane .agency-symfony-filter-bar {
+    -fx-padding: 4 0 0 0;
+    -fx-spacing: 10;
+    -fx-alignment: center-left;
+}
+.root.signed-in-clean-shell .hero-foreground-pane .text-input.agency-symfony-search,
+.root.signed-in-clean-shell .hero-foreground-pane .text-field.agency-symfony-search {
+    -fx-background-insets: 0 !important;
+    -fx-border-insets: 0 !important;
+    -fx-background-color: rgba(255, 255, 255, 0.035) !important;
+    -fx-control-inner-background: rgba(10, 15, 30, 0.92) !important;
+    -fx-text-fill: #f8fafc !important;
+    -fx-prompt-text-fill: rgba(226, 232, 240, 0.52) !important;
+    -fx-border-color: rgba(196, 181, 253, 0.22) !important;
+    -fx-border-width: 1 !important;
+    -fx-border-radius: 14 !important;
+    -fx-background-radius: 14 !important;
+    -fx-padding: 10 12 10 12;
+    -fx-font-size: 14px;
+    -fx-focus-color: transparent !important;
+    -fx-faint-focus-color: transparent !important;
+    -fx-effect: dropshadow(gaussian, rgba(2, 6, 23, 0.5), 14, 0.2, 0, 3),
+                dropshadow(gaussian, rgba(139, 92, 246, 0.12), 12, 0.18, 0, 0);
+}
+.root.signed-in-clean-shell .hero-foreground-pane .text-input.agency-symfony-search:focused,
+.root.signed-in-clean-shell .hero-foreground-pane .text-field.agency-symfony-search:focused {
+    -fx-border-color: rgba(186, 170, 255, 0.92) !important;
+    -fx-effect: dropshadow(gaussian, rgba(167, 139, 250, 0.38), 16, 0.22, 0, 0),
+                dropshadow(gaussian, rgba(139, 92, 246, 0.28), 12, 0.18, 0, 0);
+}
+.root.signed-in-clean-shell .hero-foreground-pane ChoiceBox.agency-symfony-choice,
+.root.signed-in-clean-shell .hero-foreground-pane .choice-box.agency-symfony-choice {
+    -fx-background-insets: 0 !important;
+    -fx-border-insets: 0 !important;
+    -fx-background-color: rgba(255, 255, 255, 0.035) !important;
+    -fx-border-color: rgba(196, 181, 253, 0.22) !important;
+    -fx-border-radius: 14 !important;
+    -fx-background-radius: 14 !important;
+    -fx-border-width: 1 !important;
+    -fx-font-size: 14px;
+    -fx-focus-color: transparent !important;
+    -fx-faint-focus-color: transparent !important;
+    -fx-effect: dropshadow(gaussian, rgba(2, 6, 23, 0.5), 14, 0.2, 0, 3),
+                dropshadow(gaussian, rgba(139, 92, 246, 0.12), 12, 0.18, 0, 0);
+}
+.root.signed-in-clean-shell .hero-foreground-pane .agency-symfony-choice > .label {
+    -fx-text-fill: #f8fafc !important;
+    -fx-background-color: transparent !important;
+    -fx-background-insets: 0 !important;
+    -fx-border-width: 0 !important;
+}
+.root.signed-in-clean-shell .hero-foreground-pane .agency-symfony-choice:hover {
+    -fx-border-color: rgba(196, 181, 253, 0.45) !important;
+}
+.root.signed-in-clean-shell .hero-foreground-pane .agency-symfony-choice:focused,
+.root.signed-in-clean-shell .hero-foreground-pane .agency-symfony-choice:showing {
+    -fx-border-color: rgba(186, 170, 255, 0.92) !important;
+    -fx-effect: dropshadow(gaussian, rgba(167, 139, 250, 0.38), 16, 0.22, 0, 0),
+                dropshadow(gaussian, rgba(139, 92, 246, 0.28), 12, 0.18, 0, 0);
+}
+.root.signed-in-clean-shell .hero-foreground-pane .agency-symfony-choice > .open-button {
+    -fx-background-color: rgba(10, 15, 30, 0.75) !important;
+    -fx-background-radius: 0 14 14 0;
+}
+.root.signed-in-clean-shell .hero-foreground-pane .agency-symfony-choice > .open-button > .arrow {
+    -fx-background-color: rgba(248, 250, 252, 0.9) !important;
+}
+.root.signed-in-clean-shell .hero-foreground-pane .agency-symfony-choice .arrow-button {
+    -fx-background-color: rgba(10, 15, 30, 0.75) !important;
+    -fx-background-radius: 0 14 14 0;
+}
+.root.signed-in-clean-shell .hero-foreground-pane .button.agency-map-purple-button,
+.root.signed-in-clean-shell .hero-foreground-pane .button.agency-my-agency-outline {
+    -fx-background-insets: 0 !important;
+    -fx-border-insets: 0 !important;
+    -fx-font-size: 13px;
+    -fx-font-weight: 700;
+    -fx-background-radius: 12 !important;
+    -fx-border-radius: 12 !important;
+    -fx-border-width: 1 !important;
+    -fx-padding: 11 16 11 16;
+    -fx-cursor: hand;
+    -fx-focus-color: rgba(167, 139, 250, 0.45) !important;
+    -fx-faint-focus-color: transparent !important;
+}
+.root.signed-in-clean-shell .hero-foreground-pane .button.agency-map-purple-button {
+    -fx-background-color: linear-gradient(to right, rgba(109, 40, 217, 0.42), rgba(124, 58, 237, 0.28)) !important;
+    -fx-border-color: rgba(196, 181, 253, 0.42) !important;
+    -fx-text-fill: #f1f5f9 !important;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 14, 0.24, 0, 3);
+}
+.root.signed-in-clean-shell .hero-foreground-pane .button.agency-map-purple-button:hover {
+    -fx-background-color: linear-gradient(to right, rgba(124, 58, 237, 0.55), rgba(139, 92, 246, 0.38)) !important;
+    -fx-border-color: rgba(221, 214, 254, 0.55) !important;
+    -fx-text-fill: #ffffff !important;
+}
+.root.signed-in-clean-shell .hero-foreground-pane .button.agency-my-agency-outline {
+    -fx-background-color: rgba(255, 255, 255, 0.06) !important;
+    -fx-border-color: rgba(196, 181, 253, 0.35) !important;
+    -fx-text-fill: #f1f5f9 !important;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.35), 12, 0.22, 0, 2);
+}
+.root.signed-in-clean-shell .hero-foreground-pane .button.agency-my-agency-outline:hover {
+    -fx-background-color: rgba(139, 92, 246, 0.16) !important;
+    -fx-border-color: rgba(196, 181, 253, 0.52) !important;
+    -fx-text-fill: #ffffff !important;
+}
+.root.signed-in-clean-shell .hero-foreground-pane .agency-map-purple-button:pressed,
+.root.signed-in-clean-shell .hero-foreground-pane .agency-my-agency-outline:pressed {
+    -fx-scale-x: 0.98;
+    -fx-scale-y: 0.98;
+}
+
+.user-profile-card.agency-directory-card {
+    -fx-padding: 0;
+    -fx-spacing: 0;
+    -fx-background-insets: 0;
+    -fx-min-height: 500px;
+    -fx-pref-height: 500px;
+    -fx-max-height: 500px;
+    -fx-background-color: linear-gradient(to bottom,
+            rgba(255, 255, 255, 0.10),
+            rgba(139, 92, 246, 0.09),
+            rgba(8, 6, 22, 0.58));
+    -fx-background-radius: 24;
+    -fx-border-color: rgba(196, 181, 253, 0.48);
+    -fx-border-radius: 24;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.48), 30, 0.26, 0, 12),
+                dropshadow(gaussian, rgba(139, 92, 246, 0.34), 26, 0.28, 0, 0),
+                innershadow(gaussian, rgba(255, 255, 255, 0.14), 20, 0.26, 0, -1),
+                innershadow(gaussian, rgba(167, 139, 250, 0.10), 28, 0.20, 0, 0);
+}
+.user-profile-card.agency-directory-card:hover {
+    -fx-border-color: rgba(196, 181, 253, 0.72);
+    -fx-effect: dropshadow(gaussian, rgba(139, 92, 246, 0.42), 34, 0.30, 0, 6),
+                dropshadow(gaussian, rgba(0, 0, 0, 0.52), 32, 0.28, 0, 14),
+                innershadow(gaussian, rgba(255, 255, 255, 0.16), 20, 0.26, 0, -1),
+                innershadow(gaussian, rgba(167, 139, 250, 0.12), 28, 0.20, 0, 0);
+    -fx-translate-y: -2;
+}
+.user-profile-card.agency-directory-card .agency-directory-body {
+    -fx-background-color: rgba(5, 8, 18, 0.25);
+}
+/* Body: identity row (logo + title + meta) then description — below the banner only. */
+.root.signed-in-clean-shell .user-profile-card.agency-directory-card .agency-directory-body {
+    -fx-spacing: 8;
+}
+.root.signed-in-clean-shell .user-profile-card.agency-directory-card .agency-directory-title {
+    -fx-font-family: "Segoe UI Semibold", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    -fx-font-size: 34px;
+    -fx-font-weight: 800;
+    -fx-line-spacing: -0.5px;
+}
+
+.root.signed-in-clean-shell .user-profile-card.agency-directory-card .agency-directory-location-line {
+    -fx-text-fill: rgba(196, 181, 253, 0.88);
+    -fx-font-size: 12px;
+    -fx-font-weight: 500;
+}
+
+.root.signed-in-clean-shell .user-profile-card.agency-directory-card .agency-directory-identity-row {
+    -fx-spacing: 14;
+    -fx-alignment: center-left;
+}
+.root.signed-in-clean-shell .user-profile-card.agency-directory-card .agency-directory-desc {
+    -fx-font-family: "Georgia", "Palatino Linotype", "Times New Roman", serif;
+    -fx-font-size: 15px;
+    -fx-font-weight: 400;
+    -fx-line-spacing: 3px;
+    -fx-text-fill: rgba(226, 232, 240, 0.9);
+    -fx-alignment: top-left;
+}
+.root.signed-in-clean-shell .user-profile-card.agency-directory-card .agency-directory-title-row {
+    -fx-spacing: 10;
+}
+.user-profile-card.agency-directory-card .agency-directory-footer {
+    -fx-background-color: rgba(8, 6, 22, 0.5);
+    -fx-background-radius: 0 0 24 24;
+    -fx-border-color: rgba(196, 181, 253, 0.12);
+    -fx-border-width: 1 0 0 0;
+}
+.user-profile-card.agency-directory-card .agency-directory-hero {
+    -fx-background-radius: 24 24 0 0;
+}
+
+/* View agency — values copied from welcome Continue; !important beats Modena on Button */
+.root.signed-in-clean-shell .button.agency-directory-cta,
+.root.signed-in-clean-shell .agency-directory-cta {
+    -fx-background-insets: 0 !important;
+    -fx-border-insets: 0 !important;
+    -fx-background-color: linear-gradient(to right, #7c3aed, #db2777) !important;
+    -fx-text-fill: white !important;
+    -fx-font-weight: 800;
+    -fx-font-size: 15px;
+    -fx-background-radius: 16 !important;
+    -fx-padding: 15 22 15 22;
+    -fx-min-height: 50px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(124, 58, 237, 0.45), 18, 0.28, 0, 2);
+    -fx-border-width: 0 !important;
+    -fx-focus-color: rgba(167, 139, 250, 0.5) !important;
+    -fx-faint-focus-color: rgba(0, 0, 0, 0) !important;
+}
+.root.signed-in-clean-shell .button.agency-directory-cta:hover,
+.root.signed-in-clean-shell .agency-directory-cta:hover {
+    -fx-background-color: linear-gradient(to right, #8b5cf6, #ec4899) !important;
+    -fx-text-fill: white !important;
+}
+.root.signed-in-clean-shell .button.agency-directory-cta:focused,
+.root.signed-in-clean-shell .agency-directory-cta:focused {
+    -fx-background-color: linear-gradient(to right, #7c3aed, #db2777) !important;
+    -fx-text-fill: white !important;
+}
+
+/* === Clean signed-in sidebar === */
+.sv-si-sidebar {
+    -fx-background-color: linear-gradient(to bottom, #07112E 0%, #081430 48%, #0A1635 100%);
+    -fx-border-color: rgba(99, 102, 241, 0.22);
+    -fx-border-width: 0 1 0 0;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.55), 26, 0.32, 6, 0);
+    -fx-padding: 22 16 18 16;
+    -fx-spacing: 10;
+}
+.sv-si-sidebar .smart-auth-brand-dock {
+    -fx-spacing: 4;
+    -fx-padding: 14 26 2 26;
+}
+.sv-si-sidebar .smart-auth-brand-lockup {
+    -fx-spacing: 4;
+}
+.root.signed-in-clean-shell .sv-si-sidebar .smart-auth-brand-dock {
+    -fx-background-color: linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0) 100%);
+}
+.root.signed-in-clean-shell .sv-si-sidebar .smart-auth-brand-lockup {
+    -fx-alignment: TOP_LEFT;
+}
+.root.signed-in-clean-shell .sv-si-sidebar .smart-auth-brand-logo {
+    -fx-blend-mode: screen;
+    -fx-opacity: 0.98;
+}
+.root.signed-in-clean-shell .sv-si-sidebar .smart-auth-accent-bar {
+    -fx-background-color: linear-gradient(to right, rgba(251, 113, 133, 0.95), rgba(192, 132, 252, 0.85), rgba(129, 140, 248, 0.65), rgba(255, 255, 255, 0));
+    -fx-background-radius: 3;
+    -fx-effect: dropshadow(gaussian, rgba(236, 72, 153, 0.5), 10, 0.45, 0, 0);
+}
+.root.signed-in-clean-shell .sv-si-sidebar .smart-auth-brand-strap {
+    -fx-text-fill: rgba(176, 176, 176, 0.88);
+    -fx-font-size: 11px;
+    -fx-font-weight: 400;
+    -fx-font-family: "Segoe UI", "Inter", "Montserrat", "Segoe UI", sans-serif;
+    -fx-letter-spacing: 0.15px;
+}
+.root.signed-in-clean-shell .sv-si-sidebar .smart-auth-rule {
+    -fx-background-color: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(167, 139, 250, 0.22), rgba(255, 255, 255, 0));
+}
+.root.signed-in-clean-shell .sv-si-sidebar .smart-auth-rule-tight {
+    -fx-opacity: 0.85;
+}
+.root.signed-in-clean-shell .signed-in-shell-sidebar-host > .smart-auth-edge-aura {
+    -fx-background-radius: 36;
+    -fx-background-insets: -5;
+    -fx-opacity: 0.55;
+    -fx-background-color: linear-gradient(from 100% 0% to 0% 100%, rgba(220, 120, 255, 0.14) 0%, rgba(130, 80, 255, 0.1) 45%, rgba(255, 120, 200, 0.12) 100%);
+}
+.root.signed-in-clean-shell .signed-in-shell-sidebar-host > .smart-auth-edge-aura.smart-auth-edge-aura-hot {
+    -fx-opacity: 0.88;
+    -fx-background-color: linear-gradient(from 100% 0% to 0% 100%, rgba(236, 140, 255, 0.22) 0%, rgba(150, 100, 255, 0.16) 50%, rgba(255, 140, 210, 0.18) 100%);
+}
+.root.signed-in-clean-shell .sv-si-sidebar.smart-auth-sidebar-outer {
+    -fx-background-color: linear-gradient(to bottom, #0B0F1F 0%, #080c18 55%, #0A0D18 100%),
+                          linear-gradient(to right, rgba(123, 92, 255, 0) 0%, rgba(123, 92, 255, 0) 65%, rgba(167, 139, 250, 0.22) 100%),
+                          linear-gradient(to bottom, rgba(255, 255, 255, 0.045) 0%, rgba(255, 255, 255, 0) 22%);
+    -fx-background-insets: 0, 0, 0;
+    -fx-background-radius: 28;
+    -fx-border-color: rgba(120, 130, 190, 0.26);
+    -fx-border-radius: 28;
+    -fx-border-width: 1;
+    -fx-effect: innershadow(gaussian, rgba(139, 92, 246, 0.22), 36, 0.3, 10, 0),
+                innershadow(gaussian, rgba(255, 255, 255, 0.06), 14, 0.4, 0, -4),
+                innershadow(gaussian, rgba(0, 0, 0, 0.58), 32, 0.26, 0, 6),
+                dropshadow(gaussian, rgba(0, 0, 0, 0.48), 30, 0.2, 0, 14);
+    -fx-padding: 8 10 8 10;
+}
+.sv-si-brand { -fx-padding: 22 26 6 26; -fx-spacing: 8; }
+.sv-si-brand-title {
+    -fx-text-fill: linear-gradient(to right, #ec4899 0%, #d946ef 34%, #ffffff 72%, #f8fafc 100%);
+    -fx-font-size: 26px; -fx-font-weight: 800;
+    -fx-font-family: "Montserrat", "Poppins", "Segoe UI", sans-serif;
+    -fx-letter-spacing: 0.06em;
+    -fx-effect: dropshadow(gaussian, rgba(236, 72, 153, 0.28), 12, 0.24, 0, 1),
+                dropshadow(gaussian, rgba(0, 0, 0, 0.5), 8, 0.22, 0, 1);
+}
+.sv-si-brand-accent {
+    -fx-pref-height: 3; -fx-max-width: 132;
+    -fx-background-color: linear-gradient(to right, #ec4899, #a855f7, #38bdf8);
+    -fx-background-radius: 2;
+}
+.sv-si-brand-strap { -fx-text-fill: rgba(203, 213, 225, 0.82); -fx-font-size: 13px; -fx-font-weight: 500; }
+.sv-si-session {
+    -fx-text-fill: rgba(148, 163, 184, 0.88);
+    -fx-font-size: 12px;
+    -fx-wrap-text: true;
+    -fx-padding: 0;
+}
+.sv-si-hrule { -fx-pref-height: 1; -fx-max-width: Infinity; -fx-background-color: rgba(255, 255, 255, 0.08); }
+.sv-si-sidebar .separator .line { -fx-border-color: rgba(255, 255, 255, 0.08); }
+.sv-si-sidebar .sv-si-nav-btn {
+    -fx-background-color: transparent; -fx-border-color: transparent; -fx-border-width: 0;
+    -fx-text-fill: rgba(226, 232, 240, 0.92); -fx-font-size: 14px; -fx-font-weight: 600;
+    -fx-alignment: center-left; -fx-max-width: Infinity; -fx-background-radius: 11; -fx-border-radius: 11;
+    -fx-padding: 12 14 12 14; -fx-cursor: hand; -fx-focus-color: transparent; -fx-faint-focus-color: transparent;
+}
+.sv-si-sidebar .sv-si-nav-btn:hover {
+    -fx-background-color: rgba(148, 163, 184, 0.1); -fx-text-fill: #ffffff;
+}
+.sv-si-sidebar .sv-si-nav-btn.sv-si-nav-active {
+    -fx-background-color: linear-gradient(to right, rgba(88, 28, 135, 0.72), rgba(236, 72, 153, 0.38), rgba(59, 130, 246, 0.12));
+    -fx-text-fill: #ffffff; -fx-font-weight: 800;
+    -fx-border-color: transparent transparent transparent rgba(244, 114, 182, 0.95);
+    -fx-border-width: 0 0 0 4;
+}
+.sv-si-sidebar .sv-si-nav-btn.sv-si-nav-btn-cta {
+    -fx-background-color: linear-gradient(to right, #b45309, #ea580c, #f59e0b, #fbbf24);
+    -fx-text-fill: #0f172a; -fx-font-weight: 800;
+    -fx-effect: dropshadow(gaussian, rgba(251, 146, 60, 0.45), 14, 0.3, 0, 2);
+}
+.sv-si-sidebar .sv-si-nav-btn.sv-si-nav-btn-cta:hover {
+    -fx-background-color: linear-gradient(to right, #ea580c, #f97316, #fbbf24, #fde68a);
+}
+.sv-si-sidebar .sv-si-nav-btn.sv-si-nav-btn-ghost {
+    -fx-background-color: rgba(15, 23, 42, 0.55);
+    -fx-border-color: rgba(148, 163, 184, 0.22); -fx-border-width: 1;
+    -fx-text-fill: rgba(248, 250, 252, 0.95);
+    -fx-min-width: 44; -fx-min-height: 40; -fx-pref-width: 44; -fx-pref-height: 40; -fx-padding: 0;
+}
+.sv-si-sidebar .sv-si-nav-btn.sv-si-nav-btn-ghost:hover { -fx-background-color: rgba(30, 41, 59, 0.75); }
+.sv-si-footer { -fx-spacing: 12; -fx-alignment: center-left; -fx-padding: 0 0 2 0; }
+.signed-in-footer-identity {
+    -fx-alignment: center-left;
+    -fx-spacing: 7;
+    -fx-padding: 0;
+}
+.signed-in-footer-avatar-shell {
+    -fx-min-width: 48px;
+    -fx-min-height: 48px;
+    -fx-pref-width: 48px;
+    -fx-pref-height: 48px;
+    -fx-max-width: 48px;
+    -fx-max-height: 48px;
+    -fx-background-color: linear-gradient(to bottom, rgba(31, 41, 55, 0.88), rgba(17, 24, 39, 0.92));
+    -fx-border-color: rgba(196, 181, 253, 0.56);
+    -fx-border-width: 1;
+    -fx-background-radius: 999;
+    -fx-border-radius: 999;
+}
+.signed-in-footer-avatar-image {
+    -fx-fit-width: 48px;
+    -fx-fit-height: 48px;
+}
+.signed-in-footer-avatar-fallback {
+    -fx-text-fill: #f8fafc;
+    -fx-font-size: 20px;
+    -fx-font-weight: 800;
+}
+.signed-in-footer-email {
+    -fx-font-size: 17px;
+    -fx-font-weight: 700;
+    -fx-text-fill: rgba(248, 250, 252, 0.98);
+}
+.signed-in-footer-role {
+    -fx-font-size: 10px;
+    -fx-padding: 1 8 1 8;
+}
+.signed-in-footer-logout-button {
+    -fx-background-color: linear-gradient(to bottom, rgba(220, 38, 38, 0.92), rgba(153, 27, 27, 0.92));
+    -fx-text-fill: transparent;
+    -fx-min-width: 48px;
+    -fx-min-height: 48px;
+    -fx-pref-width: 48px;
+    -fx-pref-height: 48px;
+    -fx-max-width: 48px;
+    -fx-max-height: 48px;
+    -fx-padding: 0;
+    -fx-background-radius: 999;
+    -fx-border-radius: 999;
+    -fx-border-color: rgba(254, 202, 202, 0.72);
+    -fx-border-width: 1;
+    -fx-cursor: hand;
+    -fx-content-display: graphic-only;
+    -fx-alignment: center;
+    -fx-graphic-text-gap: 0;
+}
+.signed-in-footer-logout-button:hover {
+    -fx-background-color: linear-gradient(to bottom, rgba(239, 68, 68, 0.95), rgba(185, 28, 28, 0.95));
+    -fx-border-color: rgba(254, 202, 202, 0.96);
+    -fx-effect: dropshadow(gaussian, rgba(248, 113, 113, 0.45), 16, 0.25, 0, 0);
+}
+.signed-in-footer-logout-button .sidebar-nav-icon-image {
+    -fx-fit-width: 19px;
+    -fx-fit-height: 19px;
+}
+
+/* Premium signed-in footer identity (name + role near logout) */
+.sv-si-footer .signed-in-sidebar-user-row {
+    -fx-alignment: center-left;
+    -fx-spacing: 1;
+    -fx-padding: 0;
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+}
+
+.sv-si-footer .signed-in-sidebar-email {
+    -fx-text-fill: #f8fafc;
+    -fx-font-size: 17px;
+    -fx-font-weight: 700;
+    -fx-opacity: 1;
+}
+
+.sv-si-footer .signed-in-sidebar-role-pill {
+    -fx-text-fill: #e9d5ff;
+    -fx-font-size: 10px;
+    -fx-font-weight: 700;
+    -fx-padding: 2 8 2 8;
+    -fx-background-color: rgba(109, 40, 217, 0.35);
+    -fx-background-radius: 999;
+    -fx-border-color: rgba(196, 181, 253, 0.46);
+    -fx-border-width: 1;
+    -fx-border-radius: 999;
+    -fx-text-overrun: clip;
+}
+
+.sv-si-footer .sidebar-nav-item {
+    -fx-font-size: 12.5px;
+    -fx-font-weight: 700;
+    -fx-text-fill: rgba(248, 250, 252, 0.96);
+}
+.theme-immersive-button {
+    -fx-background-color: rgba(255, 255, 255, 0.06);
+    -fx-text-fill: rgba(148, 163, 184, 0.92);
+    -fx-font-size: 14px;
+    -fx-font-weight: 700;
+    -fx-min-width: 34;
+    -fx-min-height: 34;
+    -fx-max-width: 34;
+    -fx-max-height: 34;
+    -fx-background-radius: 999;
+    -fx-cursor: hand;
+    -fx-border-color: rgba(255, 255, 255, 0.14);
+    -fx-border-radius: 999;
+    -fx-border-width: 1;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+    -fx-padding: 0;
+}
+.theme-immersive-button:hover {
+    -fx-background-color: rgba(234, 179, 8, 0.12);
+    -fx-border-color: rgba(234, 179, 8, 0.40);
+    -fx-text-fill: #fde68a;
+}
+
+.smart-auth-brand-logo {
+    -fx-fit-width: 212px;
+    -fx-blend-mode: screen;
+    -fx-opacity: 0.98;
+}
+
+.offers-mini-logo-image {
+    -fx-fit-width: 156px;
+    -fx-blend-mode: screen;
+    -fx-opacity: 0.98;
+}
+
+/* === Agencies directory — last-wins overrides (filters + CTA; no dependency on .hero-foreground-pane / .root order) === */
+.signed-in-clean-shell .user-profile-card.agency-directory-filters-card .text-input.agency-symfony-search,
+.signed-in-clean-shell .user-profile-card.agency-directory-filters-card .text-field.agency-symfony-search {
+    -fx-background-insets: 0 !important;
+    -fx-border-insets: 0 !important;
+    -fx-background-color: rgba(10, 15, 30, 0.92) !important;
+    -fx-control-inner-background: rgba(10, 15, 30, 0.92) !important;
+    -fx-text-fill: #f8fafc !important;
+    -fx-prompt-text-fill: rgba(226, 232, 240, 0.52) !important;
+    -fx-border-color: rgba(196, 181, 253, 0.28) !important;
+    -fx-border-width: 1 !important;
+    -fx-border-radius: 14 !important;
+    -fx-background-radius: 14 !important;
+    -fx-padding: 10 12 10 12;
+    -fx-font-size: 14px;
+    -fx-focus-color: transparent !important;
+    -fx-faint-focus-color: transparent !important;
+}
+.signed-in-clean-shell .user-profile-card.agency-directory-filters-card .text-input.agency-symfony-search:focused,
+.signed-in-clean-shell .user-profile-card.agency-directory-filters-card .text-field.agency-symfony-search:focused {
+    -fx-border-color: rgba(186, 170, 255, 0.92) !important;
+}
+.signed-in-clean-shell .user-profile-card.agency-directory-filters-card ChoiceBox.agency-symfony-choice,
+.signed-in-clean-shell .user-profile-card.agency-directory-filters-card .choice-box.agency-symfony-choice {
+    -fx-background-insets: 0 !important;
+    -fx-border-insets: 0 !important;
+    -fx-background-color: rgba(10, 15, 30, 0.88) !important;
+    -fx-border-color: rgba(196, 181, 253, 0.28) !important;
+    -fx-border-radius: 14 !important;
+    -fx-background-radius: 14 !important;
+    -fx-border-width: 1 !important;
+    -fx-font-size: 14px;
+    -fx-focus-color: transparent !important;
+    -fx-faint-focus-color: transparent !important;
+}
+.signed-in-clean-shell .user-profile-card.agency-directory-filters-card .agency-symfony-choice > .label {
+    -fx-text-fill: #f8fafc !important;
+    -fx-background-color: transparent !important;
+    -fx-background-insets: 0 !important;
+    -fx-border-width: 0 !important;
+}
+.signed-in-clean-shell .user-profile-card.agency-directory-filters-card .agency-symfony-choice > .open-button {
+    -fx-background-color: rgba(15, 23, 42, 0.9) !important;
+    -fx-background-radius: 0 14 14 0;
+}
+.signed-in-clean-shell .user-profile-card.agency-directory-filters-card .agency-symfony-choice > .open-button > .arrow {
+    -fx-background-color: rgba(248, 250, 252, 0.9) !important;
+}
+.signed-in-clean-shell .user-profile-card.agency-directory-filters-card .agency-symfony-choice .arrow-button {
+    -fx-background-color: rgba(15, 23, 42, 0.9) !important;
+}
+.signed-in-clean-shell .user-profile-card.agency-directory-filters-card .button.agency-map-purple-button {
+    -fx-background-color: linear-gradient(to right, rgba(109, 40, 217, 0.55), rgba(124, 58, 237, 0.42)) !important;
+    -fx-border-color: rgba(196, 181, 253, 0.5) !important;
+    -fx-text-fill: #faf5ff !important;
+}
+.signed-in-clean-shell .user-profile-card.agency-directory-filters-card .button.agency-map-purple-button:hover {
+    -fx-background-color: linear-gradient(to right, rgba(124, 58, 237, 0.72), rgba(139, 92, 246, 0.5)) !important;
+    -fx-text-fill: #ffffff !important;
+}
+.signed-in-clean-shell .user-profile-card.agency-directory-filters-card .button.agency-my-agency-outline {
+    -fx-background-color: rgba(255, 255, 255, 0.08) !important;
+    -fx-border-color: rgba(196, 181, 253, 0.42) !important;
+    -fx-text-fill: #f1f5f9 !important;
+}
+.signed-in-clean-shell .user-profile-card.agency-directory-filters-card .button.agency-my-agency-outline:hover {
+    -fx-background-color: rgba(139, 92, 246, 0.22) !important;
+    -fx-text-fill: #ffffff !important;
+}
+
+.signed-in-clean-shell .user-profile-card.agency-directory-card .button.agency-directory-cta,
+.signed-in-clean-shell .user-profile-card.agency-directory-card .agency-directory-cta {
+    -fx-background-insets: 0 !important;
+    -fx-border-insets: 0 !important;
+    -fx-background-color: linear-gradient(to right, #7c3aed, #db2777) !important;
+    -fx-text-fill: white !important;
+    -fx-font-weight: 800;
+    -fx-font-size: 15px;
+    -fx-background-radius: 16 !important;
+    -fx-padding: 15 22 15 22;
+    -fx-min-height: 50px;
+    -fx-cursor: hand;
+    -fx-border-width: 0 !important;
+    -fx-focus-color: rgba(167, 139, 250, 0.5) !important;
+    -fx-faint-focus-color: transparent !important;
+}
+.signed-in-clean-shell .user-profile-card.agency-directory-card .button.agency-directory-cta:hover,
+.signed-in-clean-shell .user-profile-card.agency-directory-card .agency-directory-cta:hover {
+    -fx-background-color: linear-gradient(to right, #8b5cf6, #ec4899) !important;
+}
+
+/* === My Agency: Modena override shield (last-wins, scoped) === */
+.root.signed-in-clean-shell .agency-page-root,
+.root.signed-in-clean-shell .agency-page-scroll,
+.root.signed-in-clean-shell .agency-page-scroll > .viewport,
+.root.signed-in-clean-shell .agency-page-scroll > .corner {
+    -fx-background-color: transparent !important;
+    -fx-control-inner-background: transparent !important;
+}
+
+.root.signed-in-clean-shell .agency-page-root .agency-header-row {
+    -fx-background-color: rgba(8, 15, 27, 0.62) !important;
+    -fx-border-color: rgba(196, 181, 253, 0.30) !important;
+    -fx-border-width: 1 !important;
+    -fx-background-radius: 18 !important;
+    -fx-border-radius: 18 !important;
+    -fx-padding: 12 14 12 14;
+}
+
+.root.signed-in-clean-shell .agency-page-root .agency-info-card,
+.root.signed-in-clean-shell .agency-page-root .agency-posts-panel-card,
+.root.signed-in-clean-shell .agency-page-root .agency-main-content-panel,
+.root.signed-in-clean-shell .agency-page-root .agency-main-placeholder,
+.root.signed-in-clean-shell .agency-page-root .agency-post-card {
+    -fx-background-insets: 0 !important;
+    -fx-background-color: linear-gradient(to bottom,
+            rgba(255, 255, 255, 0.10),
+            rgba(139, 92, 246, 0.10),
+            rgba(8, 6, 22, 0.62)) !important;
+    -fx-border-color: rgba(196, 181, 253, 0.42) !important;
+    -fx-border-width: 1 !important;
+    -fx-background-radius: 22 !important;
+    -fx-border-radius: 22 !important;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.52), 24, 0.26, 0, 8);
+}
+
+.root.signed-in-clean-shell .agency-page-root .agency-info-row-separator .line,
+.root.signed-in-clean-shell .agency-page-root .separator .line {
+    -fx-border-color: rgba(196, 181, 253, 0.22) !important;
+}
+
+.root.signed-in-clean-shell .agency-page-root .text-field,
+.root.signed-in-clean-shell .agency-page-root .text-area,
+.root.signed-in-clean-shell .agency-page-root .text-area .content,
+.root.signed-in-clean-shell .agency-page-root .text-area .viewport {
+    -fx-background-insets: 0 !important;
+    -fx-border-insets: 0 !important;
+    -fx-background-color: rgba(10, 15, 30, 0.90) !important;
+    -fx-control-inner-background: rgba(10, 15, 30, 0.90) !important;
+    -fx-text-fill: #f8fafc !important;
+    -fx-prompt-text-fill: rgba(226, 232, 240, 0.56) !important;
+    -fx-highlight-fill: rgba(167, 139, 250, 0.42) !important;
+    -fx-highlight-text-fill: #ffffff !important;
+    -fx-border-color: rgba(196, 181, 253, 0.32) !important;
+    -fx-border-width: 1 !important;
+    -fx-border-radius: 12 !important;
+    -fx-background-radius: 12 !important;
+    -fx-focus-color: transparent !important;
+    -fx-faint-focus-color: transparent !important;
+}
+
+.root.signed-in-clean-shell .agency-page-root .text-field:focused,
+.root.signed-in-clean-shell .agency-page-root .text-area:focused {
+    -fx-border-color: rgba(186, 170, 255, 0.95) !important;
+    -fx-effect: dropshadow(gaussian, rgba(167, 139, 250, 0.36), 14, 0.2, 0, 0) !important;
+}
+
+.root.signed-in-clean-shell .agency-page-root .button,
+.root.signed-in-clean-shell .agency-page-root .agency-overlay-action,
+.root.signed-in-clean-shell .agency-page-root .agency-tab-pill,
+.root.signed-in-clean-shell .agency-page-root .agency-post-action-button,
+.root.signed-in-clean-shell .agency-page-root .agency-post-send-button {
+    -fx-background-insets: 0 !important;
+    -fx-border-insets: 0 !important;
+    -fx-background-color: rgba(15, 23, 42, 0.76) !important;
+    -fx-border-color: rgba(196, 181, 253, 0.36) !important;
+    -fx-border-width: 1 !important;
+    -fx-text-fill: #f1f5f9 !important;
+    -fx-background-radius: 12 !important;
+    -fx-border-radius: 12 !important;
+    -fx-focus-color: rgba(167, 139, 250, 0.44) !important;
+    -fx-faint-focus-color: transparent !important;
+}
+
+.root.signed-in-clean-shell .agency-page-root .button:hover,
+.root.signed-in-clean-shell .agency-page-root .agency-overlay-action:hover,
+.root.signed-in-clean-shell .agency-page-root .agency-tab-pill:hover,
+.root.signed-in-clean-shell .agency-page-root .agency-post-action-button:hover,
+.root.signed-in-clean-shell .agency-page-root .agency-post-send-button:hover {
+    -fx-background-color: rgba(139, 92, 246, 0.24) !important;
+    -fx-border-color: rgba(196, 181, 253, 0.56) !important;
+    -fx-text-fill: #ffffff !important;
+}
+
+.root.signed-in-clean-shell .agency-page-root .button:pressed,
+.root.signed-in-clean-shell .agency-page-root .agency-tab-pill:pressed {
+    -fx-scale-x: 0.98;
+    -fx-scale-y: 0.98;
+}
+
+.root.signed-in-clean-shell .agency-page-root .agency-tab-pill-active {
+    -fx-background-color: linear-gradient(to right, rgba(124, 58, 237, 0.58), rgba(219, 39, 119, 0.42)) !important;
+    -fx-border-color: rgba(221, 214, 254, 0.70) !important;
+    -fx-text-fill: #ffffff !important;
+}
+
+.root.signed-in-clean-shell .agency-page-root .agency-my-profile-back-button {
+    -fx-background-color: rgba(255, 255, 255, 0.08) !important;
+    -fx-border-color: rgba(196, 181, 253, 0.44) !important;
+    -fx-text-fill: #f8fafc !important;
+}
+
+.root.signed-in-clean-shell .agency-page-root .agency-my-profile-back-button:hover {
+    -fx-background-color: rgba(139, 92, 246, 0.22) !important;
+    -fx-border-color: rgba(221, 214, 254, 0.62) !important;
+}
+
+/* Failsafe: apply even if root class chain differs at runtime. */
+.agency-page-root,
+.agency-page-scroll,
+.agency-page-scroll > .viewport,
+.agency-page-scroll > .corner {
+    -fx-background-color: transparent !important;
+}
+
+.agency-page-root .agency-info-card,
+.agency-page-root .agency-posts-panel-card,
+.agency-page-root .agency-main-content-panel,
+.agency-page-root .agency-post-card {
+    -fx-background-color: linear-gradient(to bottom, rgba(27, 20, 52, 0.92), rgba(10, 9, 25, 0.90)) !important;
+    -fx-border-color: rgba(196, 181, 253, 0.46) !important;
+    -fx-border-width: 1.0 !important;
+    -fx-background-radius: 22 !important;
+    -fx-border-radius: 22 !important;
+}
+
+/* === My Agency premium rebuild === */
+.root.signed-in-clean-shell .agency-page-top-header {
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+    -fx-padding: 1 2 1 2;
+}
+.root.signed-in-clean-shell .agency-breadcrumb {
+    -fx-text-fill: rgba(196, 181, 253, 0.78);
+    -fx-font-size: 12px;
+    -fx-font-weight: 600;
+}
+.root.signed-in-clean-shell .agency-top-title {
+    -fx-text-fill: #f8fafc;
+    -fx-font-size: 36px;
+    -fx-font-weight: 900;
+}
+.root.signed-in-clean-shell .agency-top-subtitle {
+    -fx-text-fill: rgba(203, 213, 225, 0.9);
+    -fx-font-size: 13px;
+}
+
+.root.signed-in-clean-shell .agency-hero-banner-shell {
+    -fx-background-color: transparent;
+}
+.root.signed-in-clean-shell .agency-cover-banner {
+    -fx-background-radius: 24;
+    -fx-border-radius: 24;
+    -fx-border-color: rgba(196, 181, 253, 0.45);
+    -fx-effect: dropshadow(gaussian, rgba(167, 139, 250, 0.42), 32, 0.28, 0, 0),
+                dropshadow(gaussian, rgba(56, 189, 248, 0.20), 24, 0.20, 0, 0),
+                dropshadow(gaussian, rgba(0, 0, 0, 0.58), 34, 0.34, 0, 12);
+}
+.root.signed-in-clean-shell .agency-cover-gradient {
+    -fx-background-color: linear-gradient(to right,
+            rgba(2, 6, 23, 0.72) 0%,
+            rgba(33, 12, 70, 0.48) 40%,
+            rgba(2, 6, 23, 0.52) 100%);
+    -fx-background-radius: 24;
+}
+.root.signed-in-clean-shell .agency-hero-copy {
+    -fx-max-width: 500;
+}
+.root.signed-in-clean-shell .agency-hero-title {
+    -fx-text-fill: #f8fafc;
+    -fx-font-size: 44px;
+    -fx-font-weight: 900;
+    -fx-line-spacing: -2px;
+}
+.root.signed-in-clean-shell .agency-hero-title-accent {
+    -fx-text-fill: linear-gradient(to right, #a78bfa, #ec4899);
+}
+.root.signed-in-clean-shell .agency-hero-subtitle {
+    -fx-text-fill: rgba(241, 245, 249, 0.92);
+    -fx-font-size: 14px;
+    -fx-font-weight: 700;
+    -fx-line-spacing: 2px;
+    -fx-padding: 1 0 2 0;
+}
+.root.signed-in-clean-shell .agency-hero-cta-button {
+    -fx-background-color: linear-gradient(to right, #7c3aed, #db2777);
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 16px;
+    -fx-font-weight: 800;
+    -fx-background-radius: 14;
+    -fx-padding: 12 22 12 22;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(236, 72, 153, 0.42), 16, 0.22, 0, 2);
+}
+.root.signed-in-clean-shell .agency-hero-cta-button:hover {
+    -fx-background-color: linear-gradient(to right, #8b5cf6, #ec4899);
+}
+
+.root.signed-in-clean-shell .agency-identity-row {
+    -fx-padding: 2 10 6 10;
+    -fx-background-color: transparent;
+    -fx-background-radius: 0;
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+    -fx-border-radius: 0;
+}
+.root.signed-in-clean-shell .agency-avatar-shell {
+    -fx-translate-y: -24;
+    -fx-background-color: rgba(9, 12, 28, 0.95);
+    -fx-background-radius: 999;
+    -fx-border-color: rgba(255, 255, 255, 0.84);
+    -fx-border-width: 2;
+    -fx-border-radius: 999;
+    -fx-padding: 6;
+}
+.root.signed-in-clean-shell .agency-name-title {
+    -fx-font-size: 28px;
+    -fx-font-weight: 900;
+}
+.root.signed-in-clean-shell .agency-verified-badge {
+    -fx-text-fill: #efe7ff;
+    -fx-font-size: 11px;
+    -fx-font-weight: 800;
+    -fx-background-color: linear-gradient(to right, rgba(109, 40, 217, 0.64), rgba(147, 51, 234, 0.48));
+    -fx-border-color: rgba(216, 180, 254, 0.58);
+    -fx-border-width: 1;
+    -fx-background-radius: 999;
+    -fx-border-radius: 999;
+    -fx-padding: 5 10 5 10;
+}
+.root.signed-in-clean-shell .agency-meta-chip-row {
+    -fx-padding: 3 0 0 0;
+}
+.root.signed-in-clean-shell .agency-meta-chip {
+    -fx-background-color: rgba(15, 23, 42, 0.88);
+    -fx-border-color: rgba(196, 181, 253, 0.45);
+    -fx-border-width: 1;
+    -fx-border-radius: 999;
+    -fx-background-radius: 999;
+    -fx-text-fill: #e2e8f0;
+    -fx-font-size: 11.5px;
+    -fx-font-weight: 700;
+    -fx-padding: 5 10 5 10;
+    -fx-graphic-text-gap: 6;
+}
+.root.signed-in-clean-shell .agency-primary-action-button {
+    -fx-background-color: linear-gradient(to right, #7c3aed, #db2777);
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 13px;
+    -fx-font-weight: 800;
+    -fx-background-radius: 14;
+    -fx-border-color: transparent;
+    -fx-padding: 8 16 8 16;
+    -fx-min-width: 96px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(236, 72, 153, 0.38), 14, 0.2, 0, 2);
+}
+.root.signed-in-clean-shell .agency-primary-action-button:hover {
+    -fx-background-color: linear-gradient(to right, #8b5cf6, #ec4899);
+}
+
+.root.signed-in-clean-shell .agency-tabs-segmented {
+    -fx-padding: 6 0 0 0;
+    -fx-background-color: transparent !important;
+    -fx-border-color: transparent transparent rgba(167, 139, 250, 0.26) transparent;
+    -fx-border-width: 0 0 1 0;
+}
+.root.signed-in-clean-shell .agency-tabs-row {
+    -fx-spacing: 18;
+}
+.root.signed-in-clean-shell .agency-tab-pill {
+    -fx-background-color: transparent !important;
+    -fx-border-color: transparent !important;
+    -fx-border-width: 0 0 2 0 !important;
+    -fx-border-radius: 0 !important;
+    -fx-background-radius: 0 !important;
+    -fx-padding: 6 1 7 1 !important;
+    -fx-text-fill: rgba(203, 213, 225, 0.86) !important;
+    -fx-font-size: 15px !important;
+    -fx-font-weight: 700 !important;
+    -fx-cursor: hand;
+}
+.root.signed-in-clean-shell .agency-tab-pill:hover {
+    -fx-background-color: transparent !important;
+    -fx-text-fill: rgba(236, 242, 255, 0.96) !important;
+    -fx-border-color: transparent transparent rgba(167, 139, 250, 0.40) transparent !important;
+    -fx-border-width: 0 0 2 0 !important;
+}
+.root.signed-in-clean-shell .agency-tab-pill-active {
+    -fx-background-color: transparent !important;
+    -fx-border-color: transparent transparent #a855f7 transparent !important;
+    -fx-border-width: 0 0 2 0 !important;
+    -fx-text-fill: #d8b4fe !important;
+    -fx-font-size: 15px !important;
+    -fx-font-weight: 800 !important;
+    -fx-effect: dropshadow(gaussian, rgba(168, 85, 247, 0.24), 8, 0.12, 0, 1);
+}
+
+.root.signed-in-clean-shell .agency-content-split {
+    -fx-padding: 4 0 0 0;
+}
+.root.signed-in-clean-shell .agency-profile-info-card {
+    -fx-background-color: linear-gradient(to bottom, rgba(18, 22, 42, 0.92), rgba(10, 12, 27, 0.9));
+    -fx-border-color: rgba(196, 181, 253, 0.34);
+    -fx-border-radius: 18;
+    -fx-background-radius: 18;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.58), 22, 0.24, 0, 7),
+                dropshadow(gaussian, rgba(139, 92, 246, 0.18), 14, 0.18, 0, 0);
+}
+.root.signed-in-clean-shell .agency-info-section-title {
+    -fx-text-fill: #f8fafc;
+    -fx-font-size: 13px;
+    -fx-font-weight: 800;
+    -fx-padding: 2 0 2 0;
+}
+.root.signed-in-clean-shell .agency-info-row {
+    -fx-padding: 6 0 6 0;
+}
+.root.signed-in-clean-shell .agency-field-label {
+    -fx-text-fill: rgba(203, 213, 225, 0.78);
+    -fx-font-size: 11px;
+    -fx-font-weight: 700;
+    -fx-min-width: 68px;
+}
+.root.signed-in-clean-shell .agency-info-text {
+    -fx-text-fill: rgba(226, 232, 240, 0.96);
+    -fx-font-size: 12px;
+}
+.root.signed-in-clean-shell .agency-edit-icon {
+    -fx-opacity: 1;
+    -fx-background-color: rgba(15, 23, 42, 0.84);
+    -fx-border-color: rgba(196, 181, 253, 0.34);
+    -fx-border-width: 1;
+    -fx-background-radius: 999;
+    -fx-border-radius: 999;
+    -fx-text-fill: #e2e8f0;
+    -fx-font-size: 11px;
+    -fx-font-weight: 700;
+    -fx-padding: 4 10 4 10;
+}
+.root.signed-in-clean-shell .agency-follow-title {
+    -fx-text-fill: rgba(196, 181, 253, 0.94);
+    -fx-font-size: 11px;
+    -fx-font-weight: 800;
+}
+.root.signed-in-clean-shell .agency-follow-chip {
+    -fx-background-color: rgba(20, 28, 52, 0.94);
+    -fx-border-color: rgba(196, 181, 253, 0.38);
+    -fx-border-radius: 999;
+    -fx-background-radius: 999;
+    -fx-min-width: 30px;
+    -fx-min-height: 30px;
+    -fx-cursor: hand;
+}
+.root.signed-in-clean-shell .agency-social-icon {
+    -fx-min-width: 14px;
+    -fx-min-height: 14px;
+    -fx-pref-width: 14px;
+    -fx-pref-height: 14px;
+    -fx-max-width: 14px;
+    -fx-max-height: 14px;
+    -fx-background-color: #e2e8f0;
+    -fx-scale-shape: true;
+}
+.root.signed-in-clean-shell .agency-social-facebook {
+    -fx-shape: "M15.12 2H12.3C9.36 2 7.5 3.95 7.5 7.13V9.5H5v3.35h2.5V22h3.5v-9.15h2.82L14.3 9.5H11V7.45c0-.96.46-1.45 1.35-1.45h1.77z";
+}
+.root.signed-in-clean-shell .agency-social-instagram {
+    -fx-shape: "M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.97.24 2.43.42.61.24 1.05.53 1.5.98.45.45.74.89.98 1.5.18.46.37 1.26.42 2.43.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.24 1.97-.42 2.43-.24.61-.53 1.05-.98 1.5-.45.45-.89.74-1.5.98-.46.18-1.26.37-2.43.42-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.97-.24-2.43-.42-.61-.24-1.05-.53-1.5-.98-.45-.45-.74-.89-.98-1.5-.18-.46-.37-1.26-.42-2.43C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.05-1.17.24-1.97.42-2.43.24-.61.53-1.05.98-1.5.45-.45.89-.74 1.5-.98.46-.18 1.26-.37 2.43-.42C8.42 2.21 8.8 2.2 12 2.2zm0 3.1A6.7 6.7 0 1 0 12 18.7 6.7 6.7 0 0 0 12 5.3zm0 2.6A4.1 4.1 0 1 1 12 16.1 4.1 4.1 0 0 1 12 7.9zm6.95-2.9a1.55 1.55 0 1 0 0 3.1 1.55 1.55 0 0 0 0-3.1z";
+}
+.root.signed-in-clean-shell .agency-social-x {
+    -fx-shape: "M3 3h4.3l4.3 6 5.1-6H21l-7.2 8.4L21 21h-4.3l-4.8-6.6L6.2 21H3l7.5-8.8z";
+}
+.root.signed-in-clean-shell .agency-social-web {
+    -fx-shape: "M12 2a10 10 0 100 20 10 10 0 000-20zm7.5 9h-3.1a15.7 15.7 0 00-1.2-5A8 8 0 0119.5 11zM12 4.1c.9 1 1.9 3 2.3 6H9.7c.4-3 1.4-5 2.3-6zM6.8 6a15.7 15.7 0 00-1.2 5H2.5A8 8 0 016.8 6zM2.5 13h3.1a15.7 15.7 0 001.2 5A8 8 0 012.5 13zm9.5 6.9c-.9-1-1.9-3-2.3-6h4.6c-.4 3-1.4 5-2.3 6zm3.2-1.9a15.7 15.7 0 001.2-5h3.1a8 8 0 01-4.3 5z";
+}
+
+.root.signed-in-clean-shell .agency-posts-panel-card {
+    -fx-background-color: linear-gradient(to bottom, rgba(18, 22, 42, 0.92), rgba(10, 12, 27, 0.9));
+    -fx-border-color: rgba(196, 181, 253, 0.28);
+    -fx-border-radius: 18;
+    -fx-background-radius: 18;
+    -fx-padding: 8;
+}
+.root.signed-in-clean-shell .agency-right-content-card {
+    -fx-background-color: linear-gradient(to bottom, rgba(14, 18, 38, 0.84), rgba(8, 11, 26, 0.82));
+    -fx-border-color: rgba(167, 139, 250, 0.24);
+    -fx-border-width: 1;
+    -fx-background-radius: 18;
+    -fx-border-radius: 18;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.50), 20, 0.22, 0, 6);
+}
+.root.signed-in-clean-shell .agency-post-card {
+    -fx-background-color: rgba(23, 29, 52, 0.98);
+    -fx-border-color: rgba(148, 163, 184, 0.28);
+    -fx-border-radius: 16;
+    -fx-background-radius: 16;
+    -fx-border-width: 1;
+    -fx-padding: 16 16 16 16;
+}
+.root.signed-in-clean-shell .agency-post-feed-card {
+    -fx-spacing: 14;
+}
+.root.signed-in-clean-shell .agency-post-feed-item {
+    -fx-background-color: rgba(19, 25, 47, 0.75);
+    -fx-border-color: rgba(148, 163, 184, 0.18);
+    -fx-border-width: 1;
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+    -fx-padding: 12 12 12 12;
+}
+.root.signed-in-clean-shell .agency-post-header-row {
+    -fx-padding: 0 0 2 0;
+}
+.root.signed-in-clean-shell .agency-post-author {
+    -fx-font-size: 16px;
+    -fx-font-weight: 800;
+}
+.root.signed-in-clean-shell .agency-post-date {
+    -fx-font-size: 11px;
+    -fx-text-fill: rgba(203, 213, 225, 0.78);
+}
+.root.signed-in-clean-shell .agency-post-title {
+    -fx-font-size: 15px;
+    -fx-font-weight: 800;
+}
+.root.signed-in-clean-shell .agency-post-content {
+    -fx-font-size: 13px;
+    -fx-line-spacing: 3px;
+}
+.root.signed-in-clean-shell .agency-post-actions {
+    -fx-padding: 8 0 0 0;
+}
+
+/* Modena leakage guards on My Agency editable controls */
+.root.signed-in-clean-shell .agency-profile-info-card .text-field,
+.root.signed-in-clean-shell .agency-profile-info-card .text-area,
+.root.signed-in-clean-shell .agency-profile-info-card .text-area .content,
+.root.signed-in-clean-shell .agency-profile-info-card .text-area .viewport {
+    -fx-background-color: rgba(9, 12, 28, 0.94);
+    -fx-control-inner-background: rgba(9, 12, 28, 0.94);
+    -fx-text-fill: #f8fafc;
+    -fx-prompt-text-fill: rgba(226, 232, 240, 0.56);
+    -fx-border-color: rgba(196, 181, 253, 0.34);
+    -fx-border-width: 1;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+}
+.root.signed-in-clean-shell .agency-profile-info-card .text-field:focused,
+.root.signed-in-clean-shell .agency-profile-info-card .text-area:focused {
+    -fx-border-color: rgba(186, 170, 255, 0.95);
+}
+.root.signed-in-clean-shell .agency-posts-scroll,
+.root.signed-in-clean-shell .agency-posts-scroll > .viewport,
+.root.signed-in-clean-shell .agency-posts-scroll > .corner {
+    -fx-background-color: transparent;
+}
+
+/* Final authority: My Agency text-tabs with purple underline (conflict-free class names). */
+.root.signed-in-clean-shell .agency-page-root .agency-tabs-row.agency-tabs-segmented {
+    -fx-background-color: transparent !important;
+    -fx-border-color: transparent transparent rgba(167, 139, 250, 0.24) transparent !important;
+    -fx-border-width: 0 0 1 0 !important;
+    -fx-padding: 8 0 0 0 !important;
+    -fx-spacing: 24 !important;
+}
+.root.signed-in-clean-shell .agency-page-root .agency-tabs-row.agency-tabs-segmented .agency-text-tab {
+    -fx-background-color: transparent !important;
+    -fx-background-insets: 0 !important;
+    -fx-background-radius: 0 !important;
+    -fx-border-color: transparent transparent transparent transparent !important;
+    -fx-border-width: 0 0 2 0 !important;
+    -fx-border-radius: 0 !important;
+    -fx-padding: 8 1 8 1 !important;
+    -fx-text-fill: rgba(203, 213, 225, 0.86) !important;
+    -fx-font-size: 17px !important;
+    -fx-font-weight: 700 !important;
+    -fx-effect: null !important;
+}
+.root.signed-in-clean-shell .agency-page-root .agency-tabs-row.agency-tabs-segmented .agency-text-tab:hover {
+    -fx-background-color: transparent !important;
+    -fx-text-fill: rgba(236, 242, 255, 0.96) !important;
+    -fx-border-color: transparent transparent rgba(167, 139, 250, 0.40) transparent !important;
+}
+.root.signed-in-clean-shell .agency-page-root .agency-tabs-row.agency-tabs-segmented .agency-text-tab-active {
+    -fx-background-color: transparent !important;
+    -fx-text-fill: #d8b4fe !important;
+    -fx-font-weight: 800 !important;
+    -fx-border-color: transparent transparent #a855f7 transparent !important;
+    -fx-border-width: 0 0 2 0 !important;
+    -fx-effect: dropshadow(gaussian, rgba(168, 85, 247, 0.20), 7, 0.12, 0, 1) !important;
+}
+
+/* Final authority: comments area polish */
+.root.signed-in-clean-shell .agency-page-root .agency-post-comments-box {
+    -fx-background-color: rgba(5, 12, 30, 0.93) !important;
+    -fx-border-color: rgba(99, 102, 241, 0.22) !important;
+    -fx-border-width: 1 !important;
+    -fx-border-radius: 12 !important;
+    -fx-background-radius: 12 !important;
+    -fx-padding: 8 10 6 10 !important;
+}
+.root.signed-in-clean-shell .agency-page-root .agency-comments-scroll,
+.root.signed-in-clean-shell .agency-page-root .agency-comments-scroll > .viewport,
+.root.signed-in-clean-shell .agency-page-root .agency-comments-scroll > .corner {
+    -fx-background-color: transparent !important;
+}
+.root.signed-in-clean-shell .agency-page-root .agency-post-comments-list {
+    -fx-padding: 0 2 0 0 !important;
+    -fx-spacing: 6 !important;
+}
+.root.signed-in-clean-shell .agency-page-root .agency-post-comment {
+    -fx-background-color: transparent !important;
+    -fx-border-color: transparent !important;
+    -fx-padding: 0 0 2 0 !important;
+}
+.root.signed-in-clean-shell .agency-page-root .agency-post-comment-avatar-shell {
+    -fx-min-width: 34 !important;
+    -fx-min-height: 34 !important;
+    -fx-pref-width: 34 !important;
+    -fx-pref-height: 34 !important;
+    -fx-background-color: linear-gradient(to bottom, rgba(56, 189, 248, 0.30), rgba(59, 130, 246, 0.22)) !important;
+    -fx-border-color: rgba(125, 211, 252, 0.44) !important;
+    -fx-border-width: 1 !important;
+}
+.root.signed-in-clean-shell .agency-page-root .agency-post-comment-meta {
+    -fx-text-fill: rgba(186, 230, 253, 0.76) !important;
+    -fx-font-size: 11px !important;
+    -fx-font-weight: 700 !important;
+}
+.root.signed-in-clean-shell .agency-page-root .agency-post-comment-content {
+    -fx-text-fill: rgba(226, 232, 240, 0.94) !important;
+    -fx-font-size: 13px !important;
+}
+.root.signed-in-clean-shell .agency-page-root .agency-comment-input-row {
+    -fx-padding: 6 0 0 0 !important;
+    -fx-alignment: center-left !important;
+    -fx-border-color: rgba(148, 163, 184, 0.20) transparent transparent transparent !important;
+    -fx-border-width: 1 0 0 0 !important;
+}
+.root.signed-in-clean-shell .agency-page-root .text-field.agency-comment-input {
+    -fx-background-color: rgba(10, 18, 38, 0.60) !important;
+    -fx-border-color: rgba(148, 163, 184, 0.30) !important;
+    -fx-border-width: 1 !important;
+    -fx-border-radius: 999 !important;
+    -fx-background-radius: 999 !important;
+    -fx-text-fill: #f8fafc !important;
+    -fx-prompt-text-fill: rgba(148, 163, 184, 0.86) !important;
+    -fx-padding: 7 14 7 14 !important;
+}
+.root.signed-in-clean-shell .agency-page-root .agency-comment-input-row .agency-comment-send-button {
+    -fx-min-height: 28 !important;
+    -fx-padding: 5 13 5 13 !important;
+    -fx-font-size: 12px !important;
+    -fx-font-weight: 700 !important;
+    -fx-background-color: rgba(15, 23, 42, 0.88) !important;
+    -fx-border-color: rgba(148, 163, 184, 0.44) !important;
+}
+.root.signed-in-clean-shell .agency-page-root .agency-post-actions .agency-post-action-button,
+.root.signed-in-clean-shell .agency-page-root .agency-post-actions .agency-post-send-button {
+    -fx-min-height: 26 !important;
+    -fx-padding: 4 10 4 10 !important;
+    -fx-font-size: 11.5px !important;
+    -fx-font-weight: 700 !important;
+}
+.root.signed-in-clean-shell .agency-page-root .agency-post-actions {
+    -fx-spacing: 8 !important;
+    -fx-alignment: center-left !important;
+}
+
+/* Final authority: Agency Proposal target-style rebuild */
+.root.signed-in-clean-shell .proposal-page-root {
+    -fx-padding: 18 24 20 24;
+}
+.root.signed-in-clean-shell .proposal-page-root .top-mini-bar {
+    -fx-padding: 0 2 16 2;
+}
+.root.signed-in-clean-shell .proposal-page-root .proposal-page-dot {
+    -fx-background-color: linear-gradient(to bottom, #a855f7, #d946ef);
+    -fx-background-radius: 999;
+    -fx-effect: dropshadow(gaussian, rgba(217, 70, 239, 0.6), 8, 0.22, 0, 0);
+}
+.root.signed-in-clean-shell .proposal-page-root .proposal-header-row {
+    -fx-alignment: top-left;
+}
+.root.signed-in-clean-shell .proposal-page-root .proposal-header-row .button.agency-my-agency-outline {
+    -fx-background-insets: 0 !important;
+    -fx-border-insets: 0 !important;
+    -fx-font-size: 13px;
+    -fx-font-weight: 700;
+    -fx-background-radius: 12 !important;
+    -fx-border-radius: 12 !important;
+    -fx-border-width: 1 !important;
+    -fx-padding: 11 16 11 16;
+    -fx-cursor: hand;
+    -fx-focus-color: rgba(167, 139, 250, 0.45) !important;
+    -fx-faint-focus-color: transparent !important;
+    -fx-background-color: rgba(255, 255, 255, 0.08) !important;
+    -fx-border-color: rgba(196, 181, 253, 0.42) !important;
+    -fx-text-fill: #f1f5f9 !important;
+}
+.root.signed-in-clean-shell .proposal-page-root .proposal-header-row .button.agency-my-agency-outline:hover {
+    -fx-background-color: rgba(139, 92, 246, 0.22) !important;
+    -fx-text-fill: #ffffff !important;
+}
+.root.signed-in-clean-shell .proposal-page-root .proposal-header-row .button.agency-my-agency-outline:pressed {
+    -fx-scale-x: 0.98;
+    -fx-scale-y: 0.98;
+}
+.root.signed-in-clean-shell .proposal-page-root .proposal-header-block {
+    -fx-max-width: 700;
+}
+.root.signed-in-clean-shell .proposal-page-root .proposal-page-eyebrow {
+    -fx-text-fill: rgba(196, 181, 253, 0.95);
+    -fx-font-size: 12px;
+    -fx-font-weight: 800;
+    -fx-letter-spacing: 0.6px;
+}
+.root.signed-in-clean-shell .proposal-page-root .proposal-page-title {
+    -fx-font-size: 38px;
+    -fx-font-weight: 800;
+    -fx-text-fill: #f8fafc;
+    -fx-padding: 3 0 1 0;
+}
+.root.signed-in-clean-shell .proposal-page-root .proposal-page-subtitle {
+    -fx-text-fill: rgba(226, 232, 240, 0.90);
+    -fx-font-size: 16px;
+    -fx-line-spacing: 3px;
+}
+.root.signed-in-clean-shell .proposal-page-root .proposal-content-grid {
+    -fx-spacing: 18;
+    -fx-padding: 4 0 0 0;
+}
+.root.signed-in-clean-shell .proposal-page-root .proposal-left-panel {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+    -fx-border-radius: 30;
+    -fx-background-radius: 30;
+    -fx-effect: none;
+}
+.root.signed-in-clean-shell .proposal-page-root .proposal-left-title {
+    -fx-text-fill: #f8fafc;
+    -fx-font-size: 34px;
+    -fx-font-weight: 800;
+    -fx-line-spacing: 2px;
+}
+.root.signed-in-clean-shell .proposal-page-root .proposal-left-title .text {
+    -fx-fill: #f8fafc;
+}
+.root.signed-in-clean-shell .proposal-page-root .proposal-title-accent .text {
+    -fx-fill: linear-gradient(to right, #a855f7 0%, #d946ef 62%, #fb7185 100%);
+}
+.root.signed-in-clean-shell .proposal-page-root .agency-proposal-story-accent {
+    -fx-pref-width: 56;
+    -fx-pref-height: 3;
+    -fx-background-color: linear-gradient(to right, rgba(139, 92, 246, 0.95), rgba(236, 72, 153, 0.9));
+    -fx-background-radius: 999;
+}
+.root.signed-in-clean-shell .proposal-page-root .agency-proposal-story-subtitle {
+    -fx-text-fill: rgba(226, 232, 240, 0.90);
+    -fx-font-size: 16px;
+    -fx-line-spacing: 4px;
+}
+.root.signed-in-clean-shell .proposal-page-root .proposal-benefit-row {
+    -fx-padding: 10 0 10 0;
+    -fx-spacing: 13;
+    -fx-border-color: transparent transparent rgba(148, 163, 184, 0.18) transparent;
+    -fx-border-width: 0 0 1 0;
+}
+.root.signed-in-clean-shell .proposal-page-root .proposal-benefit-icon {
+    -fx-min-width: 44;
+    -fx-min-height: 44;
+    -fx-max-width: 44;
+    -fx-max-height: 44;
+    -fx-background-color: linear-gradient(to bottom, rgba(109, 40, 217, 0.70), rgba(30, 41, 59, 0.82));
+    -fx-border-color: rgba(196, 181, 253, 0.48);
+    -fx-border-width: 1;
+    -fx-border-radius: 14;
+    -fx-background-radius: 14;
+    -fx-alignment: center;
+}
+.root.signed-in-clean-shell .proposal-page-root .proposal-icon-glyph {
+    -fx-pref-width: 15;
+    -fx-pref-height: 15;
+    -fx-min-width: 15;
+    -fx-min-height: 15;
+    -fx-max-width: 15;
+    -fx-max-height: 15;
+    -fx-background-color: #e9d5ff;
+    -fx-opacity: 0.95;
+    -fx-scale-shape: true;
+}
+/* PNG icon render classes (local assets, no network dependency at runtime) */
+.root.signed-in-clean-shell .proposal-page-root .proposal-icon-image {
+    -fx-opacity: 0.96;
+}
+.root.signed-in-clean-shell .proposal-page-root .proposal-head-image {
+    -fx-opacity: 0.96;
+}
+.root.signed-in-clean-shell .proposal-page-root .proposal-input-image {
+    -fx-opacity: 0.94;
+}
+.root.signed-in-clean-shell .proposal-page-root .proposal-trust-image {
+    -fx-opacity: 0.85;
+}
+/* Web-sourced icon paths (Heroicons outline).
+   Stored source SVGs:
+   /assets/icons/proposal/offers.svg
+   /assets/icons/proposal/customers.svg
+   /assets/icons/proposal/bookings.svg
+   /assets/icons/proposal/performance.svg
+   /assets/icons/proposal/building.svg
+   /assets/icons/proposal/message.svg
+   /assets/icons/proposal/shield.svg
+*/
+.root.signed-in-clean-shell .proposal-page-root .proposal-icon-offers {
+    -fx-shape: "M3 13.5 L3 6 A2 2 0 0 1 5 4 H19 A2 2 0 0 1 21 6 V13.5 M3 13.5 L8.5 10.5 M21 13.5 L15.5 10.5 M3 13.5 V18 A2 2 0 0 0 5 20 H19 A2 2 0 0 0 21 18 V13.5";
+}
+.root.signed-in-clean-shell .proposal-page-root .proposal-icon-customers {
+    -fx-shape: "M9 11 A3 3 0 1 1 8.99 11 Z M16 10 A2.5 2.5 0 1 1 15.99 10 Z M3.5 19 C4.2 16.7 6.4 15 9 15 C11.6 15 13.8 16.7 14.5 19 Z M13 19 C13.5 17.3 15.2 16 17.2 16 C19 16 20.4 16.9 21 18.3 V19 Z";
+}
+.root.signed-in-clean-shell .proposal-page-root .proposal-icon-bookings {
+    -fx-shape: "M7 3 V6 M17 3 V6 M4 9 H20 M5 6 H19 A2 2 0 0 1 21 8 V19 A2 2 0 0 1 19 21 H5 A2 2 0 0 1 3 19 V8 A2 2 0 0 1 5 6 Z";
+}
+.root.signed-in-clean-shell .proposal-page-root .proposal-icon-performance {
+    -fx-shape: "M4 19 H20 M7 16 L11 12 L14 15 L20 9 M20 9 H16 M20 9 V13";
+}
+.root.signed-in-clean-shell .proposal-page-root .proposal-benefit-title {
+    -fx-text-fill: #f8fafc;
+    -fx-font-size: 15px;
+    -fx-font-weight: 800;
+}
+.root.signed-in-clean-shell .proposal-page-root .proposal-benefit-text {
+    -fx-text-fill: rgba(203, 213, 225, 0.86);
+    -fx-font-size: 13px;
+}
+.root.signed-in-clean-shell .proposal-page-root .proposal-artwork-layer {
+    -fx-background-color: linear-gradient(to bottom, rgba(30, 41, 59, 0.22), rgba(17, 24, 39, 0.46));
+    -fx-background-radius: 22;
+    -fx-border-color: rgba(148, 163, 184, 0.14);
+    -fx-border-radius: 22;
+}
+.root.signed-in-clean-shell .proposal-page-root .agency-proposal-art-image {
+    -fx-opacity: 0.90;
+}
+.root.signed-in-clean-shell .proposal-page-root .agency-proposal-art-gradient {
+    -fx-background-color: linear-gradient(to top, rgba(7, 11, 25, 0.98) 0%, rgba(7, 11, 25, 0.66) 55%, rgba(7, 11, 25, 0.16) 100%);
+    -fx-background-radius: 22;
+}
+.root.signed-in-clean-shell .proposal-page-root .proposal-form-card {
+    -fx-background-color: linear-gradient(to bottom, rgba(10, 16, 30, 0.94), rgba(10, 16, 34, 0.90));
+    -fx-border-color: rgba(196, 181, 253, 0.40);
+    -fx-border-width: 1.2;
+    -fx-border-radius: 30;
+    -fx-background-radius: 30;
+    -fx-effect: dropshadow(gaussian, rgba(139, 92, 246, 0.26), 38, 0.24, 0, 0),
+                dropshadow(gaussian, rgba(2, 6, 23, 0.58), 32, 0.24, 0, 12);
+    -fx-min-width: 320;
+    -fx-pref-width: 560;
+    -fx-max-width: 620;
+}
+.root.signed-in-clean-shell .proposal-page-root .agency-proposal-card-head {
+    -fx-padding: 0 0 10 0;
+}
+.root.signed-in-clean-shell .proposal-page-root .agency-proposal-head-icon {
+    -fx-min-width: 50;
+    -fx-min-height: 50;
+    -fx-max-width: 50;
+    -fx-max-height: 50;
+    -fx-background-color: linear-gradient(to bottom, rgba(109, 40, 217, 0.72), rgba(30, 41, 59, 0.82));
+    -fx-border-color: rgba(196, 181, 253, 0.52);
+    -fx-border-width: 1;
+    -fx-background-radius: 999;
+    -fx-border-radius: 999;
+    -fx-alignment: center;
+}
+.root.signed-in-clean-shell .proposal-page-root .proposal-head-glyph {
+    -fx-pref-width: 18;
+    -fx-pref-height: 18;
+    -fx-min-width: 18;
+    -fx-min-height: 18;
+    -fx-max-width: 18;
+    -fx-max-height: 18;
+    -fx-background-color: #e9d5ff;
+    -fx-scale-shape: true;
+}
+.root.signed-in-clean-shell .proposal-page-root .proposal-icon-building {
+    -fx-shape: "M5 21 H19 M7 21 V6 A1 1 0 0 1 8 5 H16 A1 1 0 0 1 17 6 V21 M10 9 H11 M13 9 H14 M10 12 H11 M13 12 H14 M10 15 H11 M13 15 H14";
+}
+.root.signed-in-clean-shell .proposal-page-root .proposal-form-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: 800;
+    -fx-text-fill: #f8fafc;
+}
+.root.signed-in-clean-shell .proposal-page-root .proposal-form-subtitle,
+.root.signed-in-clean-shell .proposal-page-root .agency-proposal-head-subtitle {
+    -fx-text-fill: rgba(203, 213, 225, 0.86);
+    -fx-font-size: 14px;
+}
+.root.signed-in-clean-shell .proposal-page-root .proposal-section-title {
+    -fx-text-fill: #a78bfa;
+    -fx-font-size: 16px;
+    -fx-font-weight: 800;
+    -fx-padding: 8 0 0 0;
+}
+.root.signed-in-clean-shell .proposal-page-root .agency-proposal-step-rule {
+    -fx-background-color: rgba(148, 163, 184, 0.24);
+}
+.root.signed-in-clean-shell .proposal-page-root .proposal-field-label {
+    -fx-text-fill: rgba(241, 245, 249, 0.96);
+    -fx-font-size: 13px;
+    -fx-font-weight: 700;
+}
+.root.signed-in-clean-shell .proposal-page-root .agency-proposal-input-shell,
+.root.signed-in-clean-shell .proposal-page-root .agency-proposal-textarea-shell {
+    -fx-background-color: rgba(8, 14, 32, 0.90);
+    -fx-border-color: rgba(100, 116, 139, 0.44);
+    -fx-border-width: 1;
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-padding: 0 12 0 10;
+}
+.root.signed-in-clean-shell .proposal-page-root .agency-proposal-input-shell:hover,
+.root.signed-in-clean-shell .proposal-page-root .agency-proposal-textarea-shell:hover,
+.root.signed-in-clean-shell .proposal-page-root .proposal-input:hover {
+    -fx-border-color: rgba(56, 189, 248, 0.45);
+}
+.root.signed-in-clean-shell .proposal-page-root .agency-proposal-textarea-shell {
+    -fx-padding: 8 12 8 10;
+}
+.root.signed-in-clean-shell .proposal-page-root .agency-proposal-input-shell:focused-within,
+.root.signed-in-clean-shell .proposal-page-root .agency-proposal-textarea-shell:focused-within,
+.root.signed-in-clean-shell .proposal-page-root .proposal-input:focused {
+    -fx-border-color: rgba(139, 92, 246, 0.65);
+    -fx-effect: dropshadow(gaussian, rgba(139, 92, 246, 0.25), 16, 0.22, 0, 0);
+}
+.root.signed-in-clean-shell .proposal-page-root .proposal-input {
+    -fx-background-color: rgba(8, 14, 32, 0.92);
+    -fx-control-inner-background: rgba(8, 14, 32, 0.92);
+    -fx-text-fill: #f8fafc;
+    -fx-prompt-text-fill: rgba(148, 163, 184, 0.84);
+    -fx-font-size: 14px;
+    -fx-border-color: transparent;
+    -fx-background-radius: 14;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+.root.signed-in-clean-shell .proposal-page-root .proposal-input.text-field,
+.root.signed-in-clean-shell .proposal-page-root .proposal-input.combo-box-base {
+    -fx-pref-height: 56;
+}
+.root.signed-in-clean-shell .proposal-page-root .proposal-country-row {
+    -fx-padding: 0;
+}
+.root.signed-in-clean-shell .proposal-page-root .proposal-flag-box {
+    -fx-background-color: linear-gradient(to bottom, rgba(30, 41, 59, 0.84), rgba(15, 23, 42, 0.92));
+    -fx-border-color: rgba(100, 116, 139, 0.5);
+    -fx-border-width: 1;
+    -fx-border-radius: 15;
+    -fx-background-radius: 15;
+}
+.root.signed-in-clean-shell .proposal-page-root .proposal-input.combo-box-base > .arrow-button,
+.root.signed-in-clean-shell .proposal-page-root .proposal-input.combo-box-base .arrow-button {
+    -fx-background-color: rgba(2, 6, 23, 0.3);
+    -fx-background-radius: 0 14 14 0;
+}
+.root.signed-in-clean-shell .proposal-page-root .proposal-input.combo-box-base .arrow {
+    -fx-background-color: rgba(226, 232, 240, 0.9);
+}
+.root.signed-in-clean-shell .proposal-page-root .proposal-message-area,
+.root.signed-in-clean-shell .proposal-page-root .proposal-message-area .content,
+.root.signed-in-clean-shell .proposal-page-root .proposal-message-area .viewport {
+    -fx-background-color: rgba(8, 14, 32, 0.92);
+    -fx-control-inner-background: rgba(8, 14, 32, 0.92);
+    -fx-text-fill: #f8fafc;
+    -fx-font-size: 14px;
+    -fx-background-radius: 16;
+    -fx-border-color: transparent;
+}
+.root.signed-in-clean-shell .proposal-page-root .proposal-message-area {
+    -fx-pref-height: 148;
+}
+.root.signed-in-clean-shell .proposal-page-root .proposal-input-icon {
+    -fx-pref-width: 14;
+    -fx-pref-height: 14;
+    -fx-min-width: 14;
+    -fx-min-height: 14;
+    -fx-max-width: 14;
+    -fx-max-height: 14;
+    -fx-background-color: rgba(196, 181, 253, 0.94);
+    -fx-padding: 0 2 0 0;
+    -fx-scale-shape: true;
+}
+.root.signed-in-clean-shell .proposal-page-root .proposal-icon-message {
+    -fx-shape: "M4 6 H20 A2 2 0 0 1 22 8 V16 A2 2 0 0 1 20 18 H8 L4 21 V18 A2 2 0 0 1 2 16 V8 A2 2 0 0 1 4 6 Z";
+}
+.root.signed-in-clean-shell .proposal-page-root .proposal-submit-button {
+    -fx-background-color: linear-gradient(to right, #6d28d9, #7c3aed, #a855f7, #d946ef);
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 15px;
+    -fx-font-weight: 800;
+    -fx-pref-height: 60;
+    -fx-background-radius: 16;
+    -fx-border-radius: 16;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(124, 58, 237, 0.44), 20, 0.26, 0, 2);
+}
+.root.signed-in-clean-shell .proposal-page-root .proposal-submit-button:hover {
+    -fx-background-color: linear-gradient(to right, #7c3aed, #8b5cf6, #c026d3, #f472b6);
+    -fx-effect: dropshadow(gaussian, rgba(216, 70, 239, 0.44), 24, 0.28, 0, 3);
+}
+.root.signed-in-clean-shell .proposal-page-root .proposal-trust-icon {
+    -fx-pref-width: 12;
+    -fx-pref-height: 12;
+    -fx-min-width: 12;
+    -fx-min-height: 12;
+    -fx-max-width: 12;
+    -fx-max-height: 12;
+    -fx-background-color: rgba(203, 213, 225, 0.72);
+    -fx-scale-shape: true;
+}
+.root.signed-in-clean-shell .proposal-page-root .proposal-icon-shield {
+    -fx-shape: "M12 2 L19 5 V11 C19 16 15.5 20.5 12 22 C8.5 20.5 5 16 5 11 V5 Z";
+}
+.root.signed-in-clean-shell .proposal-page-root .proposal-trust-note,
+.root.signed-in-clean-shell .proposal-page-root .agency-proposal-trust-note {
+    -fx-text-fill: rgba(203, 213, 225, 0.72);
+    -fx-font-size: 12px;
+    -fx-font-weight: 600;
+}
+.root.signed-in-clean-shell .proposal-page-root .agency-proposal-feedback {
+    -fx-text-fill: #93c5fd;
+    -fx-font-size: 12px;
+}
+
+.root.signed-in-clean-shell .proposal-page-root .proposal-status-container {
+    -fx-padding: 10 8 2 8;
+}
+.root.signed-in-clean-shell .proposal-page-root .proposal-status-glyph-ring {
+    -fx-min-width: 92;
+    -fx-min-height: 92;
+    -fx-max-width: 92;
+    -fx-max-height: 92;
+    -fx-background-color: radial-gradient(center 50% 40%, radius 72%, rgba(91, 33, 182, 0.24), rgba(15, 23, 42, 0.18)),
+                          linear-gradient(to bottom, rgba(30, 41, 59, 0.85), rgba(10, 16, 34, 0.95));
+    -fx-border-color: rgba(167, 139, 250, 0.42);
+    -fx-border-width: 1.1;
+    -fx-background-radius: 999;
+    -fx-border-radius: 999;
+    -fx-effect: dropshadow(gaussian, rgba(147, 51, 234, 0.34), 26, 0.30, 0, 0);
+}
+.root.signed-in-clean-shell .proposal-page-root .proposal-status-glyph {
+    -fx-font-size: 33px;
+    -fx-text-fill: #e9d5ff;
+}
+.root.signed-in-clean-shell .proposal-page-root .proposal-status-head {
+    -fx-alignment: center;
+}
+.root.signed-in-clean-shell .proposal-page-root .proposal-status-title {
+    -fx-font-size: 32px;
+    -fx-font-weight: 800;
+    -fx-text-fill: #f8fafc;
+    -fx-alignment: center;
+    -fx-text-alignment: center;
+}
+.root.signed-in-clean-shell .proposal-page-root .proposal-status-message {
+    -fx-font-size: 16px;
+    -fx-text-fill: rgba(203, 213, 225, 0.92);
+    -fx-line-spacing: 4px;
+    -fx-alignment: center;
+    -fx-text-alignment: center;
+}
+.root.signed-in-clean-shell .proposal-page-root .proposal-pending-details-card {
+    -fx-padding: 20 22 18 22;
+    -fx-background-color: linear-gradient(to bottom, rgba(15, 23, 42, 0.82), rgba(10, 16, 34, 0.92));
+    -fx-border-color: rgba(99, 102, 241, 0.26);
+    -fx-border-width: 1;
+    -fx-background-radius: 18;
+    -fx-border-radius: 18;
+}
+.root.signed-in-clean-shell .proposal-page-root .proposal-pending-details-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: 700;
+    -fx-text-fill: #f1f5f9;
+    -fx-padding: 0 0 6 0;
+}
+.root.signed-in-clean-shell .proposal-page-root .proposal-pending-step-row {
+    -fx-padding: 4 0 2 0;
+}
+.root.signed-in-clean-shell .proposal-page-root .proposal-pending-step-icon {
+    -fx-min-width: 30;
+    -fx-min-height: 30;
+    -fx-max-width: 30;
+    -fx-max-height: 30;
+    -fx-background-color: linear-gradient(to bottom, rgba(76, 29, 149, 0.56), rgba(15, 23, 42, 0.92));
+    -fx-border-color: rgba(167, 139, 250, 0.46);
+    -fx-border-width: 1;
+    -fx-background-radius: 999;
+    -fx-border-radius: 999;
+}
+.root.signed-in-clean-shell .proposal-page-root .proposal-pending-step-glyph {
+    -fx-font-size: 13px;
+    -fx-text-fill: #e9d5ff;
+    -fx-font-weight: 700;
+}
+.root.signed-in-clean-shell .proposal-page-root .proposal-pending-step-title {
+    -fx-font-size: 15px;
+    -fx-font-weight: 700;
+    -fx-text-fill: #f8fafc;
+}
+.root.signed-in-clean-shell .proposal-page-root .proposal-pending-step-subtitle {
+    -fx-font-size: 13px;
+    -fx-text-fill: rgba(203, 213, 225, 0.83);
+    -fx-wrap-text: true;
+}
+.root.signed-in-clean-shell .proposal-page-root .proposal-pending-footer-row {
+    -fx-padding: 10 14 10 14;
+    -fx-background-color: rgba(10, 16, 34, 0.62);
+    -fx-border-color: rgba(99, 102, 241, 0.24);
+    -fx-border-width: 1;
+    -fx-background-radius: 14;
+    -fx-border-radius: 14;
+}
+.root.signed-in-clean-shell .proposal-page-root .proposal-pending-help-icon {
+    -fx-min-width: 22;
+    -fx-min-height: 22;
+    -fx-max-width: 22;
+    -fx-max-height: 22;
+    -fx-alignment: center;
+    -fx-text-alignment: center;
+    -fx-font-size: 12px;
+    -fx-font-weight: 800;
+    -fx-text-fill: rgba(233, 213, 255, 0.94);
+    -fx-background-color: rgba(76, 29, 149, 0.54);
+    -fx-background-radius: 999;
+    -fx-border-color: rgba(167, 139, 250, 0.44);
+    -fx-border-width: 1;
+    -fx-border-radius: 999;
+}
+.root.signed-in-clean-shell .proposal-page-root .proposal-pending-help-text {
+    -fx-font-size: 13px;
+    -fx-text-fill: rgba(203, 213, 225, 0.87);
+}
+.root.signed-in-clean-shell .proposal-page-root .proposal-pending-footer-button {
+    -fx-font-size: 13px;
+    -fx-font-weight: 700;
+    -fx-padding: 10 14 10 14;
+}
+
+/* Post-login branded transition on signed-in home */
+.root.signed-in-clean-shell .signed-in-entry-overlay {
+    -fx-background-color: linear-gradient(to bottom, rgba(42, 23, 74, 0.82), rgba(13, 5, 24, 0.88));
+    -fx-padding: 0 0 34 0;
+}
+.root.signed-in-clean-shell .signed-in-entry-brand-card {
+    -fx-background-color: linear-gradient(to bottom, rgba(34, 19, 60, 0.94), rgba(22, 10, 40, 0.92));
+    -fx-background-radius: 22;
+    -fx-border-color: rgba(167, 139, 250, 0.38);
+    -fx-border-width: 1;
+    -fx-border-radius: 22;
+    -fx-padding: 22 26 18 26;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.56), 28, 0.26, 0, 8),
+                dropshadow(gaussian, rgba(168, 85, 247, 0.22), 20, 0.16, 0, 0);
+}
+

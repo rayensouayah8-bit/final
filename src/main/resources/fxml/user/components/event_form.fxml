@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Priority?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="controllers.gestionevenements.EventFormController"
+    spacing="12"
+    prefWidth="760"
+    maxWidth="760"
+      styleClass="event-form-root">
+
+    <padding>
+        <Insets top="10" right="10" bottom="10" left="10"/>
+    </padding>
+
+    <StackPane styleClass="event-form-shell" VBox.vgrow="ALWAYS">
+        <children>
+            <VBox spacing="12" styleClass="event-form-content">
+                <padding>
+                    <Insets top="14" right="14" bottom="14" left="14"/>
+                </padding>
+
+                <VBox spacing="8" styleClass="event-form-section">
+                    <children>
+                        <Label text="Event Details" styleClass="event-form-section-title"/>
+
+                        <VBox spacing="4" styleClass="event-field-group">
+                            <children>
+                                <Label text="Title" styleClass="event-form-label"/>
+                                <TextField fx:id="titleField" promptText="e.g. Sunset Cruise Experience" styleClass="event-form-input"/>
+                            </children>
+                        </VBox>
+
+                        <VBox spacing="4" styleClass="event-field-group">
+                            <children>
+                                <Label text="Description" styleClass="event-form-label"/>
+                                <TextArea fx:id="descriptionArea" wrapText="true" prefRowCount="4" promptText="Describe highlights..."
+                                          styleClass="event-form-input event-form-area"/>
+                            </children>
+                        </VBox>
+                    </children>
+                </VBox>
+
+                <VBox spacing="8" styleClass="event-form-section">
+                    <children>
+                        <Label text="Location and Time" styleClass="event-form-section-title"/>
+
+                        <VBox spacing="4" styleClass="event-field-group">
+                            <children>
+                                <Label text="Location" styleClass="event-form-label"/>
+                                <TextField fx:id="locationField" promptText="e.g. Tunis Marina" styleClass="event-form-input"/>
+                            </children>
+                        </VBox>
+
+                        <HBox spacing="10" alignment="CENTER_LEFT" styleClass="event-date-time-row">
+                            <children>
+                                <VBox spacing="4" HBox.hgrow="ALWAYS" styleClass="event-field-group">
+                                    <children>
+                                        <Label text="Date" styleClass="event-form-label"/>
+                                        <DatePicker fx:id="eventDatePicker" maxWidth="1.7976931348623157E308" styleClass="event-form-date"/>
+                                    </children>
+                                </VBox>
+
+                                <VBox spacing="4" styleClass="event-field-group">
+                                    <children>
+                                        <Label text="Time" styleClass="event-form-label"/>
+                                        <HBox spacing="6" alignment="CENTER_LEFT" styleClass="event-time-row">
+                                            <children>
+                                                <Spinner fx:id="hourSpinner" prefWidth="74" styleClass="event-form-spinner"/>
+                                                <Label text=":" styleClass="event-form-time-sep"/>
+                                                <Spinner fx:id="minuteSpinner" prefWidth="74" styleClass="event-form-spinner"/>
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                </VBox>
+                            </children>
+                        </HBox>
+
+                        <VBox spacing="4" styleClass="event-field-group">
+                            <children>
+                                <Label text="Capacity" styleClass="event-form-label"/>
+                                <HBox spacing="10" alignment="CENTER_LEFT" styleClass="event-capacity-row">
+                                    <children>
+                                        <Slider fx:id="capacitySlider" min="1.0" max="300.0" value="50.0" blockIncrement="1.0" visible="false" managed="false" prefWidth="0.0" minWidth="0.0" maxWidth="0.0" styleClass="event-form-slider"/>
+                                        <Spinner fx:id="capacitySpinner" prefWidth="70.0" minWidth="70.0" maxWidth="70.0" styleClass="event-form-spinner event-capacity-spinner"/>
+                                        <Label fx:id="capacityValueLabel" text="50 seats" styleClass="event-form-capacity-value"/>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </VBox>
+                    </children>
+                </VBox>
+
+                <VBox spacing="8" styleClass="event-form-section">
+                    <children>
+                        <Label text="Media" styleClass="event-form-section-title"/>
+                        <HBox spacing="8" alignment="CENTER_LEFT" styleClass="event-media-row">
+                            <children>
+                                <StackPane styleClass="event-form-preview-shell">
+                                    <children>
+                                        <ImageView fx:id="imagePreview" fitWidth="60" fitHeight="60" preserveRatio="false" smooth="true"/>
+                                    </children>
+                                </StackPane>
+                                <TextField fx:id="imagePathField" promptText="Local path or URL" HBox.hgrow="ALWAYS" styleClass="event-form-input"/>
+                                <Button text="Browse" onAction="#onBrowseImage" styleClass="event-form-browse-btn"/>
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+            </VBox>
+        </children>
+    </StackPane>
+</VBox>

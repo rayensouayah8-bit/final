@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controllers.gestionagences.MyAgencyController"
+            styleClass="signed-in-clean-shell immersive-root signed-in-shell-root">
+    <left>
+        <StackPane fx:id="signedInSidebarHost" maxHeight="Infinity" minHeight="0.0" maxWidth="328.0" minWidth="260.0" prefWidth="292.0"
+                   styleClass="signed-in-home-sidebar-host signed-in-shell-sidebar-host"
+                   style="-fx-background-color: linear-gradient(to bottom, #07112E 0%, #081430 48%, #0A1635 100%); -fx-padding: 0;"
+                   BorderPane.alignment="TOP_LEFT">
+            <children>
+                <Region fx:id="signedInSidebarEdgeAura" maxWidth="Infinity" maxHeight="Infinity" mouseTransparent="true"
+                        styleClass="smart-auth-edge-aura" StackPane.alignment="CENTER"/>
+                <VBox fx:id="signedInSidebarShell" spacing="10.0" styleClass="sv-si-sidebar signed-in-sidebar-column sidebar-immersive smart-auth-sidebar smart-auth-sidebar-outer" minHeight="0.0" maxHeight="Infinity" maxWidth="Infinity"
+                       style="-fx-background-color: transparent;">
+                    <children>
+                        <VBox spacing="10.0" styleClass="smart-auth-brand-dock" VBox.vgrow="NEVER">
+                            <padding>
+                                <Insets top="22.0" right="26.0" bottom="6.0" left="26.0"/>
+                            </padding>
+                            <children>
+                                <VBox spacing="8.0" styleClass="smart-auth-brand-lockup">
+                                    <children>
+                                        <ImageView fitWidth="212.0" pickOnBounds="true" preserveRatio="true" styleClass="smart-auth-brand-logo">
+                                            <image>
+                                                <Image url="@/assets/branding/smartvoyage-logo-tight.png"/>
+                                            </image>
+                                        </ImageView>
+                                        <Region fx:id="signedInBrandUnderlineBar" prefHeight="3.0" maxWidth="132.0" styleClass="smart-auth-accent-bar"/>
+                                        <Label text="Desktop travel UI" styleClass="smart-auth-brand-strap"/>
+                                    </children>
+                                </VBox>
+                                <Label fx:id="signedInSidebarSessionLabel" text="" styleClass="sv-si-session"/>
+                            </children>
+                        </VBox>
+                        <Region prefHeight="1.0" maxWidth="Infinity" styleClass="smart-auth-rule smart-auth-rule-tight"/>
+                        <Separator styleClass="sidebar-rule"/>
+                        <Button fx:id="navHomeButton" text="Home" onAction="#onHome" styleClass="sidebar-nav-item"/>
+                        <Button fx:id="navOffersButton" text="Offers" onAction="#onOffres" styleClass="sidebar-nav-item"/>
+                        <Button fx:id="navAgenciesButton" text="Agencies" onAction="#onAgences" styleClass="sidebar-nav-item"/>
+                        <Button fx:id="navMessagesButton" text="Messages" onAction="#onMessagerie" styleClass="sidebar-nav-item"/>
+                        <Button fx:id="navRecommendationsButton" text="Recommendations" onAction="#onRecommandation" styleClass="sidebar-nav-item"/>
+                        <Button fx:id="navEventsButton" text="Events" onAction="#onEvenement" styleClass="sidebar-nav-item"/>
+                        <Region VBox.vgrow="ALWAYS"/>
+                        <Separator styleClass="sidebar-rule"/>
+                        <Button fx:id="navPremiumButton" text="Premium" onAction="#onPremium" styleClass="premium-nav-button" visible="false" managed="false"/>
+                        <Button fx:id="navNotificationsButton" text="Notifications" onAction="#onNotifications" styleClass="sidebar-nav-item"/>
+                        <Button fx:id="navProfileButton" text="My Profile" onAction="#onProfile" styleClass="sidebar-nav-item"/>
+                        <Button fx:id="navDashboardButton" text="Dashboard IA" onAction="#onDashboardIa" styleClass="sidebar-nav-item"/>
+                        <Separator styleClass="sidebar-rule"/>
+                        <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="sv-si-footer">
+                            <children>
+                                <Button fx:id="signedInLogoutIconButton" text="" onAction="#onLogout"
+                                        styleClass="signed-in-footer-logout-button" accessibleText="Logout"/>
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+            </children>
+        </StackPane>
+    </left>
+
+    <center>
+        <StackPane styleClass="signed-in-home-main-canvas signed-in-cosmic-canvas" maxWidth="Infinity" maxHeight="Infinity"
+                   style="-fx-background-color: linear-gradient(to bottom, #2A174A 0%, #17052D 52%, #05010D 100%);">
+            <children>
+                <Pane fx:id="signedInCosmicStarfieldPane" styleClass="starfield-layer" maxWidth="Infinity" maxHeight="Infinity"/>
+                <ScrollPane fx:id="agencyPageScroll" fitToWidth="true" fitToHeight="true" hbarPolicy="NEVER" vbarPolicy="NEVER" styleClass="agency-page-scroll">
+                    <content>
+                        <VBox fx:id="agencyPageRoot" spacing="12.0" styleClass="agency-page-root">
+                            <padding><Insets top="12.0" right="16.0" bottom="12.0" left="16.0"/></padding>
+                            <children>
+                                <HBox alignment="TOP_LEFT" spacing="14.0" styleClass="agency-header-row agency-page-top-header">
+                                    <children>
+                                        <VBox spacing="4.0" HBox.hgrow="ALWAYS">
+                                            <children>
+                                                <Label text="Directory  &gt;  My Agency" styleClass="agency-breadcrumb"/>
+                                                <Label text="My Agency" styleClass="agency-top-title"/>
+                                                <Label text="Manage your agency profile, posts, and offers." styleClass="agency-top-subtitle"/>
+                                            </children>
+                                        </VBox>
+                                        <Button text="Back to agencies" onAction="#onBackToAgencies" styleClass="agency-my-profile-back-button"/>
+                                    </children>
+                                </HBox>
+
+                                <StackPane fx:id="bannerStack" prefHeight="216.0" minHeight="188.0" maxHeight="240.0" styleClass="agency-hero-banner-shell">
+                                    <children>
+                                        <Region styleClass="agency-cover-banner"/>
+                                        <ImageView fx:id="coverImageView" preserveRatio="false" pickOnBounds="true" smooth="true" cache="true" styleClass="agency-cover-image"/>
+                                        <Region styleClass="agency-cover-gradient"/>
+                                        <Button fx:id="editCoverButton" text="Edit cover" onAction="#onEditCover" visible="false" managed="false"
+                                                styleClass="agency-overlay-action agency-cover-hover-action" StackPane.alignment="TOP_RIGHT">
+                                            <StackPane.margin><Insets top="14.0" right="14.0"/></StackPane.margin>
+                                        </Button>
+                                    </children>
+                                </StackPane>
+
+                                <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="agency-identity-row">
+                                    <children>
+                                        <StackPane prefWidth="122.0" prefHeight="122.0" minWidth="122.0" minHeight="122.0" maxWidth="122.0" maxHeight="122.0" styleClass="agency-avatar-shell">
+                                            <children>
+                                                <ImageView fx:id="avatarImageView" fitWidth="112.0" fitHeight="112.0" preserveRatio="false" pickOnBounds="true" smooth="true" cache="true" styleClass="agency-avatar-image"/>
+                                                <Label fx:id="avatarFallbackLabel" text="A" styleClass="agency-avatar-icon"/>
+                                                <Button fx:id="editAvatarButton" text="Edit" onAction="#onEditAvatar" visible="false" managed="false"
+                                                        styleClass="agency-avatar-edit agency-avatar-hover-action" StackPane.alignment="BOTTOM_RIGHT">
+                                                    <StackPane.margin><Insets right="4.0" bottom="4.0"/></StackPane.margin>
+                                                </Button>
+                                            </children>
+                                        </StackPane>
+
+                                        <VBox spacing="6.0" HBox.hgrow="ALWAYS">
+                                            <children>
+                                                <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                                    <children>
+                                                        <Label fx:id="agencyTitleLabel" text="Agency name" styleClass="agency-name-title" HBox.hgrow="ALWAYS"/>
+                                                        <Label fx:id="agencyVerifiedBadgeLabel" text="Verified Partner" visible="false" managed="false" styleClass="agency-verified-badge"/>
+                                                        <Button fx:id="editNameFieldButton" text="Edit" onAction="#onEditNameField" visible="false" managed="false" styleClass="agency-edit-icon"/>
+                                                    </children>
+                                                </HBox>
+                                                <HBox spacing="8.0" alignment="CENTER_LEFT" styleClass="agency-meta-chip-row">
+                                                    <children>
+                                                        <Label fx:id="agencyAddressLabel" text="Address" styleClass="agency-meta-chip"/>
+                                                        <Label fx:id="agencyWebsiteLabel" text="Website" styleClass="agency-meta-chip"/>
+                                                        <Label fx:id="agencyCountryLabel" text="Country" styleClass="agency-meta-chip"/>
+                                                        <Label fx:id="agencySinceLabel" text="Since" visible="false" managed="false" styleClass="agency-meta-chip"/>
+                                                    </children>
+                                                </HBox>
+                                                <HBox spacing="8.0" alignment="CENTER_LEFT" styleClass="agency-tabs-row agency-tabs-segmented">
+                                                    <children>
+                                                        <Button fx:id="postsTabButton" text="Posts" onAction="#showPostsTab" styleClass="agency-text-tab agency-text-tab-active"/>
+                                                        <Button fx:id="aboutTabButton" text="About" onAction="#showAboutTab" styleClass="agency-text-tab"/>
+                                                        <Button fx:id="offersTabButton" text="Offers" onAction="#showOffersTab" styleClass="agency-text-tab"/>
+                                                    </children>
+                                                </HBox>
+                                            </children>
+                                        </VBox>
+
+                                    </children>
+                                </HBox>
+
+                                <HBox spacing="12.0" styleClass="agency-content-split">
+                                    <children>
+                                        <VBox spacing="10.0" prefWidth="320.0" minWidth="260.0" maxWidth="350.0" styleClass="agency-left-column">
+                                            <children>
+                                                <VBox fx:id="leftInfoCardRoot" spacing="10.0" styleClass="user-profile-card agency-profile-info-card">
+                                                    <padding><Insets top="12.0" right="12.0" bottom="12.0" left="12.0"/></padding>
+                                                    <children>
+                                                        <Label text="Overview" styleClass="agency-info-section-title"/>
+                                                        <HBox fx:id="descriptionRow" alignment="TOP_LEFT" spacing="8.0" styleClass="agency-info-row">
+                                                            <children>
+                                                                <Label text="📝" styleClass="agency-field-icon"/>
+                                                                <Label fx:id="agencyDescriptionLabel" text="Description" wrapText="true" styleClass="agency-info-text" HBox.hgrow="ALWAYS"/>
+                                                                <Button fx:id="editDescriptionFieldButton" text="Edit" onAction="#onEditDescriptionField" visible="false" managed="false" styleClass="agency-edit-icon"/>
+                                                            </children>
+                                                        </HBox>
+
+                                                        <Separator styleClass="agency-info-row-separator"/>
+                                                        <Label text="Contact &amp; Location" styleClass="agency-info-section-title"/>
+
+                                                        <HBox fx:id="addressRow" alignment="CENTER_LEFT" spacing="8.0" styleClass="agency-info-row">
+                                                            <children>
+                                                                <Label text="📍" styleClass="agency-field-icon"/>
+                                                                <Label text="Address" styleClass="agency-field-label"/>
+                                                                <Label fx:id="agencyAddressLineLabel" text="Address" wrapText="true" styleClass="agency-info-text" HBox.hgrow="ALWAYS"/>
+                                                                <Button fx:id="editAddressFieldButton" text="Edit" onAction="#onEditAddressField" visible="false" managed="false" styleClass="agency-edit-icon"/>
+                                                            </children>
+                                                        </HBox>
+                                                        <Separator styleClass="agency-info-row-separator"/>
+                                                        <HBox fx:id="websiteRow" alignment="CENTER_LEFT" spacing="8.0" styleClass="agency-info-row">
+                                                            <children>
+                                                                <Label text="🌐" styleClass="agency-field-icon"/>
+                                                                <Label text="Website" styleClass="agency-field-label"/>
+                                                                <Label fx:id="agencyWebsiteLineLabel" text="Website" wrapText="true" styleClass="agency-info-text" HBox.hgrow="ALWAYS"/>
+                                                                <Button fx:id="editWebsiteFieldButton" text="Edit" onAction="#onEditWebsiteField" visible="false" managed="false" styleClass="agency-edit-icon"/>
+                                                            </children>
+                                                        </HBox>
+                                                        <Separator styleClass="agency-info-row-separator"/>
+                                                        <HBox fx:id="phoneRow" alignment="CENTER_LEFT" spacing="8.0" styleClass="agency-info-row">
+                                                            <children>
+                                                                <Label text="📞" styleClass="agency-field-icon"/>
+                                                                <Label text="Phone" styleClass="agency-field-label"/>
+                                                                <Label fx:id="agencyPhoneLabel" text="Phone" wrapText="true" styleClass="agency-info-text" HBox.hgrow="ALWAYS"/>
+                                                                <Button fx:id="editPhoneFieldButton" text="Edit" onAction="#onEditPhoneField" visible="false" managed="false" styleClass="agency-edit-icon"/>
+                                                            </children>
+                                                        </HBox>
+                                                        <Separator styleClass="agency-info-row-separator"/>
+                                                        <HBox fx:id="countryRow" alignment="CENTER_LEFT" spacing="8.0" styleClass="agency-info-row">
+                                                            <children>
+                                                                <Label text="🗺" styleClass="agency-field-icon"/>
+                                                                <Label text="Country" styleClass="agency-field-label"/>
+                                                                <Label fx:id="agencyCountryLineLabel" text="Country" wrapText="true" styleClass="agency-info-text" HBox.hgrow="ALWAYS"/>
+                                                                <Button fx:id="editCountryFieldButton" text="Edit" onAction="#onEditCountryField" visible="false" managed="false" styleClass="agency-edit-icon"/>
+                                                            </children>
+                                                        </HBox>
+
+                                                        <Separator styleClass="agency-info-row-separator"/>
+                                                        <VBox spacing="6.0">
+                                                            <children>
+                                                                <Label text="Follow us" styleClass="agency-follow-title"/>
+                                                                <HBox spacing="6.0" alignment="CENTER_LEFT" styleClass="agency-follow-row">
+                                                                    <children>
+                                                                        <Button styleClass="agency-follow-chip">
+                                                                            <graphic>
+                                                                                <ImageView fitWidth="14.0" fitHeight="14.0" preserveRatio="true" smooth="true">
+                                                                                    <image>
+                                                                                        <Image url="@/images/social/facebook.png"/>
+                                                                                    </image>
+                                                                                </ImageView>
+                                                                            </graphic>
+                                                                        </Button>
+                                                                        <Button styleClass="agency-follow-chip">
+                                                                            <graphic>
+                                                                                <ImageView fitWidth="14.0" fitHeight="14.0" preserveRatio="true" smooth="true">
+                                                                                    <image>
+                                                                                        <Image url="@/images/social/instagram.png"/>
+                                                                                    </image>
+                                                                                </ImageView>
+                                                                            </graphic>
+                                                                        </Button>
+                                                                        <Button styleClass="agency-follow-chip">
+                                                                            <graphic>
+                                                                                <ImageView fitWidth="14.0" fitHeight="14.0" preserveRatio="true" smooth="true">
+                                                                                    <image>
+                                                                                        <Image url="@/images/social/x.png"/>
+                                                                                    </image>
+                                                                                </ImageView>
+                                                                            </graphic>
+                                                                        </Button>
+                                                                        <Button styleClass="agency-follow-chip">
+                                                                            <graphic>
+                                                                                <ImageView fitWidth="14.0" fitHeight="14.0" preserveRatio="true" smooth="true">
+                                                                                    <image>
+                                                                                        <Image url="@/images/social/web.png"/>
+                                                                                    </image>
+                                                                                </ImageView>
+                                                                            </graphic>
+                                                                        </Button>
+                                                                    </children>
+                                                                </HBox>
+                                                            </children>
+                                                        </VBox>
+
+                                                        <VBox fx:id="editPanel" spacing="10.0" visible="false" managed="false" styleClass="agency-edit-panel">
+                                                            <children>
+                                                                <VBox spacing="2.0">
+                                                                    <children>
+                                                                        <TextField fx:id="editAgencyNameField" promptText="Agency name"/>
+                                                                        <Label fx:id="editAgencyNameErrorLabel" styleClass="agency-edit-field-error" wrapText="true" maxWidth="1.7976931348623157E308" visible="false" managed="false"/>
+                                                                    </children>
+                                                                </VBox>
+                                                                <VBox spacing="2.0">
+                                                                    <children>
+                                                                        <TextArea fx:id="editDescriptionField" promptText="Description" prefRowCount="4"/>
+                                                                        <Label fx:id="editDescriptionErrorLabel" styleClass="agency-edit-field-error" wrapText="true" maxWidth="1.7976931348623157E308" visible="false" managed="false"/>
+                                                                    </children>
+                                                                </VBox>
+                                                                <VBox spacing="2.0">
+                                                                    <children>
+                                                                        <TextField fx:id="editAddressField" promptText="Address"/>
+                                                                        <Label fx:id="editAddressErrorLabel" styleClass="agency-edit-field-error" wrapText="true" maxWidth="1.7976931348623157E308" visible="false" managed="false"/>
+                                                                    </children>
+                                                                </VBox>
+                                                                <VBox spacing="2.0">
+                                                                    <children>
+                                                                        <TextField fx:id="editWebsiteField" promptText="Website URL"/>
+                                                                        <Label fx:id="editWebsiteErrorLabel" styleClass="agency-edit-field-error" wrapText="true" maxWidth="1.7976931348623157E308" visible="false" managed="false"/>
+                                                                    </children>
+                                                                </VBox>
+                                                                <VBox spacing="2.0">
+                                                                    <children>
+                                                                        <TextField fx:id="editPhoneField" promptText="Phone"/>
+                                                                        <Label fx:id="editPhoneErrorLabel" styleClass="agency-edit-field-error" wrapText="true" maxWidth="1.7976931348623157E308" visible="false" managed="false"/>
+                                                                    </children>
+                                                                </VBox>
+                                                                <VBox spacing="2.0">
+                                                                    <children>
+                                                                        <TextField fx:id="editCountryField" promptText="Country (ISO2)"/>
+                                                                        <Label fx:id="editCountryErrorLabel" styleClass="agency-edit-field-error" wrapText="true" maxWidth="1.7976931348623157E308" visible="false" managed="false"/>
+                                                                    </children>
+                                                                </VBox>
+                                                            </children>
+                                                        </VBox>
+
+                                                        <HBox spacing="8.0" alignment="CENTER_LEFT">
+                                                            <children>
+                                                                <Button fx:id="editButton" text="Edit info" onAction="#onEditAgency" visible="false" managed="false" styleClass="agency-overlay-action agency-panel-hover-action"/>
+                                                                <Button fx:id="saveButton" text="Save" onAction="#onSaveAgency" visible="false" managed="false" styleClass="agency-overlay-action"/>
+                                                                <Button fx:id="cancelEditButton" text="Cancel" onAction="#onCancelEdit" visible="false" managed="false" styleClass="agency-overlay-action"/>
+                                                            </children>
+                                                        </HBox>
+                                                    </children>
+                                                </VBox>
+                                            </children>
+                                        </VBox>
+
+                                        <VBox spacing="10.0" HBox.hgrow="ALWAYS" styleClass="agency-right-column">
+                                            <children>
+                                                <VBox spacing="10.0" styleClass="agency-right-content-card">
+                                                    <padding><Insets top="10.0" right="10.0" bottom="10.0" left="10.0"/></padding>
+                                                    <children>
+                                                        <VBox spacing="10.0" styleClass="user-profile-card agency-posts-panel-card">
+                                                            <padding><Insets top="12.0" right="12.0" bottom="12.0" left="12.0"/></padding>
+                                                            <children>
+                                                                <VBox fx:id="rebuiltPostsPanel" spacing="8.0" styleClass="agency-main-content-panel agency-rebuilt-posts-panel">
+                                                                    <padding><Insets top="12.0" right="12.0" bottom="12.0" left="12.0"/></padding>
+                                                                    <children>
+                                                                        <HBox alignment="CENTER_LEFT" spacing="8.0">
+                                                                            <children>
+                                                                                <VBox spacing="1.0" HBox.hgrow="ALWAYS">
+                                                                                    <children>
+                                                                                        <Label fx:id="placeholderTitleLabel" text="Posts" styleClass="agency-main-title"/>
+                                                                                        <Label fx:id="placeholderSubtitleLabel" text="Share updates, offers, and travel moments from your agency." wrapText="true" styleClass="agency-main-subtitle"/>
+                                                                                    </children>
+                                                                                </VBox>
+                                                                                <Button fx:id="addPostButton" text="+ Add Post" onAction="#onAddPost" visible="false" managed="false" styleClass="agency-primary-action-button"/>
+                                                                            </children>
+                                                                        </HBox>
+                                                                        <ScrollPane fx:id="rebuiltPostsScrollPane" fitToWidth="true" visible="false" managed="false" styleClass="agency-posts-scroll">
+                                                                            <content>
+                                                                                <VBox fx:id="rebuiltPostsListBox" spacing="12.0"/>
+                                                                            </content>
+                                                                        </ScrollPane>
+                                                                    </children>
+                                                                </VBox>
+                                                            </children>
+                                                        </VBox>
+                                                    </children>
+                                                </VBox>
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                </HBox>
+
+                                <Label fx:id="feedbackLabel" text="" styleClass="offers-subtitle"/>
+                            </children>
+                        </VBox>
+                    </content>
+                </ScrollPane>
+            </children>
+        </StackPane>
+    </center>
+</BorderPane>

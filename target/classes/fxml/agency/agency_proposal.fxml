@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane fx:id="proposalPageRoot" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controllers.gestionagences.AgencyProposalController">
+    <styleClass>
+        <String fx:value="signed-in-clean-shell"/>
+        <String fx:value="immersive-root"/>
+        <String fx:value="signed-in-shell-root"/>
+    </styleClass>
+    <left>
+        <StackPane fx:id="signedInSidebarHost" maxHeight="Infinity" minHeight="0.0" maxWidth="328.0" minWidth="260.0" prefWidth="292.0"
+                   styleClass="signed-in-home-sidebar-host signed-in-shell-sidebar-host"
+                   style="-fx-background-color: linear-gradient(to bottom, #07112E 0%, #081430 48%, #0A1635 100%); -fx-padding: 0;"
+                   BorderPane.alignment="TOP_LEFT">
+            <children>
+                <Region fx:id="signedInSidebarEdgeAura" maxWidth="Infinity" maxHeight="Infinity" mouseTransparent="true"
+                        styleClass="smart-auth-edge-aura" StackPane.alignment="CENTER"/>
+                <VBox fx:id="signedInSidebarShell" spacing="10.0" styleClass="sv-si-sidebar signed-in-sidebar-column sidebar-immersive smart-auth-sidebar smart-auth-sidebar-outer" minHeight="0.0" maxHeight="Infinity" maxWidth="Infinity"
+                       style="-fx-background-color: transparent;">
+                    <children>
+                        <VBox spacing="10.0" styleClass="smart-auth-brand-dock" VBox.vgrow="NEVER">
+                            <padding>
+                                <Insets top="22.0" right="26.0" bottom="6.0" left="26.0"/>
+                            </padding>
+                            <children>
+                                <VBox spacing="8.0" styleClass="smart-auth-brand-lockup">
+                                    <children>
+                                        <ImageView fitWidth="212.0" pickOnBounds="true" preserveRatio="true" styleClass="smart-auth-brand-logo">
+                                            <image>
+                                                <Image url="@/assets/branding/smartvoyage-logo-tight.png"/>
+                                            </image>
+                                        </ImageView>
+                                        <Region fx:id="signedInBrandUnderlineBar" prefHeight="3.0" maxWidth="132.0" styleClass="smart-auth-accent-bar"/>
+                                        <Label text="Desktop travel UI" styleClass="smart-auth-brand-strap"/>
+                                    </children>
+                                </VBox>
+                                <Label fx:id="signedInSidebarSessionLabel" text="" styleClass="sv-si-session"/>
+                            </children>
+                        </VBox>
+                        <Region prefHeight="1.0" maxWidth="Infinity" styleClass="smart-auth-rule smart-auth-rule-tight"/>
+                        <Separator styleClass="sidebar-rule"/>
+                        <Button fx:id="navHomeButton" text="Home" onAction="#onHome" styleClass="sidebar-nav-item"/>
+                        <Button fx:id="navOffersButton" text="Offers" onAction="#onOffres" styleClass="sidebar-nav-item"/>
+                        <Button fx:id="navAgenciesButton" text="Agencies" onAction="#onAgences" styleClass="sidebar-nav-item"/>
+                        <Button fx:id="navMessagesButton" text="Messages" onAction="#onMessagerie" styleClass="sidebar-nav-item"/>
+                        <Button fx:id="navRecommendationsButton" text="Recommendations" onAction="#onRecommandation" styleClass="sidebar-nav-item"/>
+                        <Button fx:id="navEventsButton" text="Events" onAction="#onEvenement" styleClass="sidebar-nav-item"/>
+                        <Region VBox.vgrow="ALWAYS"/>
+                        <Separator styleClass="sidebar-rule"/>
+                        <Button fx:id="navPremiumButton" text="Premium" onAction="#onPremium" styleClass="premium-nav-button" visible="false" managed="false"/>
+                        <Button fx:id="navNotificationsButton" text="Notifications" onAction="#onNotifications" styleClass="sidebar-nav-item"/>
+                        <Button fx:id="navProfileButton" text="My Profile" onAction="#onProfile" styleClass="sidebar-nav-item"/>
+                        <Button fx:id="navDashboardButton" text="Dashboard IA" onAction="#onDashboardIa" styleClass="sidebar-nav-item"/>
+                        <Separator styleClass="sidebar-rule"/>
+                        <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="sv-si-footer">
+                            <children>
+                                <Button fx:id="signedInLogoutIconButton" text="" onAction="#onLogout"
+                                        styleClass="signed-in-footer-logout-button" accessibleText="Logout"/>
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+            </children>
+        </StackPane>
+    </left>
+
+    <center>
+        <StackPane styleClass="signed-in-home-main-canvas signed-in-cosmic-canvas" maxWidth="Infinity" maxHeight="Infinity"
+                   style="-fx-background-color: linear-gradient(to bottom, #2A174A 0%, #17052D 52%, #05010D 100%);">
+            <children>
+                <Pane fx:id="signedInCosmicStarfieldPane" styleClass="starfield-layer" maxWidth="Infinity" maxHeight="Infinity"/>
+                <ScrollPane fx:id="proposalScrollPane" fitToWidth="true" fitToHeight="false" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED" minHeight="0.0" styleClass="agency-page-scroll">
+                    <content>
+                        <VBox spacing="24.0" styleClass="proposal-page-root" maxWidth="Infinity" maxHeight="Infinity">
+                    <padding><Insets top="20.0" right="34.0" bottom="24.0" left="34.0"/></padding>
+                    <children>
+                        <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="top-mini-bar proposal-header-row">
+                            <children>
+                                <VBox spacing="5.0" styleClass="user-profile-header">
+                                    <children>
+                                        <Label text="Directory" styleClass="user-profile-kicker"/>
+                                        <Label text="Agency Proposal" styleClass="user-profile-title"/>
+                                        <Label text="Apply to become an agency admin and manage your travel business." wrapText="true" styleClass="user-profile-subtitle"/>
+                                    </children>
+                                </VBox>
+                                <Region HBox.hgrow="ALWAYS"/>
+                                <Button fx:id="simulateApproveButton" text="Approve now (temp)" onAction="#onSimulateApprove" styleClass="proposal-submit-button" mnemonicParsing="false"/>
+                                <Button text="← Back to agencies" onAction="#onBackToAgencies" styleClass="button agency-my-agency-outline" mnemonicParsing="false"/>
+                            </children>
+                        </HBox>
+
+                        <HBox fx:id="proposalContentGrid" spacing="24.0" alignment="TOP_LEFT" styleClass="proposal-content-grid" VBox.vgrow="ALWAYS">
+                            <children>
+                                <VBox fx:id="proposalLeftPanel" spacing="20.0" prefWidth="420.0" minWidth="280.0" maxWidth="720.0" styleClass="proposal-left-panel" HBox.hgrow="ALWAYS">
+                                    <padding><Insets top="24.0" right="24.0" bottom="18.0" left="24.0"/></padding>
+                                    <children>
+                                        <VBox spacing="8.0" maxWidth="430.0">
+                                            <children>
+                                                <Label text="Join SmartVoyage" wrapText="true" styleClass="proposal-left-title"/>
+                                                <Label text="as an Agency Admin" wrapText="true" styleClass="proposal-left-title proposal-title-accent"/>
+                                                <Region styleClass="agency-proposal-story-accent"/>
+                                                <Label text="Apply to become an agency admin and manage your travel business from one premium workspace."
+                                                       wrapText="true" styleClass="proposal-page-subtitle"/>
+                                            </children>
+                                        </VBox>
+
+                                        <VBox spacing="16.0">
+                                            <children>
+                                                <HBox spacing="12.0" alignment="TOP_LEFT" styleClass="proposal-benefit-row">
+                                                    <children>
+                                                        <StackPane styleClass="proposal-benefit-icon">
+                                                            <children>
+                                                                <ImageView fitWidth="15.0" fitHeight="15.0" preserveRatio="true" smooth="true" styleClass="proposal-icon-image">
+                                                                    <image><Image url="@../../assets/icons/proposal/offers.png"/></image>
+                                                                </ImageView>
+                                                            </children>
+                                                        </StackPane>
+                                                        <VBox spacing="4.0" HBox.hgrow="ALWAYS">
+                                                            <children>
+                                                                <Label text="Publish travel offers" styleClass="proposal-benefit-title"/>
+                                                                <Label text="Showcase your packages and deals to thousands of travelers." wrapText="true" styleClass="proposal-benefit-text"/>
+                                                            </children>
+                                                        </VBox>
+                                                    </children>
+                                                </HBox>
+                                                <HBox spacing="12.0" alignment="TOP_LEFT" styleClass="proposal-benefit-row">
+                                                    <children>
+                                                        <StackPane styleClass="proposal-benefit-icon">
+                                                            <children>
+                                                                <ImageView fitWidth="15.0" fitHeight="15.0" preserveRatio="true" smooth="true" styleClass="proposal-icon-image">
+                                                                    <image><Image url="@../../assets/icons/proposal/customers.png"/></image>
+                                                                </ImageView>
+                                                            </children>
+                                                        </StackPane>
+                                                        <VBox spacing="4.0" HBox.hgrow="ALWAYS">
+                                                            <children>
+                                                                <Label text="Reach more customers" styleClass="proposal-benefit-title"/>
+                                                                <Label text="Increase your visibility and connect with the right audience." wrapText="true" styleClass="proposal-benefit-text"/>
+                                                            </children>
+                                                        </VBox>
+                                                    </children>
+                                                </HBox>
+                                                <HBox spacing="12.0" alignment="TOP_LEFT" styleClass="proposal-benefit-row">
+                                                    <children>
+                                                        <StackPane styleClass="proposal-benefit-icon">
+                                                            <children>
+                                                                <ImageView fitWidth="15.0" fitHeight="15.0" preserveRatio="true" smooth="true" styleClass="proposal-icon-image">
+                                                                    <image><Image url="@../../assets/icons/proposal/bookings.png"/></image>
+                                                                </ImageView>
+                                                            </children>
+                                                        </StackPane>
+                                                        <VBox spacing="4.0" HBox.hgrow="ALWAYS">
+                                                            <children>
+                                                                <Label text="Manage bookings" styleClass="proposal-benefit-title"/>
+                                                                <Label text="Handle inquiries, bookings and schedules with ease." wrapText="true" styleClass="proposal-benefit-text"/>
+                                                            </children>
+                                                        </VBox>
+                                                    </children>
+                                                </HBox>
+                                                <HBox spacing="12.0" alignment="TOP_LEFT" styleClass="proposal-benefit-row">
+                                                    <children>
+                                                        <StackPane styleClass="proposal-benefit-icon">
+                                                            <children>
+                                                                <ImageView fitWidth="15.0" fitHeight="15.0" preserveRatio="true" smooth="true" styleClass="proposal-icon-image">
+                                                                    <image><Image url="@../../assets/icons/proposal/performance.png"/></image>
+                                                                </ImageView>
+                                                            </children>
+                                                        </StackPane>
+                                                        <VBox spacing="4.0" HBox.hgrow="ALWAYS">
+                                                            <children>
+                                                                <Label text="Track performance" styleClass="proposal-benefit-title"/>
+                                                                <Label text="Get insights and grow your business with data." wrapText="true" styleClass="proposal-benefit-text"/>
+                                                            </children>
+                                                        </VBox>
+                                                    </children>
+                                                </HBox>
+                                            </children>
+                                        </VBox>
+
+                                        <StackPane minHeight="90.0" maxHeight="260.0" VBox.vgrow="ALWAYS" styleClass="proposal-artwork-layer">
+                                            <children>
+                                                <ImageView fitWidth="360.0" preserveRatio="true" pickOnBounds="true" smooth="true" styleClass="agency-proposal-art-image">
+                                                    <image>
+                                                        <Image url="file:/C:/Users/sayhi/.cursor/projects/c-Users-sayhi-Downloads-DayFlow-2-DayFlow-integration-integration-smartvoyage-desktop/assets/c__Users_sayhi_AppData_Roaming_Cursor_User_workspaceStorage_7601c2f80db278ccc27863f08c625cc8_images_ChatGPT_Image_Apr_26__2026__01_02_38_PM-0ebcc575-782c-4fc7-8404-17b783cc99a2.png"/>
+                                                    </image>
+                                                </ImageView>
+                                                <Region styleClass="agency-proposal-art-gradient"/>
+                                            </children>
+                                        </StackPane>
+                                    </children>
+                                </VBox>
+
+                                <VBox fx:id="proposalFormCard" spacing="16.0" minWidth="320.0" prefWidth="560.0" maxWidth="620.0" fillWidth="true" HBox.hgrow="ALWAYS" styleClass="proposal-form-card">
+                                    <padding><Insets top="32.0" right="32.0" bottom="28.0" left="32.0"/></padding>
+                                    <children>
+                                        <VBox fx:id="statusContainer" spacing="18.0" visible="false" managed="false" alignment="TOP_CENTER" maxWidth="Infinity" fillWidth="true" styleClass="proposal-status-container">
+                                            <children>
+                                                <StackPane fx:id="statusGlyphRing" managed="false" visible="false" styleClass="proposal-status-glyph-ring">
+                                                    <children>
+                                                        <Label fx:id="statusGlyphLabel" text="" managed="false" visible="false" styleClass="proposal-status-glyph"/>
+                                                    </children>
+                                                </StackPane>
+                                                <VBox spacing="8.0" alignment="TOP_CENTER" maxWidth="720.0" styleClass="proposal-status-head">
+                                                    <children>
+                                                        <Label fx:id="statusTitleLabel" text="Status" styleClass="proposal-status-title" wrapText="true"/>
+                                                        <Label fx:id="statusMessageLabel" text="Status message" wrapText="true" styleClass="proposal-status-message"/>
+                                                    </children>
+                                                </VBox>
+
+                                                <VBox fx:id="pendingDetailsCard" spacing="14.0" visible="false" managed="false" maxWidth="700.0" styleClass="proposal-pending-details-card">
+                                                    <children>
+                                                        <Label text="What happens next?" wrapText="true" styleClass="proposal-pending-details-title"/>
+                                                        <HBox spacing="12.0" alignment="TOP_LEFT" styleClass="proposal-pending-step-row">
+                                                            <children>
+                                                                <StackPane styleClass="proposal-pending-step-icon">
+                                                                    <children><Label text="◷" styleClass="proposal-pending-step-glyph"/></children>
+                                                                </StackPane>
+                                                                <VBox spacing="2.0" HBox.hgrow="ALWAYS">
+                                                                    <children>
+                                                                        <Label text="Our team will review your information" wrapText="true" styleClass="proposal-pending-step-title"/>
+                                                                        <Label text="This usually takes 1-3 business days." wrapText="true" styleClass="proposal-pending-step-subtitle"/>
+                                                                    </children>
+                                                                </VBox>
+                                                            </children>
+                                                        </HBox>
+                                                        <HBox spacing="12.0" alignment="TOP_LEFT" styleClass="proposal-pending-step-row">
+                                                            <children>
+                                                                <StackPane styleClass="proposal-pending-step-icon">
+                                                                    <children><Label text="✉" styleClass="proposal-pending-step-glyph"/></children>
+                                                                </StackPane>
+                                                                <VBox spacing="2.0" HBox.hgrow="ALWAYS">
+                                                                    <children>
+                                                                        <Label text="You'll receive an email notification" wrapText="true" styleClass="proposal-pending-step-title"/>
+                                                                        <Label text="Once your application status is updated." wrapText="true" styleClass="proposal-pending-step-subtitle"/>
+                                                                    </children>
+                                                                </VBox>
+                                                            </children>
+                                                        </HBox>
+                                                        <HBox spacing="12.0" alignment="TOP_LEFT" styleClass="proposal-pending-step-row">
+                                                            <children>
+                                                                <StackPane styleClass="proposal-pending-step-icon">
+                                                                    <children><Label text="✓" styleClass="proposal-pending-step-glyph"/></children>
+                                                                </StackPane>
+                                                                <VBox spacing="2.0" HBox.hgrow="ALWAYS">
+                                                                    <children>
+                                                                        <Label text="Access your dashboard" wrapText="true" styleClass="proposal-pending-step-title"/>
+                                                                        <Label text="After approval, you can start managing your travel business." wrapText="true" styleClass="proposal-pending-step-subtitle"/>
+                                                                    </children>
+                                                                </VBox>
+                                                            </children>
+                                                        </HBox>
+                                                    </children>
+                                                </VBox>
+
+                                                <HBox fx:id="pendingFooterRow" visible="false" managed="false" alignment="CENTER_LEFT" spacing="12.0" maxWidth="700.0" styleClass="proposal-pending-footer-row">
+                                                    <children>
+                                                        <Label text="?" styleClass="proposal-pending-help-icon"/>
+                                                        <Label text="Need help? Contact our support team." wrapText="true" maxWidth="Infinity" HBox.hgrow="ALWAYS" styleClass="proposal-pending-help-text"/>
+                                                        <Button fx:id="statusViewAgenciesButton" text="View agencies ↗" onAction="#onBackToAgencies" mnemonicParsing="false" styleClass="button agency-my-agency-outline proposal-pending-footer-button"/>
+                                                    </children>
+                                                </HBox>
+
+                                                <Button fx:id="statusActionButton" text="Action" visible="false" managed="false" styleClass="proposal-submit-button" mnemonicParsing="false"/>
+                                            </children>
+                                        </VBox>
+
+                                        <VBox fx:id="formContainer" spacing="12.0" alignment="TOP_LEFT" fillWidth="true">
+                                            <children>
+                                                <HBox spacing="12.0" alignment="CENTER_LEFT" styleClass="agency-proposal-card-head">
+                                                    <children>
+                                                        <StackPane styleClass="agency-proposal-head-icon">
+                                                            <children>
+                                                                <ImageView fitWidth="18.0" fitHeight="18.0" preserveRatio="true" smooth="true" styleClass="proposal-head-image">
+                                                                    <image><Image url="@../../assets/icons/proposal/building.png"/></image>
+                                                                </ImageView>
+                                                            </children>
+                                                        </StackPane>
+                                                        <VBox spacing="4.0">
+                                                            <children>
+                                                                <Label text="Submit agency admin proposal" styleClass="proposal-form-title" wrapText="true"/>
+                                                                <Label text="Countries are loaded from API (flag on the left, choice on the right). Fill in the requested agency name."
+                                                                       wrapText="true" styleClass="proposal-form-subtitle"/>
+                                                            </children>
+                                                        </VBox>
+                                                    </children>
+                                                </HBox>
+
+                                                <Label text="1. Agency Info" styleClass="proposal-section-title"/>
+                                                <Region prefHeight="1.0" maxWidth="Infinity" styleClass="agency-proposal-step-rule"/>
+                                                <Label text="Agency name" styleClass="proposal-field-label"/>
+                                                <HBox spacing="10.0" alignment="CENTER_LEFT" styleClass="agency-proposal-input-shell">
+                                                    <children>
+                                                        <ImageView fitWidth="14.0" fitHeight="14.0" preserveRatio="true" smooth="true" styleClass="proposal-input-image">
+                                                            <image><Image url="@../../assets/icons/proposal/building.png"/></image>
+                                                        </ImageView>
+                                                        <TextField fx:id="agencyNameField" promptText="Enter your agency name" maxWidth="Infinity" HBox.hgrow="ALWAYS" styleClass="proposal-input"/>
+                                                    </children>
+                                                </HBox>
+
+                                                <Label text="Country" styleClass="proposal-field-label"/>
+                                                <HBox alignment="CENTER_LEFT" spacing="12.0" maxWidth="Infinity" styleClass="proposal-country-row">
+                                                    <children>
+                                                        <StackPane fx:id="countryFlagFrame" minWidth="64.0" prefWidth="64.0" maxWidth="64.0" minHeight="56.0" prefHeight="56.0" maxHeight="56.0" styleClass="proposal-flag-box">
+                                                            <children>
+                                                                <ImageView fx:id="countryFlagImageView" fitWidth="54.0" fitHeight="34.0" preserveRatio="true" smooth="true" pickOnBounds="true"/>
+                                                            </children>
+                                                        </StackPane>
+                                                        <ComboBox fx:id="countryCombo" maxWidth="Infinity" HBox.hgrow="ALWAYS" promptText="Select country" styleClass="proposal-input"/>
+                                                    </children>
+                                                </HBox>
+
+                                                <Label text="2. Message" styleClass="proposal-section-title"/>
+                                                <Region prefHeight="1.0" maxWidth="Infinity" styleClass="agency-proposal-step-rule"/>
+                                                <Label text="Message to admin (optional)" styleClass="proposal-field-label"/>
+                                                <HBox spacing="10.0" alignment="TOP_LEFT" styleClass="agency-proposal-textarea-shell">
+                                                    <children>
+                                                        <ImageView fitWidth="14.0" fitHeight="14.0" preserveRatio="true" smooth="true" styleClass="proposal-input-image">
+                                                            <image><Image url="@../../assets/icons/proposal/message.png"/></image>
+                                                        </ImageView>
+                                                        <TextArea fx:id="messageToAdminField" promptText="Tell us more about your agency, services, or anything you want to share..."
+                                                                  prefRowCount="6" maxWidth="Infinity" HBox.hgrow="ALWAYS" wrapText="true" styleClass="proposal-message-area"/>
+                                                    </children>
+                                                </HBox>
+
+                                                <Button text="Submit proposal" onAction="#onSubmitProposal" maxWidth="Infinity" styleClass="proposal-submit-button" mnemonicParsing="false"/>
+                                                <HBox alignment="CENTER_LEFT" spacing="8.0">
+                                                    <children>
+                                                        <ImageView fitWidth="12.0" fitHeight="12.0" preserveRatio="true" smooth="true" styleClass="proposal-trust-image">
+                                                            <image><Image url="@../../assets/icons/proposal/shield.png"/></image>
+                                                        </ImageView>
+                                                        <Label text="Your information is secure and will only be used for review purposes." styleClass="proposal-trust-note"/>
+                                                    </children>
+                                                </HBox>
+                                                <Label fx:id="feedbackLabel" text="" wrapText="true" styleClass="agency-proposal-feedback"/>
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                </VBox>
+                            </children>
+                        </HBox>
+                    </children>
+                        </VBox>
+                    </content>
+                </ScrollPane>
+            </children>
+        </StackPane>
+    </center>
+</BorderPane>

@@ -1,0 +1,142 @@
+/*
+ * Scoped to the agencies directory filter card only (loaded via VBox.getStylesheets()).
+ * Inline styles on TextField / ChoiceBox / Buttons in Java still win where needed; this fills hover / skin gaps.
+ */
+.agency-directory-filters-root .text-input.agency-symfony-search,
+.agency-directory-filters-root .text-field.agency-symfony-search {
+    -fx-background-insets: 0 !important;
+    -fx-border-insets: 0 !important;
+    -fx-min-height: 46 !important;
+    -fx-pref-height: 46 !important;
+    -fx-max-height: 46 !important;
+    -fx-background-color: rgba(8, 12, 28, 0.88) !important;
+    -fx-control-inner-background: rgba(8, 12, 28, 0.92) !important;
+    -fx-text-fill: #f8fafc !important;
+    -fx-prompt-text-fill: rgba(203, 213, 225, 0.55) !important;
+    -fx-border-color: rgba(167, 139, 250, 0.38) !important;
+    -fx-border-width: 1 !important;
+    -fx-border-radius: 14 !important;
+    -fx-background-radius: 14 !important;
+    -fx-padding: 11 14 11 14;
+    -fx-font-size: 14px;
+    -fx-focus-color: transparent !important;
+    -fx-faint-focus-color: transparent !important;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.55), 18, 0.22, 0, 4),
+                innershadow(gaussian, rgba(255, 255, 255, 0.06), 12, 0.2, 0, -1) !important;
+}
+.agency-directory-filters-root .text-input.agency-symfony-search:focused,
+.agency-directory-filters-root .text-field.agency-symfony-search:focused {
+    -fx-border-color: rgba(196, 181, 253, 0.95) !important;
+    -fx-effect: dropshadow(gaussian, rgba(139, 92, 246, 0.35), 20, 0.28, 0, 0),
+                dropshadow(gaussian, rgba(0, 0, 0, 0.5), 16, 0.22, 0, 4) !important;
+}
+
+.agency-directory-filters-root ChoiceBox.agency-symfony-choice,
+.agency-directory-filters-root .choice-box.agency-symfony-choice {
+    -fx-background-insets: 0 !important;
+    -fx-border-insets: 0 !important;
+    -fx-min-height: 46 !important;
+    -fx-pref-height: 46 !important;
+    /* no max-height: skin lays out Label + open-button to full h; max clips and shows Modena seams */
+    -fx-background-color: rgba(8, 12, 28, 0.88) !important;
+    -fx-border-color: rgba(167, 139, 250, 0.38) !important;
+    -fx-border-radius: 14 !important;
+    -fx-background-radius: 14 !important;
+    -fx-border-width: 1 !important;
+    -fx-font-size: 14px;
+    -fx-accent: #6d28d9 !important;
+    -fx-mark-color: #e9d5ff !important;
+    -fx-focus-color: transparent !important;
+    -fx-faint-focus-color: transparent !important;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.45), 14, 0.2, 0, 3) !important;
+}
+/* ChoiceBoxSkin: direct child Label shows the selected value (not a ListCell). */
+.agency-directory-filters-root .agency-symfony-choice > .label {
+    -fx-text-fill: #f8fafc !important;
+    -fx-background-color: transparent !important;
+    -fx-background-insets: 0 !important;
+    -fx-border-width: 0 !important;
+    -fx-padding: 0 8 0 14 !important;
+    -fx-alignment: center-left !important;
+    -fx-min-height: 46 !important;
+    -fx-pref-height: 46 !important;
+    -fx-max-height: 46 !important;
+}
+.agency-directory-filters-root .agency-symfony-choice:hover {
+    -fx-border-color: rgba(196, 181, 253, 0.58) !important;
+}
+.agency-directory-filters-root .agency-symfony-choice:focused,
+.agency-directory-filters-root .agency-symfony-choice:showing {
+    -fx-border-color: rgba(196, 181, 253, 0.92) !important;
+}
+/* ChoiceBoxSkin uses .open-button > .arrow (not ComboBox .arrow-button). */
+.agency-directory-filters-root .agency-symfony-choice > .open-button {
+    -fx-background-color: rgba(15, 23, 42, 0.96) !important;
+    -fx-background-insets: 0 !important;
+    -fx-border-width: 0 !important;
+    -fx-background-radius: 0 13 13 0 !important;
+    -fx-min-width: 38px !important;
+    -fx-pref-width: 38px !important;
+    -fx-min-height: 46 !important;
+    -fx-pref-height: 46 !important;
+    -fx-max-height: 46 !important;
+    -fx-padding: 0 10 0 10 !important;
+}
+.agency-directory-filters-root .agency-symfony-choice > .open-button:hover {
+    -fx-background-color: rgba(88, 28, 135, 0.55) !important;
+}
+.agency-directory-filters-root .agency-symfony-choice > .open-button > .arrow {
+    -fx-background-color: rgba(248, 250, 252, 0.92) !important;
+    -fx-background-insets: 0 !important;
+    -fx-padding: 3 0 3 0 !important;
+}
+
+.agency-directory-filters-root .button.agency-map-purple-button {
+    -fx-min-height: 46 !important;
+    -fx-pref-height: 46 !important;
+    -fx-max-height: 46 !important;
+    -fx-background-insets: 0 !important;
+    -fx-border-insets: 0 !important;
+    -fx-background-color: linear-gradient(to right, #5b21b6, #6d28d9, #7c3aed) !important;
+    -fx-border-color: rgba(196, 181, 253, 0.58) !important;
+    -fx-text-fill: #faf5ff !important;
+    -fx-font-size: 13px;
+    -fx-font-weight: 800;
+    -fx-background-radius: 12 !important;
+    -fx-border-radius: 12 !important;
+    -fx-border-width: 1 !important;
+    -fx-padding: 12 20 12 20;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.55), 18, 0.28, 0, 4) !important;
+    -fx-focus-color: rgba(167, 139, 250, 0.55) !important;
+    -fx-faint-focus-color: transparent !important;
+}
+.agency-directory-filters-root .button.agency-map-purple-button:hover {
+    -fx-background-color: linear-gradient(to right, #6d28d9, #7c3aed, #8b5cf6) !important;
+    -fx-border-color: rgba(221, 214, 254, 0.72) !important;
+}
+.agency-directory-filters-root .button.agency-my-agency-outline {
+    -fx-min-height: 46 !important;
+    -fx-pref-height: 46 !important;
+    -fx-max-height: 46 !important;
+    -fx-background-insets: 0 !important;
+    -fx-border-insets: 0 !important;
+    -fx-background-color: rgba(255, 255, 255, 0.1) !important;
+    -fx-border-color: rgba(196, 181, 253, 0.5) !important;
+    -fx-text-fill: #f8fafc !important;
+    -fx-font-size: 13px;
+    -fx-font-weight: 800;
+    -fx-background-radius: 12 !important;
+    -fx-border-radius: 12 !important;
+    -fx-border-width: 1 !important;
+    -fx-padding: 12 20 12 20;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.45), 14, 0.22, 0, 3) !important;
+    -fx-focus-color: rgba(167, 139, 250, 0.55) !important;
+    -fx-faint-focus-color: transparent !important;
+}
+.agency-directory-filters-root .button.agency-my-agency-outline:hover {
+    -fx-background-color: rgba(139, 92, 246, 0.26) !important;
+    -fx-border-color: rgba(221, 214, 254, 0.65) !important;
+    -fx-text-fill: #ffffff !important;
+}

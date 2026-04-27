@@ -1,0 +1,37 @@
+/*
+ * SmartVoyage signed-in clean shell — scoped to .signed-in-clean-shell on scene root only.
+ * Transparent chrome wins over legacy overlay rules when merged into signed-in-unified.css.
+ * Does not target .welcome-root or guest flows.
+ */
+.root.signed-in-clean-shell {
+    -fx-base: rgb(21, 28, 51);
+    -fx-background: #05010D;
+}
+
+.root.signed-in-clean-shell .signed-in-cosmic-canvas {
+    -fx-background-color: linear-gradient(to bottom, #2A174A 0%, #17052D 52%, #05010D 100%);
+}
+
+.root.signed-in-clean-shell .scroll-pane,
+.root.signed-in-clean-shell .scroll-pane > .viewport,
+.root.signed-in-clean-shell .scroll-pane > .corner {
+    -fx-background-color: transparent;
+}
+
+.root.signed-in-clean-shell .split-pane {
+    -fx-background-color: transparent;
+}
+
+.root.signed-in-clean-shell .list-view {
+    -fx-background-color: transparent;
+}
+
+/* Legacy Pi overlay class names: keep transparent if any node still references them */
+.root.signed-in-clean-shell .offers-page-overlay,
+.root.signed-in-clean-shell .offers-cards-spotlight {
+    -fx-background-color: transparent;
+}
+
+.root.signed-in-clean-shell .hero-foreground-pane {
+    -fx-background-color: transparent;
+}
