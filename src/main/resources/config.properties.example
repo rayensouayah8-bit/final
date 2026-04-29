@@ -1,0 +1,26 @@
+# SmartVoyage — secrets locaux (NE PAS committer config.properties avec des vraies clés)
+# Copier ce fichier vers config.properties dans le même dossier (src/main/resources/)
+
+# Hugging Face — Inference API (BLIP, Stable Diffusion, NER géo, etc.)
+# Créer un token : https://huggingface.co/settings/tokens
+huggingface.api.token=
+
+# Cloudinary — upload « unsigned » (preset créé dans le dashboard Cloudinary)
+# Dashboard : https://console.cloudinary.com/
+# Optionnel : si vide, « Générer image depuis texte » enregistre quand même le PNG/JPEG
+# dans %USERPROFILE%\.smartvoyage\generated\ et remplit l’URL fichier://…
+cloudinary.cloud_name=
+cloudinary.upload_preset=
+
+# Twilio SMS (optionnel) — notification quand follow-up DONE
+# Dashboard: https://console.twilio.com/
+# Endpoint utilise: https://api.twilio.com/2010-04-01/Accounts/{ACCOUNT_SID}/Messages.json
+# Ne colle pas un vrai Account SID ici (GitHub le bloque). Mets-le dans config.properties local ou TWILIO_ACCOUNT_SID.
+twilio.account_sid=
+twilio.auth_token=
+twilio.from_phone=
+# Destinataire prioritaire (si renseigné, remplace le phone utilisateur)
+# Ex: +21650698523
+twilio.to_phone=
+# Fallback si user.phone est vide (ex: +18777804236)
+twilio.default_to_phone=

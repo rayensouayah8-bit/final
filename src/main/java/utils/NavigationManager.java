@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import models.gestionposts.Post;
 import models.gestionutilisateurs.User;
 
 import java.io.IOException;
@@ -38,11 +39,16 @@ public class NavigationManager {
     private Scene sharedScene;
     private boolean lightTheme;
     private Long selectedAgencyId;
+    private Post selectedPost;
+    /** Passé à l’écran détail ; consommé une fois au chargement (défaut : true). */
+    private boolean postDetailAllowOwnerEditDelete = true;
     private String currentResourcePath;
     /** Consumed once by {@link controllers.home.SignedInPageControllerBase#initSignedInSidebar()} to mark the active row. */
     private SignedInNavSection pendingSignedInSidebarSection = SignedInNavSection.NONE;
     /** One-shot flag consumed by SignedInHomeController for post-login brand transition. */
     private boolean pendingSignedInEntryTransition;
+    /** One-shot conversation selection for signed-in messages page. */
+    private Long pendingConversationId;
 
     private NavigationManager() {
     }
@@ -199,7 +205,25 @@ public class NavigationManager {
             showWelcome();
             return;
         }
-        loadScene("/fxml/user/offers_signed_in.fxml", "SmartVoyage — Offers");
+        loadScene("/fxml/gestionoffres/Offers.fxml", "SmartVoyage — Offers");
+    }
+
+    public void showSignedInPosts() {
+        if (!canAccessSignedInShell()) {
+            AuthSession.clear();
+            showWelcome();
+            return;
+        }
+        loadSceneWithPostsCss("/fxml/posts/posts_view.fxml", "SmartVoyage — Recommendations");
+    }
+
+    public void showSignedInMessages() {
+        if (!canAccessSignedInShell()) {
+            AuthSession.clear();
+            showWelcome();
+            return;
+        }
+        loadScene("/fxml/user/messages_signed_in.fxml", "SmartVoyage — Messages");
     }
 
     public void showUserProfile() {
@@ -248,6 +272,44 @@ public class NavigationManager {
         loadScene("/fxml/agency/agency_post_create.fxml", "SmartVoyage — New post");
     }
 
+    public Optional<Post> selectedPost() {
+        return Optional.ofNullable(selectedPost);
+    }
+
+    public Post getSelectedPost() {
+        return selectedPost;
+    }
+
+    public void setSelectedPost(Post post) {
+        this.selectedPost = post;
+    }
+
+    public void showPostDetail(Post post) {
+        showPostDetail(post, true);
+    }
+
+    /**
+     * @param allowOwnerEditDelete si false (ex. ouverture depuis « Tous les posts »), masque Modifier/Supprimer le post
+     *                             sur l’écran détail même pour l’auteur.
+     */
+    public void showPostDetail(Post post, boolean allowOwnerEditDelete) {
+        if (!canAccessSignedInShell()) {
+            AuthSession.clear();
+            showWelcome();
+            return;
+        }
+        this.postDetailAllowOwnerEditDelete = allowOwnerEditDelete;
+        this.selectedPost = post;
+        loadSceneWithPostsCss("/fxml/posts/post_detail.fxml", "SmartVoyage — Post detail");
+    }
+
+    /** À appeler une fois au chargement du détail ; réinitialise le drapeau pour la navigation suivante. */
+    public boolean consumePostDetailAllowOwnerEditDelete() {
+        boolean v = postDetailAllowOwnerEditDelete;
+        postDetailAllowOwnerEditDelete = true;
+        return v;
+    }
+
     public void toggleTheme() {
         if (sharedScene == null || sharedScene.getRoot() == null) {
             return;
@@ -292,18 +354,37 @@ public class NavigationManager {
         return show;
     }
 
+    public void setPendingConversationId(Long conversationId) {
+        this.pendingConversationId = conversationId;
+    }
+
+    public Long consumePendingConversationId() {
+        Long value = pendingConversationId;
+        pendingConversationId = null;
+        return value;
+    }
+
     private static boolean isSignedInResource(String resource) {
         if (resource == null || resource.isBlank()) {
             return false;
         }
         return "/fxml/home/signed-in-home.fxml".equals(resource)
                 || "/fxml/user/offers_signed_in.fxml".equals(resource)
+                || "/fxml/gestionoffres/Offers.fxml".equals(resource)
+                || "/fxml/gestionoffres/OfferForm.fxml".equals(resource)
+                || "/fxml/gestionoffres/ReservationForm.fxml".equals(resource)
+                || "/fxml/gestionoffres/MyReservations.fxml".equals(resource)
+                || "/fxml/gestionoffres/AgencyReservations.fxml".equals(resource)
+                || "/fxml/gestionoffres/OfferReservations.fxml".equals(resource)
                 || "/fxml/agency/agencies_signed_in.fxml".equals(resource)
                 || "/fxml/agency/my_agency.fxml".equals(resource)
                 || "/fxml/agency/agency_proposal.fxml".equals(resource)
                 || "/fxml/agency/agency_post_create.fxml".equals(resource)
                 || "/fxml/user/user_profile.fxml".equals(resource)
-                || "/fxml/user/events_signed_in.fxml".equals(resource);
+                || "/fxml/user/events_signed_in.fxml".equals(resource)
+                || "/fxml/user/messages_signed_in.fxml".equals(resource)
+                || "/fxml/posts/posts_view.fxml".equals(resource)
+                || "/fxml/posts/post_detail.fxml".equals(resource);
     }
 
     private void prepareSignedInSidebarSection(String resource) {
@@ -313,7 +394,8 @@ public class NavigationManager {
         }
         if ("/fxml/home/signed-in-home.fxml".equals(resource)) {
             pendingSignedInSidebarSection = SignedInNavSection.HOME;
-        } else if ("/fxml/user/offers_signed_in.fxml".equals(resource)) {
+        } else if ("/fxml/user/offers_signed_in.fxml".equals(resource)
+                || "/fxml/gestionoffres/Offers.fxml".equals(resource)) {
             pendingSignedInSidebarSection = SignedInNavSection.OFFERS;
         } else if ("/fxml/agency/agencies_signed_in.fxml".equals(resource)
                 || "/fxml/agency/my_agency.fxml".equals(resource)
@@ -324,8 +406,27 @@ public class NavigationManager {
             pendingSignedInSidebarSection = SignedInNavSection.PROFILE;
         } else if ("/fxml/user/events_signed_in.fxml".equals(resource)) {
             pendingSignedInSidebarSection = SignedInNavSection.EVENTS;
+        } else if ("/fxml/user/messages_signed_in.fxml".equals(resource)) {
+            pendingSignedInSidebarSection = SignedInNavSection.MESSAGES;
+        } else if ("/fxml/posts/posts_view.fxml".equals(resource)
+                || "/fxml/posts/post_detail.fxml".equals(resource)) {
+            pendingSignedInSidebarSection = SignedInNavSection.RECOMMENDATIONS;
         } else {
             pendingSignedInSidebarSection = SignedInNavSection.NONE;
+        }
+    }
+
+    private void loadSceneWithPostsCss(String resource, String title) {
+        try {
+            prepareSignedInSidebarSection(resource);
+            URL fxmlUrl = Objects.requireNonNull(NavigationManager.class.getResource(resource));
+            FXMLLoader loader = new FXMLLoader(fxmlUrl);
+            Parent root = loader.load();
+            currentResourcePath = resource;
+            applyScene(root, title);
+            ensurePostsStylesheet();
+        } catch (IOException e) {
+            throw new RuntimeException("Unable to load scene: " + resource, e);
         }
     }
 
@@ -382,6 +483,20 @@ public class NavigationManager {
             return;
         }
         String ext = pi.toExternalForm();
+        if (!sharedScene.getStylesheets().contains(ext)) {
+            sharedScene.getStylesheets().add(ext);
+        }
+    }
+
+    private void ensurePostsStylesheet() {
+        if (sharedScene == null) {
+            return;
+        }
+        URL posts = NavigationManager.class.getResource("/css/posts_styles.css");
+        if (posts == null) {
+            return;
+        }
+        String ext = posts.toExternalForm();
         if (!sharedScene.getStylesheets().contains(ext)) {
             sharedScene.getStylesheets().add(ext);
         }

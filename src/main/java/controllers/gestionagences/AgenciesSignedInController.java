@@ -34,6 +34,7 @@ import models.gestionagences.AgencyAccount;
 import models.gestionagences.ImageAsset;
 import services.geo.CountryCatalog;
 import services.gestionagences.AgencyAccountService;
+import services.gestionmessagerie.ConversationService;
 import controllers.home.SignedInPageControllerBase;
 import utils.NavigationManager;
 import utils.StarfieldHelper;
@@ -111,6 +112,7 @@ public class AgenciesSignedInController extends SignedInPageControllerBase {
     private ScrollPane agencyPageScrollPane;
 
     private final AgencyAccountService agencyService = new AgencyAccountService();
+    private final ConversationService conversationService = new ConversationService();
     private final List<AgencyAccount> allAgencies = new ArrayList<>();
     private final List<CountryCatalog.CountryRow> countryRows = new ArrayList<>();
 
@@ -600,15 +602,24 @@ public class AgenciesSignedInController extends SignedInPageControllerBase {
 
         HBox footer = new HBox();
         footer.setAlignment(Pos.CENTER_RIGHT);
+        footer.setSpacing(8);
         footer.getStyleClass().add("agency-directory-footer");
         footer.setPadding(new Insets(6, 16, 10, 16));
+
+        Button contactAgency = new Button("Contact Agency");
+        contactAgency.getStyleClass().add("agency-directory-cta");
+        contactAgency.hoverProperty().addListener((o, a, b) -> applyAgencyCardCtaHardStyle(contactAgency));
+        contactAgency.focusedProperty().addListener((o, a, b) -> applyAgencyCardCtaHardStyle(contactAgency));
+        applyAgencyCardCtaHardStyle(contactAgency);
+        contactAgency.setOnAction(e -> onContactAgency(agency));
+
         Button details = new Button("View agency \u2192");
         details.getStyleClass().add("agency-directory-cta");
         details.hoverProperty().addListener((o, a, b) -> applyAgencyCardCtaHardStyle(details));
         details.focusedProperty().addListener((o, a, b) -> applyAgencyCardCtaHardStyle(details));
         applyAgencyCardCtaHardStyle(details);
         details.setOnAction(e -> onAgencyDetails(agency));
-        footer.getChildren().add(details);
+        footer.getChildren().addAll(contactAgency, details);
 
         card.getChildren().addAll(header, body, footer);
         return card;
@@ -877,5 +888,25 @@ public class AgenciesSignedInController extends SignedInPageControllerBase {
             return;
         }
         NavigationManager.getInstance().showAgencyProfile(agency.getId());
+    }
+
+    private void onContactAgency(AgencyAccount agency) {
+        Integer travelerUserId = NavigationManager.getInstance().sessionUser().map(u -> u.getId()).orElse(null);
+        if (travelerUserId == null) {
+            NavigationManager.getInstance().showLogin();
+            return;
+        }
+        Integer agencyResponsableId = agency != null ? agency.getResponsableId() : null;
+        if (agencyResponsableId == null) {
+            resultCountLabel.setText("This agency cannot be contacted yet.");
+            return;
+        }
+        try {
+            Long conversationId = conversationService.ensureDirectConversationWithAgency(travelerUserId, agencyResponsableId);
+            NavigationManager.getInstance().setPendingConversationId(conversationId);
+            NavigationManager.getInstance().showSignedInMessages();
+        } catch (SQLException | IllegalArgumentException ex) {
+            resultCountLabel.setText("Contact Agency: " + ex.getMessage());
+        }
     }
 }

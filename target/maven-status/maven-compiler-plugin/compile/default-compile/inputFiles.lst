@@ -1,52 +1,107 @@
-C:\Users\sayhi\Downloads\DayFlow (2)\DayFlow\integration\stage\smartvoyage-desktop\src\main\java\services\gestionevenements\TravelEventService.java
-C:\Users\sayhi\Downloads\DayFlow (2)\DayFlow\integration\stage\smartvoyage-desktop\src\main\java\controllers\gestionagences\AgenciesSignedInController.java
-C:\Users\sayhi\Downloads\DayFlow (2)\DayFlow\integration\stage\smartvoyage-desktop\src\main\java\controllers\gestionoffres\OffersGuestController.java
-C:\Users\sayhi\Downloads\DayFlow (2)\DayFlow\integration\stage\smartvoyage-desktop\src\main\java\auth\AuthSession.java
-C:\Users\sayhi\Downloads\DayFlow (2)\DayFlow\integration\stage\smartvoyage-desktop\src\main\java\utils\StarfieldHelper.java
-C:\Users\sayhi\Downloads\DayFlow (2)\DayFlow\integration\stage\smartvoyage-desktop\src\main\java\services\gestionutilisateurs\UserFeedbackService.java
-C:\Users\sayhi\Downloads\DayFlow (2)\DayFlow\integration\stage\smartvoyage-desktop\src\main\java\utils\PasswordHasher.java
-C:\Users\sayhi\Downloads\DayFlow (2)\DayFlow\integration\stage\smartvoyage-desktop\src\main\java\utils\SignedInNavSection.java
-C:\Users\sayhi\Downloads\DayFlow (2)\DayFlow\integration\stage\smartvoyage-desktop\src\main\java\models\gestionagences\AgencyPost.java
-C:\Users\sayhi\Downloads\DayFlow (2)\DayFlow\integration\stage\smartvoyage-desktop\src\main\java\services\CRUD.java
-C:\Users\sayhi\Downloads\DayFlow (2)\DayFlow\integration\stage\smartvoyage-desktop\src\main\java\controllers\gestionagences\AgencyProposalController.java
-C:\Users\sayhi\Downloads\DayFlow (2)\DayFlow\integration\stage\smartvoyage-desktop\src\main\java\services\gestionagences\AgencyPostValidationResult.java
-C:\Users\sayhi\Downloads\DayFlow (2)\DayFlow\integration\stage\smartvoyage-desktop\src\main\java\services\gestionutilisateurs\UserProfileValidationResult.java
-C:\Users\sayhi\Downloads\DayFlow (2)\DayFlow\integration\stage\smartvoyage-desktop\src\main\java\services\gestionagences\AgencyPostService.java
-C:\Users\sayhi\Downloads\DayFlow (2)\DayFlow\integration\stage\smartvoyage-desktop\src\main\java\services\gestionagences\AgencyAccountService.java
-C:\Users\sayhi\Downloads\DayFlow (2)\DayFlow\integration\stage\smartvoyage-desktop\src\main\java\controllers\gestionevenements\EventFormController.java
-C:\Users\sayhi\Downloads\DayFlow (2)\DayFlow\integration\stage\smartvoyage-desktop\src\main\java\auth\AuthServices.java
-C:\Users\sayhi\Downloads\DayFlow (2)\DayFlow\integration\stage\smartvoyage-desktop\src\main\java\services\geo\CountryCatalog.java
-C:\Users\sayhi\Downloads\DayFlow (2)\DayFlow\integration\stage\smartvoyage-desktop\src\main\java\utils\DbConnexion.java
-C:\Users\sayhi\Downloads\DayFlow (2)\DayFlow\integration\stage\smartvoyage-desktop\src\main\java\utils\AvatarImageCover.java
-C:\Users\sayhi\Downloads\DayFlow (2)\DayFlow\integration\stage\smartvoyage-desktop\src\main\java\models\gestionagences\AgencyPostComment.java
-C:\Users\sayhi\Downloads\DayFlow (2)\DayFlow\integration\stage\smartvoyage-desktop\src\main\java\models\gestionagences\AgencyAdminApplication.java
-C:\Users\sayhi\Downloads\DayFlow (2)\DayFlow\integration\stage\smartvoyage-desktop\src\main\java\controllers\admin\AdminDashboardController.java
-C:\Users\sayhi\Downloads\DayFlow (2)\DayFlow\integration\stage\smartvoyage-desktop\src\main\java\enums\gestionagences\AgencyApplicationStatus.java
-C:\Users\sayhi\Downloads\DayFlow (2)\DayFlow\integration\stage\smartvoyage-desktop\src\main\java\services\gestionevenements\EventParticipationService.java
-C:\Users\sayhi\Downloads\DayFlow (2)\DayFlow\integration\stage\smartvoyage-desktop\src\main\java\services\gestionagences\AgencyAccountValidationResult.java
-C:\Users\sayhi\Downloads\DayFlow (2)\DayFlow\integration\stage\smartvoyage-desktop\src\main\java\controllers\gestionagences\AgencyVerificationGlyphs.java
-C:\Users\sayhi\Downloads\DayFlow (2)\DayFlow\integration\stage\smartvoyage-desktop\src\main\java\models\gestionutilisateurs\UserFeedback.java
-C:\Users\sayhi\Downloads\DayFlow (2)\DayFlow\integration\stage\smartvoyage-desktop\src\main\java\controllers\gestionagences\AgencyPostCreateController.java
-C:\Users\sayhi\Downloads\DayFlow (2)\DayFlow\integration\stage\smartvoyage-desktop\src\main\java\models\welcome\ObjMeshLoader.java
-C:\Users\sayhi\Downloads\DayFlow (2)\DayFlow\integration\stage\smartvoyage-desktop\src\main\java\models\gestionagences\ImageAsset.java
-C:\Users\sayhi\Downloads\DayFlow (2)\DayFlow\integration\stage\smartvoyage-desktop\src\main\java\utils\DbBootstrapper.java
-C:\Users\sayhi\Downloads\DayFlow (2)\DayFlow\integration\stage\smartvoyage-desktop\src\main\java\models\gestionutilisateurs\User.java
-C:\Users\sayhi\Downloads\DayFlow (2)\DayFlow\integration\stage\smartvoyage-desktop\src\main\java\models\gestionevenements\EventParticipation.java
-C:\Users\sayhi\Downloads\DayFlow (2)\DayFlow\integration\stage\smartvoyage-desktop\src\main\java\controllers\welcome\WelcomeController.java
-C:\Users\sayhi\Downloads\DayFlow (2)\DayFlow\integration\stage\smartvoyage-desktop\src\main\java\controllers\gestionevenements\EventsSignedInController.java
-C:\Users\sayhi\Downloads\DayFlow (2)\DayFlow\integration\stage\smartvoyage-desktop\src\main\java\controllers\gestionutilisateurs\UserProfileController.java
-C:\Users\sayhi\Downloads\DayFlow (2)\DayFlow\integration\stage\smartvoyage-desktop\src\main\java\services\gestionagences\ImageAssetService.java
-C:\Users\sayhi\Downloads\DayFlow (2)\DayFlow\integration\stage\smartvoyage-desktop\src\main\java\services\gestionevenements\EventSponsorshipService.java
-C:\Users\sayhi\Downloads\DayFlow (2)\DayFlow\integration\stage\smartvoyage-desktop\src\main\java\services\gestionagences\AgencyAdminApplicationService.java
-C:\Users\sayhi\Downloads\DayFlow (2)\DayFlow\integration\stage\smartvoyage-desktop\src\main\java\models\welcome\GlobeModelFactory.java
-C:\Users\sayhi\Downloads\DayFlow (2)\DayFlow\integration\stage\smartvoyage-desktop\src\main\java\controllers\home\SignedInPageControllerBase.java
-C:\Users\sayhi\Downloads\DayFlow (2)\DayFlow\integration\stage\smartvoyage-desktop\src\main\java\models\gestionagences\AgencyAccount.java
-C:\Users\sayhi\Downloads\DayFlow (2)\DayFlow\integration\stage\smartvoyage-desktop\src\main\java\enums\gestionutilisateurs\UserRole.java
-C:\Users\sayhi\Downloads\DayFlow (2)\DayFlow\integration\stage\smartvoyage-desktop\src\main\java\models\gestionevenements\TravelEvent.java
-C:\Users\sayhi\Downloads\DayFlow (2)\DayFlow\integration\stage\smartvoyage-desktop\src\main\java\app\Main.java
-C:\Users\sayhi\Downloads\DayFlow (2)\DayFlow\integration\stage\smartvoyage-desktop\src\main\java\utils\NavigationManager.java
-C:\Users\sayhi\Downloads\DayFlow (2)\DayFlow\integration\stage\smartvoyage-desktop\src\main\java\models\gestionevenements\EventSponsorship.java
-C:\Users\sayhi\Downloads\DayFlow (2)\DayFlow\integration\stage\smartvoyage-desktop\src\main\java\controllers\gestionagences\MyAgencyController.java
-C:\Users\sayhi\Downloads\DayFlow (2)\DayFlow\integration\stage\smartvoyage-desktop\src\main\java\services\gestionutilisateurs\UserService.java
-C:\Users\sayhi\Downloads\DayFlow (2)\DayFlow\integration\stage\smartvoyage-desktop\src\main\java\controllers\gestionevenements\SponsorshipFormController.java
-C:\Users\sayhi\Downloads\DayFlow (2)\DayFlow\integration\stage\smartvoyage-desktop\src\main\java\controllers\home\SignedInHomeController.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\utils\StarfieldHelper.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\controllers\gestionagences\AgenciesSignedInController.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\services\gestionposts\LikeDAOImpl.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\auth\AuthServices.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\controllers\admin\AdminDashboardController.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\controllers\gestionoffres\ReservationsController.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\services\HuggingFaceService.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\utils\SessionManager.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\utils\NavigationManager.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\services\gestionposts\PostDAO.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\models\gestionposts\Comment.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\controllers\gestionoffres\OffersGuestController.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\services\gestionagences\AgencyAdminApplicationService.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\controllers\gestionagences\MyAgencyController.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\models\gestionoffres\TravelOffer.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\services\gestionagences\AgencyPostValidationResult.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\services\gestionevenements\TravelEventService.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\controllers\gestionevenements\EventsSignedInController.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\controllers\gestionoffres\OfferReservationsController.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\services\geo\UserGeoSession.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\controllers\gestionagences\AgencyVerificationGlyphs.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\models\gestionevenements\EventParticipation.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\services\gestionevenements\EventLikeService.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\controllers\gestionutilisateurs\UserProfileController.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\services\gestionagences\ImageAssetService.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\models\gestionagences\AgencyPostComment.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\controllers\gestionoffres\MyReservationsController.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\controllers\home\SignedInHomeController.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\services\CRUD.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\services\gestionutilisateurs\UserFeedbackService.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\services\gestionposts\CommentService.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\services\gestionutilisateurs\UserProfileValidationResult.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\utils\EmojiCommentTextFlow.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\services\IService.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\models\gestionoffres\Reservation.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\services\gestionposts\CommentDAOImpl.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\enums\gestionposts\Sentiment.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\controllers\gestionoffres\OffersController.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\controllers\gestionevenements\ParticipationJoinFormController.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\enums\gestionagences\AgencyApplicationStatus.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\utils\SignedInNavSection.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\services\gestionposts\PostService.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\utils\GeoConfig.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\controllers\gestionoffres\ReservationFormController.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\services\gestionagences\AgencyAccountService.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\controllers\gestionposts\PostsMapWebStage.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\models\welcome\ObjMeshLoader.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\models\gestionposts\PostLike.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\services\ServiceReservation.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\services\geo\GeoPoint.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\services\gestionposts\PostDAOImpl.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\models\gestionmessagerie\ChatMessage.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\models\gestionposts\Post.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\controllers\gestionevenements\SponsorshipFormController.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\controllers\home\SignedInPageControllerBase.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\utils\CustomConfirmDialog.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\utils\DbBootstrapper.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\services\gestionposts\CommentDAO.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\models\welcome\GlobeModelFactory.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\services\gestionutilisateurs\ReputationService.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\models\gestionmessagerie\MessagingNotification.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\controllers\gestionoffres\OfferFormController.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\utils\AppConfig.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\services\ServiceTravelOffer.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\utils\EmojiPickerHelper.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\controllers\gestionagences\AgencyPostCreateController.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\controllers\gestionmessagerie\MessagesController.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\services\CloudinaryService.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\models\gestionagences\ImageAsset.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\models\gestionmessagerie\Conversation.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\services\gestionagences\AgencyAccountValidationResult.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\services\geo\CountryCatalog.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\app\Main.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\models\gestionagences\AgencyPost.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\services\speech\LocalSpeechFallbackService.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\utils\PasswordHasher.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\controllers\gestionposts\PostCardController.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\controllers\gestionagences\AgencyProposalController.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\controllers\gestionoffres\AgencyReservationsController.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\models\gestionagences\AgencyAccount.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\utils\DbConnexion.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\models\gestionmessagerie\ConversationFollowUp.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\utils\TwemojiUtil.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\models\gestionevenements\EventSponsorship.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\controllers\welcome\WelcomeController.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\utils\AvatarImageCover.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\services\speech\GoogleSpeechService.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\enums\gestionutilisateurs\UserRole.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\services\TwilioNotificationService.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\services\gestionposts\LikeService.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\auth\AuthSession.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\controllers\gestionposts\PostDetailController.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\services\gestionevenements\EventSponsorshipService.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\controllers\gestionevenements\EventFormController.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\models\gestionutilisateurs\UserFeedback.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\services\gestionagences\AgencyPostService.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\services\gestionposts\LikeDAO.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\services\geo\GeolocationService.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\utils\Countries.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\models\gestionutilisateurs\User.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\services\gestionutilisateurs\UserService.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\controllers\gestionposts\PostsController.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\services\gestionevenements\EventParticipationService.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\models\gestionevenements\TravelEvent.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\models\gestionagences\AgencyAdminApplication.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\services\gestionmessagerie\ConversationService.java
+C:\Users\fayce\Esprit-PIJAVA-3A57-2026-SmartVoyage-V2\src\main\java\services\speech\AudioRecorderService.java

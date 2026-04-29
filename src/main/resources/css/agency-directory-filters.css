@@ -140,3 +140,52 @@
     -fx-border-color: rgba(221, 214, 254, 0.65) !important;
     -fx-text-fill: #ffffff !important;
 }
+
+/* Recommendations (posts): ComboBox uses different skin than ChoiceBox — mirror the same chrome */
+.agency-directory-filters-root ComboBox.agency-symfony-choice,
+.agency-directory-filters-root .combo-box.agency-symfony-choice {
+    -fx-background-insets: 0 !important;
+    -fx-border-insets: 0 !important;
+    -fx-min-height: 46 !important;
+    -fx-pref-height: 46 !important;
+    -fx-background-color: rgba(8, 12, 28, 0.88) !important;
+    -fx-border-color: rgba(167, 139, 250, 0.38) !important;
+    -fx-border-radius: 14 !important;
+    -fx-background-radius: 14 !important;
+    -fx-border-width: 1 !important;
+    -fx-font-size: 14px;
+    -fx-accent: #6d28d9 !important;
+    -fx-mark-color: #e9d5ff !important;
+    -fx-focus-color: transparent !important;
+    -fx-faint-focus-color: transparent !important;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.45), 14, 0.2, 0, 3) !important;
+}
+.agency-directory-filters-root .agency-symfony-choice > .list-cell {
+    -fx-text-fill: #f8fafc !important;
+    -fx-background-color: transparent !important;
+}
+.agency-directory-filters-root .agency-symfony-choice:hover {
+    -fx-border-color: rgba(196, 181, 253, 0.58) !important;
+}
+.agency-directory-filters-root .agency-symfony-choice:focused,
+.agency-directory-filters-root .agency-symfony-choice:showing {
+    -fx-border-color: rgba(196, 181, 253, 0.92) !important;
+}
+.agency-directory-filters-root .agency-symfony-choice > .arrow-button {
+    -fx-background-color: rgba(15, 23, 42, 0.96) !important;
+    -fx-background-insets: 0 !important;
+    -fx-border-width: 0 !important;
+    -fx-background-radius: 0 13 13 0 !important;
+    -fx-min-width: 38px !important;
+    -fx-pref-width: 38px !important;
+    -fx-min-height: 46 !important;
+    -fx-pref-height: 46 !important;
+    -fx-max-height: 46 !important;
+    -fx-padding: 0 10 0 10 !important;
+}
+.agency-directory-filters-root .agency-symfony-choice > .arrow-button:hover {
+    -fx-background-color: rgba(88, 28, 135, 0.55) !important;
+}
+.agency-directory-filters-root .agency-symfony-choice .arrow {
+    -fx-background-color: rgba(248, 250, 252, 0.92) !important;
+}

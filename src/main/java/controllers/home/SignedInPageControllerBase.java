@@ -318,12 +318,12 @@ public abstract class SignedInPageControllerBase {
 
     @FXML
     protected void onMessagerie() {
-        showPlaceholder("Messages", "Messagerie (signed-in) will open here.");
+        NavigationManager.getInstance().showSignedInMessages();
     }
 
     @FXML
     protected void onRecommandation() {
-        showPlaceholder("Recommendations", "Recommendations (signed-in) will open here.");
+        NavigationManager.getInstance().showSignedInPosts();
     }
 
     @FXML

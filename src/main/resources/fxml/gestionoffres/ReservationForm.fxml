@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controllers.gestionoffres.ReservationFormController"
+            styleClass="signed-in-clean-shell immersive-root signed-in-shell-root">
+    <left>
+        <StackPane fx:id="signedInSidebarHost" maxHeight="Infinity" minHeight="0.0" maxWidth="328.0" minWidth="260.0" prefWidth="292.0"
+                   styleClass="signed-in-home-sidebar-host signed-in-shell-sidebar-host"
+                   style="-fx-background-color: linear-gradient(to bottom, #07112E 0%, #081430 48%, #0A1635 100%); -fx-padding: 0;">
+            <children>
+                <Region fx:id="signedInSidebarEdgeAura" maxWidth="Infinity" maxHeight="Infinity" mouseTransparent="true" styleClass="smart-auth-edge-aura"/>
+                <VBox fx:id="signedInSidebarShell" spacing="10.0" styleClass="sv-si-sidebar signed-in-sidebar-column sidebar-immersive smart-auth-sidebar smart-auth-sidebar-outer" style="-fx-background-color: transparent;">
+                    <children>
+                        <VBox spacing="10.0" styleClass="smart-auth-brand-dock">
+                            <padding><Insets top="22.0" right="26.0" bottom="6.0" left="26.0"/></padding>
+                            <children>
+                                <VBox spacing="8.0" styleClass="smart-auth-brand-lockup">
+                                    <children>
+                                        <ImageView fitWidth="212.0" preserveRatio="true" styleClass="smart-auth-brand-logo">
+                                            <image><Image url="@/assets/branding/smartvoyage-logo-tight.png"/></image>
+                                        </ImageView>
+                                        <Region fx:id="signedInBrandUnderlineBar" prefHeight="3.0" maxWidth="132.0" styleClass="smart-auth-accent-bar"/>
+                                        <Label text="Desktop travel UI" styleClass="smart-auth-brand-strap"/>
+                                    </children>
+                                </VBox>
+                                <Label fx:id="signedInSidebarSessionLabel" text="" styleClass="sv-si-session"/>
+                            </children>
+                        </VBox>
+                        <Region prefHeight="1.0" maxWidth="Infinity" styleClass="smart-auth-rule smart-auth-rule-tight"/>
+                        <Separator styleClass="sidebar-rule"/>
+                        <Button fx:id="navHomeButton" text="Home" onAction="#onHome" styleClass="sidebar-nav-item"/>
+                        <Button fx:id="navOffersButton" text="Offers" onAction="#onOffres" styleClass="sidebar-nav-item"/>
+                        <Button fx:id="navAgenciesButton" text="Agencies" onAction="#onAgences" styleClass="sidebar-nav-item"/>
+                        <Button fx:id="navMessagesButton" text="Messages" onAction="#onMessagerie" styleClass="sidebar-nav-item"/>
+                        <Button fx:id="navRecommendationsButton" text="Recommendations" onAction="#onRecommandation" styleClass="sidebar-nav-item"/>
+                        <Button fx:id="navEventsButton" text="Events" onAction="#onEvenement" styleClass="sidebar-nav-item"/>
+                        <Region VBox.vgrow="ALWAYS"/>
+                        <Separator styleClass="sidebar-rule"/>
+                        <Button fx:id="navPremiumButton" text="Premium" onAction="#onPremium" styleClass="premium-nav-button" visible="false" managed="false"/>
+                        <Button fx:id="navNotificationsButton" text="Notifications" onAction="#onNotifications" styleClass="sidebar-nav-item"/>
+                        <Button fx:id="navProfileButton" text="My Profile" onAction="#onProfile" styleClass="sidebar-nav-item"/>
+                        <Button fx:id="navDashboardButton" text="Dashboard IA" onAction="#onDashboardIa" styleClass="sidebar-nav-item"/>
+                        <Separator styleClass="sidebar-rule"/>
+                        <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="sv-si-footer">
+                            <children><Button fx:id="signedInLogoutIconButton" text="" onAction="#onLogout" styleClass="signed-in-footer-logout-button"/></children>
+                        </HBox>
+                    </children>
+                </VBox>
+            </children>
+        </StackPane>
+    </left>
+
+    <center>
+        <StackPane styleClass="signed-in-home-main-canvas signed-in-cosmic-canvas"
+                   style="-fx-background-color: linear-gradient(to bottom, #2A174A 0%, #17052D 52%, #05010D 100%);">
+            <children>
+                <Pane fx:id="signedInCosmicStarfieldPane" styleClass="starfield-layer"/>
+
+                <VBox spacing="16" style="-fx-background-color: transparent; -fx-padding: 24 28 24 28;">
+                    <children>
+                        <HBox alignment="CENTER_LEFT">
+                            <children>
+                                <Button text="← Back to offers" onAction="#onBack"
+                                        style="-fx-background-color: #4C1D95; -fx-text-fill: white; -fx-background-radius: 10;"/>
+                            </children>
+                        </HBox>
+
+                        <ScrollPane fitToWidth="true"
+                                    style="-fx-background-color: transparent; -fx-background: transparent; -fx-control-inner-background: transparent;"
+                                    VBox.vgrow="ALWAYS">
+                            <content>
+                                <FlowPane fx:id="layoutFlowPane" hgap="18" vgap="18" prefWrapLength="1100"
+                                          style="-fx-background-color: transparent;">
+                                    <children>
+                                        <VBox fx:id="offerSummaryCard" prefWidth="420" maxWidth="520" spacing="12"
+                                              style="-fx-background-color: rgba(34, 26, 58, 0.85); -fx-background-radius: 16; -fx-border-color: #2E2550; -fx-border-radius: 16; -fx-padding: 12;">
+                                            <children>
+                                                <StackPane style="-fx-background-color: transparent;">
+                                                    <children>
+                                                        <ImageView fx:id="offerImageView" fitHeight="230" fitWidth="396" preserveRatio="false"/>
+                                                        <Label fx:id="seatsBadgeLabel" StackPane.alignment="TOP_RIGHT"
+                                                               style="-fx-background-color: #7C3AEDCC; -fx-text-fill: white; -fx-padding: 5 10; -fx-background-radius: 999;"/>
+                                                    </children>
+                                                </StackPane>
+                                                <Label fx:id="offerTitleLabel" style="-fx-text-fill: white; -fx-font-size: 25; -fx-font-weight: 700;"/>
+                                                <FlowPane fx:id="countriesPillsPane" hgap="6" vgap="6" style="-fx-background-color: transparent;"/>
+                                                <Label fx:id="offerDatesLabel" style="-fx-text-fill: #A78BFA;"/>
+                                                <Label fx:id="offerPriceLabel" style="-fx-text-fill: #F472B6; -fx-font-size: 24; -fx-font-weight: 700;"/>
+                                                <Label fx:id="offerDescriptionLabel" wrapText="true" style="-fx-text-fill: #C4B5FD; -fx-font-size: 12;"/>
+                                            </children>
+                                        </VBox>
+
+                                        <VBox fx:id="reservationFormCard" prefWidth="620" maxWidth="760" spacing="14"
+                                              style="-fx-background-color: rgba(34, 26, 58, 0.85); -fx-background-radius: 16; -fx-border-color: #2E2550; -fx-border-radius: 16; -fx-padding: 16;">
+                                            <children>
+                                                <Label text="✔ Réserver votre place" style="-fx-text-fill: white; -fx-font-size: 24; -fx-font-weight: 700;"/>
+                                                <Separator style="-fx-opacity: 0.45;"/>
+                                                <Label fx:id="editWarningBanner" visible="false" managed="false"
+                                                       style="-fx-background-color: #F59E0B33; -fx-border-color: #F59E0B; -fx-text-fill: #FCD34D; -fx-padding: 8 10; -fx-background-radius: 10; -fx-border-radius: 10;"
+                                                       text="⚠ Modifier cette réservation la repassera en attente d'approbation"/>
+
+                                                <TextField fx:id="contactField" promptText="Ex: +33 6 12 34 56 78"
+                                                           style="-fx-background-color: #1C1535; -fx-border-color: #3B2F6B; -fx-text-fill: white; -fx-prompt-text-fill: #A78BFA;"/>
+
+                                                <HBox alignment="CENTER_LEFT" spacing="10">
+                                                    <children>
+                                                        <Label text="Places" style="-fx-text-fill: #A78BFA;"/>
+                                                        <Region HBox.hgrow="ALWAYS"/>
+                                                        <Button text="-" onAction="#onDecreaseSeats"
+                                                                style="-fx-background-color: #4C1D95; -fx-text-fill: white; -fx-background-radius: 10;"/>
+                                                        <Label fx:id="seatsValueLabel" style="-fx-text-fill: white; -fx-font-size: 18; -fx-font-weight: 700;"/>
+                                                        <Button text="+" onAction="#onIncreaseSeats"
+                                                                style="-fx-background-color: #7C3AED; -fx-text-fill: white; -fx-background-radius: 10;"/>
+                                                    </children>
+                                                </HBox>
+
+                                                <VBox spacing="4" style="-fx-background-color: transparent;">
+                                                    <children>
+                                                        <Label text="Prix total" style="-fx-text-fill: #A78BFA;"/>
+                                                        <Label fx:id="totalLabel" style="-fx-text-fill: #F472B6; -fx-font-size: 30; -fx-font-weight: 700;"/>
+                                                    </children>
+                                                </VBox>
+
+                                                <Label fx:id="statusLabel" wrapText="true" style="-fx-text-fill: #A78BFA;"/>
+                                                <Button fx:id="submitButton" text="🧳 Réserver maintenant" onAction="#onSubmit"
+                                                        style="-fx-background-color: linear-gradient(to right,#DB2777,#7C3AED); -fx-text-fill: white; -fx-font-size: 15; -fx-font-weight: 700; -fx-background-radius: 12; -fx-max-width: Infinity;"/>
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                </FlowPane>
+                            </content>
+                        </ScrollPane>
+                    </children>
+                </VBox>
+            </children>
+        </StackPane>
+    </center>
+</BorderPane>

@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextArea?>
@@ -159,6 +160,22 @@
 
                                 <VBox spacing="18.0" prefWidth="400.0" minWidth="320.0" maxWidth="460.0">
                                     <children>
+                                        <VBox spacing="10.0">
+                                            <styleClass>
+                                                <String fx:value="user-profile-card"/>
+                                                <String fx:value="user-profile-side-card"/>
+                                            </styleClass>
+                                            <padding><Insets top="20.0" right="20.0" bottom="20.0" left="20.0"/></padding>
+                                            <children>
+                                                <Label text="Reputation" styleClass="user-profile-section-title"/>
+                                                <Label fx:id="reputationBadgeLabel" text="🌱 Novice - 0 pts" styleClass="user-profile-label"/>
+                                                <ProgressBar fx:id="reputationProgressBar" prefWidth="320.0" progress="0.0"/>
+                                                <Label fx:id="reputationProgressLabel" text="Prochain niveau : Explorateur (50 pts)" styleClass="user-profile-subtitle"/>
+                                                <Label text="Historique des points" styleClass="user-profile-label"/>
+                                                <VBox fx:id="reputationHistoryBox" spacing="6.0"/>
+                                            </children>
+                                        </VBox>
+
                                         <VBox spacing="10.0">
                                             <styleClass>
                                                 <String fx:value="user-profile-card"/>

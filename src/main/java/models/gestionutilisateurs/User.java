@@ -27,6 +27,8 @@ public class User {
     private String resetToken;
     private LocalDateTime resetTokenExpiresAt;
     private Integer points;
+    private Integer reputationScore;
+    private String level;
 
     public User() {
     }
@@ -157,5 +159,21 @@ public class User {
 
     public void setPoints(Integer points) {
         this.points = points;
+    }
+
+    public Integer getReputationScore() {
+        return reputationScore;
+    }
+
+    public void setReputationScore(Integer reputationScore) {
+        this.reputationScore = reputationScore;
+    }
+
+    public String getLevel() {
+        return level;
+    }
+
+    public void setLevel(String level) {
+        this.level = level;
     }
 }

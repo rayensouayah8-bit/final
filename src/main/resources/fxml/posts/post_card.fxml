@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:id="cardRoot"
+      fx:controller="controllers.gestionposts.PostCardController"
+      styleClass="post-card agency-directory-card"
+      prefWidth="340.0"
+      minWidth="300.0"
+      maxWidth="380.0">
+
+    <padding>
+        <Insets top="0.0" right="0.0" bottom="16.0" left="0.0"/>
+    </padding>
+
+    <children>
+        <!-- Image -->
+        <ImageView fx:id="postImage"
+                   fitWidth="340.0"
+                   fitHeight="200.0"
+                   preserveRatio="false"
+                   styleClass="post-card-image"/>
+
+        <!-- Content -->
+        <VBox spacing="8.0" styleClass="post-card-content">
+            <padding>
+                <Insets top="16.0" right="16.0" bottom="0.0" left="16.0"/>
+            </padding>
+            <children>
+                <!-- Title -->
+                <Label fx:id="titleLabel" text="Titre du post" styleClass="post-card-title" wrapText="true"/>
+                <Label fx:id="trendingLabel" text="🔥 Tendance" managed="false" visible="false" styleClass="post-card-stat"/>
+
+                <!-- Content Preview -->
+                <Label fx:id="contentLabel" text="Contenu du post..." styleClass="post-card-text" wrapText="true"/>
+
+                <!-- Location -->
+                <Label fx:id="locationLabel" text="📍 Localisation" styleClass="post-card-location"/>
+
+                <!-- Date -->
+                <Label fx:id="dateLabel" text="📅 Date" styleClass="post-card-date"/>
+
+                <!-- Stats -->
+                <HBox fx:id="statsBox" spacing="16.0" styleClass="post-card-stats">
+                    <children>
+                        <Label fx:id="likesLabel" text="❤️ 0" styleClass="post-card-stat"/>
+                        <Label fx:id="commentsLabel" text="💬 0" styleClass="post-card-stat"/>
+                    </children>
+                </HBox>
+
+                <!-- Actions -->
+                <HBox spacing="10.0" styleClass="post-card-actions">
+                    <children>
+                        <Button fx:id="viewButton" text="Commentaire" onAction="#onView" styleClass="post-card-comment-btn"/>
+                        <Button fx:id="likeButton" text="J'aime" onAction="#onLike" styleClass="post-card-like-btn"/>
+                        <Region HBox.hgrow="ALWAYS"/>
+                        <Button fx:id="editButton" text="Modifier" onAction="#onEdit" styleClass="post-card-edit-btn"/>
+                        <Button fx:id="deleteButton" text="Supprimer" onAction="#onDelete" styleClass="post-card-delete-btn"/>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </children>
+</VBox>

@@ -11,7 +11,9 @@ import java.sql.SQLException;
 public final class DbConnexion {
 
     private static final String DB_NAME = "smart_voyage";
-    private static final String URL_PARAMS = "?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC&characterEncoding=utf8";
+    /** UTF-8 côté JDBC + collation utf8mb4 pour stocker correctement les émojis dans les commentaires. */
+    private static final String URL_PARAMS =
+            "?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC&useUnicode=true&characterEncoding=UTF-8&connectionCollation=utf8mb4_unicode_ci";
     private static final String BASE_URL = "jdbc:mysql://127.0.0.1:3306/" + URL_PARAMS;
     private static final String URL = "jdbc:mysql://127.0.0.1:3306/" + DB_NAME + URL_PARAMS;
     private static final String USER = "root";

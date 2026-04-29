@@ -733,6 +733,160 @@
     -fx-effect: dropshadow(gaussian, rgba(2, 6, 23, 0.56), 16, 0.20, 0, 5);
 }
 
+.event-card-image-shell {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+.event-card-title {
+    -fx-text-fill: #f8fafc;
+    -fx-font-size: 19px;
+    -fx-font-weight: 800;
+    -fx-padding: 4 0 2 0;
+}
+
+.event-card-meta {
+    -fx-text-fill: #cbd5e1;
+    -fx-font-size: 13px;
+    -fx-font-weight: 400;
+}
+
+.event-card-progress-wrap {
+    -fx-padding: 2 0 4 0;
+}
+
+.event-card-progress {
+    -fx-pref-height: 11;
+    -fx-accent: linear-gradient(to right, #ec4899, #8b5cf6);
+}
+
+.event-card-progress > .track {
+    -fx-background-color: rgba(148, 163, 184, 0.24);
+    -fx-background-radius: 999;
+}
+
+.event-card-progress > .bar {
+    -fx-background-color: linear-gradient(to right, #ec4899, #8b5cf6);
+    -fx-background-radius: 999;
+}
+
+.event-card-progress-text {
+    -fx-text-fill: #f8fafc;
+    -fx-font-size: 10px;
+    -fx-font-weight: 700;
+}
+
+.event-card-description {
+    -fx-text-fill: #aebed3;
+    -fx-font-size: 12.5px;
+    -fx-line-spacing: 1;
+}
+
+.event-card-actions {
+    -fx-alignment: center;
+    -fx-spacing: 8;
+    -fx-padding: 6 0 0 0;
+    -fx-pref-wrap-length: 248;
+}
+
+.event-card-participation-row {
+    -fx-alignment: center-left;
+    -fx-spacing: 8;
+}
+
+.event-action-primary,
+.event-action-join,
+.event-action-like,
+.event-action-sponsor,
+.event-action-secondary,
+.event-action-danger {
+    -fx-font-size: 12px;
+    -fx-font-weight: 800;
+    -fx-padding: 8 12 8 12;
+    -fx-background-radius: 22;
+    -fx-border-radius: 22;
+    -fx-cursor: hand;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+    -fx-min-width: -1;
+    -fx-max-width: -1;
+    -fx-alignment: center;
+}
+
+.event-action-primary {
+    -fx-background-color: linear-gradient(to right, #ec4899, #d946ef);
+    -fx-text-fill: #ffffff;
+    -fx-border-color: transparent;
+}
+
+.event-action-join {
+    -fx-background-color: linear-gradient(to right, #22c55e, #16a34a);
+    -fx-text-fill: #ffffff;
+    -fx-border-color: transparent;
+}
+
+.event-action-like {
+    -fx-background-color: linear-gradient(to right, #ef4444, #dc2626);
+    -fx-text-fill: #ffffff;
+    -fx-border-color: transparent;
+}
+
+.event-action-sponsor {
+    -fx-background-color: linear-gradient(to right, #06b6d4, #2563eb);
+    -fx-text-fill: #ffffff;
+    -fx-border-color: transparent;
+}
+
+.event-action-sponsor-inline {
+    -fx-background-color: linear-gradient(to right, #06b6d4, #2563eb);
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 11.5px;
+    -fx-font-weight: 800;
+    -fx-padding: 6 12 6 12;
+    -fx-background-radius: 16;
+    -fx-border-radius: 16;
+    -fx-border-color: transparent;
+    -fx-cursor: hand;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.event-action-sponsor-inline:hover {
+    -fx-opacity: 0.94;
+}
+
+.event-action-secondary {
+    -fx-background-color: rgba(148, 163, 184, 0.10);
+    -fx-text-fill: #e2e8f0;
+    -fx-border-color: rgba(148, 163, 184, 0.42);
+    -fx-border-width: 1;
+}
+
+.event-action-danger {
+    -fx-background-color: rgba(239, 68, 68, 0.10);
+    -fx-text-fill: #fda4af;
+    -fx-border-color: rgba(239, 68, 68, 0.48);
+    -fx-border-width: 1;
+}
+
+.event-action-primary:hover,
+.event-action-join:hover,
+.event-action-like:hover,
+.event-action-sponsor:hover,
+.event-action-secondary:hover,
+.event-action-danger:hover {
+    -fx-opacity: 0.94;
+}
+
+.event-side-action-btn {
+    -fx-min-width: 76;
+    -fx-pref-width: 84;
+    -fx-max-width: 92;
+    -fx-font-size: 12px;
+    -fx-font-weight: 800;
+    -fx-padding: 8 10 8 10;
+}
+
 /* ---------- Agency profile redesign ---------- */
 .agency-cover-banner {
     -fx-background-color: linear-gradient(to right, #1d4ed8, #7c3aed, #0ea5e9);
@@ -4515,5 +4669,679 @@
     -fx-padding: 22 26 18 26;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.56), 28, 0.26, 0, 8),
                 dropshadow(gaussian, rgba(168, 85, 247, 0.22), 20, 0.16, 0, 0);
+}
+
+/* Messaging */
+.root.signed-in-clean-shell .messages-redesign-root {
+    -fx-padding: 2 2 2 2;
+}
+.root.signed-in-clean-shell .messages-status-pill {
+    -fx-background-color: rgba(15, 23, 42, 0.76);
+    -fx-border-color: rgba(167, 139, 250, 0.36);
+    -fx-border-radius: 12;
+    -fx-background-radius: 12;
+    -fx-padding: 10 14 10 14;
+}
+.root.signed-in-clean-shell .messages-section-title {
+    -fx-font-size: 15px;
+    -fx-font-weight: 800;
+    -fx-text-fill: #f8fafc;
+}
+.root.signed-in-clean-shell .messages-panel-card {
+    -fx-background-color: linear-gradient(to bottom, rgba(15, 23, 42, 0.90), rgba(8, 15, 27, 0.94));
+    -fx-background-radius: 18;
+    -fx-border-color: rgba(148, 163, 184, 0.30);
+    -fx-border-width: 1;
+    -fx-border-radius: 18;
+    -fx-effect: dropshadow(gaussian, rgba(2, 6, 23, 0.62), 24, 0.24, 0, 8);
+}
+.root.signed-in-clean-shell .messages-toolbar-row {
+    -fx-padding: 2 0 4 0;
+}
+.root.signed-in-clean-shell .messages-entity-switch-row {
+    -fx-padding: 2 0 2 0;
+}
+.root.signed-in-clean-shell .messages-composer-row {
+    -fx-padding: 4 0 0 0;
+}
+.root.signed-in-clean-shell .messages-list-box {
+    -fx-padding: 4 4 4 4;
+    -fx-background-color: transparent;
+}
+.root.signed-in-clean-shell .button.messages-conversation-item {
+    -fx-background-color: rgba(12, 18, 36, 0.82);
+    -fx-text-fill: #E2E8F0;
+    -fx-background-radius: 14;
+    -fx-border-radius: 14;
+    -fx-border-color: rgba(167, 139, 250, 0.28);
+    -fx-border-width: 1;
+    -fx-padding: 11 11 11 11;
+    -fx-alignment: center-left;
+    -fx-content-display: graphic-only;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.44), 14, 0.2, 0, 3);
+}
+.root.signed-in-clean-shell .button.messages-conversation-item:hover {
+    -fx-background-color: rgba(28, 22, 52, 0.88);
+    -fx-border-color: rgba(167, 139, 250, 0.6);
+    -fx-border-width: 1 1 1 3;
+    -fx-effect: dropshadow(gaussian, rgba(124, 58, 237, 0.34), 14, 0.25, 0, 0);
+}
+.root.signed-in-clean-shell .button.messages-conversation-item.messages-conversation-item-active {
+    -fx-background-color: rgba(43, 30, 79, 0.94);
+    -fx-border-color: rgba(216, 180, 254, 0.86);
+    -fx-border-width: 1 1 1 3;
+    -fx-effect: dropshadow(gaussian, rgba(124, 58, 237, 0.42), 16, 0.28, 0, 0);
+}
+.root.signed-in-clean-shell .messages-avatar {
+    -fx-background-color: linear-gradient(to bottom right, rgba(124, 58, 237, 0.96), rgba(236, 72, 153, 0.94));
+    -fx-background-radius: 999;
+    -fx-border-color: rgba(255, 255, 255, 0.18);
+    -fx-border-width: 1;
+    -fx-border-radius: 999;
+}
+.root.signed-in-clean-shell .messages-avatar-initials {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 11px;
+    -fx-font-weight: 800;
+}
+.root.signed-in-clean-shell .messages-conversation-title {
+    -fx-text-fill: #f8fafc;
+    -fx-font-size: 13px;
+    -fx-font-weight: 700;
+}
+.root.signed-in-clean-shell .messages-conversation-subtitle {
+    -fx-text-fill: rgba(203, 213, 225, 0.72);
+    -fx-font-size: 11px;
+}
+.root.signed-in-clean-shell .messages-bubble-mine {
+    -fx-background-color: linear-gradient(to bottom, rgba(109, 40, 217, 0.92), rgba(76, 29, 149, 0.92));
+    -fx-text-fill: #F8FAFC;
+    -fx-padding: 10 12 10 12;
+    -fx-background-radius: 14 14 4 14;
+    -fx-effect: dropshadow(gaussian, rgba(124, 58, 237, 0.35), 12, 0.24, 0, 1);
+}
+.root.signed-in-clean-shell .messages-bubble-other {
+    -fx-background-color: linear-gradient(to bottom, rgba(26, 30, 52, 0.96), rgba(14, 18, 36, 0.96));
+    -fx-text-fill: #E2E8F0;
+    -fx-padding: 10 12 10 12;
+    -fx-background-radius: 14 14 14 4;
+    -fx-border-color: rgba(148, 163, 184, 0.2);
+    -fx-border-width: 1;
+    -fx-border-radius: 14 14 14 4;
+}
+.root.signed-in-clean-shell .messages-meta {
+    -fx-text-fill: rgba(203, 213, 225, 0.75);
+    -fx-font-size: 11px;
+}
+.root.signed-in-clean-shell .messages-empty-label {
+    -fx-text-fill: rgba(203, 213, 225, 0.82);
+    -fx-padding: 10 4 10 4;
+}
+.root.signed-in-clean-shell .messages-empty-state {
+    -fx-padding: 28 16 28 16;
+    -fx-background-color: rgba(13, 16, 32, 0.68);
+    -fx-background-radius: 14;
+    -fx-border-color: rgba(148, 163, 184, 0.2);
+    -fx-border-width: 1;
+    -fx-border-radius: 14;
+}
+.root.signed-in-clean-shell .messages-empty-icon {
+    -fx-font-size: 26px;
+    -fx-text-fill: rgba(216, 180, 254, 0.9);
+}
+.root.signed-in-clean-shell .messages-empty-title {
+    -fx-font-size: 13px;
+    -fx-font-weight: 700;
+    -fx-text-fill: rgba(226, 232, 240, 0.86);
+}
+
+.root.signed-in-clean-shell .messages-notifications-scroll {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+}
+.root.signed-in-clean-shell .messages-notifications-scroll > .viewport,
+.root.signed-in-clean-shell .messages-notifications-scroll > .viewport > .content,
+.root.signed-in-clean-shell .events-scroll > .viewport,
+.root.signed-in-clean-shell .events-scroll > .viewport > .content {
+    -fx-background-color: transparent;
+}
+
+.root.signed-in-clean-shell .messages-notifications-scroll {
+    -fx-pref-height: 170;
+}
+
+.root.signed-in-clean-shell .messages-composer-input {
+    -fx-min-height: 68;
+    -fx-pref-height: 68;
+}
+.root.signed-in-clean-shell .messages-composer-input,
+.root.signed-in-clean-shell #followUpDescriptionArea,
+.root.signed-in-clean-shell #followUpTitleField {
+    -fx-background-color: rgba(8, 12, 28, 0.92);
+    -fx-control-inner-background: rgba(8, 12, 28, 0.92);
+    -fx-text-fill: #f8fafc;
+    -fx-prompt-text-fill: rgba(203, 213, 225, 0.56);
+    -fx-background-radius: 14;
+    -fx-border-radius: 14;
+    -fx-border-color: rgba(124, 58, 237, 0.36);
+    -fx-border-width: 1;
+}
+.root.signed-in-clean-shell .messages-search-input {
+    -fx-min-height: 46;
+    -fx-pref-height: 46;
+}
+.root.signed-in-clean-shell .messages-composer-input.text-area .content,
+.root.signed-in-clean-shell #followUpDescriptionArea .content,
+.root.signed-in-clean-shell #followUpDescriptionArea .viewport,
+.root.signed-in-clean-shell .messages-composer-input .viewport {
+    -fx-background-color: rgba(8, 12, 28, 0.92);
+}
+.root.signed-in-clean-shell .messages-composer-input:focused,
+.root.signed-in-clean-shell .messages-composer-input.text-area:focused {
+    -fx-border-color: rgba(167, 139, 250, 0.9);
+    -fx-effect: dropshadow(gaussian, rgba(124, 58, 237, 0.26), 12, 0.2, 0, 0);
+}
+.root.signed-in-clean-shell .messages-followup-title {
+    -fx-text-fill: #e2e8f0;
+    -fx-font-size: 12px;
+    -fx-font-weight: 600;
+}
+.root.signed-in-clean-shell .messages-followup-card {
+    -fx-padding: 8 10 8 10;
+    -fx-background-color: rgba(13, 16, 32, 0.72);
+    -fx-background-radius: 12;
+    -fx-border-color: rgba(124, 58, 237, 0.24);
+    -fx-border-width: 1 1 1 3;
+    -fx-border-radius: 12;
+}
+.root.signed-in-clean-shell .messages-notification-item {
+    -fx-padding: 8 10 8 10;
+    -fx-background-color: rgba(13, 16, 32, 0.76);
+    -fx-background-radius: 12;
+    -fx-border-color: rgba(236, 72, 153, 0.22);
+    -fx-border-width: 1;
+    -fx-border-radius: 12;
+    -fx-text-fill: rgba(226, 232, 240, 0.9);
+    -fx-font-size: 11px;
+}
+.root.signed-in-clean-shell .messages-notifications-badge {
+    -fx-padding: 6 10 6 10;
+    -fx-background-color: rgba(13, 16, 32, 0.82);
+    -fx-background-radius: 999;
+    -fx-border-color: rgba(236, 72, 153, 0.48);
+    -fx-border-width: 1;
+    -fx-border-radius: 999;
+    -fx-text-fill: #f8fafc;
+    -fx-font-size: 11px;
+    -fx-font-weight: 700;
+}
+.root.signed-in-clean-shell .messages-entity-btn {
+    -fx-background-color: rgba(17, 24, 39, 0.82);
+    -fx-border-color: rgba(167, 139, 250, 0.45);
+    -fx-border-width: 1;
+    -fx-border-radius: 12;
+    -fx-background-radius: 12;
+    -fx-text-fill: #e2e8f0;
+    -fx-font-weight: 700;
+    -fx-padding: 10 14 10 14;
+}
+.root.signed-in-clean-shell .messages-entity-btn:hover {
+    -fx-border-color: rgba(196, 181, 253, 0.62);
+    -fx-background-color: rgba(31, 41, 55, 0.85);
+}
+.root.signed-in-clean-shell .messages-entity-btn-active {
+    -fx-background-color: linear-gradient(to right, #7c3aed, #ec4899);
+    -fx-border-color: rgba(221, 214, 254, 0.86);
+    -fx-text-fill: #ffffff;
+    -fx-effect: dropshadow(gaussian, rgba(124, 58, 237, 0.32), 14, 0.24, 0, 0);
+}
+
+/* Messaging redesign - 3 column galaxy layout */
+.root.signed-in-clean-shell .messages-panel-card {
+    -fx-background-color: rgba(34, 26, 58, 0.85);
+    -fx-border-color: #2E2550;
+    -fx-border-width: 1;
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+}
+.root.signed-in-clean-shell .messages-chat-column {
+    -fx-background-color: transparent;
+}
+.root.signed-in-clean-shell .messages-column-divider {
+    -fx-opacity: 1;
+    -fx-padding: 0;
+}
+.root.signed-in-clean-shell .messages-column-divider .line {
+    -fx-border-color: #2E2550;
+    -fx-border-width: 0 1 0 0;
+}
+.root.signed-in-clean-shell .messages-section-title {
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 16px;
+    -fx-font-weight: 800;
+}
+.root.signed-in-clean-shell .messages-section-subtitle {
+    -fx-text-fill: #9CA3AF;
+    -fx-font-size: 12px;
+}
+.root.signed-in-clean-shell .messages-chat-header {
+    -fx-background-color: rgba(34, 26, 58, 0.85);
+    -fx-border-color: #2E2550;
+    -fx-border-width: 1;
+    -fx-background-radius: 12 12 10 10;
+    -fx-border-radius: 12 12 10 10;
+    -fx-padding: 10 12 10 12;
+}
+.root.signed-in-clean-shell .messages-chat-header-avatar {
+    -fx-background-color: linear-gradient(to right, #ec4899, #7c3aed);
+}
+.root.signed-in-clean-shell .messages-search-input {
+    -fx-background-color: #1C1535;
+    -fx-control-inner-background: #1C1535;
+    -fx-text-fill: #FFFFFF;
+    -fx-prompt-text-fill: #9CA3AF;
+    -fx-border-color: #3B2F6B;
+    -fx-border-width: 1;
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+    -fx-padding: 9 12 9 12;
+    -fx-min-height: 40;
+}
+.root.signed-in-clean-shell .messages-search-action {
+    -fx-background-color: #7C3AED;
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+    -fx-font-weight: 700;
+    -fx-background-radius: 10;
+    -fx-padding: 8 12 8 12;
+}
+.root.signed-in-clean-shell .messages-clear-action {
+    -fx-background-color: rgba(34, 26, 58, 0.65);
+    -fx-border-color: #3B2F6B;
+    -fx-border-width: 1;
+    -fx-text-fill: #E5E7EB;
+    -fx-font-size: 12px;
+    -fx-font-weight: 700;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-padding: 8 12 8 12;
+}
+.root.signed-in-clean-shell .button.messages-conversation-item {
+    -fx-background-color: rgba(34, 26, 58, 0.85);
+    -fx-border-color: #2E2550;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-padding: 10;
+}
+.root.signed-in-clean-shell .button.messages-conversation-item:hover {
+    -fx-background-color: rgba(124, 58, 237, 0.1);
+    -fx-border-color: #3B2F6B;
+    -fx-border-width: 1;
+}
+.root.signed-in-clean-shell .button.messages-conversation-item.messages-conversation-item-active {
+    -fx-background-color: rgba(124, 58, 237, 0.2);
+    -fx-border-color: #7C3AED;
+    -fx-border-width: 1;
+}
+.root.signed-in-clean-shell .messages-conversation-title {
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 14px;
+    -fx-font-weight: 700;
+}
+.root.signed-in-clean-shell .messages-conversation-subtitle {
+    -fx-text-fill: #9CA3AF;
+    -fx-font-size: 12px;
+}
+.root.signed-in-clean-shell .messages-conversation-time {
+    -fx-text-fill: #9CA3AF;
+    -fx-font-size: 11px;
+}
+.root.signed-in-clean-shell .messages-day-separator {
+    -fx-text-fill: #9CA3AF;
+    -fx-font-size: 11px;
+    -fx-padding: 4 10 4 10;
+    -fx-background-color: rgba(34, 26, 58, 0.7);
+    -fx-background-radius: 999;
+    -fx-border-color: #2E2550;
+    -fx-border-width: 1;
+    -fx-border-radius: 999;
+}
+.root.signed-in-clean-shell .messages-bubble-mine {
+    -fx-background-color: linear-gradient(to right, #ec4899, #7c3aed);
+    -fx-background-radius: 18 4 18 18;
+    -fx-text-fill: #FFFFFF;
+}
+.root.signed-in-clean-shell .messages-bubble-other {
+    -fx-background-color: rgba(34, 26, 58, 0.9);
+    -fx-border-color: #2E2550;
+    -fx-border-width: 1;
+    -fx-background-radius: 4 18 18 18;
+    -fx-border-radius: 4 18 18 18;
+    -fx-text-fill: #FFFFFF;
+}
+.root.signed-in-clean-shell .messages-meta {
+    -fx-text-fill: #9CA3AF;
+    -fx-font-size: 11px;
+}
+.root.signed-in-clean-shell .messages-composer-shell {
+    -fx-background-color: rgba(20, 15, 40, 0.95);
+    -fx-border-color: #2E2550 transparent transparent transparent;
+    -fx-border-width: 1 0 0 0;
+    -fx-padding: 10 10 10 10;
+}
+.root.signed-in-clean-shell .messages-composer-input {
+    -fx-background-color: #1C1535;
+    -fx-control-inner-background: #1C1535;
+    -fx-text-fill: #FFFFFF;
+    -fx-prompt-text-fill: #9CA3AF;
+    -fx-border-color: #3B2F6B;
+    -fx-border-width: 1;
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+}
+.root.signed-in-clean-shell .messages-icon-action {
+    -fx-background-color: rgba(34, 26, 58, 0.85);
+    -fx-border-color: #3B2F6B;
+    -fx-border-width: 1;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-text-fill: #E9D5FF;
+    -fx-font-size: 13px;
+    -fx-font-weight: 700;
+    -fx-min-width: 34;
+    -fx-pref-width: 34;
+    -fx-min-height: 34;
+    -fx-pref-height: 34;
+}
+.root.signed-in-clean-shell .messages-send-action {
+    -fx-background-color: linear-gradient(to right, #ec4899, #7c3aed);
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 13px;
+    -fx-font-weight: 800;
+    -fx-background-radius: 10;
+    -fx-padding: 8 12 8 12;
+}
+.root.signed-in-clean-shell .messages-entity-btn {
+    -fx-background-color: rgba(34, 26, 58, 0.72);
+    -fx-border-color: #3B2F6B;
+    -fx-border-width: 1;
+    -fx-background-radius: 999;
+    -fx-border-radius: 999;
+    -fx-text-fill: #E5E7EB;
+    -fx-padding: 8 12 8 12;
+}
+.root.signed-in-clean-shell .messages-entity-btn-active {
+    -fx-background-color: #7C3AED;
+    -fx-border-color: #7C3AED;
+    -fx-text-fill: #FFFFFF;
+}
+
+/* Messaging refresh - modern dark space */
+.root.signed-in-clean-shell .messages-panel-card,
+.root.signed-in-clean-shell .messages-chat-column {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-effect: none;
+}
+.root.signed-in-clean-shell .messages-column-divider .line {
+    -fx-border-color: #2E2550;
+    -fx-border-width: 0 1 0 0;
+}
+.root.signed-in-clean-shell .messages-section-title {
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 15px;
+    -fx-font-weight: 800;
+}
+.root.signed-in-clean-shell .messages-section-subtitle {
+    -fx-text-fill: #A78BFA;
+    -fx-font-size: 12px;
+}
+
+/* Column 1 conversations */
+.root.signed-in-clean-shell .messages-list-box {
+    -fx-padding: 4 0 4 0;
+    -fx-background-color: transparent;
+}
+.root.signed-in-clean-shell .button.messages-conversation-item {
+    -fx-background-color: rgba(34, 26, 58, 0.85);
+    -fx-border-color: #2E2550;
+    -fx-border-width: 1;
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+    -fx-padding: 12 14 12 14;
+    -fx-alignment: center-left;
+    -fx-content-display: graphic-only;
+    -fx-cursor: hand;
+}
+.root.signed-in-clean-shell .button.messages-conversation-item:hover {
+    -fx-background-color: rgba(124, 58, 237, 0.12);
+    -fx-border-color: #2E2550;
+    -fx-border-width: 1;
+}
+.root.signed-in-clean-shell .button.messages-conversation-item.messages-conversation-item-active {
+    -fx-background-color: rgba(124, 58, 237, 0.25);
+    -fx-border-color: #7C3AED #2E2550 #2E2550 #7C3AED;
+    -fx-border-width: 1 1 1 3;
+}
+.root.signed-in-clean-shell .messages-avatar {
+    -fx-background-color: linear-gradient(to bottom right, #7C3AED, #DB2777);
+    -fx-background-radius: 999;
+    -fx-border-color: transparent;
+    -fx-border-radius: 999;
+}
+.root.signed-in-clean-shell .messages-avatar-initials {
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 14px;
+    -fx-font-weight: 800;
+}
+.root.signed-in-clean-shell .messages-conversation-title {
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 14px;
+    -fx-font-weight: 700;
+}
+.root.signed-in-clean-shell .messages-conversation-subtitle {
+    -fx-text-fill: #A78BFA;
+    -fx-font-size: 12px;
+}
+.root.signed-in-clean-shell .messages-conversation-subtitle-empty {
+    -fx-text-fill: #6B6B8A;
+    -fx-font-style: italic;
+}
+.root.signed-in-clean-shell .messages-conversation-time {
+    -fx-text-fill: #6B6B8A;
+    -fx-font-size: 11px;
+}
+
+/* Column 2 chat header and search */
+.root.signed-in-clean-shell .messages-chat-header {
+    -fx-background-color: rgba(34, 26, 58, 0.9);
+    -fx-border-color: transparent transparent #2E2550 transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-background-radius: 12 12 0 0;
+    -fx-border-radius: 12 12 0 0;
+    -fx-padding: 12 16 12 16;
+}
+.root.signed-in-clean-shell .messages-search-input {
+    -fx-background-color: #1C1535;
+    -fx-control-inner-background: #1C1535;
+    -fx-text-fill: #FFFFFF;
+    -fx-prompt-text-fill: #6B6B8A;
+    -fx-border-color: #3B2F6B;
+    -fx-border-width: 1;
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+    -fx-padding: 8 14 8 14;
+    -fx-min-height: 38;
+}
+.root.signed-in-clean-shell .messages-search-action {
+    -fx-background-color: #7C3AED;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-weight: 700;
+    -fx-background-radius: 20;
+    -fx-padding: 8 14 8 14;
+}
+.root.signed-in-clean-shell .messages-clear-action {
+    -fx-background-color: rgba(34, 26, 58, 0.35);
+    -fx-border-color: #3B2F6B;
+    -fx-border-width: 1;
+    -fx-text-fill: #E5E7EB;
+    -fx-font-weight: 700;
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+    -fx-padding: 8 14 8 14;
+}
+
+/* Column 2 messages area */
+.root.signed-in-clean-shell .messages-empty-state {
+    -fx-padding: 38 16 38 16;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+.root.signed-in-clean-shell .messages-empty-icon {
+    -fx-font-size: 34px;
+    -fx-text-fill: #A78BFA;
+}
+.root.signed-in-clean-shell .messages-empty-title {
+    -fx-font-size: 15px;
+    -fx-font-weight: 700;
+    -fx-text-fill: #A78BFA;
+}
+.root.signed-in-clean-shell .messages-bubble-mine {
+    -fx-background-color: linear-gradient(to bottom right, #DB2777, #7C3AED);
+    -fx-text-fill: #FFFFFF;
+    -fx-padding: 10 14 10 14;
+    -fx-background-radius: 18 4 18 18;
+    -fx-effect: dropshadow(gaussian, rgba(219, 39, 119, 0.30), 8, 0.2, 0, 2);
+}
+.root.signed-in-clean-shell .messages-bubble-other {
+    -fx-background-color: rgba(34, 26, 58, 0.95);
+    -fx-border-color: #2E2550;
+    -fx-border-width: 1;
+    -fx-background-radius: 4 18 18 18;
+    -fx-border-radius: 4 18 18 18;
+    -fx-text-fill: #FFFFFF;
+    -fx-padding: 10 14 10 14;
+}
+.root.signed-in-clean-shell .messages-meta {
+    -fx-text-fill: #6B6B8A;
+    -fx-font-size: 10px;
+}
+.root.signed-in-clean-shell .messages-day-separator {
+    -fx-text-fill: #A78BFA;
+    -fx-font-size: 11px;
+    -fx-padding: 4 12 4 12;
+    -fx-background-color: rgba(34, 26, 58, 0.7);
+    -fx-background-radius: 20;
+    -fx-border-color: #2E2550;
+    -fx-border-width: 1;
+    -fx-border-radius: 20;
+}
+
+/* Composer */
+.root.signed-in-clean-shell .messages-composer-shell {
+    -fx-background-color: rgba(20, 15, 40, 0.97);
+    -fx-border-color: #2E2550 transparent transparent transparent;
+    -fx-border-width: 1 0 0 0;
+    -fx-padding: 12 16 12 16;
+}
+.root.signed-in-clean-shell .messages-composer-input {
+    -fx-background-color: rgba(34, 26, 58, 0.85);
+    -fx-control-inner-background: rgba(34, 26, 58, 0.85);
+    -fx-text-fill: #FFFFFF;
+    -fx-prompt-text-fill: #6B6B8A;
+    -fx-border-color: #3B2F6B;
+    -fx-border-width: 1;
+    -fx-background-radius: 24;
+    -fx-border-radius: 24;
+    -fx-padding: 10 16 10 16;
+}
+.root.signed-in-clean-shell .messages-composer-input.text-area .content,
+.root.signed-in-clean-shell .messages-composer-input .viewport {
+    -fx-background-color: rgba(34, 26, 58, 0.85);
+}
+.root.signed-in-clean-shell .messages-icon-action {
+    -fx-background-color: rgba(34, 26, 58, 0.85);
+    -fx-border-color: #3B2F6B;
+    -fx-border-width: 1;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-text-fill: #A78BFA;
+    -fx-font-weight: 700;
+    -fx-min-width: 36;
+    -fx-pref-width: 36;
+    -fx-min-height: 36;
+    -fx-pref-height: 36;
+}
+.root.signed-in-clean-shell .messages-icon-action:hover {
+    -fx-border-color: #7C3AED;
+}
+.root.signed-in-clean-shell .messages-send-action {
+    -fx-background-color: linear-gradient(to bottom right, #DB2777, #7C3AED);
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 13px;
+    -fx-font-weight: 800;
+    -fx-background-radius: 24;
+    -fx-padding: 10 20 10 20;
+}
+
+/* Column 3 follow-ups / notifications */
+.root.signed-in-clean-shell .messages-entity-btn {
+    -fx-background-color: rgba(34, 26, 58, 0.85);
+    -fx-border-color: #3B2F6B;
+    -fx-border-width: 1;
+    -fx-background-radius: 999;
+    -fx-border-radius: 999;
+    -fx-text-fill: #A78BFA;
+    -fx-font-weight: 700;
+    -fx-padding: 8 14 8 14;
+}
+.root.signed-in-clean-shell .messages-entity-btn-active {
+    -fx-background-color: #7C3AED;
+    -fx-border-color: #7C3AED;
+    -fx-text-fill: #FFFFFF;
+}
+.root.signed-in-clean-shell .messages-followup-input,
+.root.signed-in-clean-shell #followUpTitleField,
+.root.signed-in-clean-shell #followUpDescriptionArea {
+    -fx-background-color: #1C1535;
+    -fx-control-inner-background: #1C1535;
+    -fx-text-fill: #FFFFFF;
+    -fx-prompt-text-fill: #6B6B8A;
+    -fx-border-color: #3B2F6B;
+    -fx-border-width: 1;
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+    -fx-padding: 10 14 10 14;
+}
+.root.signed-in-clean-shell #followUpDescriptionArea .content,
+.root.signed-in-clean-shell #followUpDescriptionArea .viewport {
+    -fx-background-color: #1C1535;
+}
+.root.signed-in-clean-shell .messages-followup-create-btn {
+    -fx-background-color: linear-gradient(to bottom right, #DB2777, #7C3AED);
+    -fx-text-fill: #FFFFFF;
+    -fx-font-weight: 800;
+    -fx-background-radius: 12;
+    -fx-padding: 10 14 10 14;
+}
+.root.signed-in-clean-shell .messages-followup-card,
+.root.signed-in-clean-shell .messages-notification-item {
+    -fx-padding: 8 10 8 10;
+    -fx-background-color: rgba(34, 26, 58, 0.85);
+    -fx-background-radius: 10;
+    -fx-border-color: #2E2550;
+    -fx-border-width: 1;
+    -fx-border-radius: 10;
+}
+.root.signed-in-clean-shell .messages-followup-title,
+.root.signed-in-clean-shell .messages-notification-item {
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 13px;
+}
+.root.signed-in-clean-shell .messages-empty-label {
+    -fx-text-fill: #6B6B8A;
+    -fx-font-style: italic;
+    -fx-padding: 12 4 12 4;
 }
 

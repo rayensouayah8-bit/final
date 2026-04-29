@@ -45,29 +45,33 @@ public class UserService implements CRUD<User, Integer> {
     }
 
     private static final String SELECT_BY_EMAIL = """
-            SELECT id, username, email, password, roles, role, is_active, profile_image_id, phone
+            SELECT id, username, email, password, roles, role, is_active, profile_image_id, phone,
+                   points, reputation_score, level
             FROM `user` WHERE LOWER(email) = LOWER(?)
             """;
 
     private static final String SELECT_BY_USERNAME = """
-            SELECT id, username, email, password, roles, role, is_active, profile_image_id, phone
+            SELECT id, username, email, password, roles, role, is_active, profile_image_id, phone,
+                   points, reputation_score, level
             FROM `user` WHERE LOWER(username) = LOWER(?)
             """;
 
     private static final String SELECT_BY_ID = """
-            SELECT id, username, email, password, roles, role, is_active, profile_image_id, phone
+            SELECT id, username, email, password, roles, role, is_active, profile_image_id, phone,
+                   points, reputation_score, level
             FROM `user` WHERE id = ?
             """;
 
     private static final String INSERT_USER = """
             INSERT INTO `user` (
-                username, email, password, roles, role, is_active, profile_image_id, phone
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+                username, email, password, roles, role, is_active, profile_image_id, phone, points, reputation_score, level
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """;
 
     private static final String UPDATE_USER = """
             UPDATE `user` SET
-                username = ?, email = ?, password = ?, roles = ?, role = ?, is_active = ?, profile_image_id = ?, phone = ?
+                username = ?, email = ?, password = ?, roles = ?, role = ?, is_active = ?, profile_image_id = ?, phone = ?,
+                points = ?, reputation_score = ?, level = ?
             WHERE id = ?
             """;
 
@@ -168,7 +172,7 @@ public class UserService implements CRUD<User, Integer> {
         Connection c = DbConnexion.getInstance().getConnection();
         try (PreparedStatement ps = c.prepareStatement(UPDATE_USER)) {
             fillStatementWithoutId(entity, ps);
-            ps.setInt(9, entity.getId());
+            ps.setInt(12, entity.getId());
             ps.executeUpdate();
         }
     }
@@ -375,6 +379,9 @@ public class UserService implements CRUD<User, Integer> {
         nullableBoolean(ps, i++, entity.getIsActive());
         nullableLong(ps, i++, entity.getProfileImageId());
         nullableString(ps, i++, entity.getPhone());
+        ps.setInt(i++, entity.getPoints() != null ? entity.getPoints() : 0);
+        ps.setInt(i++, entity.getReputationScore() != null ? entity.getReputationScore() : 0);
+        ps.setString(i++, entity.getLevel() != null ? entity.getLevel() : "NOVICE");
     }
 
     private User mapRow(ResultSet rs) throws SQLException {
@@ -391,6 +398,14 @@ public class UserService implements CRUD<User, Integer> {
         user.setPhone(rs.getString("phone"));
         if (rs.wasNull()) {
             user.setPhone(null);
+        }
+        int points = rs.getInt("points");
+        user.setPoints(rs.wasNull() ? 0 : points);
+        int rep = rs.getInt("reputation_score");
+        user.setReputationScore(rs.wasNull() ? user.getPoints() : rep);
+        user.setLevel(rs.getString("level"));
+        if (user.getLevel() == null || user.getLevel().isBlank()) {
+            user.setLevel("NOVICE");
         }
         return user;
     }
@@ -436,6 +451,14 @@ public class UserService implements CRUD<User, Integer> {
             ps.setNull(index, Types.BIGINT);
         } else {
             ps.setLong(index, value);
+        }
+    }
+
+    private static void nullableInteger(PreparedStatement ps, int index, Integer value) throws SQLException {
+        if (value == null) {
+            ps.setNull(index, Types.INTEGER);
+        } else {
+            ps.setInt(index, value);
         }
     }
 

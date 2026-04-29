@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controllers.gestionposts.PostDetailController"
+            styleClass="post-detail-root"
+            prefWidth="800" prefHeight="700">
+
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="10" styleClass="post-detail-header">
+            <children>
+                <Label fx:id="titleLabel" text="Titre du Post" styleClass="post-detail-title"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button text="← Retour" onAction="#onClose" styleClass="post-detail-close-btn"/>
+            </children>
+        </HBox>
+    </top>
+
+    <center>
+        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED" styleClass="post-detail-scroll">
+            <content>
+                <VBox spacing="15" styleClass="post-detail-content">
+                    <padding>
+                        <Insets top="15" right="15" bottom="15" left="15"/>
+                    </padding>
+
+                    <!-- Post Info -->
+                    <HBox spacing="10" alignment="CENTER_LEFT">
+                        <children>
+                            <Label fx:id="locationLabel" text="📍 Localisation" styleClass="post-detail-location"/>
+                            <Label text="•" styleClass="post-detail-separator"/>
+                            <Label fx:id="dateLabel" text="Date" styleClass="post-detail-date"/>
+                            <Region HBox.hgrow="ALWAYS"/>
+                            <Label fx:id="likesLabel" text="❤️ 0" styleClass="post-detail-likes"/>
+                            <Label text="•" styleClass="post-detail-separator"/>
+                            <Label fx:id="commentsLabel" text="💬 0" styleClass="post-detail-comments"/>
+                        </children>
+                    </HBox>
+
+                    <!-- Post Image -->
+                    <ImageView fx:id="postImage" fitWidth="750" fitHeight="300" preserveRatio="true" styleClass="post-detail-image"/>
+
+                    <!-- Post Content -->
+                    <Label fx:id="contentLabel" text="Contenu du post..." wrapText="true" styleClass="post-detail-text"/>
+
+                    <Separator styleClass="post-detail-separator-line"/>
+
+                    <!-- Comments Section -->
+                    <VBox spacing="10">
+                        <children>
+                            <HBox alignment="CENTER_LEFT" spacing="10">
+                                <children>
+                                    <Label text="💬 Commentaires" styleClass="post-detail-section-title"/>
+                                    <Label fx:id="commentsCountLabel" text="(0)" styleClass="post-detail-count"/>
+                                    <Region HBox.hgrow="ALWAYS"/>
+                                    <Label fx:id="sentimentStatsLabel" text="" styleClass="post-detail-count"/>
+                                    <ComboBox fx:id="sentimentFilterCombo" prefWidth="190.0"/>
+                                </children>
+                            </HBox>
+
+                            <!-- New Comment Form -->
+                            <VBox spacing="8" styleClass="post-detail-new-comment">
+                                <children>
+                                    <Label fx:id="commentErrorLabel" managed="false" visible="false" wrapText="true" styleClass="post-detail-error"/>
+                                    <HBox spacing="8" alignment="TOP_LEFT" styleClass="post-detail-comment-input-row">
+                                        <children>
+                                            <TextArea fx:id="newCommentArea" promptText="Ajouter un commentaire... (min 5 caractères)" wrapText="true" prefRowCount="3" minHeight="-Infinity" HBox.hgrow="ALWAYS" styleClass="post-detail-textarea"/>
+                                            <Button fx:id="emojiPickerButton" mnemonicParsing="false" styleClass="post-detail-emoji-picker-btn"/>
+                                        </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_RIGHT">
+                                        <children>
+                                            <Label fx:id="commentCounter" text="0/1000" styleClass="post-detail-counter"/>
+                                            <Region HBox.hgrow="ALWAYS"/>
+                                            <Button text="Publier" onAction="#onAddComment" styleClass="post-detail-submit-btn"/>
+                                        </children>
+                                    </HBox>
+                                </children>
+                            </VBox>
+
+                            <!-- Comments List -->
+                            <VBox fx:id="commentsList" spacing="10" styleClass="post-detail-comments-list">
+                                <!-- Comments will be added dynamically -->
+                            </VBox>
+                        </children>
+                    </VBox>
+                </VBox>
+            </content>
+        </ScrollPane>
+    </center>
+
+    <bottom>
+        <HBox alignment="CENTER_RIGHT" spacing="10" styleClass="post-detail-footer">
+            <padding>
+                <Insets top="15" right="0" bottom="0" left="0"/>
+            </padding>
+            <children>
+                <Button fx:id="editPostButton" text="Modifier le Post" onAction="#onEditPost" styleClass="post-detail-edit-btn" visible="false" managed="false"/>
+                <Button fx:id="deletePostButton" text="Supprimer le Post" onAction="#onDeletePost" styleClass="post-detail-delete-btn" visible="false" managed="false"/>
+            </children>
+        </HBox>
+    </bottom>
+</BorderPane>

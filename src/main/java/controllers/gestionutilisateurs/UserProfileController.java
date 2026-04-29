@@ -24,6 +24,7 @@ import models.gestionevenements.TravelEvent;
 import models.gestionutilisateurs.UserFeedback;
 import models.gestionutilisateurs.User;
 import services.gestionevenements.TravelEventService;
+import services.gestionutilisateurs.ReputationService;
 import services.gestionutilisateurs.UserFeedbackService;
 import services.gestionutilisateurs.UserProfileValidationResult;
 import services.gestionutilisateurs.UserService;
@@ -70,10 +71,15 @@ public class UserProfileController extends SignedInPageControllerBase {
     @FXML private TextArea feedbackNoteArea;
     @FXML private Label feedbackStatusLabel;
     @FXML private VBox feedbackHistoryBox;
+    @FXML private Label reputationBadgeLabel;
+    @FXML private Label reputationProgressLabel;
+    @FXML private javafx.scene.control.ProgressBar reputationProgressBar;
+    @FXML private VBox reputationHistoryBox;
     @FXML private Pane signedInCosmicStarfieldPane;
     @FXML private ScrollPane userProfilePageScrollPane;
 
     private final UserService userService = new UserService();
+    private final ReputationService reputationService = new ReputationService();
     private final TravelEventService travelEventService = new TravelEventService();
     private final UserFeedbackService feedbackService = new UserFeedbackService();
     private Integer currentUserId;
@@ -102,6 +108,7 @@ public class UserProfileController extends SignedInPageControllerBase {
         loadUser();
         loadCreatedEvents();
         loadFeedbackHistory();
+        loadReputation();
         installInvisiblePageScrollbars();
     }
 
@@ -137,9 +144,53 @@ public class UserProfileController extends SignedInPageControllerBase {
             User fromDb = userService.get(currentUserId).orElseThrow(() -> new IllegalArgumentException("User not found."));
             currentUser = fromDb;
             bindUserToForm(fromDb);
+            loadReputation();
             statusLabel.setText("");
         } catch (SQLException | IllegalArgumentException e) {
             statusLabel.setText("Impossible de charger le profil: " + e.getMessage());
+        }
+    }
+
+    private void loadReputation() {
+        if (currentUserId == null) {
+            return;
+        }
+        try {
+            ReputationService.ReputationSnapshot snap = reputationService.getUserSnapshot(currentUserId);
+            if (reputationBadgeLabel != null) {
+                reputationBadgeLabel.setText(snap.level().icon() + " " + snap.level().label() + " - " + snap.score() + " pts");
+                int next = snap.nextThreshold();
+                String tip = snap.level().label() + " - " + snap.score() + " points / Prochain niveau à " + next + " pts";
+                javafx.scene.control.Tooltip.install(reputationBadgeLabel, new javafx.scene.control.Tooltip(tip));
+            }
+            if (reputationProgressBar != null) {
+                reputationProgressBar.setProgress(Math.max(0.0, Math.min(1.0, snap.progressPct() / 100.0)));
+            }
+            if (reputationProgressLabel != null) {
+                if (snap.level() == ReputationService.LevelTier.LEGENDE) {
+                    reputationProgressLabel.setText("Niveau max atteint : Légende");
+                } else {
+                    reputationProgressLabel.setText("Prochain niveau à " + snap.nextThreshold() + " pts");
+                }
+            }
+            if (reputationHistoryBox != null) {
+                reputationHistoryBox.getChildren().clear();
+                var logs = reputationService.getLatestLogs(currentUserId, 8);
+                if (logs.isEmpty()) {
+                    Label empty = new Label("Aucun gain de points pour le moment.");
+                    empty.getStyleClass().add("user-profile-subtitle");
+                    reputationHistoryBox.getChildren().add(empty);
+                } else {
+                    for (var log : logs) {
+                        String sign = log.points() >= 0 ? "+" : "";
+                        Label row = new Label(sign + log.points() + " pts - " + log.action());
+                        row.getStyleClass().add("user-profile-subtitle");
+                        reputationHistoryBox.getChildren().add(row);
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            // Fail silently in profile if reputation tables are unavailable.
         }
     }
 

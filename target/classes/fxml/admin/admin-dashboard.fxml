@@ -59,6 +59,11 @@
                                         <Label text="Sales orders" styleClass="admin-nav-label"/>
                                     </children>
                                 </HBox>
+                                <Button text="Recommendations" onAction="#onRecommandation" styleClass="admin-nav-item" mnemonicParsing="false">
+                                    <graphic>
+                                        <Region styleClass="admin-nav-dot"/>
+                                    </graphic>
+                                </Button>
                                 <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="admin-nav-item">
                                     <children>
                                         <Region styleClass="admin-nav-dot"/>
@@ -413,6 +418,45 @@
                                                         <TableColumn fx:id="colStatus" text="Status" prefWidth="88.0"/>
                                                     </columns>
                                                 </TableView>
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                </HBox>
+                                <HBox spacing="16.0" alignment="TOP_LEFT" maxWidth="Infinity">
+                                    <children>
+                                        <VBox styleClass="admin-widget" spacing="12.0" HBox.hgrow="ALWAYS" maxWidth="Infinity">
+                                            <children>
+                                                <Label text="Messaging Monitoring" styleClass="admin-widget-title"/>
+                                                <HBox spacing="12.0">
+                                                    <children>
+                                                        <VBox spacing="4.0" HBox.hgrow="ALWAYS">
+                                                            <children>
+                                                                <Label text="Conversations" styleClass="admin-card-title"/>
+                                                                <Label fx:id="messagingConversationsCountLabel" text="0" styleClass="admin-card-value"/>
+                                                            </children>
+                                                        </VBox>
+                                                        <VBox spacing="4.0" HBox.hgrow="ALWAYS">
+                                                            <children>
+                                                                <Label text="Messages" styleClass="admin-card-title"/>
+                                                                <Label fx:id="messagingMessagesCountLabel" text="0" styleClass="admin-card-value"/>
+                                                            </children>
+                                                        </VBox>
+                                                        <VBox spacing="4.0" HBox.hgrow="ALWAYS">
+                                                            <children>
+                                                                <Label text="Open Follow-ups" styleClass="admin-card-title"/>
+                                                                <Label fx:id="messagingOpenFollowUpsCountLabel" text="0" styleClass="admin-card-value"/>
+                                                            </children>
+                                                        </VBox>
+                                                    </children>
+                                                </HBox>
+                                                <Label text="Recent follow-ups" styleClass="admin-card-title"/>
+                                                <VBox fx:id="messagingRecentFollowUpsBox" spacing="6.0"/>
+                                            </children>
+                                        </VBox>
+                                        <VBox styleClass="admin-widget" spacing="12.0" HBox.hgrow="ALWAYS" maxWidth="Infinity">
+                                            <children>
+                                                <Label text="Recent Messaging Notifications" styleClass="admin-widget-title"/>
+                                                <VBox fx:id="messagingRecentNotificationsBox" spacing="6.0"/>
                                             </children>
                                         </VBox>
                                     </children>

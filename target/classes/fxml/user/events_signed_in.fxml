@@ -5,9 +5,9 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
@@ -82,14 +82,107 @@
             <children>
                 <Pane fx:id="signedInCosmicStarfieldPane" styleClass="starfield-layer" maxWidth="Infinity" maxHeight="Infinity"/>
 
-                <BorderPane>
-                    <padding>
-                        <Insets top="22.0" right="22.0" bottom="22.0" left="22.0"/>
-                    </padding>
-                    <center>
-                        <Pane maxWidth="Infinity" maxHeight="Infinity"/>
-                    </center>
-                </BorderPane>
+                <StackPane styleClass="offers-immersive-stack" maxWidth="Infinity" maxHeight="Infinity">
+                    <children>
+                        <Region styleClass="offers-page-overlay"/>
+                        <Region styleClass="offers-cards-spotlight"/>
+
+                        <VBox spacing="14.0" styleClass="events-root" maxWidth="Infinity" maxHeight="Infinity">
+                            <padding><Insets top="22.0" right="22.0" bottom="22.0" left="22.0"/></padding>
+                            <children>
+                                <HBox alignment="CENTER_LEFT" styleClass="events-header">
+                                    <children>
+                                        <VBox spacing="4.0">
+                                            <children>
+                                                <Label fx:id="userGreetingLabel" text="Bienvenue" styleClass="events-title"/>
+                                                <Label fx:id="roleLabel" text="User" styleClass="events-subtitle"/>
+                                            </children>
+                                        </VBox>
+                                        <Region HBox.hgrow="ALWAYS"/>
+                                        <HBox spacing="8.0" alignment="CENTER_RIGHT">
+                                            <children>
+                                                <Button fx:id="allEventsButton" text="All events" onAction="#onAllEvents" styleClass="events-search-btn events-toolbar-btn"/>
+                                                <Button fx:id="favoritesButton" text="Favoris" onAction="#onFavorites" styleClass="events-search-btn events-toolbar-btn"/>
+                                                <Button fx:id="mesEventsButton" text="Mes events" onAction="#onMesEvents" styleClass="events-search-btn events-toolbar-btn"/>
+                                                <Button fx:id="myRequestsButton" text="Mes demandes" onAction="#onMyRequests" styleClass="events-search-btn events-toolbar-btn"/>
+                                                <Button fx:id="mySponsorsButton" text="Sponsors" onAction="#onMySponsors" styleClass="events-search-btn events-toolbar-btn"/>
+                                                <Button fx:id="createEventButton" text="Create Event" onAction="#onCreateEvent" styleClass="events-create-btn"/>
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                </HBox>
+
+                                <Label fx:id="eventsStatusLabel" managed="false" visible="false" wrapText="true" styleClass="events-inline-status"/>
+
+                                <StackPane fx:id="eventsContentStack" VBox.vgrow="ALWAYS">
+                                    <children>
+                                        <VBox fx:id="eventsListView" spacing="12.0">
+                                            <children>
+                                                <HBox spacing="10.0" alignment="CENTER_LEFT">
+                                                    <children>
+                                                        <TextField fx:id="eventSearchField" promptText="Search events by title, location, description..." onAction="#onSearchEvents"
+                                                                   HBox.hgrow="ALWAYS" styleClass="events-search-input"/>
+                                                        <Button text="Search" onAction="#onSearchEvents" styleClass="events-search-btn"/>
+                                                    </children>
+                                                </HBox>
+
+                                                <HBox spacing="12.0" alignment="TOP_LEFT" VBox.vgrow="ALWAYS">
+                                                    <children>
+                                                        <ScrollPane fx:id="eventsScroll" fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED" styleClass="events-scroll" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
+                                                            <content>
+                                                                <TilePane fx:id="eventsTile" hgap="14.0" vgap="14.0" prefTileWidth="290.0" styleClass="events-tile"/>
+                                                            </content>
+                                                        </ScrollPane>
+
+                                                        <VBox fx:id="ownerRequestsPanel" spacing="8.0" prefWidth="330.0" minWidth="300.0" maxWidth="360.0" managed="false" visible="false" styleClass="chart-container">
+                                                            <children>
+                                                                <Label fx:id="ownerRequestsTitleLabel" text="Pending Requests" styleClass="section-title"/>
+                                                                <Label fx:id="ownerRequestsStatusLabel" managed="false" visible="false" wrapText="true" styleClass="events-inline-status"/>
+                                                                <ScrollPane fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED" styleClass="events-scroll" VBox.vgrow="ALWAYS">
+                                                                    <content>
+                                                                        <VBox fx:id="ownerRequestsList" spacing="8.0"/>
+                                                                    </content>
+                                                                </ScrollPane>
+                                                            </children>
+                                                        </VBox>
+                                                    </children>
+                                                </HBox>
+                                            </children>
+                                        </VBox>
+
+                                        <VBox fx:id="eventsFormView" spacing="12.0" alignment="TOP_CENTER" managed="false" visible="false" styleClass="events-embedded-form-view">
+                                            <children>
+                                                <HBox alignment="CENTER_LEFT" spacing="10.0" maxWidth="820.0">
+                                                    <children>
+                                                        <VBox spacing="2.0">
+                                                            <children>
+                                                                <Label fx:id="formTitleLabel" text="Create Event" styleClass="events-form-title"/>
+                                                                <Label fx:id="formSubtitleLabel" text="Fill the details" styleClass="events-form-subtitle"/>
+                                                            </children>
+                                                        </VBox>
+                                                        <Region HBox.hgrow="ALWAYS"/>
+                                                        <Button text="Back" onAction="#onInlineCancel" styleClass="event-form-cancel-btn"/>
+                                                    </children>
+                                                </HBox>
+
+                                                <Label fx:id="formStatusLabel" managed="false" visible="false" wrapText="true" styleClass="events-inline-status"/>
+
+                                                <StackPane fx:id="embeddedFormHost" maxWidth="820.0" styleClass="events-embedded-form-host" VBox.vgrow="ALWAYS"/>
+
+                                                <HBox alignment="CENTER_RIGHT" spacing="10.0" maxWidth="820.0" styleClass="events-form-actions-row">
+                                                    <children>
+                                                        <Button text="Cancel" onAction="#onInlineCancel" styleClass="event-form-cancel-btn"/>
+                                                        <Button fx:id="formSubmitButton" text="Save" onAction="#onInlineSubmit" styleClass="event-form-ok-btn"/>
+                                                    </children>
+                                                </HBox>
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                </StackPane>
+                            </children>
+                        </VBox>
+                    </children>
+                </StackPane>
             </children>
         </StackPane>
     </center>

@@ -13,14 +13,19 @@ import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.ArcType;
 import javafx.scene.shape.Rectangle;
+import models.gestionmessagerie.ConversationFollowUp;
+import models.gestionmessagerie.MessagingNotification;
 import models.gestionutilisateurs.User;
+import services.gestionmessagerie.ConversationService;
 import utils.NavigationManager;
 
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
@@ -70,6 +75,18 @@ public class AdminDashboardController {
     private Button tabExpenses;
     @FXML
     private Button tabTransactions;
+    @FXML
+    private Label messagingConversationsCountLabel;
+    @FXML
+    private Label messagingMessagesCountLabel;
+    @FXML
+    private Label messagingOpenFollowUpsCountLabel;
+    @FXML
+    private VBox messagingRecentFollowUpsBox;
+    @FXML
+    private VBox messagingRecentNotificationsBox;
+
+    private final ConversationService conversationService = new ConversationService();
 
     @FXML
     private void initialize() {
@@ -85,6 +102,81 @@ public class AdminDashboardController {
         bindProfile(user);
         buildSemiDonutChart();
         wireInvoiceTable();
+        loadMessagingMonitoring();
+    }
+
+    private void loadMessagingMonitoring() {
+        if (messagingConversationsCountLabel == null || messagingMessagesCountLabel == null
+                || messagingOpenFollowUpsCountLabel == null) {
+            return;
+        }
+        try {
+            int conversations = conversationService.adminCountConversations();
+            int messages = conversationService.adminCountMessages();
+            int openFollowUps = conversationService.adminCountOpenFollowUps();
+
+            messagingConversationsCountLabel.setText(String.valueOf(conversations));
+            messagingMessagesCountLabel.setText(String.valueOf(messages));
+            messagingOpenFollowUpsCountLabel.setText(String.valueOf(openFollowUps));
+
+            renderRecentFollowUps(conversationService.adminRecentFollowUps(6));
+            renderRecentNotifications(conversationService.adminRecentNotifications(6));
+        } catch (SQLException ex) {
+            messagingConversationsCountLabel.setText("-");
+            messagingMessagesCountLabel.setText("-");
+            messagingOpenFollowUpsCountLabel.setText("-");
+            if (messagingRecentFollowUpsBox != null) {
+                messagingRecentFollowUpsBox.getChildren().setAll(new Label("Messaging monitor unavailable: " + ex.getMessage()));
+            }
+            if (messagingRecentNotificationsBox != null) {
+                messagingRecentNotificationsBox.getChildren().setAll(new Label("Notifications unavailable."));
+            }
+        }
+    }
+
+    private void renderRecentFollowUps(List<ConversationFollowUp> rows) {
+        if (messagingRecentFollowUpsBox == null) {
+            return;
+        }
+        messagingRecentFollowUpsBox.getChildren().clear();
+        if (rows.isEmpty()) {
+            messagingRecentFollowUpsBox.getChildren().add(new Label("No follow-up created yet."));
+            return;
+        }
+        for (ConversationFollowUp f : rows) {
+            String line = safe(f.getTitle(), "Follow-up")
+                    + " - " + safe(f.getStatus(), "OPEN")
+                    + " - assigned to " + safe(f.getAssignedToDisplayName(), "User");
+            Label l = new Label(line);
+            l.setWrapText(true);
+            l.getStyleClass().add("admin-card-more");
+            messagingRecentFollowUpsBox.getChildren().add(l);
+        }
+    }
+
+    private void renderRecentNotifications(List<MessagingNotification> rows) {
+        if (messagingRecentNotificationsBox == null) {
+            return;
+        }
+        messagingRecentNotificationsBox.getChildren().clear();
+        if (rows.isEmpty()) {
+            messagingRecentNotificationsBox.getChildren().add(new Label("No notifications."));
+            return;
+        }
+        for (MessagingNotification n : rows) {
+            String line = safe(n.getTitle(), "Notification");
+            if (n.getBody() != null && !n.getBody().isBlank()) {
+                line += " - " + n.getBody();
+            }
+            Label l = new Label(line);
+            l.setWrapText(true);
+            l.getStyleClass().add("admin-card-more");
+            messagingRecentNotificationsBox.getChildren().add(l);
+        }
+    }
+
+    private static String safe(String value, String fallback) {
+        return value == null || value.isBlank() ? fallback : value;
     }
 
     private static boolean canAccessAdminDashboard(User user) {
@@ -285,6 +377,11 @@ public class AdminDashboardController {
     @FXML
     private void onTabTransactions() {
         setActiveTab(tabTransactions);
+    }
+
+    @FXML
+    private void onRecommandation() {
+        NavigationManager.getInstance().showSignedInPosts();
     }
 
     private void setActiveTab(Button active) {

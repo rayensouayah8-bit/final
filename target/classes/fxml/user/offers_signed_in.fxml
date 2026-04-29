@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<!-- Signed-in offers: same OffersGuestController + showcase as guest page, clean cosmic shell + shared sidebar -->
 <BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="controllers.gestionoffres.OffersGuestController"
+            fx:controller="controllers.gestionoffres.OffersController"
             styleClass="signed-in-clean-shell immersive-root signed-in-shell-root"
             maxWidth="Infinity" maxHeight="Infinity">
     <left>
@@ -84,10 +85,48 @@
 
                 <BorderPane pickOnBounds="false" styleClass="hero-foreground-pane">
                     <padding>
-                        <Insets top="20.0" right="34.0" bottom="28.0" left="34.0"/>
+                        <Insets top="18.0" right="30.0" bottom="24.0" left="30.0"/>
                     </padding>
                     <center>
-                        <Pane maxWidth="Infinity" maxHeight="Infinity"/>
+                        <VBox spacing="16.0" style="-fx-background-color: transparent;">
+                            <children>
+                                <VBox spacing="4.0" style="-fx-background-color: transparent;">
+                                    <children>
+                                        <Label text="Travel Offers Management"
+                                               style="-fx-text-fill: white; -fx-font-size: 30px; -fx-font-weight: 700;"/>
+                                        <Label text="Create, filter, and manage all travel offers"
+                                               style="-fx-text-fill: #A78BFA; -fx-font-size: 14px;"/>
+                                    </children>
+                                </VBox>
+
+                                <HBox spacing="10.0" alignment="CENTER_LEFT" style="-fx-background-color: transparent;">
+                                    <children>
+                                        <TextField fx:id="searchField" promptText="Search by title..."
+                                                   style="-fx-background-color: #1C1535; -fx-border-color: #3B2F6B; -fx-text-fill: white; -fx-prompt-text-fill: #A78BFA; -fx-background-radius: 10; -fx-border-radius: 10;"
+                                                   HBox.hgrow="ALWAYS"/>
+                                        <ComboBox fx:id="statusFilterCombo" prefWidth="160.0"
+                                                  style="-fx-background-color: #1C1535; -fx-border-color: #3B2F6B; -fx-text-fill: white; -fx-background-radius: 10; -fx-border-radius: 10;"/>
+                                        <Button fx:id="addOfferButton" text="Add Offer" onAction="#onAddOffer"
+                                                style="-fx-background-color: #7C3AED; -fx-text-fill: white; -fx-background-radius: 10;"/>
+                                    </children>
+                                </HBox>
+
+                                <Label fx:id="statusLabel" style="-fx-text-fill: #A78BFA;"/>
+
+                                <ScrollPane fx:id="offersScrollPane" fitToWidth="true" fitToHeight="true"
+                                            style="-fx-background: transparent; -fx-background-color: transparent; -fx-control-inner-background: transparent; -fx-padding: 0;"
+                                            VBox.vgrow="ALWAYS">
+                                    <content>
+                                        <FlowPane fx:id="offersFlowPane" hgap="14.0" vgap="14.0" prefWrapLength="1120.0"
+                                                  style="-fx-background-color: transparent; -fx-padding: 2;">
+                                            <padding>
+                                                <Insets top="6.0" right="4.0" bottom="6.0" left="4.0"/>
+                                            </padding>
+                                        </FlowPane>
+                                    </content>
+                                </ScrollPane>
+                            </children>
+                        </VBox>
                     </center>
                 </BorderPane>
             </children>

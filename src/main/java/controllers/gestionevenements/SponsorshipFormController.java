@@ -7,6 +7,7 @@ import javafx.scene.control.TextFormatter;
 import models.gestionevenements.EventSponsorship;
 import models.gestionevenements.TravelEvent;
 import models.gestionutilisateurs.User;
+import services.gestionevenements.EventSponsorshipService;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -31,6 +32,7 @@ public class SponsorshipFormController {
 
     private Long eventId;
     private Integer userId;
+    private EventSponsorship editingTarget;
 
     @FXML
     private void initialize() {
@@ -110,17 +112,32 @@ public class SponsorshipFormController {
         }
 
         EventSponsorship payload = new EventSponsorship();
+        if (editingTarget != null) {
+            payload.setId(editingTarget.getId());
+        }
         payload.setNom(fullName);
         payload.setEmail(email);
         payload.setTelephone(phone.isBlank() ? null : phone);
         payload.setMontantContribution(amount);
         payload.setMessage(message);
-        payload.setStatut("en_attente");
+        payload.setStatut(EventSponsorshipService.STATUS_PENDING);
         payload.setIsPaid(false);
         payload.setSponsoredAt(LocalDateTime.now());
         payload.setEvenementId(eventId);
         payload.setUserId(userId);
         return payload;
+    }
+
+    public void setSponsorship(EventSponsorship source) {
+        this.editingTarget = source;
+        if (source == null) {
+            return;
+        }
+        fullNameField.setText(safe(source.getNom()));
+        emailField.setText(safe(source.getEmail()));
+        phoneField.setText(safe(source.getTelephone()));
+        amountField.setText(source.getMontantContribution() == null ? "" : source.getMontantContribution().toPlainString());
+        messageArea.setText(safe(source.getMessage()));
     }
 
     private String safe(String value) {

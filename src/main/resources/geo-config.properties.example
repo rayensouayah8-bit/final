@@ -1,0 +1,13 @@
+# SmartVoyage — géolocalisation Recommandations
+# 1) Copiez ce fichier en geo-config.properties (même dossier : src/main/resources/)
+# 2) Collez votre token Mapbox pour des cartes Mapbox GL (tuiles + style pro).
+#    Créer un compte / token : https://account.mapbox.com/access-tokens/
+#
+# Sans token : la carte utilise des tuiles CARTO (OpenStreetMap, gratuit).
+# La position « approximative » utilise ipapi.co (HTTPS, sans clé, quotas).
+
+mapbox.access.token=
+
+# Optionnel — NER lieu (voir surtout config.properties : huggingface.api.token pour toutes les API HF)
+# Créer un token : https://huggingface.co/settings/tokens
+huggingface.api.token=

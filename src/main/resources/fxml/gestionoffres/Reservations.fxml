@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<StackPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="controllers.gestionoffres.ReservationsController"
+           style="-fx-background-color: transparent;">
+    <children>
+        <Pane style="-fx-background-color: transparent;"/>
+        <BorderPane prefWidth="1180.0" prefHeight="700.0"
+                    style="-fx-background-color: rgba(34, 26, 58, 0.88); -fx-background-radius: 18; -fx-border-color: #2E2550; -fx-border-radius: 18; -fx-padding: 14;">
+            <top>
+                <VBox spacing="4.0" BorderPane.alignment="CENTER_LEFT">
+                    <children>
+                        <Label fx:id="headerLabel" text="Reservations"
+                               style="-fx-text-fill: white; -fx-font-size: 25px; -fx-font-weight: 700;"/>
+                        <Label text="Review and process offer reservations"
+                               style="-fx-text-fill: #A78BFA; -fx-font-size: 13px;"/>
+                        <Label fx:id="statusLabel" style="-fx-text-fill: #A78BFA;"/>
+                    </children>
+                    <padding>
+                        <Insets top="6.0" right="6.0" bottom="6.0" left="6.0"/>
+                    </padding>
+                </VBox>
+            </top>
+            <center>
+                <TableView fx:id="reservationsTable"
+                           style="-fx-background-color: rgba(28, 21, 53, 0.92); -fx-control-inner-background: #1C1535; -fx-table-cell-border-color: #2E2550; -fx-text-background-color: white;">
+                    <columns>
+                        <TableColumn fx:id="idColumn" text="ID" prefWidth="70.0"/>
+                        <TableColumn fx:id="offerTitleColumn" text="Offer Title" prefWidth="220.0"/>
+                        <TableColumn fx:id="userIdColumn" text="User ID" prefWidth="90.0"/>
+                        <TableColumn fx:id="seatsColumn" text="Seats" prefWidth="80.0"/>
+                        <TableColumn fx:id="totalPriceColumn" text="Total Price" prefWidth="120.0"/>
+                        <TableColumn fx:id="statusColumn" text="Status" prefWidth="120.0"/>
+                        <TableColumn fx:id="paidColumn" text="Paid" prefWidth="80.0"/>
+                        <TableColumn fx:id="actionsColumn" text="Actions" prefWidth="360.0"/>
+                    </columns>
+                </TableView>
+            </center>
+        </BorderPane>
+    </children>
+</StackPane>

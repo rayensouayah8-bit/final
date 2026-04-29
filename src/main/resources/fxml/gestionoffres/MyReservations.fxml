@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controllers.gestionoffres.MyReservationsController"
+            styleClass="signed-in-clean-shell immersive-root signed-in-shell-root">
+    <left>
+        <StackPane fx:id="signedInSidebarHost" maxHeight="Infinity" minHeight="0.0" maxWidth="328.0" minWidth="260.0" prefWidth="292.0"
+                   styleClass="signed-in-home-sidebar-host signed-in-shell-sidebar-host"
+                   style="-fx-background-color: linear-gradient(to bottom, #07112E 0%, #081430 48%, #0A1635 100%); -fx-padding: 0;">
+            <children>
+                <Region fx:id="signedInSidebarEdgeAura" maxWidth="Infinity" maxHeight="Infinity" mouseTransparent="true" styleClass="smart-auth-edge-aura"/>
+                <VBox fx:id="signedInSidebarShell" spacing="10.0" styleClass="sv-si-sidebar signed-in-sidebar-column sidebar-immersive smart-auth-sidebar smart-auth-sidebar-outer" style="-fx-background-color: transparent;">
+                    <children>
+                        <VBox spacing="10.0" styleClass="smart-auth-brand-dock">
+                            <padding><Insets top="22.0" right="26.0" bottom="6.0" left="26.0"/></padding>
+                            <children>
+                                <VBox spacing="8.0" styleClass="smart-auth-brand-lockup">
+                                    <children>
+                                        <ImageView fitWidth="212.0" preserveRatio="true" styleClass="smart-auth-brand-logo">
+                                            <image><Image url="@/assets/branding/smartvoyage-logo-tight.png"/></image>
+                                        </ImageView>
+                                        <Region fx:id="signedInBrandUnderlineBar" prefHeight="3.0" maxWidth="132.0" styleClass="smart-auth-accent-bar"/>
+                                        <Label text="Desktop travel UI" styleClass="smart-auth-brand-strap"/>
+                                    </children>
+                                </VBox>
+                                <Label fx:id="signedInSidebarSessionLabel" text="" styleClass="sv-si-session"/>
+                            </children>
+                        </VBox>
+                        <Region prefHeight="1.0" maxWidth="Infinity" styleClass="smart-auth-rule smart-auth-rule-tight"/>
+                        <Separator styleClass="sidebar-rule"/>
+                        <Button fx:id="navHomeButton" text="Home" onAction="#onHome" styleClass="sidebar-nav-item"/>
+                        <Button fx:id="navOffersButton" text="Offers" onAction="#onOffres" styleClass="sidebar-nav-item"/>
+                        <Button fx:id="navAgenciesButton" text="Agencies" onAction="#onAgences" styleClass="sidebar-nav-item"/>
+                        <Button fx:id="navMessagesButton" text="Messages" onAction="#onMessagerie" styleClass="sidebar-nav-item"/>
+                        <Button fx:id="navRecommendationsButton" text="Recommendations" onAction="#onRecommandation" styleClass="sidebar-nav-item"/>
+                        <Button fx:id="navEventsButton" text="Events" onAction="#onEvenement" styleClass="sidebar-nav-item"/>
+                        <Region VBox.vgrow="ALWAYS"/>
+                        <Separator styleClass="sidebar-rule"/>
+                        <Button fx:id="navPremiumButton" text="Premium" onAction="#onPremium" styleClass="premium-nav-button" visible="false" managed="false"/>
+                        <Button fx:id="navNotificationsButton" text="Notifications" onAction="#onNotifications" styleClass="sidebar-nav-item"/>
+                        <Button fx:id="navProfileButton" text="My Profile" onAction="#onProfile" styleClass="sidebar-nav-item"/>
+                        <Button fx:id="navDashboardButton" text="Dashboard IA" onAction="#onDashboardIa" styleClass="sidebar-nav-item"/>
+                        <Separator styleClass="sidebar-rule"/>
+                        <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="sv-si-footer">
+                            <children><Button fx:id="signedInLogoutIconButton" text="" onAction="#onLogout" styleClass="signed-in-footer-logout-button"/></children>
+                        </HBox>
+                    </children>
+                </VBox>
+            </children>
+        </StackPane>
+    </left>
+    <center>
+        <StackPane styleClass="signed-in-home-main-canvas signed-in-cosmic-canvas"
+                   style="-fx-background-color: linear-gradient(to bottom, #2A174A 0%, #17052D 52%, #05010D 100%);">
+            <children>
+                <Pane fx:id="signedInCosmicStarfieldPane" styleClass="starfield-layer"/>
+                <VBox spacing="14" style="-fx-background-color: transparent; -fx-padding: 30 32 30 32;">
+                    <children>
+                        <HBox alignment="CENTER_LEFT" spacing="10">
+                            <children>
+                                <Button text="← Offers" onAction="#onBack" style="-fx-background-color: #4C1D95; -fx-text-fill: white; -fx-background-radius: 10;"/>
+                                <Label text="My Reservations" style="-fx-text-fill: white; -fx-font-size: 30; -fx-font-weight: 700;"/>
+                            </children>
+                        </HBox>
+                        <Label fx:id="statusLabel" style="-fx-text-fill: #A78BFA;"/>
+                        <StackPane VBox.vgrow="ALWAYS" style="-fx-background-color: transparent;">
+                            <children>
+                                <ScrollPane fx:id="reservationsScrollPane" fitToWidth="true"
+                                            style="-fx-background: transparent; -fx-background-color: transparent; -fx-control-inner-background: transparent;">
+                                    <content>
+                                        <VBox fx:id="reservationsContainer" spacing="14" style="-fx-background-color: transparent;">
+                                            <padding><Insets top="4" right="4" bottom="30" left="4"/></padding>
+                                        </VBox>
+                                    </content>
+                                </ScrollPane>
+                                <VBox fx:id="emptyStateBox" visible="false" managed="false" alignment="CENTER" spacing="10"
+                                      style="-fx-background-color: transparent;">
+                                    <children>
+                                        <Label text="📭" style="-fx-font-size: 42;"/>
+                                        <Label text="Vous n'avez aucune réservation pour le moment."
+                                               style="-fx-text-fill: white; -fx-font-size: 18; -fx-font-weight: 600;"/>
+                                        <Button text="Voir les offres" onAction="#onBack"
+                                                style="-fx-background-color: #7C3AED; -fx-text-fill: white; -fx-background-radius: 10;"/>
+                                    </children>
+                                </VBox>
+                            </children>
+                        </StackPane>
+                    </children>
+                </VBox>
+            </children>
+        </StackPane>
+    </center>
+</BorderPane>

@@ -166,8 +166,8 @@ public class EventFormController {
         if (title.isBlank()) {
             throw new IllegalArgumentException("Title is required.");
         }
-        if (title.length() < 3) {
-            throw new IllegalArgumentException("Title must contain at least 3 characters.");
+        if (title.length() < 6) {
+            throw new IllegalArgumentException("Title must contain at least 6 characters.");
         }
         if (location.isBlank()) {
             throw new IllegalArgumentException("Location is required.");

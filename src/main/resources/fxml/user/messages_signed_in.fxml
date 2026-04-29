@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Orientation?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controllers.gestionmessagerie.MessagesController"
+            styleClass="signed-in-clean-shell immersive-root signed-in-shell-root">
+    <left>
+        <StackPane fx:id="signedInSidebarHost" maxHeight="Infinity" minHeight="0.0" maxWidth="328.0" minWidth="260.0" prefWidth="292.0"
+                   styleClass="signed-in-home-sidebar-host signed-in-shell-sidebar-host"
+                   style="-fx-background-color: linear-gradient(to bottom, #07112E 0%, #081430 48%, #0A1635 100%); -fx-padding: 0;"
+                   BorderPane.alignment="TOP_LEFT">
+            <children>
+                <Region fx:id="signedInSidebarEdgeAura" maxWidth="Infinity" maxHeight="Infinity" mouseTransparent="true"
+                        styleClass="smart-auth-edge-aura" StackPane.alignment="CENTER"/>
+                <VBox fx:id="signedInSidebarShell" spacing="10.0" styleClass="sv-si-sidebar signed-in-sidebar-column sidebar-immersive smart-auth-sidebar smart-auth-sidebar-outer" minHeight="0.0" maxHeight="Infinity" maxWidth="Infinity"
+                       style="-fx-background-color: transparent;">
+                    <children>
+                        <VBox spacing="10.0" styleClass="smart-auth-brand-dock" VBox.vgrow="NEVER">
+                            <padding>
+                                <Insets top="22.0" right="26.0" bottom="6.0" left="26.0"/>
+                            </padding>
+                            <children>
+                                <VBox spacing="8.0" styleClass="smart-auth-brand-lockup">
+                                    <children>
+                                        <ImageView fitWidth="212.0" pickOnBounds="true" preserveRatio="true" styleClass="smart-auth-brand-logo">
+                                            <image>
+                                                <Image url="@/assets/branding/smartvoyage-logo-tight.png"/>
+                                            </image>
+                                        </ImageView>
+                                        <Region fx:id="signedInBrandUnderlineBar" prefHeight="3.0" maxWidth="132.0" styleClass="smart-auth-accent-bar"/>
+                                        <Label text="Desktop travel UI" styleClass="smart-auth-brand-strap"/>
+                                    </children>
+                                </VBox>
+                                <Label fx:id="signedInSidebarSessionLabel" text="" styleClass="sv-si-session"/>
+                            </children>
+                        </VBox>
+                        <Region prefHeight="1.0" maxWidth="Infinity" styleClass="smart-auth-rule smart-auth-rule-tight"/>
+                        <Separator styleClass="sidebar-rule"/>
+                        <Button fx:id="navHomeButton" text="Home" onAction="#onHome" styleClass="sidebar-nav-item"/>
+                        <Button fx:id="navOffersButton" text="Offers" onAction="#onOffres" styleClass="sidebar-nav-item"/>
+                        <Button fx:id="navAgenciesButton" text="Agencies" onAction="#onAgences" styleClass="sidebar-nav-item"/>
+                        <Button fx:id="navMessagesButton" text="Messages" onAction="#onMessagerie" styleClass="sidebar-nav-item"/>
+                        <Button fx:id="navRecommendationsButton" text="Recommendations" onAction="#onRecommandation" styleClass="sidebar-nav-item"/>
+                        <Button fx:id="navEventsButton" text="Events" onAction="#onEvenement" styleClass="sidebar-nav-item"/>
+                        <Region VBox.vgrow="ALWAYS"/>
+                        <Separator styleClass="sidebar-rule"/>
+                        <Button fx:id="navPremiumButton" text="Premium" onAction="#onPremium" styleClass="premium-nav-button" visible="false" managed="false"/>
+                        <Button fx:id="navNotificationsButton" text="Notifications" onAction="#onNotifications" styleClass="sidebar-nav-item"/>
+                        <Button fx:id="navProfileButton" text="My Profile" onAction="#onProfile" styleClass="sidebar-nav-item"/>
+                        <Button fx:id="navDashboardButton" text="Dashboard IA" onAction="#onDashboardIa" styleClass="sidebar-nav-item"/>
+                        <Separator styleClass="sidebar-rule"/>
+                        <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="sv-si-footer">
+                            <children>
+                                <Button fx:id="signedInLogoutIconButton" text="" onAction="#onLogout"
+                                        styleClass="signed-in-footer-logout-button" accessibleText="Logout"/>
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+            </children>
+        </StackPane>
+    </left>
+
+    <center>
+        <StackPane styleClass="signed-in-home-main-canvas signed-in-cosmic-canvas" maxWidth="Infinity" maxHeight="Infinity"
+                   style="-fx-background-color: linear-gradient(to bottom, #2A174A 0%, #17052D 52%, #05010D 100%);">
+            <children>
+                <Pane styleClass="starfield-layer" maxWidth="Infinity" maxHeight="Infinity"/>
+                <StackPane styleClass="offers-immersive-stack" maxWidth="Infinity" maxHeight="Infinity">
+                    <children>
+                        <Region styleClass="offers-page-overlay"/>
+                        <Region styleClass="offers-cards-spotlight"/>
+                        <VBox spacing="12.0" styleClass="events-root messages-redesign-root" maxWidth="Infinity" maxHeight="Infinity">
+                            <padding><Insets top="22.0" right="22.0" bottom="22.0" left="22.0"/></padding>
+                            <children>
+                                <VBox spacing="4.0" styleClass="user-profile-header">
+                                    <children>
+                                        <Label text="Communication center" styleClass="user-profile-kicker"/>
+                                        <Label text="Messages" styleClass="user-profile-title"/>
+                                        <Label text="Traveler - Agency conversations" styleClass="user-profile-subtitle"/>
+                                    </children>
+                                </VBox>
+                                <Label fx:id="pageStatusLabel" managed="false" visible="false" wrapText="true" styleClass="events-inline-status messages-status-pill"/>
+                                <HBox spacing="14.0" alignment="TOP_LEFT" VBox.vgrow="ALWAYS">
+                                    <children>
+                                        <VBox spacing="10.0" prefWidth="280.0" minWidth="280.0" maxWidth="280.0" styleClass="chart-container user-profile-card agency-directory-filters-card messages-panel-card">
+                                            <padding><Insets top="12.0" right="12.0" bottom="12.0" left="12.0"/></padding>
+                                            <children>
+                                                <Label text="Conversations" styleClass="section-title messages-section-title"/>
+                                                <Label text="Traveler - Agency" styleClass="messages-section-subtitle"/>
+                                                <ScrollPane fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED" styleClass="events-scroll" VBox.vgrow="ALWAYS">
+                                                    <content>
+                                                        <VBox fx:id="conversationsList" spacing="8.0" styleClass="messages-list-box"/>
+                                                    </content>
+                                                </ScrollPane>
+                                            </children>
+                                        </VBox>
+
+                                        <Separator orientation="VERTICAL" styleClass="messages-column-divider"/>
+
+                                        <VBox spacing="10.0" HBox.hgrow="ALWAYS" styleClass="chart-container agency-directory-filters-root messages-chat-column">
+                                            <padding><Insets top="12.0" right="12.0" bottom="12.0" left="12.0"/></padding>
+                                            <children>
+                                                <HBox alignment="CENTER_LEFT" spacing="12.0" styleClass="messages-chat-header">
+                                                    <children>
+                                                        <StackPane styleClass="messages-avatar messages-chat-header-avatar" minWidth="40.0" prefWidth="40.0" maxWidth="40.0" minHeight="40.0" prefHeight="40.0" maxHeight="40.0">
+                                                            <children>
+                                                                <Label text="SV" styleClass="messages-avatar-initials"/>
+                                                            </children>
+                                                        </StackPane>
+                                                        <VBox spacing="2.0" HBox.hgrow="ALWAYS">
+                                                            <children>
+                                                                <Label fx:id="activeConversationTitleLabel" text="No conversation selected" styleClass="section-title messages-section-title"/>
+                                                                <Label text="Agency conversation" styleClass="messages-section-subtitle"/>
+                                                            </children>
+                                                        </VBox>
+                                                        <HBox spacing="8.0" alignment="CENTER_RIGHT" styleClass="agency-symfony-filter-bar messages-toolbar-row">
+                                                            <children>
+                                                                <TextField fx:id="messageSearchField" promptText="Search in this conversation..." HBox.hgrow="ALWAYS" styleClass="text-input text-field agency-symfony-search messages-search-input" style="-fx-background-color: #1C1535; -fx-control-inner-background: #1C1535; -fx-text-fill: #FFFFFF; -fx-prompt-text-fill: #6B6B8A; -fx-border-color: #3B2F6B; -fx-border-radius: 20; -fx-background-radius: 20;"/>
+                                                                <Button text="Search" onAction="#onSearchMessages" styleClass="messages-search-action" style="-fx-background-color: #7C3AED; -fx-text-fill: #FFFFFF; -fx-background-radius: 20; -fx-font-weight: 800;"/>
+                                                                <Button text="Clear" onAction="#onClearSearchMessages" styleClass="messages-clear-action" style="-fx-background-color: rgba(34,26,58,0.35); -fx-text-fill: #E5E7EB; -fx-border-color: #3B2F6B; -fx-border-radius: 20; -fx-background-radius: 20;"/>
+                                                            </children>
+                                                        </HBox>
+                                                    </children>
+                                                </HBox>
+                                                <ScrollPane fx:id="messagesScrollPane" fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED" styleClass="events-scroll" VBox.vgrow="ALWAYS">
+                                                    <content>
+                                                        <VBox fx:id="messagesList" spacing="6.0" styleClass="messages-list-box"/>
+                                                    </content>
+                                                </ScrollPane>
+                                                <HBox spacing="10.0" alignment="BOTTOM_RIGHT" styleClass="messages-composer-row messages-composer-shell">
+                                                    <children>
+                                                        <TextArea fx:id="messageInputArea" promptText="Type your message..." wrapText="true" prefRowCount="2" HBox.hgrow="ALWAYS" styleClass="user-profile-input messages-composer-input" style="-fx-background-color: rgba(34,26,58,0.85); -fx-control-inner-background: rgba(34,26,58,0.85); -fx-text-fill: #FFFFFF; -fx-prompt-text-fill: #6B6B8A; -fx-border-color: #3B2F6B; -fx-border-radius: 24; -fx-background-radius: 24;"/>
+                                                        <Button text="📎" onAction="#onSendFileMessage" styleClass="messages-icon-action" style="-fx-background-color: rgba(34,26,58,0.85); -fx-text-fill: #A78BFA; -fx-border-color: #3B2F6B; -fx-border-radius: 10; -fx-background-radius: 10;"/>
+                                                        <Button text="🎤" onAction="#onRecordVoiceMessage" styleClass="messages-icon-action" style="-fx-background-color: rgba(34,26,58,0.85); -fx-text-fill: #A78BFA; -fx-border-color: #3B2F6B; -fx-border-radius: 10; -fx-background-radius: 10;"/>
+                                                        <Button text="⋯" onAction="#onSendImageMessage" styleClass="messages-icon-action" style="-fx-background-color: rgba(34,26,58,0.85); -fx-text-fill: #A78BFA; -fx-border-color: #3B2F6B; -fx-border-radius: 10; -fx-background-radius: 10;"/>
+                                                        <Button text="➤" onAction="#onSendMessage" styleClass="messages-send-action" style="-fx-background-color: linear-gradient(to right, #DB2777, #7C3AED); -fx-text-fill: #FFFFFF; -fx-font-weight: 800; -fx-background-radius: 24;"/>
+                                                    </children>
+                                                </HBox>
+                                            </children>
+                                        </VBox>
+
+                                        <Separator orientation="VERTICAL" styleClass="messages-column-divider"/>
+
+                                        <VBox spacing="10.0" prefWidth="280.0" minWidth="280.0" maxWidth="280.0" styleClass="chart-container user-profile-card agency-directory-filters-card messages-panel-card">
+                                            <padding><Insets top="12.0" right="12.0" bottom="12.0" left="12.0"/></padding>
+                                            <children>
+                                                <HBox spacing="8.0" alignment="CENTER_LEFT" styleClass="messages-entity-switch-row">
+                                                    <children>
+                                                        <Button fx:id="followUpsSectionButton" text="Follow-ups" onAction="#onShowFollowUpsSection" styleClass="events-search-btn messages-entity-btn" style="-fx-background-color: rgba(34,26,58,0.85); -fx-text-fill: #A78BFA; -fx-border-color: #3B2F6B; -fx-border-radius: 999; -fx-background-radius: 999; -fx-font-weight: 700;"/>
+                                                        <Button fx:id="notificationsSectionButton" text="Notifications" onAction="#onShowNotificationsSection" styleClass="events-search-btn messages-entity-btn" style="-fx-background-color: rgba(34,26,58,0.85); -fx-text-fill: #A78BFA; -fx-border-color: #3B2F6B; -fx-border-radius: 999; -fx-background-radius: 999; -fx-font-weight: 700;"/>
+                                                    </children>
+                                                </HBox>
+                                                <StackPane VBox.vgrow="ALWAYS">
+                                                    <children>
+                                                        <VBox fx:id="followUpsSectionBox" spacing="10.0">
+                                                            <children>
+                                                                <Label text="Follow-ups" styleClass="section-title messages-section-title"/>
+                                                                <Label text="Traveler - Agency" styleClass="messages-section-subtitle"/>
+                                                                <TextField fx:id="followUpTitleField" promptText="Follow-up title" styleClass="user-profile-input messages-followup-input" style="-fx-background-color: #1C1535; -fx-control-inner-background: #1C1535; -fx-text-fill: #FFFFFF; -fx-prompt-text-fill: #6B6B8A; -fx-border-color: #3B2F6B; -fx-border-radius: 12; -fx-background-radius: 12;"/>
+                                                                <TextArea fx:id="followUpDescriptionArea" promptText="Optional details" wrapText="true" prefRowCount="3" styleClass="user-profile-input messages-followup-input" style="-fx-background-color: #1C1535; -fx-control-inner-background: #1C1535; -fx-text-fill: #FFFFFF; -fx-prompt-text-fill: #6B6B8A; -fx-border-color: #3B2F6B; -fx-border-radius: 12; -fx-background-radius: 12;"/>
+                                                                <HBox alignment="CENTER_RIGHT">
+                                                                    <children>
+                                                                        <Button text="Create follow-up" onAction="#onCreateFollowUp" styleClass="events-create-btn messages-followup-create-btn" style="-fx-background-color: linear-gradient(to right, #DB2777, #7C3AED); -fx-text-fill: #FFFFFF; -fx-font-weight: 800; -fx-background-radius: 12;" maxWidth="Infinity" HBox.hgrow="ALWAYS"/>
+                                                                    </children>
+                                                                </HBox>
+                                                                <ScrollPane fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED" styleClass="events-scroll" VBox.vgrow="ALWAYS">
+                                                                    <content>
+                                                                        <VBox fx:id="followUpsList" spacing="8.0" styleClass="messages-list-box"/>
+                                                                    </content>
+                                                                </ScrollPane>
+                                                            </children>
+                                                        </VBox>
+                                                        <VBox fx:id="notificationsSectionBox" spacing="10.0" managed="false" visible="false">
+                                                            <children>
+                                                                <Label text="Notifications" styleClass="section-title messages-section-title"/>
+                                                                <Label fx:id="notificationsStatusLabel" managed="false" visible="false" wrapText="true" styleClass="events-inline-status"/>
+                                                                <ScrollPane fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED" styleClass="events-scroll messages-notifications-scroll" VBox.vgrow="ALWAYS">
+                                                                    <content>
+                                                                        <VBox fx:id="notificationsList" spacing="6.0" styleClass="messages-list-box"/>
+                                                                    </content>
+                                                                </ScrollPane>
+                                                            </children>
+                                                        </VBox>
+                                                    </children>
+                                                </StackPane>
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </VBox>
+                    </children>
+                </StackPane>
+            </children>
+        </StackPane>
+    </center>
+</BorderPane>
